@@ -1,0 +1,73 @@
+reptar package
+==============
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   reptar.analysis
+   reptar.calculators
+   reptar.definitions
+   reptar.parsers
+   reptar.writers
+
+Submodules
+----------
+
+reptar.creator module
+---------------------
+
+.. automodule:: reptar.creator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+reptar.data module
+------------------
+
+.. automodule:: reptar.data
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+reptar.fragment module
+----------------------
+
+.. automodule:: reptar.fragment
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+reptar.manager module
+---------------------
+
+.. automodule:: reptar.manager
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+reptar.sampler module
+---------------------
+
+.. automodule:: reptar.sampler
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+reptar.utils module
+-------------------
+
+.. automodule:: reptar.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: reptar
+   :members:
+   :undoc-members:
+   :show-inheritance:

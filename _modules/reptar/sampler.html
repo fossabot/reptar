@@ -1,0 +1,960 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+        <title>reptar.sampler - reptar documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">reptar  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">reptar  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../doc/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../doc/reptar.html">reptar package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../doc/reptar.analysis.html">reptar.analysis package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../doc/reptar.calculators.html">reptar.calculators package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../doc/reptar.definitions.html">reptar.definitions package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../doc/reptar.parsers.html">reptar.parsers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../doc/reptar.writers.html">reptar.writers package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <h1>Source code for reptar.sampler</h1><div class="highlight"><pre>
+<span></span><span class="c1"># MIT License</span>
+<span class="c1"># </span>
+<span class="c1"># Copyright (c) 2022, Alex M. Maldonado</span>
+<span class="c1"># </span>
+<span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<span class="c1"># of this software and associated documentation files (the "Software"), to deal</span>
+<span class="c1"># in the Software without restriction, including without limitation the rights</span>
+<span class="c1"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<span class="c1"># copies of the Software, and to permit persons to whom the Software is</span>
+<span class="c1"># furnished to do so, subject to the following conditions:</span>
+<span class="c1">#</span>
+<span class="c1"># The above copyright notice and this permission notice shall be included in all</span>
+<span class="c1"># copies or substantial portions of the Software.</span>
+<span class="c1"># </span>
+<span class="c1"># THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="c1"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="c1"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
+<span class="c1"># SOFTWARE.</span>
+
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randrange</span><span class="p">,</span> <span class="n">sample</span><span class="p">,</span> <span class="n">choice</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">center_structures</span> <span class="k">as</span> <span class="n">get_center_structures</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">get_md5</span>
+
+<span class="k">def</span> <span class="nf">_get_R_prov_id</span><span class="p">(</span>
+    <span class="n">dest_R_prov_ids</span><span class="p">,</span> <span class="n">source_md5</span>
+<span class="p">):</span>
+    <span class="sd">"""Determines the structure_prov_id for the sampling source.</span>
+
+<span class="sd">    It is possible that </span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dest_R_prov_ids : :obj:`dict`</span>
+<span class="sd">        The r_prov_ids</span>
+<span class="sd">    source_md5 : :obj:`str`</span>
+<span class="sd">        </span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    :obj:`int`</span>
+<span class="sd">        Numerical ID for the Rset.</span>
+<span class="sd">    """</span>
+    <span class="n">R_prov_id</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">dest_R_prov_ids</span> <span class="o">==</span> <span class="p">{}:</span>
+        <span class="c1"># No previous sampling, so this automatically becomes zero.</span>
+        <span class="n">R_prov_id</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Check if md5 is already stored.</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">value</span> <span class="ow">in</span> <span class="n">dest_R_prov_ids</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="n">source_md5</span><span class="p">:</span>
+                <span class="n">R_prov_id</span> <span class="o">=</span> <span class="n">key</span>
+                <span class="k">break</span>
+        <span class="c1"># Generate a new R_prov_id because it was not already stored.</span>
+        <span class="k">if</span> <span class="n">R_prov_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">R_prov_id</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dest_R_prov_ids</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">R_prov_id</span>
+
+<span class="k">def</span> <span class="nf">_initialize_structure_sampling_arrays</span><span class="p">(</span>
+    <span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">R_prov_specs</span><span class="p">,</span> <span class="n">quantity</span><span class="p">,</span> <span class="n">comp_labels</span><span class="p">,</span> <span class="n">R_source</span><span class="p">,</span> <span class="n">entity_ids_source</span><span class="p">,</span>
+    <span class="n">entity_ids_samples</span><span class="p">,</span> <span class="n">copy_EF</span>
+<span class="p">):</span>
+    <span class="sd">"""Creates or extends arrays for sampling structures.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">        </span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    """</span>
+    <span class="c1"># Either creates new ones or concatenates to</span>
+    <span class="c1"># original destination data.</span>
+    <span class="c1"># Trial selection to get shapes for R and F</span>
+    <span class="k">if</span> <span class="n">quantity</span> <span class="o">==</span> <span class="s1">'all'</span><span class="p">:</span>
+        <span class="c1"># Determine the maximum amount of structures we can sample from a single</span>
+        <span class="c1"># source structure.</span>
+        <span class="n">combs_per_structure</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span>
+            <span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="n">entity_ids_samples</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">size_quantity</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">combs_per_structure</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">R_source</span><span class="p">))</span>
+        <span class="n">sampling_all</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">size_quantity</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">quantity</span><span class="p">)</span>
+        <span class="n">sampling_all</span> <span class="o">=</span> <span class="kc">False</span>
+    
+    <span class="c1"># Determine number of atoms.</span>
+    <span class="n">entity_id_for_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">entity_ids_samples</span><span class="p">)</span>
+    <span class="n">number_of_atoms</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">entity_id</span> <span class="ow">in</span> <span class="n">entity_id_for_size</span><span class="p">:</span>
+        <span class="n">number_of_atoms</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">entity_ids_source</span><span class="o">==</span><span class="n">entity_id</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+    
+    <span class="k">if</span> <span class="n">Z</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">number_of_atoms</span><span class="p">,))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span> <span class="o">==</span> <span class="n">number_of_atoms</span>
+    
+    <span class="n">sampled_R_empty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">size_quantity</span><span class="p">,</span> <span class="n">number_of_atoms</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="n">sampled_R_empty</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="k">if</span> <span class="n">R</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">idx_selection</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Starting index of the newley sampled structures.</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="n">sampled_R_empty</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">idx_selection</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">R</span><span class="p">,</span> <span class="n">sampled_R_empty</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">copy_EF</span><span class="p">:</span>
+        <span class="n">sampled_E_empty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">sampled_R_empty</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">sampled_E_empty</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="k">if</span> <span class="n">E</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">E</span> <span class="o">=</span> <span class="n">sampled_E_empty</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">E</span><span class="p">,</span> <span class="n">sampled_E_empty</span><span class="p">))</span>
+        
+        <span class="n">sampled_F_empty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">size_quantity</span><span class="p">,</span> <span class="n">number_of_atoms</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+        <span class="n">sampled_F_empty</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="k">if</span> <span class="n">F</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">F</span> <span class="o">=</span> <span class="n">sampled_F_empty</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">F</span><span class="p">,</span> <span class="n">sampled_F_empty</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">E</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">F</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="n">sampled_R_prov_specs_empty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">size_quantity</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">comp_labels</span><span class="p">)))</span>
+    <span class="n">sampled_R_prov_specs_empty</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="k">if</span> <span class="n">R_prov_specs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">R_prov_specs</span> <span class="o">=</span> <span class="n">sampled_R_prov_specs_empty</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">R_prov_specs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">R_prov_specs</span><span class="p">,</span> <span class="n">sampled_R_prov_specs_empty</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span>
+        <span class="p">)</span>
+    
+    <span class="k">return</span> <span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">R_prov_specs</span><span class="p">,</span> <span class="n">sampling_all</span><span class="p">,</span> <span class="n">idx_selection</span><span class="p">)</span>
+
+
+
+<span class="k">def</span> <span class="nf">_generate_structure_samples</span><span class="p">(</span>
+    <span class="n">quantity</span><span class="p">,</span> <span class="n">structure_idxs</span><span class="p">,</span> <span class="n">entity_ids_samples</span>
+<span class="p">):</span>
+    <span class="sd">"""Randomly generates structure and entity selections.</span>
+
+<span class="sd">    The prov ID for the structure is not included here and must be</span>
+<span class="sd">    inserted later.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    quantity : :obj:`int` or :obj:`float`</span>
+<span class="sd">        Number of structures to sample from the structure set. For example,</span>
+<span class="sd">        ``'100'``, ``452``, or even ``'all'``.</span>
+<span class="sd">    structure_idxs : :obj:`numpy.ndarray`</span>
+<span class="sd">        Indices of source structures we can sample from.</span>
+<span class="sd">    entity_ids_samples : :obj:`tuple` (:obj:`tuple`)</span>
+<span class="sd">        A nested tuple containing all possible entity selections for all desired</span>
+<span class="sd">        components of the sampled structure. Has length ``n``, where ``n`` is</span>
+<span class="sd">        the number of entities in the sampled structure. Each element is another</span>
+<span class="sd">        :obj:`tuple` containing all possible source ``entity_ids`` for that</span>
+<span class="sd">        destination ``entity_id``.</span>
+
+<span class="sd">    Yields</span>
+<span class="sd">    ------</span>
+<span class="sd">    :obj:`list`</span>
+<span class="sd">        Structure index and ``entity_id`` selections.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This could generate selections of multiple of the same entities.</span>
+<span class="sd">    For example, ``[602, 0, 70, 70]`` selects entity ``70`` twice which is</span>
+<span class="sd">    nonphysical. For now we will offload this check to </span>
+<span class="sd">    """</span>
+    <span class="c1"># Sampling a specified number of structures.</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">quantity</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">(</span><span class="n">quantity</span><span class="p">)</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">R_selection_idx</span> <span class="o">=</span> <span class="n">randrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">structure_idxs</span><span class="p">))</span>
+            <span class="n">entity_selection</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span> <span class="k">for</span> <span class="n">entity_ids</span> <span class="ow">in</span> <span class="n">entity_ids_samples</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">entity_selection</span><span class="p">)):</span>
+                <span class="n">entity_selection</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">choice</span><span class="p">(</span>
+                    <span class="nb">tuple</span><span class="p">(</span>
+                        <span class="nb">filter</span><span class="p">(</span>
+                            <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">entity_selection</span><span class="p">[:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
+                            <span class="n">entity_ids_samples</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                        <span class="p">)</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+            <span class="n">selection</span> <span class="o">=</span> <span class="p">[</span><span class="n">R_selection_idx</span><span class="p">]</span> <span class="o">+</span> <span class="n">entity_selection</span>
+            <span class="k">yield</span> <span class="n">selection</span>
+    <span class="c1"># Sampling all possible structures.</span>
+    <span class="k">elif</span> <span class="n">quantity</span> <span class="o">==</span> <span class="s1">'all'</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">R_selection_idx</span> <span class="ow">in</span> <span class="n">structure_idxs</span><span class="p">:</span>
+            <span class="c1">#all_combinations = unique_prod(*entity_ids_samples)</span>
+            <span class="k">for</span> <span class="n">comb</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="n">entity_ids_samples</span><span class="p">):</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">comb</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">comb</span><span class="p">)):</span>
+                    <span class="k">continue</span>
+                <span class="n">selection</span> <span class="o">=</span> <span class="p">[</span><span class="n">R_selection_idx</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">comb</span><span class="p">)</span>
+                <span class="k">yield</span> <span class="n">selection</span>
+
+<div class="viewcode-block" id="sample_structures"><a class="viewcode-back" href="../../doc/reptar.html#reptar.sampler.sample_structures">[docs]</a><span class="k">def</span> <span class="nf">sample_structures</span><span class="p">(</span>
+    <span class="n">source_data</span><span class="p">,</span> <span class="n">source_key</span><span class="p">,</span> <span class="n">quantity</span><span class="p">,</span> <span class="n">comp_labels</span><span class="p">,</span> <span class="n">R_prov_ids</span><span class="p">,</span> <span class="n">source_R_prov_specs</span><span class="p">,</span>
+    <span class="n">Z</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">R_prov_specs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">structure_idxs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">criteria</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">z_slice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">center_structures</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">sampling_updates</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">copy_EF</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">E</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">F</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">energy_label</span><span class="o">=</span><span class="s1">'energy_ele'</span><span class="p">,</span> <span class="n">force_label</span><span class="o">=</span><span class="s1">'forces'</span>
+<span class="p">):</span>
+    <span class="sd">"""Randomly samples structures from a source.</span>
+
+<span class="sd">    If previous data are already provided (i.e., ``Z``, ``R``, and</span>
+<span class="sd">    ``R_prov_specs`` are not ``None``) then the sampled structures are appended</span>
+<span class="sd">    to these arrays</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    source_data : ``exdir.Group``</span>
+<span class="sd">        A loaded ``exdir.Group`` to sample structures from. Must contain</span>
+<span class="sd">        ``z``, ``r``, ``entity_ids``, and</span>
+<span class="sd">        ``comp_ids``.</span>
+<span class="sd">    source_key : :obj:`str`</span>
+<span class="sd">        Key to the desired source group.</span>
+<span class="sd">    quantity : :obj:`str`</span>
+<span class="sd">        Number of structures to sample from the structure set. For example,</span>
+<span class="sd">        ``'100'``, ``'452'``, or even ``'all'``.</span>
+<span class="sd">    comp_labels : :obj:`tuple`</span>
+<span class="sd">        The ``component_id`` labels to include in sample structures. The order</span>
+<span class="sd">        of each label does matter.</span>
+<span class="sd">    R_prov_ids : :obj:`dict` {:obj:`int`: :obj:`str`}</span>
+<span class="sd">        Structure prov IDs including any originally defined IDs and new</span>
+<span class="sd">        ones being added from the source.</span>
+<span class="sd">    source_R_prov_specs : :obj:`numpy.ndarray` or ``None``</span>
+<span class="sd">        Structure prov specifications of the source if it was created by</span>
+<span class="sd">        sampling from other sources. If the ``source`` is original, this should</span>
+<span class="sd">        be ``None``.</span>
+<span class="sd">    Z : :obj:`numpy.ndarray`, optional</span>
+<span class="sd">        Atomic numbers of destination if they already exist. Defaults </span>
+<span class="sd">        to ``None``.</span>
+<span class="sd">    R : :obj:`numpy.ndarray`, optional</span>
+<span class="sd">        Cartesian atomic coordinates of destination if they already exist.</span>
+<span class="sd">        Defaults to ``None``.</span>
+<span class="sd">    R_prov_specs : :obj:`numpy.ndarray`, optional</span>
+<span class="sd">        Structure prov specifications of destination. Defaults to</span>
+<span class="sd">        ``None``.</span>
+<span class="sd">    structure_idxs : :obj:`tuple`, optional</span>
+<span class="sd">        Source indices of structures to sample from. Defaults to sampling from</span>
+<span class="sd">        all structures.</span>
+<span class="sd">    criteria : ``func``, optional</span>
+<span class="sd">        Structure criteria during the sampling procedure. Defaults to</span>
+<span class="sd">        ``None`` if no criteria should be used.</span>
+<span class="sd">    z_slice : :obj:`numpy.ndarray`, optional</span>
+<span class="sd">        Indices of the atoms to be used for the cutoff calculation. Defaults</span>
+<span class="sd">        to ``[]`` is no criteria is selected or if it is not required for</span>
+<span class="sd">        the selected criteria.</span>
+<span class="sd">    cutoff : :obj:`list`, optional</span>
+<span class="sd">        Distance cutoff between the atoms selected by ``z_slice``. Must be</span>
+<span class="sd">        in the same units (e.g., Angstrom) as ``R``. Defaults to ``None`` if</span>
+<span class="sd">        no criteria is selected or a cutoff is not desired.</span>
+<span class="sd">    center_structures : :obj:`bool`, optional</span>
+<span class="sd">        Move the center of mass of each structure to the origin thereby </span>
+<span class="sd">        centering each structure (and losing the actual coordinates of</span>
+<span class="sd">        the structure). Defaults to ``False``.</span>
+<span class="sd">    sampling_updates : :obj:`bool`, optional</span>
+<span class="sd">        Will print something for every 100 successfully sampled structures.</span>
+<span class="sd">        Defaults to ``False``.</span>
+<span class="sd">    copy_EF : :obj:`bool`, optional</span>
+<span class="sd">        Creates datasets for energies and forces (using ``energy_label`` and </span>
+<span class="sd">        ``force_label``) and attempts to copy data from the source if possible.</span>
+<span class="sd">        If no compatible data is available it will just store :obj:`numpy.NaN`.</span>
+<span class="sd">        Defaults to ``True``.</span>
+<span class="sd">    E : :obj:`numpy.ndarray`, optional</span>
+<span class="sd">        Original energies, if any, to append to. Defaults to ``None``.</span>
+<span class="sd">    F : :obj:`numpy.ndarray`, optional</span>
+<span class="sd">        Original atomic forces, if any, to append to. Defaults to ``None``.</span>
+<span class="sd">    energy_label_source : :obj:`str`, optional</span>
+<span class="sd">        Specifies source dataset name containing energies to copy.</span>
+<span class="sd">        Defaults to ``'energy_ele'``. If ``copy_EF`` is ``True``, but</span>
+<span class="sd">        there are no valid energy datasets then we create an empty array.</span>
+<span class="sd">    force_label_source : :obj:`str`, optional</span>
+<span class="sd">        Specifies source dataset name containing atomic forces to copy.</span>
+<span class="sd">        Defaults to ``'forces'``. If ``copy_EF`` is ``True``, but</span>
+<span class="sd">        there are no valid energy datasets then we create an empty array.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    :obj:`numpy.ndarray`</span>
+<span class="sd">        Atomic coordinates of sampled structures.</span>
+<span class="sd">    :obj:`numpy.ndarray`</span>
+<span class="sd">        Atomic coordinates of sampled structures appended to any original</span>
+<span class="sd">        structures.</span>
+<span class="sd">    :obj:`numpy.ndarray` or ``None``</span>
+<span class="sd">        Energies of sampled structures appended to any original structures.</span>
+<span class="sd">        ``None`` if ``copy_EF`` is ``False``.</span>
+<span class="sd">    :obj:`numpy.ndarray` or ``None``</span>
+<span class="sd">        Atomic forces of sampled structures appended to any original structures.</span>
+<span class="sd">        ``None`` if ``copy_EF`` is ``False``.</span>
+<span class="sd">    :obj:`numpy.ndarray`</span>
+<span class="sd">        ``entity_ids`` of the structures.</span>
+<span class="sd">    :obj:`numpy.ndarray`</span>
+<span class="sd">        ``R_prov_specs`` of the structures.</span>
+<span class="sd">    """</span>
+    <span class="c1"># Get data from structure source.</span>
+    <span class="n">Z_source</span> <span class="o">=</span> <span class="n">source_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/atomic_numbers'</span><span class="p">)</span>
+    <span class="n">R_source</span> <span class="o">=</span> <span class="n">source_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/geometry'</span><span class="p">)</span>
+    <span class="n">entity_ids_source</span> <span class="o">=</span> <span class="n">source_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/entity_ids'</span><span class="p">)</span>
+    <span class="n">comp_ids_source</span> <span class="o">=</span> <span class="n">source_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/comp_ids'</span><span class="p">)</span>
+
+    <span class="c1"># If source_R_prov_specs is None, then this is an original source.</span>
+    <span class="c1"># Which means there should only be one R_prov_id (we store this for later).</span>
+    <span class="k">if</span> <span class="n">source_R_prov_specs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">R_prov_ids</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+        <span class="n">source_R_prov_id</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">R_prov_ids</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">copy_EF</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">E_source</span> <span class="o">=</span> <span class="n">source_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">energy_label_source</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+            <span class="n">F_source</span> <span class="o">=</span> <span class="n">source_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">force_label_source</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">E_source</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">F_source</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">E_source</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">F_source</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+    <span class="c1">### Setup sampling   ###</span>
+
+    <span class="c1"># TODO: Setup option to have one entity be the same all the time.</span>
+
+    <span class="c1">###   Sampling setup   ###</span>
+    <span class="c1"># Determine what entity IDs we can sample from for each component.</span>
+    <span class="n">comp_ids_source_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">comp_ids_source</span><span class="p">)</span>
+    <span class="n">entity_ids_samples</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="nb">tuple</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">comp_ids_source_array</span> <span class="o">==</span> <span class="n">comp_id</span><span class="p">)[:,</span><span class="mi">0</span><span class="p">])</span> \
+            <span class="k">for</span> <span class="n">comp_id</span> <span class="ow">in</span> <span class="n">comp_labels</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    
+    <span class="c1"># Check that all atomic numbers of each entity is consistent.</span>
+    <span class="c1"># Check that the z for these new samples match the destination.</span>
+    <span class="c1"># Also build the entity_ids of these structures.</span>
+    <span class="n">Z_sample</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">entity_ids</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">entity_id</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">dest_entity</span> <span class="ow">in</span> <span class="n">entity_ids_samples</span><span class="p">:</span>
+        <span class="n">entity_ref</span> <span class="o">=</span> <span class="n">dest_entity</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">Z_ref</span> <span class="o">=</span> <span class="n">Z_source</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">entity_ids_source</span> <span class="o">==</span> <span class="n">entity_ref</span><span class="p">)[:,</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="n">entity_ids</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">entity_id</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Z_ref</span><span class="p">))])</span>
+        <span class="n">entity_id</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">Z_sample</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">Z_ref</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dest_entity</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">other_entity</span> <span class="ow">in</span> <span class="n">dest_entity</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+                <span class="n">Z_other</span> <span class="o">=</span> <span class="n">Z_source</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">entity_ids_source</span> <span class="o">==</span> <span class="n">other_entity</span><span class="p">)[:,</span><span class="mi">0</span><span class="p">]]</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">Z_ref</span><span class="p">,</span> <span class="n">Z_other</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
+                    <span class="n">e</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'Atomic numbers do not match for entity_id of </span><span class="si">{</span><span class="n">other_entity</span><span class="si">}</span><span class="s1">'</span>
+                    <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="n">entity_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">entity_ids</span><span class="p">)</span>
+    
+    <span class="n">Z_sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Z_sample</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">Z</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">Z_sample</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Destination atomic numbers: </span><span class="si">{</span><span class="n">Z</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Sample atomic numbers: </span><span class="si">{</span><span class="n">Z_sample</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="s1">'Atomic numbers of samples do not match destination.'</span>
+            <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">Z</span> <span class="o">=</span> <span class="n">Z_sample</span>
+
+
+    <span class="c1">###   Initialize all arrays   ###</span>
+    <span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">R_prov_specs</span><span class="p">,</span> <span class="n">sampling_all</span><span class="p">,</span> <span class="n">idx_selection</span> <span class="o">=</span> \
+        <span class="n">_initialize_structure_sampling_arrays</span><span class="p">(</span>
+        <span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">R_prov_specs</span><span class="p">,</span> <span class="n">quantity</span><span class="p">,</span> <span class="n">comp_labels</span><span class="p">,</span> <span class="n">R_source</span><span class="p">,</span>
+        <span class="n">entity_ids_source</span><span class="p">,</span> <span class="n">entity_ids_samples</span><span class="p">,</span> <span class="n">copy_EF</span>
+    <span class="p">)</span>
+
+    <span class="c1">###   Sampling counters   ###</span>
+    <span class="c1"># TODO: clean up progress printing (look into MDAnalysis rdf)</span>
+    <span class="n">num_generated</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Number of structures we generated (includes rejected).</span>
+    <span class="n">num_accepted</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Number of structures successfully sampled.</span>
+    <span class="n">prev_num_accepted_print</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Workaround to control printing.</span>
+    
+    <span class="c1">###   Begin sampling structures   ###</span>
+    <span class="k">if</span> <span class="n">structure_idxs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">structure_idxs</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">R_source</span><span class="p">)))</span>
+    <span class="k">for</span> <span class="n">selection</span> <span class="ow">in</span> <span class="n">_generate_structure_samples</span><span class="p">(</span>
+        <span class="n">quantity</span><span class="p">,</span> <span class="n">structure_idxs</span><span class="p">,</span> <span class="n">entity_ids_samples</span>
+    <span class="p">):</span>
+        <span class="n">num_generated</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="c1">###   Sampling maintenance   ###</span>
+        <span class="c1"># Ends sampling for number quantities.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">sampling_all</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">num_accepted</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">quantity</span><span class="p">):</span>
+                <span class="k">break</span>
+
+        <span class="c1">###   Sampling updates   ###</span>
+        <span class="c1"># Prints progress information every 500 successful samples.</span>
+        <span class="k">if</span> <span class="n">sampling_updates</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">sampling_all</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">num_accepted</span><span class="o">%</span><span class="mi">500</span> <span class="o">==</span> <span class="mi">0</span> \
+                    <span class="ow">and</span> <span class="n">num_accepted</span> <span class="o">!=</span> <span class="n">prev_num_accepted_print</span><span class="p">:</span>
+                    <span class="n">prev_num_accepted_print</span> <span class="o">=</span> <span class="n">num_accepted</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Successfully sampled </span><span class="si">{</span><span class="n">num_accepted</span><span class="si">}</span><span class="s1"> structures'</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">num_accepted</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="mi">500</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s1">'Successfully sampled </span><span class="si">{</span><span class="n">num_accepted</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1"> structures'</span>
+                    <span class="p">)</span>
+        
+        <span class="c1">###   Handle r_prov_specs   ###</span>
+        <span class="c1"># Determines the correct prov specification based on the sample and source.</span>
+        <span class="c1"># We have already determined source_R_prov_id for an original source.</span>
+        <span class="c1"># Just need to retrieve the source_R_prov_id of a source that is</span>
+        <span class="c1"># from sampled structures.</span>
+        <span class="k">if</span> <span class="n">source_R_prov_specs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">source_R_prov_id</span> <span class="o">=</span> <span class="n">source_R_prov_specs</span><span class="p">[</span><span class="n">selection</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">selection</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">source_R_prov_id</span><span class="p">)</span>
+
+
+        <span class="c1"># Check if selection is already in the destination.</span>
+        <span class="c1"># If it is, we do not include this selection and try again.</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">R_prov_specs</span><span class="p">[:</span><span class="n">idx_selection</span><span class="p">]</span><span class="o">==</span><span class="n">selection</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+            <span class="k">continue</span>
+        
+        <span class="c1">###   Checks structure criteria   ###</span>
+        <span class="c1"># Creates mask for atoms in the selection.</span>
+        <span class="n">r_index_source</span> <span class="o">=</span> <span class="n">selection</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">atom_idx_mask_gen</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">entity_ids_source</span> <span class="o">==</span> <span class="n">entity_id</span> <span class="k">for</span> <span class="n">entity_id</span> <span class="ow">in</span> <span class="n">selection</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+        <span class="p">)</span>
+        <span class="n">atom_idx_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bitwise_or</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">atom_idx_mask_gen</span><span class="p">)),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span>
+        <span class="p">)</span>
+
+        <span class="n">entity_ids_selection</span> <span class="o">=</span> <span class="n">entity_ids_source</span><span class="p">[</span><span class="n">atom_idx_mask</span><span class="p">]</span>
+        <span class="n">r_selection</span> <span class="o">=</span> <span class="n">R_source</span><span class="p">[</span><span class="n">r_index_source</span><span class="p">][</span><span class="n">atom_idx_mask</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">criteria</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># TODO: Update criteria to test for multiple structure (i.e., 3 dimensions)</span>
+            <span class="n">accept_r</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">criteria</span><span class="p">(</span>
+                <span class="n">Z</span><span class="p">,</span> <span class="n">r_selection</span><span class="p">,</span> <span class="n">z_slice</span><span class="p">,</span> <span class="n">entity_ids_selection</span><span class="p">,</span> <span class="n">cutoff</span>
+            <span class="p">)</span>
+            <span class="c1"># If criteria is not met, will not include sample.</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">accept_r</span><span class="p">:</span>
+                <span class="k">continue</span>
+        
+        
+        <span class="c1">###   SUCCESSFUL SAMPLE   ###</span>
+        <span class="n">R</span><span class="p">[</span><span class="n">idx_selection</span><span class="p">]</span> <span class="o">=</span> <span class="n">r_selection</span>
+        <span class="n">R_prov_specs</span><span class="p">[</span><span class="n">idx_selection</span><span class="p">]</span> <span class="o">=</span> <span class="n">selection</span>
+        <span class="k">if</span> <span class="n">copy_EF</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">E_source</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">E</span><span class="p">[</span><span class="n">idx_selection</span><span class="p">]</span> <span class="o">=</span> <span class="n">E_source</span><span class="p">[</span><span class="n">r_index_source</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">F_source</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">F</span><span class="p">[</span><span class="n">idx_selection</span><span class="p">]</span> <span class="o">=</span> <span class="n">F_source</span><span class="p">[</span><span class="n">r_index_source</span><span class="p">][</span><span class="n">atom_idx_mask</span><span class="p">]</span>
+        
+        <span class="n">num_accepted</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">idx_selection</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="k">if</span> <span class="n">copy_EF</span><span class="p">:</span>
+        <span class="n">E</span> <span class="o">=</span> <span class="n">E</span><span class="p">[:</span><span class="n">idx_selection</span><span class="p">]</span>
+        <span class="n">F</span> <span class="o">=</span> <span class="n">F</span><span class="p">[:</span><span class="n">idx_selection</span><span class="p">]</span>
+
+    <span class="c1"># Center structures by moving the center of mass to the origin.</span>
+    <span class="k">if</span> <span class="n">center_structures</span><span class="p">:</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="n">get_center_structures</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">[:</span><span class="n">idx_selection</span><span class="p">],</span> <span class="n">E</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">,</span> <span class="n">R_prov_specs</span><span class="p">[:</span><span class="n">idx_selection</span><span class="p">]</span>
+    <span class="p">)</span></div>
+
+<div class="viewcode-block" id="add_structures_to_group"><a class="viewcode-back" href="../../doc/reptar.html#reptar.sampler.add_structures_to_group">[docs]</a><span class="k">def</span> <span class="nf">add_structures_to_group</span><span class="p">(</span>
+    <span class="n">source_data</span><span class="p">,</span> <span class="n">source_key</span><span class="p">,</span> <span class="n">dest_data</span><span class="p">,</span> <span class="n">dest_key</span><span class="p">,</span> <span class="n">quantity</span><span class="p">,</span>
+    <span class="n">comp_labels</span><span class="p">,</span> <span class="n">structure_idxs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">consistent_entities</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">criteria</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">z_slice</span><span class="o">=</span><span class="p">[],</span> <span class="n">cutoff</span><span class="o">=</span><span class="p">[],</span> <span class="n">center_structures</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sampling_updates</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">copy_EF</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">energy_label</span><span class="o">=</span><span class="s1">'energy_ele'</span><span class="p">,</span> <span class="n">force_label</span><span class="o">=</span><span class="s1">'forces'</span><span class="p">,</span> <span class="n">write</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">):</span>
+    <span class="sd">"""Adds randomly sampled structures to a ``exdir.Group``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    source_data : ``reptar.data``</span>
+<span class="sd">        A reptar data object to sample structures from. Must contain</span>
+<span class="sd">        ``atomic_numbers``, ``geometry``, ``entity_ids``, and ``comp_ids``.</span>
+<span class="sd">        If it does not contain a ``md5_structures`` one will be created and</span>
+<span class="sd">        saved.</span>
+<span class="sd">    source_key : :obj:`str`</span>
+<span class="sd">        Key to the desired source group.</span>
+<span class="sd">    dest_data : ``reptar.data``</span>
+<span class="sd">        A reptar data object to add sampled structures to.</span>
+<span class="sd">    dest_key : :obj:`str`</span>
+<span class="sd">        Key to the desired destination group. If it does not</span>
+<span class="sd">        exist then it will be created.</span>
+<span class="sd">    quantity : :obj:`str` or :obj:`int`</span>
+<span class="sd">        Number of structures to sample from the data. For example,</span>
+<span class="sd">        ``'100'``, ``452``, or ``'all'``.</span>
+<span class="sd">    comp_labels : :obj:`tuple`</span>
+<span class="sd">        The component ID labels to include in sample structures. The order of</span>
+<span class="sd">        each label does matter.</span>
+<span class="sd">    structure_idxs : :obj:`tuple`, optional</span>
+<span class="sd">        Specific structure indices from source to sample from. Defaults to all</span>
+<span class="sd">        structures.</span>
+<span class="sd">    consistent_entities : :obj:`list` [:obj:`int`], optional</span>
+<span class="sd">        Molecule indices that will be in every selection. Not implemented</span>
+<span class="sd">        yet. Defaults to ``None``.</span>
+<span class="sd">    criteria : ``object``, optional</span>
+<span class="sd">        Structure criteria during the sampling procedure. Defaults to</span>
+<span class="sd">        ``None`` if no criteria should be used.</span>
+<span class="sd">    z_slice : :obj:`numpy.ndarray`, optional</span>
+<span class="sd">        Indices of the atoms to be used for the cutoff calculation. Defaults</span>
+<span class="sd">        to ``[]`` is no criteria is selected or if it is not required for</span>
+<span class="sd">        the selected criteria.</span>
+<span class="sd">    cutoff : :obj:`list`, optional</span>
+<span class="sd">        Distance cutoff between the atoms selected by ``z_slice``. Must be</span>
+<span class="sd">        in the same units (e.g., Angstrom) as ``R``. Defaults to ``[]`` if</span>
+<span class="sd">        no criteria is selected or a cutoff is not desired.</span>
+<span class="sd">    center_structures : :obj:`bool`, optional</span>
+<span class="sd">        Move the center of mass of each structure to the origin thereby </span>
+<span class="sd">        centering each structure (and losing the actual coordinates of</span>
+<span class="sd">        the structure). Defaults to ``False``.</span>
+<span class="sd">    sampling_updates : :obj:`bool`, optional</span>
+<span class="sd">        Will print something for every 100 successfully sampled structures.</span>
+<span class="sd">        Defaults to ``False``.</span>
+<span class="sd">    copy_EF : :obj:`bool`, optional</span>
+<span class="sd">        Creates datasets for energies and forces (using ``energy_label`` and </span>
+<span class="sd">        ``force_label``) and attempts to copy data from the source if possible.</span>
+<span class="sd">        If no compatible data is available it will just store :obj:`numpy.NaN`.</span>
+<span class="sd">        Defaults to ``True``.</span>
+<span class="sd">    energy_label : :obj:`str`, optional</span>
+<span class="sd">        Specifies the name of the destination dataset with the desired energies.</span>
+<span class="sd">        Defaults to ``'energy_ele'``. This should be the same as the source.</span>
+<span class="sd">    force_label : :obj:`str`, optional</span>
+<span class="sd">        Specifies the name of the destination dataset with the desired atomic forces.</span>
+<span class="sd">        Defaults to ``'forces'``. This should be the same as the source.</span>
+<span class="sd">    write : :obj:`bool`, optional</span>
+<span class="sd">        Write newly sampled to ``Group``. Defaults to True</span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Nothing is saved until all checks are passed to avoid irreversible changes</span>
+<span class="sd">    to already existing ``Group``.</span>
+<span class="sd">    """</span>
+    <span class="c1"># Grabs data from destination if exists.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">Z</span> <span class="o">=</span> <span class="n">dest_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/atomic_numbers'</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="n">Z</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="n">dest_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/geometry'</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="c1"># Get energies and forces if available.</span>
+    <span class="c1"># TODO: perform check if we should copy energies and forces based on if the</span>
+    <span class="c1"># sampled structure is the entire source structure.</span>
+    <span class="k">if</span> <span class="n">copy_EF</span><span class="p">:</span>
+        <span class="n">E</span> <span class="o">=</span> <span class="n">dest_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">energy_label</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+        <span class="n">F</span> <span class="o">=</span> <span class="n">dest_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">force_label</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">E</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">F</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">R_prov_ids</span> <span class="o">=</span> <span class="n">dest_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/r_prov_ids'</span><span class="p">)</span>
+        <span class="n">R_prov_specs</span> <span class="o">=</span> <span class="n">dest_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/r_prov_specs'</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">R_prov_ids</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">R_prov_specs</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">entity_ids</span> <span class="o">=</span> <span class="n">dest_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/entity_ids'</span><span class="p">)</span>
+        <span class="n">comp_ids</span> <span class="o">=</span> <span class="n">dest_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/comp_ids'</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="n">entity_ids</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">comp_ids</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="c1"># Handle if source already has r_prov_ids</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">source_R_prov_ids</span> <span class="o">=</span> <span class="n">source_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/r_prov_ids'</span><span class="p">)</span>
+        <span class="n">source_R_prov_specs</span> <span class="o">=</span> <span class="n">source_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/r_prov_specs'</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="c1"># This source is an original (was not created from sampling).</span>
+        <span class="n">source_R_prov_ids</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">source_R_prov_specs</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="c1">###   Check component IDs   ###</span>
+    <span class="k">if</span> <span class="n">comp_ids</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">comp_ids</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">comp_labels</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'Component IDs of destination (</span><span class="si">{</span><span class="n">comp_ids</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s1">) do not match comp_labels (</span><span class="si">{</span><span class="n">comp_labels</span><span class="si">}</span><span class="s1">).'</span>
+            <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">comp_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">comp_labels</span><span class="p">)</span>
+
+
+    <span class="c1"># Prepare source r_prov_ids and r_prov_specs.</span>
+    <span class="c1"># If source is an original, we just need to determine the next prov_id</span>
+    <span class="c1"># and prov_specs stays None.</span>
+    <span class="c1"># If the source was created with sampling, we need to adjust the</span>
+    <span class="c1"># prov_ids and prov_specs to not overlap with the destination.</span>
+    <span class="c1"># For example, change 0 from source to 1 if 0 is already taken in destination.</span>
+
+    <span class="c1"># Original source (not from sampled)</span>
+    <span class="k">if</span> <span class="n">source_R_prov_ids</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">md5_source</span> <span class="o">=</span> <span class="n">source_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/md5_structures'</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">md5_source</span> <span class="o">=</span> <span class="n">get_md5</span><span class="p">(</span><span class="n">source_data</span><span class="p">,</span> <span class="n">source_key</span><span class="p">,</span> <span class="n">only_structures</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">source_data</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/md5_structures'</span><span class="p">,</span> <span class="n">md5_source</span><span class="p">)</span>
+        
+        <span class="c1"># Create pseudo source_R_prov_ids.</span>
+        <span class="n">source_R_prov_ids</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="n">md5_source</span><span class="p">}</span>
+
+    <span class="c1"># If is this not a new destination we cannot always reuse the source information.</span>
+    <span class="c1"># Need to check for overlap of ids and specifications.</span>
+    <span class="c1"># Just need to shift the new source IDs up by the maximum destination ID.</span>
+    <span class="k">if</span> <span class="n">R_prov_ids</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+        <span class="c1"># Check and remove any IDs already in the destination.</span>
+        <span class="n">present_ids</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">R_prov_ids</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">present_md5s</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">value</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">R_prov_ids</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+        <span class="n">remove_source_ids</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">source_id</span><span class="p">,</span><span class="n">source_md5</span> <span class="ow">in</span> <span class="n">source_R_prov_ids</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">source_md5</span> <span class="ow">in</span> <span class="n">present_md5s</span><span class="p">:</span>
+                <span class="n">update_id</span> <span class="o">=</span> <span class="n">present_ids</span><span class="p">[</span><span class="n">present_md5s</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">source_md5</span><span class="p">)]</span>
+                <span class="k">if</span> <span class="n">update_id</span> <span class="o">!=</span> <span class="n">source_id</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">source_R_prov_specs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">update_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span>
+                            <span class="n">source_R_prov_specs</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">source_id</span>
+                        <span class="p">)[:,</span><span class="mi">0</span><span class="p">]</span>
+                        <span class="n">source_R_prov_specs</span><span class="p">[</span><span class="n">update_idx</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">update_id</span>
+                <span class="n">remove_source_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">source_id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">remove_source_ids</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">source_id</span> <span class="ow">in</span> <span class="n">remove_source_ids</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">source_R_prov_ids</span><span class="p">[</span><span class="n">source_id</span><span class="p">]</span>
+        
+        <span class="c1"># Create any new source IDs that will be added to destination.</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">source_R_prov_ids</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">max_dest_prov_id</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">R_prov_ids</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+            <span class="n">next_id</span> <span class="o">=</span> <span class="n">max_dest_prov_id</span> <span class="o">+</span> <span class="mi">1</span>
+
+            <span class="k">for</span> <span class="n">source_id</span> <span class="ow">in</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">source_R_prov_ids</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                <span class="n">source_R_prov_ids</span><span class="p">[</span><span class="n">next_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">source_R_prov_ids</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span>
+                    <span class="n">source_id</span>
+                <span class="p">)</span>
+                <span class="k">if</span> <span class="n">source_R_prov_specs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">update_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span>
+                        <span class="n">source_R_prov_specs</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">source_id</span>
+                    <span class="p">)[:,</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">source_R_prov_specs</span><span class="p">[</span><span class="n">update_idx</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">next_id</span>
+                <span class="n">next_id</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+            <span class="c1"># Merge the IDs</span>
+            <span class="n">new_R_prov_ids</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">R_prov_ids</span><span class="p">,</span> <span class="o">**</span><span class="n">source_R_prov_ids</span><span class="p">}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">new_R_prov_ids</span> <span class="o">=</span> <span class="n">R_prov_ids</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">new_R_prov_ids</span> <span class="o">=</span> <span class="n">source_R_prov_ids</span>
+    
+    <span class="c1"># Stores the index of the first newly sampled structure for checks.</span>
+    <span class="k">if</span> <span class="n">R</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">n_R_initial</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">n_R_initial</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="c1"># Begin sampling.</span>
+    <span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">entity_ids_sampled</span><span class="p">,</span> <span class="n">R_prov_specs</span> <span class="o">=</span> <span class="n">sample_structures</span><span class="p">(</span>
+        <span class="n">source_data</span><span class="p">,</span> <span class="n">source_key</span><span class="p">,</span> <span class="n">quantity</span><span class="p">,</span> <span class="n">comp_labels</span><span class="p">,</span> <span class="n">new_R_prov_ids</span><span class="p">,</span>
+        <span class="n">source_R_prov_specs</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="n">R</span><span class="p">,</span> <span class="n">R_prov_specs</span><span class="o">=</span><span class="n">R_prov_specs</span><span class="p">,</span>
+        <span class="n">structure_idxs</span><span class="o">=</span><span class="n">structure_idxs</span><span class="p">,</span> <span class="n">criteria</span><span class="o">=</span><span class="n">criteria</span><span class="p">,</span> <span class="n">z_slice</span><span class="o">=</span><span class="n">z_slice</span><span class="p">,</span>
+        <span class="n">cutoff</span><span class="o">=</span><span class="n">cutoff</span><span class="p">,</span> <span class="n">center_structures</span><span class="o">=</span><span class="n">center_structures</span><span class="p">,</span>
+        <span class="n">sampling_updates</span><span class="o">=</span><span class="n">sampling_updates</span><span class="p">,</span> <span class="n">copy_EF</span><span class="o">=</span><span class="n">copy_EF</span><span class="p">,</span> <span class="n">E</span><span class="o">=</span><span class="n">E</span><span class="p">,</span> <span class="n">F</span><span class="o">=</span><span class="n">F</span><span class="p">,</span>
+        <span class="n">energy_label</span><span class="o">=</span><span class="n">energy_label</span><span class="p">,</span> <span class="n">force_label</span><span class="o">=</span><span class="n">force_label</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Check that entity_ids are the same.</span>
+    <span class="k">if</span> <span class="n">entity_ids</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">entity_ids</span><span class="p">,</span> <span class="n">entity_ids_sampled</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'Destination entity_ids (</span><span class="si">{</span><span class="n">entity_ids</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s1">) do not '</span>\
+                <span class="sa">f</span><span class="s1">'match sampled entity_ids (</span><span class="si">{</span><span class="n">entity_ids_sampled</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s1">).'</span>
+            <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">entity_ids</span> <span class="o">=</span> <span class="n">entity_ids_sampled</span>
+    
+    <span class="k">if</span> <span class="n">write</span><span class="p">:</span>
+        <span class="n">dest_data</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/atomic_numbers'</span><span class="p">,</span> <span class="n">Z</span><span class="p">)</span>
+        <span class="n">dest_data</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/geometry'</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">copy_EF</span><span class="p">:</span>
+            <span class="n">dest_data</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">energy_label</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">E</span><span class="p">)</span>
+            <span class="n">dest_data</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">force_label</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
+        <span class="n">dest_data</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/entity_ids'</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">)</span>
+        <span class="n">dest_data</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/r_prov_ids'</span><span class="p">,</span> <span class="n">new_R_prov_ids</span><span class="p">)</span>
+        <span class="n">dest_data</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/r_prov_specs'</span><span class="p">,</span> <span class="n">R_prov_specs</span><span class="p">)</span>
+        <span class="n">dest_data</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/r_centered'</span><span class="p">,</span> <span class="n">center_structures</span><span class="p">)</span>
+        <span class="n">dest_data</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/comp_ids'</span><span class="p">,</span> <span class="n">comp_ids</span><span class="p">)</span>
+
+        <span class="n">dest_data</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/md5'</span><span class="p">,</span>
+            <span class="n">get_md5</span><span class="p">(</span><span class="n">dest_data</span><span class="p">,</span> <span class="n">dest_key</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">dest_data</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/md5_structures'</span><span class="p">,</span> <span class="n">get_md5</span><span class="p">(</span>
+                <span class="n">dest_data</span><span class="p">,</span> <span class="n">dest_key</span><span class="p">,</span> <span class="n">only_arrays</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dest_data</span></div>
+</pre></div>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Alex M. Maldonado
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/scripts/furo.js"></script>
+    </body>
+</html>

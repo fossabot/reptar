@@ -1,0 +1,29 @@
+reptar.writers package
+======================
+
+Submodules
+----------
+
+reptar.writers.pdb module
+-------------------------
+
+.. automodule:: reptar.writers.pdb
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+reptar.writers.writer module
+----------------------------
+
+.. automodule:: reptar.writers.writer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: reptar.writers
+   :members:
+   :undoc-members:
+   :show-inheritance:
