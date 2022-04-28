@@ -157,8 +157,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/tutorials.html">Tutorials</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../doc/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../doc/reptar.html">reptar package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../doc/reptar.analysis.html">reptar.analysis package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../doc/reptar.calculators.html">reptar.calculators package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../doc/reptar.definitions.html">reptar.definitions package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../doc/reptar.parsers.html">reptar.parsers package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../doc/reptar.writers.html">reptar.writers package</a></li>
@@ -407,7 +405,7 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    :obj:`str`</span>
-<span class="sd">        MD5 hash of exdir group.</span>
+<span class="sd">        MD5 hash of a group.</span>
 <span class="sd">    """</span>
     <span class="n">md5_hash</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">()</span>
     <span class="c1"># TODO: Figure out why different formats have different MD5s.</span>
@@ -541,7 +539,17 @@
         <span class="k">return</span> <span class="n">R</span></div>
 
 <div class="viewcode-block" id="combine_dicts"><a class="viewcode-back" href="../../doc/reptar.html#reptar.utils.combine_dicts">[docs]</a><span class="k">def</span> <span class="nf">combine_dicts</span><span class="p">(</span><span class="n">dict1</span><span class="p">,</span> <span class="n">dict2</span><span class="p">):</span>
-    <span class="sd">"""Combine two dictionaries"""</span>
+    <span class="sd">"""Combine two dictionaries.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dict1 : :obj:`dict`</span>
+<span class="sd">    dict2 : :obj:`dict`</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    :obj:`dict`</span>
+<span class="sd">    """</span>
     <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">dict2</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">collections</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Mapping</span><span class="p">):</span>
             <span class="n">dict1</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">combine_dicts</span><span class="p">(</span><span class="n">dict1</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="p">{}),</span> <span class="n">v</span><span class="p">)</span>

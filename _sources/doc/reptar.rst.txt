@@ -7,8 +7,6 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   reptar.analysis
-   reptar.calculators
    reptar.definitions
    reptar.parsers
    reptar.writers
@@ -36,14 +34,6 @@ reptar.fragment module
 ----------------------
 
 .. automodule:: reptar.fragment
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-reptar.manager module
----------------------
-
-.. automodule:: reptar.manager
    :members:
    :undoc-members:
    :show-inheritance:

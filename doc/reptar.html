@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="reptar.analysis package" href="reptar.analysis.html" /><link rel="prev" title="reptar" href="modules.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="reptar.definitions package" href="reptar.definitions.html" /><link rel="prev" title="reptar" href="modules.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
         <title>reptar package - reptar documentation</title>
@@ -158,8 +158,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">API</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">reptar package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="reptar.analysis.html">reptar.analysis package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="reptar.calculators.html">reptar.calculators package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="reptar.definitions.html">reptar.definitions package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="reptar.parsers.html">reptar.parsers package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="reptar.writers.html">reptar.writers package</a></li>
@@ -206,18 +204,6 @@
 <h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="reptar.analysis.html">reptar.analysis package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="reptar.analysis.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reptar.analysis.html#module-reptar.analysis.md">reptar.analysis.md module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reptar.analysis.html#module-reptar.analysis">Module contents</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="reptar.calculators.html">reptar.calculators package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="reptar.calculators.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reptar.calculators.html#reptar-calculators-psi4-calc-module">reptar.calculators.psi4_calc module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reptar.calculators.html#module-reptar.calculators">Module contents</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="reptar.definitions.html">reptar.definitions package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="reptar.definitions.html#module-reptar.definitions">Module contents</a></li>
 </ul>
@@ -252,19 +238,85 @@
 <dt class="sig sig-object py" id="reptar.creator.creator">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.creator.</span></span><span class="sig-name descname"><span class="pre">creator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/creator.html#creator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.creator.creator" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Handles creating reptar data files.</p>
+<p>Create groups from computational chemistry data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>data</strong> (<code class="docutils literal notranslate"><span class="pre">reptar.data</span></code>, optional) – An initialized data object.</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="reptar.creator.creator.create_group">
-<span class="sig-name descname"><span class="pre">create_group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/creator.html#creator.create_group"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.creator.creator.create_group" title="Permalink to this definition">#</a></dt>
-<dd><p>Create group using parsed information.</p>
+<dt class="sig sig-object py" id="reptar.creator.creator.definitions">
+<span class="sig-name descname"><span class="pre">definitions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">definitions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/creator.html#creator.definitions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.creator.creator.definitions" title="Permalink to this definition">#</a></dt>
+<dd><p>Add definitions of data to the file.</p>
+<p>The base definitions are included by default. There should be no overlap
+of any definitions. If there is, precedence is given in order of
+<code class="docutils literal notranslate"><span class="pre">definitions</span></code> with base always being first.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>group_key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Key to the desired new group (including parent).</p>
+<dd class="field-odd"><p><strong>definitions</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>], optional) – Paths to data definition YAML files to congregate. Only the name
+(not a path) is required for ones provided by reptar.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Reserved definition YAML files: <code class="docutils literal notranslate"><span class="pre">base</span></code>, <code class="docutils literal notranslate"><span class="pre">md</span></code>, <code class="docutils literal notranslate"><span class="pre">molprop</span></code>, <code class="docutils literal notranslate"><span class="pre">pes</span></code>,
+<code class="docutils literal notranslate"><span class="pre">qc</span></code>, <code class="docutils literal notranslate"><span class="pre">sampl</span></code>, <code class="docutils literal notranslate"><span class="pre">solv</span></code>, <code class="docutils literal notranslate"><span class="pre">xtb</span></code>.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="reptar.creator.creator.group">
+<span class="sig-name descname"><span class="pre">group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extractors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/creator.html#creator.group"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.creator.creator.group" title="Permalink to this definition">#</a></dt>
+<dd><p>Create a group using any data reptar can find from provided paths.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group_key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Key to the desired new group (including parent).</p></li>
+<li><p><strong>out_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – Path to the main log file generated by the package.</p></li>
+<li><p><strong>geom_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – Path to a file containing a single geometry.</p></li>
+<li><p><strong>traj_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – Path to a trajectory file from a geometry optimization, MD
+simulation, etc.</p></li>
+<li><p><strong>extractors</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, optional) – Additional extractors for the parser to use.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>If both <code class="docutils literal notranslate"><span class="pre">geom_path</span></code> and <code class="docutils literal notranslate"><span class="pre">traj_path</span></code> are provided, it is assumed that
+<code class="docutils literal notranslate"><span class="pre">geom_path</span></code> provides an initial geometry not included in
+<code class="docutils literal notranslate"><span class="pre">traj_path</span></code>.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="reptar.creator.creator.ids">
+<span class="sig-name descname"><span class="pre">ids</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comp_ids</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/creator.html#creator.ids"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.creator.creator.ids" title="Permalink to this definition">#</a></dt>
+<dd><p>Add <code class="docutils literal notranslate"><span class="pre">entity_ids</span></code> and <code class="docutils literal notranslate"><span class="pre">comp_ids</span></code> to a group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group_key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Key to the group to add IDs to (including parent).</p></li>
+<li><p><strong>entity_ids</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>) – A uniquely identifying integer specifying what atoms belong to which
+entities. Entities can be a related set of atoms, molecules, or
+functional group.</p></li>
+<li><p><strong>comp_ids</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>) – Relates <code class="docutils literal notranslate"><span class="pre">entity_id</span></code> to a fragment label for chemical components
+or species. Labels could be <code class="docutils literal notranslate"><span class="pre">WAT</span></code> or <code class="docutils literal notranslate"><span class="pre">h2o</span></code> for water, <code class="docutils literal notranslate"><span class="pre">MeOH</span></code>
+for methanol, <code class="docutils literal notranslate"><span class="pre">bz</span></code> for benzene, etc. There are no standardized
+labels for species. The index of the label is the respective
+<code class="docutils literal notranslate"><span class="pre">entity_id</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="reptar.creator.creator.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'r'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_remove</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plugins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/creator.html#creator.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.creator.creator.load" title="Permalink to this definition">#</a></dt>
+<dd><p>Load a data file for creating/adding information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to a file supported by reptar. If it does not exist, then one will
+be created if possible.</p></li>
+<li><p><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – A file mode string that defines the read/write behavior. Defaults to
+<code class="docutils literal notranslate"><span class="pre">'r'</span></code>.</p></li>
+<li><p><strong>allow_remove</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, optional) – Allow the removal of exdir groups in <code class="docutils literal notranslate"><span class="pre">w</span></code> operation. Defaults to
+<code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p><strong>plugins</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, optional) – A list of instantiated exdir plugins. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -274,7 +326,13 @@
 <dd><p>Parse output file using cclib and custom parser.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>out_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to computational chemistry output file.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>out_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to computational chemistry output file.</p></li>
+<li><p><strong>geom_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – Path to a file containing a single geometry.</p></li>
+<li><p><strong>traj_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – Path to a trajectory file from a geometry optimization, MD
+simulation, etc.</p></li>
+<li><p><strong>extractors</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, optional) – Additional extractors for the parser to use.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -303,7 +361,7 @@ Only supported packaged should be included in <cite>triggers</cite>.</p>
 <dt class="sig sig-object py" id="reptar.data.data">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.data.</span></span><span class="sig-name descname"><span class="pre">data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'r'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_remove</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plugins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/data.html#data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.data.data" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>A reptar data object that creates, stores, retrieves, and manages data.</p>
+<p>Create, store, and access data from a variety of formats.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -321,7 +379,7 @@ be created if possible.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.data.data.add">
 <span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/data.html#data.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.data.data.add" title="Permalink to this definition">#</a></dt>
-<dd><p>Add information to a loaded file.</p>
+<dd><p>Add data to file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -351,7 +409,7 @@ separated by <code class="docutils literal notranslate"><span class="pre">/</spa
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.data.data.clean_key">
 <span class="sig-name descname"><span class="pre">clean_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/data.html#data.clean_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.data.data.clean_key" title="Permalink to this definition">#</a></dt>
-<dd><p>Clean key and remove any common mistakes in keys.</p>
+<dd><p>Clean key and remove any common mistakes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Key of the desired data.</p>
@@ -367,8 +425,7 @@ separated by <code class="docutils literal notranslate"><span class="pre">/</spa
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.data.data.get">
 <span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/data.html#data.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.data.data.get" title="Permalink to this definition">#</a></dt>
-<dd><p>Retrives data from a loaded file.</p>
-<p>Provides a uniform method of query data from different sources.</p>
+<dd><p>Retrieve data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Key of the desired data. Nested keys should be separated by <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p>
@@ -385,7 +442,8 @@ separated by <code class="docutils literal notranslate"><span class="pre">/</spa
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.data.data.get_keys">
 <span class="sig-name descname"><span class="pre">get_keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/data.html#data.get_keys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.data.data.get_keys" title="Permalink to this definition">#</a></dt>
-<dd><p>A list of keys in a group (not included nested keys).</p>
+<dd><p>A list of keys in a group.</p>
+<p>Does not include keys of nested groups.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>group_key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Key specifying which group to get the data keys from.</p>
@@ -401,7 +459,7 @@ separated by <code class="docutils literal notranslate"><span class="pre">/</spa
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.data.data.init_group">
 <span class="sig-name descname"><span class="pre">init_group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/data.html#data.init_group"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.data.data.init_group" title="Permalink to this definition">#</a></dt>
-<dd><p>Create a new group with the specified key.</p>
+<dd><p>Initialize an exdir group with the specified key.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Key of the desired data (including parent). Nested keys should be
@@ -424,6 +482,14 @@ line.</p>
 <dt class="sig sig-object py" id="reptar.data.data.simplify_iter_data">
 <span class="sig-name descname"><span class="pre">simplify_iter_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/data.html#data.simplify_iter_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.data.data.simplify_iter_data" title="Permalink to this definition">#</a></dt>
 <dd><p>Simplify iterative data if possible.</p>
+<p>Attempts to simplify iterative objects by the type and/or number of
+elements. For example, iterative data with only one element will return
+just that element.</p>
+<p>This is mainly used when adding data to a file. When parsing data we
+will not know if there will be multiple values of certain data (e.g.,
+multiple single point energies) until we finish parsing. Thus, we assume
+there will be multiple values while parsing then simplify any iterative
+objects at the end.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>data</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></a>) – An iterative data object.</p>
@@ -469,92 +535,6 @@ line.</p>
 <dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></p>
 </dd>
 </dl>
-</dd></dl>
-</section>
-<section id="module-reptar.manager">
-<span id="reptar-manager-module"></span><h2>reptar.manager module<a class="headerlink" href="#module-reptar.manager" title="Permalink to this headline">#</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="reptar.manager.manager">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.manager.</span></span><span class="sig-name descname"><span class="pre">manager</span></span><a class="reference internal" href="../_modules/reptar/manager.html#manager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.manager.manager" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Manages reptar files.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="reptar.manager.manager.add_definitions">
-<span class="sig-name descname"><span class="pre">add_definitions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">definitions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/manager.html#manager.add_definitions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.manager.manager.add_definitions" title="Permalink to this definition">#</a></dt>
-<dd><p>Add definitions of data to the file.</p>
-<p>The base definitions are included by default. There should be no overlap
-of any definitions. If there is, precedence is given in order of
-<code class="docutils literal notranslate"><span class="pre">definitions</span></code> with base always being first.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>definitions</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>], optional) – Paths to data definition YAML files to congregate. Only the name
-(not a path) is required for ones provided by reptar.</p>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>Reserved definition YAML files: <code class="docutils literal notranslate"><span class="pre">base</span></code>, <code class="docutils literal notranslate"><span class="pre">md</span></code>, <code class="docutils literal notranslate"><span class="pre">molprop</span></code>, <code class="docutils literal notranslate"><span class="pre">pes</span></code>,
-<code class="docutils literal notranslate"><span class="pre">qc</span></code>, <code class="docutils literal notranslate"><span class="pre">sampl</span></code>, <code class="docutils literal notranslate"><span class="pre">solv</span></code>, <code class="docutils literal notranslate"><span class="pre">xtb</span></code>.</p>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="reptar.manager.manager.add_ids">
-<span class="sig-name descname"><span class="pre">add_ids</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comp_ids</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/manager.html#manager.add_ids"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.manager.manager.add_ids" title="Permalink to this definition">#</a></dt>
-<dd><p>Add <code class="docutils literal notranslate"><span class="pre">entity_ids</span></code> and <code class="docutils literal notranslate"><span class="pre">comp_ids</span></code> to a group.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>group_key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Key to the group to add IDs to (including parent).</p></li>
-<li><p><strong>entity_ids</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>) – A uniquely identifying integer specifying what atoms belong to which
-entities. Entities can be a related set of atoms, molecules, or
-functional group.</p></li>
-<li><p><strong>comp_ids</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>) – Relates <code class="docutils literal notranslate"><span class="pre">entity_id</span></code> to a fragment label for chemical components
-or species. Labels could be <code class="docutils literal notranslate"><span class="pre">WAT</span></code> or <code class="docutils literal notranslate"><span class="pre">h2o</span></code> for water, <code class="docutils literal notranslate"><span class="pre">MeOH</span></code>
-for methanol, <code class="docutils literal notranslate"><span class="pre">bz</span></code> for benzene, etc. There are no standardized
-labels for species. The index of the label is the respective
-<code class="docutils literal notranslate"><span class="pre">entity_id</span></code>.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="reptar.manager.manager.create_group">
-<span class="sig-name descname"><span class="pre">create_group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extractors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/manager.html#manager.create_group"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.manager.manager.create_group" title="Permalink to this definition">#</a></dt>
-<dd><p>Creates a group using any data reptar can find from provided
-paths.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>group_key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – The key to the desired new group (including parent if applicable).</p></li>
-<li><p><strong>out_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – Path to the main log file generated by the package.</p></li>
-<li><p><strong>geom_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – Path to a file containing a single geometry.</p></li>
-<li><p><strong>traj_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – Path to a trajectory file from a geometry optimization, MD
-simulation, etc.</p></li>
-<li><p><strong>extractors</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, optional) – Additional extractors for the parser to use.</p></li>
-</ul>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>If both <code class="docutils literal notranslate"><span class="pre">geom_path</span></code> and <code class="docutils literal notranslate"><span class="pre">traj_path</span></code> are provided, it is assumed that
-<code class="docutils literal notranslate"><span class="pre">geom_path</span></code> provides an initial geometry not included in
-<code class="docutils literal notranslate"><span class="pre">traj_path</span></code>.</p>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="reptar.manager.manager.load">
-<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'r'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_remove</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plugins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/manager.html#manager.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.manager.manager.load" title="Permalink to this definition">#</a></dt>
-<dd><p>Creates a data object.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>file_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to a file supported by reptar. If it does not exist, then one will
-be created if possible.</p></li>
-<li><p><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – A file mode string that defines the read/write behavior. Defaults to
-<code class="docutils literal notranslate"><span class="pre">'r'</span></code>.</p></li>
-<li><p><strong>allow_remove</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, optional) – Allow the removal of exdir groups in <code class="docutils literal notranslate"><span class="pre">w</span></code> operation. Defaults to
-<code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-<li><p><strong>plugins</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, optional) – A list of instantiated exdir plugins. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
 </dd></dl>
 </section>
 <section id="module-reptar.sampler">
@@ -745,7 +725,18 @@ atomic number.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="reptar.utils.combine_dicts">
 <span class="sig-prename descclassname"><span class="pre">reptar.utils.</span></span><span class="sig-name descname"><span class="pre">combine_dicts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dict1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/utils.html#combine_dicts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.utils.combine_dicts" title="Permalink to this definition">#</a></dt>
-<dd><p>Combine two dictionaries</p>
+<dd><p>Combine two dictionaries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dict1</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a>) – </p></li>
+<li><p><strong>dict2</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="reptar.utils.gen_comp_ids">
@@ -833,7 +824,7 @@ used to track sampling (i.e., <code class="docutils literal notranslate"><span c
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>MD5 hash of exdir group.</p>
+<dd class="field-even"><p>MD5 hash of a group.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></p>
@@ -872,12 +863,12 @@ as extended xyz).</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="reptar.analysis.html">
+          <a class="next-page" href="reptar.definitions.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">reptar.analysis package</div>
+                <div class="title">reptar.definitions package</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -930,7 +921,6 @@ as extended xyz).</p>
 <li><a class="reference internal" href="#module-reptar.creator">reptar.creator module</a></li>
 <li><a class="reference internal" href="#module-reptar.data">reptar.data module</a></li>
 <li><a class="reference internal" href="#module-reptar.fragment">reptar.fragment module</a></li>
-<li><a class="reference internal" href="#module-reptar.manager">reptar.manager module</a></li>
 <li><a class="reference internal" href="#module-reptar.sampler">reptar.sampler module</a></li>
 <li><a class="reference internal" href="#module-reptar.utils">reptar.utils module</a></li>
 <li><a class="reference internal" href="#module-reptar">Module contents</a></li>

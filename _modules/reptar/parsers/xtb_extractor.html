@@ -157,8 +157,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorials/tutorials.html">Tutorials</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../doc/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../doc/reptar.html">reptar package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../doc/reptar.analysis.html">reptar.analysis package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../doc/reptar.calculators.html">reptar.calculators package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../doc/reptar.definitions.html">reptar.definitions package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../doc/reptar.parsers.html">reptar.parsers package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../doc/reptar.writers.html">reptar.writers package</a></li>
@@ -222,7 +220,9 @@
 <span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
 <span class="c1"># SOFTWARE.</span>
 
-<div class="viewcode-block" id="extractorXTB"><a class="viewcode-back" href="../../../doc/reptar.parsers.html#reptar.parsers.xtb_extractor.extractorXTB">[docs]</a><span class="k">class</span> <span class="nc">extractorXTB</span><span class="p">:</span>
+<span class="kn">from</span> <span class="nn">.extractor</span> <span class="kn">import</span> <span class="n">extractor</span>
+
+<div class="viewcode-block" id="extractorXTB"><a class="viewcode-back" href="../../../doc/reptar.parsers.html#reptar.parsers.xtb_extractor.extractorXTB">[docs]</a><span class="k">class</span> <span class="nc">extractorXTB</span><span class="p">(</span><span class="n">extractor</span><span class="p">):</span>
     <span class="sd">"""</span>
 
 <span class="sd">    Attributes</span>
@@ -235,7 +235,11 @@
 <span class="sd">        Extracted information from the file from this object.</span>
 <span class="sd">    """</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">triggers</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">triggers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">trig</span> <span class="o">=</span> <span class="p">(</span>
             <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'* xtb version'</span> <span class="ow">in</span> <span class="n">line</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'xtb_version'</span><span class="p">),</span>
             <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'program call               :'</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'run_type'</span><span class="p">),</span>
             <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'number of electrons        :'</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'n_electrons'</span><span class="p">),</span>
@@ -250,11 +254,7 @@
             <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'thermostating problem'</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'thermostat_prob'</span><span class="p">),</span>
             <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'normal termination of xtb'</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'success'</span><span class="p">),</span>
         <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">'system_info'</span><span class="p">:</span> <span class="p">{},</span>
-            <span class="s1">'runtime_info'</span><span class="p">:</span> <span class="p">{},</span>
-            <span class="s1">'outputs'</span><span class="p">:</span> <span class="p">{}</span>
-        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">trig</span>
     
 <div class="viewcode-block" id="extractorXTB.xtb_version"><a class="viewcode-back" href="../../../doc/reptar.parsers.html#reptar.parsers.xtb_extractor.extractorXTB.xtb_version">[docs]</a>    <span class="k">def</span> <span class="nf">xtb_version</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
         <span class="sd">"""Version of xtb.</span>
@@ -464,8 +464,7 @@
 <span class="sd">            :                      SETUP                      :</span>
 <span class="sd">            :.................................................:</span>
 <span class="sd">        """</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip_lines</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
         <span class="k">while</span> <span class="s1">'..............................'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
             
             <span class="c1"># :  # basis functions                1446          :</span>

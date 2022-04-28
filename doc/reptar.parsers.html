@@ -158,8 +158,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">API</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 current has-children"><a class="reference internal" href="reptar.html">reptar package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="reptar.analysis.html">reptar.analysis package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="reptar.calculators.html">reptar.calculators package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="reptar.definitions.html">reptar.definitions package</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">reptar.parsers package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="reptar.writers.html">reptar.writers package</a></li>
@@ -244,6 +242,25 @@ electrons, generated structures, etc.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="reptar.parsers.extractor.extractor.skip_lines">
+<span class="sig-name descname"><span class="pre">skip_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/extractor.html#extractor.skip_lines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.extractor.extractor.skip_lines" title="Permalink to this definition">#</a></dt>
+<dd><p>Skip a number of lines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of lines to skip</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Line of file.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -947,17 +964,13 @@ parser object.</p>
 <em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/parser.html#parser.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.parser.parser.parse" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 </dd></dl>
-<dl class="py function">
-<dt class="sig sig-object py" id="reptar.parsers.parser.skip_lines">
-<span class="sig-prename descclassname"><span class="pre">reptar.parsers.parser.</span></span><span class="sig-name descname"><span class="pre">skip_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/parser.html#skip_lines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.parser.skip_lines" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
 </section>
 <section id="module-reptar.parsers.xtb_extractor">
 <span id="reptar-parsers-xtb-extractor-module"></span><h2>reptar.parsers.xtb_extractor module<a class="headerlink" href="#module-reptar.parsers.xtb_extractor" title="Permalink to this headline">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="reptar.parsers.xtb_extractor.extractorXTB">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.parsers.xtb_extractor.</span></span><span class="sig-name descname"><span class="pre">extractorXTB</span></span><a class="reference internal" href="../_modules/reptar/parsers/xtb_extractor.html#extractorXTB"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.xtb_extractor.extractorXTB" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#reptar.parsers.extractor.extractor" title="reptar.parsers.extractor.extractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">reptar.parsers.extractor.extractor</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="reptar.parsers.xtb_extractor.extractorXTB.triggers">
 <span class="sig-name descname"><span class="pre">triggers</span></span><a class="headerlink" href="#reptar.parsers.xtb_extractor.extractorXTB.triggers" title="Permalink to this definition">#</a></dt>
@@ -1220,6 +1233,10 @@ max steps          :  5000
 </pre></div>
 </div>
 </dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="id2">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">triggers</span></span><a class="headerlink" href="#id2" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.parsers.xtb_extractor.extractorXTB.wall_pot">
 <span class="sig-name descname"><span class="pre">wall_pot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/xtb_extractor.html#extractorXTB.wall_pot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.xtb_extractor.extractorXTB.wall_pot" title="Permalink to this definition">#</a></dt>

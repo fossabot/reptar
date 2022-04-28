@@ -157,8 +157,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorials/tutorials.html">Tutorials</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../doc/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../doc/reptar.html">reptar package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../doc/reptar.analysis.html">reptar.analysis package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../doc/reptar.calculators.html">reptar.calculators package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../doc/reptar.definitions.html">reptar.definitions package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../doc/reptar.parsers.html">reptar.parsers package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../doc/reptar.writers.html">reptar.writers package</a></li>
@@ -781,8 +779,7 @@
 <span class="sd">            MULLIKEN ATOMIC CHARGES</span>
 <span class="sd">            -----------------------</span>
 <span class="sd">        """</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip_lines</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
         <span class="c1"># Creates initial mulliken_charges property.</span>
         <span class="k">if</span> <span class="s1">'mulliken_charges'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -821,8 +818,7 @@
 <span class="sd">            LOEWDIN ATOMIC CHARGES</span>
 <span class="sd">            ----------------------</span>
 <span class="sd">        """</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip_lines</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
         <span class="c1"># Creates initial loewdin_charges property.</span>
         <span class="k">if</span> <span class="s1">'loewdin_charges'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -955,11 +951,12 @@
 <span class="sd">            -----------------------</span>
 <span class="sd">        """</span>
         <span class="c1"># Skips the following lines.</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="c1"># -----------------------</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="c1"># </span>
-        <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="c1"># Scaling factor for frequencies =  1.000000000</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="c1"># </span>
-        <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="c1">#    0:         0.00 cm**-1</span>
+        <span class="c1"># -----------------------</span>
+        <span class="c1"># </span>
+        <span class="c1"># Scaling factor for frequencies =  1.000000000</span>
+        <span class="c1"># </span>
+        <span class="c1">#    0:         0.00 cm**-1</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip_lines</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 
         <span class="c1"># Sets up data.</span>
         <span class="k">if</span> <span class="s1">'freq_vib'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -997,8 +994,7 @@
 <span class="sd">            NORMAL MODES</span>
 <span class="sd">            ------------</span>
 <span class="sd">        """</span>
-        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>
-            <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip_lines</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 
         <span class="c1"># Sets up data.</span>
         <span class="k">if</span> <span class="s1">'q'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>

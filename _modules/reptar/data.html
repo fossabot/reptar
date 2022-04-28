@@ -157,8 +157,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/tutorials.html">Tutorials</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../doc/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../doc/reptar.html">reptar package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../doc/reptar.analysis.html">reptar.analysis package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../doc/reptar.calculators.html">reptar.calculators package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../doc/reptar.definitions.html">reptar.definitions package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../doc/reptar.parsers.html">reptar.parsers package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../doc/reptar.writers.html">reptar.writers package</a></li>
@@ -227,11 +225,10 @@
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">exdir</span>
 <span class="kn">import</span> <span class="nn">cclib</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
 <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">combine_dicts</span>
 
 <div class="viewcode-block" id="data"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.data">[docs]</a><span class="k">class</span> <span class="nc">data</span><span class="p">:</span>
-    <span class="sd">"""A reptar data object that creates, stores, retrieves, and manages data.</span>
+    <span class="sd">"""Create, store, and access data from a variety of formats.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -266,6 +263,20 @@
         <span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">allow_remove</span><span class="p">,</span> <span class="n">plugins</span>
     <span class="p">):</span>
         <span class="sd">"""Populates the data object from a file path.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        file_path : :obj:`str`</span>
+<span class="sd">            Path to a file supported by reptar. If it does not exist, then one will</span>
+<span class="sd">            be created if possible.</span>
+<span class="sd">        mode : :obj:`str`, optional</span>
+<span class="sd">            A file mode string that defines the read/write behavior. Defaults to</span>
+<span class="sd">            ``'r'``.</span>
+<span class="sd">        allow_remove : :obj:`bool`, optional</span>
+<span class="sd">            Allow the removal of exdir groups in ``w`` operation. Defaults to</span>
+<span class="sd">            ``False``.</span>
+<span class="sd">        plugins : :obj:`list`, optional</span>
+<span class="sd">            A list of instantiated exdir plugins. Defaults to ``None``.</span>
 <span class="sd">        """</span>
         <span class="n">exists</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
         <span class="n">_</span><span class="p">,</span> <span class="n">f_ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
@@ -279,7 +290,7 @@
                 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
                     <span class="n">File</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">File</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">))</span>
+                <span class="n">File</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">elif</span> <span class="n">f_ext</span> <span class="o">==</span> <span class="s1">'.npz'</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">exists</span><span class="p">:</span>
                 <span class="n">File</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
@@ -289,7 +300,7 @@
                         <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">simplify_iter_data</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
                         <span class="n">File</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">File</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">))</span>
+                <span class="n">File</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">f_ext</span><span class="si">}</span><span class="s1"> is not supported.'</span><span class="p">)</span>
         
@@ -310,8 +321,16 @@
 <span class="sd">            will be created if possible.</span>
 <span class="sd">        group_dict : :obj:`str`</span>
 <span class="sd">            Dictionary to populate the data object with.</span>
+<span class="sd">        mode : :obj:`str`, optional</span>
+<span class="sd">            A file mode string that defines the read/write behavior. Defaults to</span>
+<span class="sd">            ``'r'``.</span>
+<span class="sd">        allow_remove : :obj:`bool`, optional</span>
+<span class="sd">            Allow the removal of exdir groups in ``w`` operation. Defaults to</span>
+<span class="sd">            ``False``.</span>
+<span class="sd">        plugins : :obj:`list`, optional</span>
+<span class="sd">            A list of instantiated exdir plugins. Defaults to ``None``.</span>
 <span class="sd">        """</span>
-        <span class="n">exists</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
         <span class="n">_</span><span class="p">,</span> <span class="n">f_ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
         
         <span class="k">if</span> <span class="n">f_ext</span> <span class="o">==</span> <span class="s1">'.exdir'</span><span class="p">:</span>
@@ -319,7 +338,7 @@
                 <span class="n">file_path</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">allow_remove</span><span class="p">,</span> <span class="n">plugins</span>
             <span class="p">)</span>
         <span class="k">elif</span> <span class="n">f_ext</span> <span class="o">==</span> <span class="s1">'.json'</span> <span class="ow">or</span> <span class="n">f_ext</span> <span class="o">==</span> <span class="s1">'.npz'</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">File</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">File</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fpath</span> <span class="o">=</span> <span class="n">file_path</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">=</span> <span class="n">f_ext</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fmode</span> <span class="o">=</span> <span class="n">mode</span>
@@ -330,7 +349,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
     
 <div class="viewcode-block" id="data.clean_key"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.data.clean_key">[docs]</a>    <span class="k">def</span> <span class="nf">clean_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="sd">"""Clean key and remove any common mistakes in keys.</span>
+        <span class="sd">"""Clean key and remove any common mistakes.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -369,7 +388,7 @@
         <span class="k">return</span> <span class="n">key_split</span></div>
     
     <span class="k">def</span> <span class="nf">_get_from_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="sd">"""Get data from dictionary-like file.</span>
+        <span class="sd">"""Get data from dictionary-like file (e.g., json, npz).</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -393,7 +412,7 @@
         <span class="k">return</span> <span class="n">data</span>
     
     <span class="k">def</span> <span class="nf">_get_from_exdir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="sd">"""Get data from exdir file source.</span>
+        <span class="sd">"""Get data from exdir file.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -417,7 +436,9 @@
         <span class="k">return</span> <span class="n">data</span>
     
 <div class="viewcode-block" id="data.get_keys"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.data.get_keys">[docs]</a>    <span class="k">def</span> <span class="nf">get_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">):</span>
-        <span class="sd">"""A list of keys in a group (not included nested keys).</span>
+        <span class="sd">"""A list of keys in a group.</span>
+
+<span class="sd">        Does not include keys of nested groups.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -430,9 +451,9 @@
 <span class="sd">            A list of all available keys not leading to another group.</span>
 <span class="sd">        """</span>
         <span class="n">group_key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clean_key</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
-        <span class="n">keys</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
-        
+
+        <span class="n">keys</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">'exdir'</span><span class="p">:</span>
             <span class="n">keys</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span>
             <span class="n">keys</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
@@ -446,9 +467,7 @@
         <span class="k">return</span> <span class="n">keys</span></div>
 
 <div class="viewcode-block" id="data.get"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.data.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="sd">"""Retrives data from a loaded file.</span>
-
-<span class="sd">        Provides a uniform method of query data from different sources.</span>
+        <span class="sd">"""Retrieve data.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -470,6 +489,12 @@
         <span class="k">return</span> <span class="n">data</span></div>
     
     <span class="k">def</span> <span class="nf">_is_iter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">"""If data is iterative (i.e., array, list, or tuple).</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        :obj:`bool`</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
             <span class="k">return</span> <span class="kc">True</span>
         <span class="k">else</span><span class="p">:</span>
@@ -477,6 +502,16 @@
     
 <div class="viewcode-block" id="data.simplify_iter_data"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.data.simplify_iter_data">[docs]</a>    <span class="k">def</span> <span class="nf">simplify_iter_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="sd">"""Simplify iterative data if possible.</span>
+
+<span class="sd">        Attempts to simplify iterative objects by the type and/or number of</span>
+<span class="sd">        elements. For example, iterative data with only one element will return</span>
+<span class="sd">        just that element.</span>
+
+<span class="sd">        This is mainly used when adding data to a file. When parsing data we</span>
+<span class="sd">        will not know if there will be multiple values of certain data (e.g.,</span>
+<span class="sd">        multiple single point energies) until we finish parsing. Thus, we assume</span>
+<span class="sd">        there will be multiple values while parsing then simplify any iterative</span>
+<span class="sd">        objects at the end.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -592,7 +627,7 @@
                 <span class="n">group</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="n">data_key</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
 
 <div class="viewcode-block" id="data.add"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.data.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="sd">"""Add information to a loaded file.</span>
+        <span class="sd">"""Add data to file.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -630,7 +665,7 @@
                 <span class="k">yield</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
     
 <div class="viewcode-block" id="data.init_group"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.data.init_group">[docs]</a>    <span class="k">def</span> <span class="nf">init_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="sd">"""Create a new group with the specified key.</span>
+        <span class="sd">"""Initialize an exdir group with the specified key.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
