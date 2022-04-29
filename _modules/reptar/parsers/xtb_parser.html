@@ -154,7 +154,11 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../creator.html">Creator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parsers-extractors.html">Parsers and extractors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../definitions.html">Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/examples.html">Examples</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../doc/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../doc/reptar.html">reptar package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../doc/reptar.definitions.html">reptar.definitions package</a></li>
@@ -226,7 +230,7 @@
 <span class="kn">from</span> <span class="nn">.xtb_extractor</span> <span class="kn">import</span> <span class="n">extractorXTB</span>
 <span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="n">atoms_by_number</span><span class="p">,</span> <span class="n">parse_stringfile</span>
 
-<div class="viewcode-block" id="parserXTB"><a class="viewcode-back" href="../../../doc/reptar.parsers.html#reptar.parsers.xtb_parser.parserXTB">[docs]</a><span class="k">class</span> <span class="nc">parserXTB</span><span class="p">(</span><span class="n">parser</span><span class="p">):</span>
+<div class="viewcode-block" id="parserXTB"><a class="viewcode-back" href="../../../parsers-extractors.html#reptar.parsers.xtb_parser.parserXTB">[docs]</a><span class="k">class</span> <span class="nc">parserXTB</span><span class="p">(</span><span class="n">parser</span><span class="p">):</span>
     <span class="sd">"""Custom parser for xtb output files.</span>
 
 <span class="sd">    Parameters</span>
@@ -240,29 +244,6 @@
 <span class="sd">        simulation, etc.</span>
 <span class="sd">    extractors : :obj:`list`, optional</span>
 <span class="sd">        Additional extractors for the parser to use.</span>
-<span class="sd">    </span>
-<span class="sd">    Attributes</span>
-<span class="sd">    ----------</span>
-<span class="sd">    out_path : :obj:`str`</span>
-<span class="sd">        Path to output file.</span>
-<span class="sd">    file_name : :obj:`str`</span>
-<span class="sd">        The name of the file without extension.</span>
-<span class="sd">    parsed_info : :obj:`dict`</span>
-<span class="sd">        Information parsed from files. Contains the following keys.</span>
-
-<span class="sd">        ``system_info``</span>
-<span class="sd">            Information specifying the system prior to any computation. Such</span>
-<span class="sd">            as the initial cartesian coordinates, total system charge and</span>
-<span class="sd">            multiplicity, etc.</span>
-<span class="sd">        </span>
-<span class="sd">        ``runtime_info``</span>
-<span class="sd">            Contains information about setting up the job/calculation or running</span>
-<span class="sd">            the job. Defining convergence criteria, parameters, etc.</span>
-<span class="sd">        </span>
-<span class="sd">        ``outputs``</span>
-<span class="sd">            Results, requested or not, of the job. For example, SCF</span>
-<span class="sd">            cycle values, optimized coordinates, trajectory, number of</span>
-<span class="sd">            electrons, generated structures, etc.</span>
 <span class="sd">    """</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">out_path</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extractors</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -285,17 +266,7 @@
         <span class="sd">"""Parses trajectory file and extracts information.</span>
 <span class="sd">        """</span>
         <span class="c1"># Extract information.</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">out_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-                <span class="k">for</span> <span class="n">extractor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">extractors</span><span class="p">:</span>
-                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">extractor</span><span class="o">.</span><span class="n">triggers</span><span class="p">)):</span>
-                        <span class="k">if</span> <span class="n">extractor</span><span class="o">.</span><span class="n">triggers</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">](</span><span class="n">line</span><span class="p">):</span>
-                            <span class="nb">getattr</span><span class="p">(</span><span class="n">extractor</span><span class="p">,</span> <span class="n">extractor</span><span class="o">.</span><span class="n">triggers</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])(</span><span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
-                            <span class="k">break</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="k">continue</span>
-                    <span class="k">break</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">combine_extracted</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extract_data_out</span><span class="p">()</span>
 
         <span class="c1"># Adding any structure information.</span>
         <span class="n">Z</span> <span class="o">=</span> <span class="p">[]</span>

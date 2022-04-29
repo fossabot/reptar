@@ -154,7 +154,11 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../creator.html">Creator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parsers-extractors.html">Parsers and extractors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../definitions.html">Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/examples.html">Examples</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../doc/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../doc/reptar.html">reptar package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../doc/reptar.definitions.html">reptar.definitions package</a></li>
@@ -227,7 +231,7 @@
 <span class="kn">import</span> <span class="nn">cclib</span>
 <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">combine_dicts</span>
 
-<div class="viewcode-block" id="data"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.data">[docs]</a><span class="k">class</span> <span class="nc">data</span><span class="p">:</span>
+<div class="viewcode-block" id="data"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data">[docs]</a><span class="k">class</span> <span class="nc">data</span><span class="p">:</span>
     <span class="sd">"""Create, store, and access data from a variety of formats.</span>
 
 <span class="sd">    Parameters</span>
@@ -348,7 +352,7 @@
             <span class="n">data</span> <span class="o">=</span> <span class="n">pair</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
     
-<div class="viewcode-block" id="data.clean_key"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.data.clean_key">[docs]</a>    <span class="k">def</span> <span class="nf">clean_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<div class="viewcode-block" id="data.clean_key"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.clean_key">[docs]</a>    <span class="k">def</span> <span class="nf">clean_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
         <span class="sd">"""Clean key and remove any common mistakes.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
@@ -365,7 +369,7 @@
             <span class="n">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'//'</span><span class="p">,</span> <span class="s1">'/'</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">key</span></div>
     
-<div class="viewcode-block" id="data.split_key"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.data.split_key">[docs]</a>    <span class="k">def</span> <span class="nf">split_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<div class="viewcode-block" id="data.split_key"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.split_key">[docs]</a>    <span class="k">def</span> <span class="nf">split_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
         <span class="sd">"""Split the key into a parent and data key.</span>
 
 <span class="sd">        Parameters</span>
@@ -435,7 +439,7 @@
         
         <span class="k">return</span> <span class="n">data</span>
     
-<div class="viewcode-block" id="data.get_keys"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.data.get_keys">[docs]</a>    <span class="k">def</span> <span class="nf">get_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">):</span>
+<div class="viewcode-block" id="data.get_keys"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.get_keys">[docs]</a>    <span class="k">def</span> <span class="nf">get_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">):</span>
         <span class="sd">"""A list of keys in a group.</span>
 
 <span class="sd">        Does not include keys of nested groups.</span>
@@ -466,7 +470,7 @@
             <span class="n">keys</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
         <span class="k">return</span> <span class="n">keys</span></div>
 
-<div class="viewcode-block" id="data.get"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.data.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<div class="viewcode-block" id="data.get"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
         <span class="sd">"""Retrieve data.</span>
 
 <span class="sd">        Parameters</span>
@@ -500,7 +504,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span>
     
-<div class="viewcode-block" id="data.simplify_iter_data"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.data.simplify_iter_data">[docs]</a>    <span class="k">def</span> <span class="nf">simplify_iter_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="data.simplify_iter_data"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.simplify_iter_data">[docs]</a>    <span class="k">def</span> <span class="nf">simplify_iter_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="sd">"""Simplify iterative data if possible.</span>
 
 <span class="sd">        Attempts to simplify iterative objects by the type and/or number of</span>
@@ -626,8 +630,11 @@
                 <span class="n">group</span><span class="o">.</span><span class="fm">__delitem__</span><span class="p">(</span><span class="n">data_key</span><span class="p">)</span>
                 <span class="n">group</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="n">data_key</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
 
-<div class="viewcode-block" id="data.add"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.data.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="data.add"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="sd">"""Add data to file.</span>
+
+<span class="sd">        Note that there is some data postprocessing using</span>
+<span class="sd">        :meth:`~reptar.data.data.simplify_iter_data`.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -664,7 +671,7 @@
                 <span class="c1"># If value is not dict type then yield the value</span>
                 <span class="k">yield</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
     
-<div class="viewcode-block" id="data.init_group"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.data.init_group">[docs]</a>    <span class="k">def</span> <span class="nf">init_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<div class="viewcode-block" id="data.init_group"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.init_group">[docs]</a>    <span class="k">def</span> <span class="nf">init_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
         <span class="sd">"""Initialize an exdir group with the specified key.</span>
 
 <span class="sd">        Parameters</span>
@@ -679,7 +686,7 @@
             <span class="n">group</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">create_group</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">group</span></div>
     
-<div class="viewcode-block" id="data.as_dict"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.data.as_dict">[docs]</a>    <span class="k">def</span> <span class="nf">as_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">):</span>
+<div class="viewcode-block" id="data.as_dict"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.as_dict">[docs]</a>    <span class="k">def</span> <span class="nf">as_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">):</span>
         <span class="sd">"""Get a group as a dictionary.</span>
 
 <span class="sd">        Parameters</span>
@@ -703,7 +710,7 @@
                 <span class="n">group_dict</span><span class="p">[</span><span class="n">d_key</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">g_key</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">group_dict</span></div>
     
-<div class="viewcode-block" id="data.save"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.data.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">json_prettify</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="data.save"><a class="viewcode-back" href="../../doc/reptar.html#reptar.data.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">json_prettify</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">"""Saves non-exdir files.</span>
 
 <span class="sd">        Parameters</span>

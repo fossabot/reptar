@@ -154,7 +154,11 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../creator.html">Creator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parsers-extractors.html">Parsers and extractors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../definitions.html">Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/examples.html">Examples</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../doc/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../doc/reptar.html">reptar package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../doc/reptar.definitions.html">reptar.definitions package</a></li>
@@ -223,17 +227,7 @@
 <span class="kn">from</span> <span class="nn">.extractor</span> <span class="kn">import</span> <span class="n">extractor</span>
 
 <div class="viewcode-block" id="extractorXTB"><a class="viewcode-back" href="../../../doc/reptar.parsers.html#reptar.parsers.xtb_extractor.extractorXTB">[docs]</a><span class="k">class</span> <span class="nc">extractorXTB</span><span class="p">(</span><span class="n">extractor</span><span class="p">):</span>
-    <span class="sd">"""</span>
-
-<span class="sd">    Attributes</span>
-<span class="sd">    ----------</span>
-<span class="sd">    triggers : :obj:`tuple`</span>
-<span class="sd">        A collection of triggers that activate the corresponding extractor.</span>
-<span class="sd">        The trigger is a lambda function that returns True or False depending</span>
-<span class="sd">        on the criteria and the name of the extractor method.</span>
-<span class="sd">    parsed_info : :obj:`dict`</span>
-<span class="sd">        Extracted information from the file from this object.</span>
-<span class="sd">    """</span>
+    <span class="sd">"""xTB extractor"""</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
     

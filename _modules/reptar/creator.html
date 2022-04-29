@@ -154,7 +154,11 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../creator.html">Creator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parsers-extractors.html">Parsers and extractors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../definitions.html">Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/examples.html">Examples</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../doc/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../doc/reptar.html">reptar package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../doc/reptar.definitions.html">reptar.definitions package</a></li>
@@ -233,7 +237,7 @@
     <span class="s1">'base'</span><span class="p">,</span> <span class="s1">'md'</span><span class="p">,</span> <span class="s1">'molprop'</span><span class="p">,</span> <span class="s1">'pes'</span><span class="p">,</span> <span class="s1">'qc'</span><span class="p">,</span> <span class="s1">'sampl'</span><span class="p">,</span> <span class="s1">'solv'</span><span class="p">,</span> <span class="s1">'xtb'</span>
 <span class="p">]</span>
 
-<div class="viewcode-block" id="identify_parser"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator.identify_parser">[docs]</a><span class="k">def</span> <span class="nf">identify_parser</span><span class="p">(</span><span class="n">out_path</span><span class="p">):</span>
+<div class="viewcode-block" id="identify_parser"><a class="viewcode-back" href="../../doc/reptar.html#reptar.identify_parser">[docs]</a><span class="k">def</span> <span class="nf">identify_parser</span><span class="p">(</span><span class="n">out_path</span><span class="p">):</span>
     <span class="sd">"""Identifies the correct parser depending on some trigger.</span>
 <span class="sd">    Only supported packaged should be included in `triggers`.</span>
 
@@ -261,7 +265,7 @@
     <span class="p">(</span><span class="n">parserXTB</span><span class="p">,</span> <span class="p">[</span><span class="s2">"x T B"</span><span class="p">],</span> <span class="kc">True</span><span class="p">)</span>
 <span class="p">]</span>
 
-<div class="viewcode-block" id="creator"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator.creator">[docs]</a><span class="k">class</span> <span class="nc">creator</span><span class="p">:</span>
+<div class="viewcode-block" id="creator"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator">[docs]</a><span class="k">class</span> <span class="nc">creator</span><span class="p">:</span>
     <span class="sd">"""Create groups from computational chemistry data.</span>
 
 <span class="sd">    Parameters</span>
@@ -274,7 +278,7 @@
         <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
     
-<div class="viewcode-block" id="creator.load"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator.creator.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span>
+<div class="viewcode-block" id="creator.load"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">allow_remove</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">plugins</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">):</span>
         <span class="sd">"""Load a data file for creating/adding information.</span>
@@ -297,7 +301,7 @@
             <span class="n">file_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">allow_remove</span><span class="o">=</span><span class="n">allow_remove</span><span class="p">,</span> <span class="n">plugins</span><span class="o">=</span><span class="n">plugins</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="creator.parse_output"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator.creator.parse_output">[docs]</a>    <span class="k">def</span> <span class="nf">parse_output</span><span class="p">(</span>
+<div class="viewcode-block" id="creator.parse_output"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator.parse_output">[docs]</a>    <span class="k">def</span> <span class="nf">parse_output</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">out_path</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extractors</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">):</span>
         <span class="sd">"""Parse output file using cclib and custom parser.</span>
@@ -357,7 +361,7 @@
                     <span class="n">xtb_restart_path</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">raw_path</span><span class="p">,</span> <span class="s1">'xtbrestart'</span><span class="p">)</span>
                 <span class="p">)</span>
     
-<div class="viewcode-block" id="creator.group"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator.creator.group">[docs]</a>    <span class="k">def</span> <span class="nf">group</span><span class="p">(</span>
+<div class="viewcode-block" id="creator.group"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator.group">[docs]</a>    <span class="k">def</span> <span class="nf">group</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">,</span> <span class="n">out_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">extractors</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">):</span>
@@ -421,7 +425,7 @@
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span></div>
     
-<div class="viewcode-block" id="creator.ids"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator.creator.ids">[docs]</a>    <span class="k">def</span> <span class="nf">ids</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">,</span> <span class="n">comp_ids</span><span class="p">):</span>
+<div class="viewcode-block" id="creator.ids"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator.ids">[docs]</a>    <span class="k">def</span> <span class="nf">ids</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">,</span> <span class="n">comp_ids</span><span class="p">):</span>
         <span class="sd">"""Add ``entity_ids`` and ``comp_ids`` to a group.</span>
 
 <span class="sd">        Parameters</span>
@@ -454,7 +458,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span></div>
     
     <span class="c1"># TODO: Update ways we get data here.</span>
-<div class="viewcode-block" id="creator.definitions"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator.creator.definitions">[docs]</a>    <span class="k">def</span> <span class="nf">definitions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">definitions</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="creator.definitions"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator.definitions">[docs]</a>    <span class="k">def</span> <span class="nf">definitions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">definitions</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""Add definitions of data to the file.</span>
 
 <span class="sd">        The base definitions are included by default. There should be no overlap</span>

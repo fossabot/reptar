@@ -154,7 +154,11 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../creator.html">Creator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parsers-extractors.html">Parsers and extractors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../definitions.html">Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/examples.html">Examples</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../doc/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../doc/reptar.html">reptar package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../doc/reptar.definitions.html">reptar.definitions package</a></li>
@@ -224,15 +228,29 @@
 
 <div class="viewcode-block" id="extractor"><a class="viewcode-back" href="../../../doc/reptar.parsers.html#reptar.parsers.extractor.extractor">[docs]</a><span class="k">class</span> <span class="nc">extractor</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
     <span class="sd">"""Base class for extracting information from files.</span>
+<span class="sd">    """</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">'system_info'</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="s1">'runtime_info'</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="s1">'outputs'</span><span class="p">:</span> <span class="p">{}</span>
+        <span class="p">}</span>
 
-<span class="sd">    Attributes</span>
-<span class="sd">    ----------</span>
-<span class="sd">    triggers : :obj:`tuple`</span>
-<span class="sd">        A collection of triggers that activate the corresponding extractor.</span>
+    <span class="nd">@property</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">triggers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">"""A collection of triggers that activate the corresponding extractor.</span>
+
 <span class="sd">        The trigger is a lambda function that returns True or False depending</span>
 <span class="sd">        on the criteria and the name of the extractor method.</span>
-<span class="sd">    parsed_info : :obj:`dict`</span>
-<span class="sd">        Information parsed from files. Contains the following keys.</span>
+
+<span class="sd">        :type: :obj:`tuple`</span>
+<span class="sd">        """</span>
+        <span class="k">pass</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">parsed_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">"""Information parsed from files. Contains the following keys.</span>
 
 <span class="sd">        ``system_info``</span>
 <span class="sd">            Information specifying the system prior to any computation. Such</span>
@@ -247,18 +265,18 @@
 <span class="sd">            Results, requested or not, of the job. For example, SCF</span>
 <span class="sd">            cycle values, optimized coordinates, trajectory, number of</span>
 <span class="sd">            electrons, generated structures, etc.</span>
-<span class="sd">    """</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">'system_info'</span><span class="p">:</span> <span class="p">{},</span>
-            <span class="s1">'runtime_info'</span><span class="p">:</span> <span class="p">{},</span>
-            <span class="s1">'outputs'</span><span class="p">:</span> <span class="p">{}</span>
-        <span class="p">}</span>
 
-    <span class="nd">@property</span>
-    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">triggers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
+<span class="sd">        :type: :obj:`dict`</span>
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parsed_info</span>
+    
+    <span class="nd">@parsed_info</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">parsed_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parsed_info</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@parsed_info</span><span class="o">.</span><span class="n">deleter</span>
+    <span class="k">def</span> <span class="nf">parsed_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parsed_info</span>
     
 <div class="viewcode-block" id="extractor.skip_lines"><a class="viewcode-back" href="../../../doc/reptar.parsers.html#reptar.parsers.extractor.extractor.skip_lines">[docs]</a>    <span class="k">def</span> <span class="nf">skip_lines</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
         <span class="sd">"""Skip a number of lines.</span>

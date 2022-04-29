@@ -153,7 +153,11 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creator.html">Creator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parsers-extractors.html">Parsers and extractors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="definitions.html">Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples.html">Examples</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="doc/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="doc/reptar.html">reptar package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="doc/reptar.definitions.html">reptar.definitions package</a></li>
@@ -281,6 +285,8 @@
 </li>
         <li><a href="doc/reptar.parsers.html#reptar.parsers.orca_extractor.extractorORCA.entropic_corr">entropic_corr() (reptar.parsers.orca_extractor.extractorORCA method)</a>
 </li>
+        <li><a href="doc/reptar.parsers.html#reptar.parsers.parser.parser.extract_data_out">extract_data_out() (reptar.parsers.parser.parser method)</a>
+</li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="doc/reptar.parsers.html#reptar.parsers.extractor.extractor">extractor (class in reptar.parsers.extractor)</a>
@@ -297,14 +303,8 @@
   <h2>F</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="doc/reptar.parsers.html#reptar.parsers.orca_parser.parserORCA.file_name">file_name (reptar.parsers.orca_parser.parserORCA attribute)</a>
-
-        <ul>
-          <li><a href="doc/reptar.parsers.html#reptar.parsers.parser.parser.file_name">(reptar.parsers.parser.parser attribute)</a>
+        <li><a href="doc/reptar.parsers.html#reptar.parsers.parser.parser.file_name">file_name (reptar.parsers.parser.parser attribute)</a>
 </li>
-          <li><a href="doc/reptar.parsers.html#reptar.parsers.xtb_parser.parserXTB.file_name">(reptar.parsers.xtb_parser.parserXTB attribute)</a>
-</li>
-        </ul></li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="doc/reptar.parsers.html#reptar.parsers.orca_extractor.extractorORCA.frequencies">frequencies() (reptar.parsers.orca_extractor.extractorORCA method)</a>
@@ -322,6 +322,8 @@
         <li><a href="doc/reptar.html#reptar.utils.gen_entity_ids">gen_entity_ids() (in module reptar.utils)</a>
 </li>
         <li><a href="doc/reptar.parsers.html#reptar.parsers.orca_extractor.extractorORCA.geo_conv">geo_conv() (reptar.parsers.orca_extractor.extractorORCA method)</a>
+</li>
+        <li><a href="creator.html#term-geom_path"><strong>geom_path</strong></a>
 </li>
         <li><a href="doc/reptar.html#reptar.data.data.get">get() (reptar.data.data method)</a>
 </li>
@@ -458,14 +460,16 @@
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="doc/reptar.parsers.html#reptar.parsers.xtb_extractor.extractorXTB.opt_data">opt_data() (reptar.parsers.xtb_extractor.extractorXTB method)</a>
 </li>
-        <li><a href="doc/reptar.parsers.html#reptar.parsers.orca_parser.parserORCA.out_path">out_path (reptar.parsers.orca_parser.parserORCA attribute)</a>
+        <li><a href="creator.html#term-out_path"><strong>out_path</strong></a>
 
         <ul>
           <li><a href="doc/reptar.parsers.html#reptar.parsers.parser.parser.out_path">(reptar.parsers.parser.parser attribute)</a>
 </li>
-          <li><a href="doc/reptar.parsers.html#reptar.parsers.xtb_parser.parserXTB.out_path">(reptar.parsers.xtb_parser.parserXTB attribute)</a>
-</li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="doc/reptar.parsers.html#term-outputs"><strong>outputs</strong></a>, <a href="parsers-extractors.html#term-outputs"><strong>[1]</strong></a>
+</li>
     </ul></td>
   </tr></table>
 </section>
@@ -488,22 +492,14 @@
 </li>
         <li><a href="doc/reptar.html#reptar.utils.parse_stringfile">parse_stringfile() (in module reptar.utils)</a>
 </li>
-        <li><a href="doc/reptar.parsers.html#reptar.parsers.extractor.extractor.parsed_info">parsed_info (reptar.parsers.extractor.extractor attribute)</a>
-
-        <ul>
-          <li><a href="doc/reptar.parsers.html#reptar.parsers.orca_extractor.extractorORCA.parsed_info">(reptar.parsers.orca_extractor.extractorORCA attribute)</a>
-</li>
-          <li><a href="doc/reptar.parsers.html#reptar.parsers.orca_parser.parserORCA.parsed_info">(reptar.parsers.orca_parser.parserORCA attribute)</a>
-</li>
-          <li><a href="doc/reptar.parsers.html#reptar.parsers.parser.parser.parsed_info">(reptar.parsers.parser.parser attribute)</a>
-</li>
-          <li><a href="doc/reptar.parsers.html#reptar.parsers.xtb_extractor.extractorXTB.parsed_info">(reptar.parsers.xtb_extractor.extractorXTB attribute)</a>
-</li>
-          <li><a href="doc/reptar.parsers.html#reptar.parsers.xtb_parser.parserXTB.parsed_info">(reptar.parsers.xtb_parser.parserXTB attribute)</a>
-</li>
-        </ul></li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="doc/reptar.parsers.html#reptar.parsers.extractor.extractor.parsed_info">parsed_info (reptar.parsers.extractor.extractor property)</a>
+
+        <ul>
+          <li><a href="doc/reptar.parsers.html#reptar.parsers.parser.parser.parsed_info">(reptar.parsers.parser.parser property)</a>
+</li>
+        </ul></li>
         <li><a href="doc/reptar.parsers.html#reptar.parsers.parser.parser">parser (class in reptar.parsers.parser)</a>
 </li>
         <li><a href="doc/reptar.parsers.html#reptar.parsers.orca_parser.parserORCA">parserORCA (class in reptar.parsers.orca_parser)</a>
@@ -645,6 +641,8 @@
 </li>
         <li><a href="doc/reptar.parsers.html#reptar.parsers.xtb_extractor.extractorXTB.run_type">run_type() (reptar.parsers.xtb_extractor.extractorXTB method)</a>
 </li>
+        <li><a href="doc/reptar.parsers.html#term-runtime_info"><strong>runtime_info</strong></a>, <a href="parsers-extractors.html#term-runtime_info"><strong>[1]</strong></a>
+</li>
     </ul></td>
   </tr></table>
 </section>
@@ -661,10 +659,10 @@
 </li>
         <li><a href="doc/reptar.parsers.html#reptar.parsers.orca_extractor.extractorORCA.scf_info">scf_info() (reptar.parsers.orca_extractor.extractorORCA method)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="doc/reptar.html#reptar.data.data.simplify_iter_data">simplify_iter_data() (reptar.data.data method)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="doc/reptar.parsers.html#reptar.parsers.extractor.extractor.skip_lines">skip_lines() (reptar.parsers.extractor.extractor method)</a>
 </li>
         <li><a href="doc/reptar.html#reptar.data.data.split_key">split_key() (reptar.data.data method)</a>
@@ -672,6 +670,8 @@
         <li><a href="doc/reptar.parsers.html#reptar.parsers.xtb_extractor.extractorXTB.success">success() (reptar.parsers.xtb_extractor.extractorXTB method)</a>
 </li>
         <li><a href="doc/reptar.parsers.html#reptar.parsers.xtb_extractor.extractorXTB.summary_energies">summary_energies() (reptar.parsers.xtb_extractor.extractorXTB method)</a>
+</li>
+        <li><a href="doc/reptar.parsers.html#term-system_info"><strong>system_info</strong></a>, <a href="parsers-extractors.html#term-system_info"><strong>[1]</strong></a>
 </li>
     </ul></td>
   </tr></table>
@@ -687,18 +687,16 @@
 </li>
         <li><a href="doc/reptar.parsers.html#reptar.parsers.xtb_extractor.extractorXTB.thermostat_prob">thermostat_prob() (reptar.parsers.xtb_extractor.extractorXTB method)</a>
 </li>
-        <li><a href="doc/reptar.parsers.html#reptar.parsers.extractor.extractor.triggers">triggers (reptar.parsers.extractor.extractor attribute)</a>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="creator.html#term-traj_path"><strong>traj_path</strong></a>
+</li>
+        <li><a href="doc/reptar.parsers.html#reptar.parsers.extractor.extractor.triggers">triggers (reptar.parsers.extractor.extractor property)</a>
 
         <ul>
-          <li><a href="doc/reptar.parsers.html#id0">(reptar.parsers.extractor.extractor property)</a>
+          <li><a href="doc/reptar.parsers.html#reptar.parsers.orca_extractor.extractorORCA.triggers">(reptar.parsers.orca_extractor.extractorORCA property)</a>
 </li>
-          <li><a href="doc/reptar.parsers.html#reptar.parsers.orca_extractor.extractorORCA.triggers">(reptar.parsers.orca_extractor.extractorORCA attribute)</a>
-</li>
-          <li><a href="doc/reptar.parsers.html#id1">(reptar.parsers.orca_extractor.extractorORCA property)</a>
-</li>
-          <li><a href="doc/reptar.parsers.html#reptar.parsers.xtb_extractor.extractorXTB.triggers">(reptar.parsers.xtb_extractor.extractorXTB attribute)</a>
-</li>
-          <li><a href="doc/reptar.parsers.html#id2">(reptar.parsers.xtb_extractor.extractorXTB property)</a>
+          <li><a href="doc/reptar.parsers.html#reptar.parsers.xtb_extractor.extractorXTB.triggers">(reptar.parsers.xtb_extractor.extractorXTB property)</a>
 </li>
         </ul></li>
     </ul></td>
