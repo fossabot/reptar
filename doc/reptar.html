@@ -248,8 +248,190 @@
 <section id="reptar-sampler-module">
 <h2>reptar.sampler module<a class="headerlink" href="#reptar-sampler-module" title="Permalink to this headline">#</a></h2>
 </section>
-<section id="reptar-utils-module">
-<h2>reptar.utils module<a class="headerlink" href="#reptar-utils-module" title="Permalink to this headline">#</a></h2>
+<section id="module-reptar.utils">
+<span id="reptar-utils-module"></span><h2>reptar.utils module<a class="headerlink" href="#module-reptar.utils" title="Permalink to this headline">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="reptar.utils.atoms_by_element">
+<span class="sig-prename descclassname"><span class="pre">reptar.utils.</span></span><span class="sig-name descname"><span class="pre">atoms_by_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/utils.html#atoms_by_element"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.utils.atoms_by_element" title="Permalink to this definition">#</a></dt>
+<dd><p>Converts a list of atoms identified by their atomic number to their
+elemental symbol in the same order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>atom_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]) – Atomic numbers of atoms within a structure.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Element symbols of atoms within a structure.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="reptar.utils.atoms_by_number">
+<span class="sig-prename descclassname"><span class="pre">reptar.utils.</span></span><span class="sig-name descname"><span class="pre">atoms_by_number</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/utils.html#atoms_by_number"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.utils.atoms_by_number" title="Permalink to this definition">#</a></dt>
+<dd><p>Converts a list of atoms identified by their elemental symbol to their
+atomic number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>atom_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>]) – Element symbols of atoms within a structure.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Atomic numbers of atoms within a structure.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="reptar.utils.center_structures">
+<span class="sig-prename descclassname"><span class="pre">reptar.utils.</span></span><span class="sig-name descname"><span class="pre">center_structures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/utils.html#center_structures"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.utils.center_structures" title="Permalink to this definition">#</a></dt>
+<dd><p>Centers each structure’s center of mass to the origin.</p>
+<p>Previously centered structures should not be affected by this technique.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>) – Atomic numbers of the atoms in every structure.</p></li>
+<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>) – Cartesian atomic coordinates of data set structures.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Centered Cartesian atomic coordinates.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="reptar.utils.combine_dicts">
+<span class="sig-prename descclassname"><span class="pre">reptar.utils.</span></span><span class="sig-name descname"><span class="pre">combine_dicts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dict1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/utils.html#combine_dicts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.utils.combine_dicts" title="Permalink to this definition">#</a></dt>
+<dd><p>Combine two dictionaries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dict1</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a>) – </p></li>
+<li><p><strong>dict2</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="reptar.utils.gen_comp_ids">
+<span class="sig-prename descclassname"><span class="pre">reptar.utils.</span></span><span class="sig-name descname"><span class="pre">gen_comp_ids</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/utils.html#gen_comp_ids"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.utils.gen_comp_ids" title="Permalink to this definition">#</a></dt>
+<dd><p>Prepares the list of component ids for a system with only one species.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – Species label.</p></li>
+<li><p><strong>num_mol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of molecules of this type in the system.</p></li>
+<li><p><strong>entity_ids</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – Entity ids for these species.</p></li>
+<li><p><strong>add_to</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>) – Component ids to append new ids to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Component ids for a structure.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="reptar.utils.gen_entity_ids">
+<span class="sig-prename descclassname"><span class="pre">reptar.utils.</span></span><span class="sig-name descname"><span class="pre">gen_entity_ids</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms_per_mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">starting_idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/utils.html#gen_entity_ids"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.utils.gen_entity_ids" title="Permalink to this definition">#</a></dt>
+<dd><p>Generates entity ids for a single species.</p>
+<p>Note that all of the atoms in each molecule must occur in the same order and
+be grouped together.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atoms_per_mol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of atoms in the molecule.</p></li>
+<li><p><strong>num_mol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of molecules of this type in the system.</p></li>
+<li><p><strong>starting_idx</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – Number to start entity_id labels.</p></li>
+<li><p><strong>add_to</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>) – Entity ids to append new ids to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Entity ids for a structure.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="reptar.utils.get_files">
+<span class="sig-prename descclassname"><span class="pre">reptar.utils.</span></span><span class="sig-name descname"><span class="pre">get_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expression</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/utils.html#get_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.utils.get_files" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns paths to all files in a given directory that matches a provided
+expression in the file name.</p>
+<p>Commonly used to find all files of a certain type, e.g., output or xyz
+files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Specifies the directory to search.</p></li>
+<li><p><strong>expression</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Expression to be tested against all file names in <code class="docutils literal notranslate"><span class="pre">path</span></code>.</p></li>
+<li><p><strong>recursive</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, optional) – Recursively find all files in all subdirectories.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>All absolute paths to files matching the provided expression.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="reptar.utils.get_md5">
+<span class="sig-prename descclassname"><span class="pre">reptar.utils.</span></span><span class="sig-name descname"><span class="pre">get_md5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_arrays</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_structures</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/utils.html#get_md5"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.utils.get_md5" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates MD5 hash for a group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group</strong> (<code class="docutils literal notranslate"><span class="pre">exdir.Object</span></code>) – An exdir object (<code class="docutils literal notranslate"><span class="pre">File</span></code> or <code class="docutils literal notranslate"><span class="pre">Group</span></code>)</p></li>
+<li><p><strong>only_arrays</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, optional) – Generate the MD5 hash using only arrays. This creates a data-centered
+MD5 that is not affected by data that are commonly added or
+changed. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p><strong>only_structures</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, optional) – Generate the MD5 has with only <code class="docutils literal notranslate"><span class="pre">atomic_numbers</span></code> and <code class="docutils literal notranslate"><span class="pre">geometry</span></code>
+if possible). This is more static than <code class="docutils literal notranslate"><span class="pre">only_arrays</span></code> and should be
+used to track sampling (i.e., <code class="docutils literal notranslate"><span class="pre">r_prov_ids</span></code>).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>MD5 hash of a group.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="reptar.utils.parse_stringfile">
+<span class="sig-prename descclassname"><span class="pre">reptar.utils.</span></span><span class="sig-name descname"><span class="pre">parse_stringfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stringfile_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/utils.html#parse_stringfile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.utils.parse_stringfile" title="Permalink to this definition">#</a></dt>
+<dd><p>Parses data from string file.</p>
+<p>A string file is data presented as consecutive xyz data. The data could be
+three Cartesian coordinates for each atom, three atomic force vector
+components, or both coordinates and atomic forces in one line (referred to
+as extended xyz).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>stringfile_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to string file.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Parsed atoms (as element symbols <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>), comments, and data as
+<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a> from string file.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
 </section>
 <section id="module-contents">
 <h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">#</a></h2>
@@ -320,7 +502,7 @@
 <li><a class="reference internal" href="#reptar-data-module">reptar.data module</a></li>
 <li><a class="reference internal" href="#reptar-fragment-module">reptar.fragment module</a></li>
 <li><a class="reference internal" href="#reptar-sampler-module">reptar.sampler module</a></li>
-<li><a class="reference internal" href="#reptar-utils-module">reptar.utils module</a></li>
+<li><a class="reference internal" href="#module-reptar.utils">reptar.utils module</a></li>
 <li><a class="reference internal" href="#module-contents">Module contents</a></li>
 </ul>
 </li>
