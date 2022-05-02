@@ -8,6 +8,7 @@ Subpackages
    :maxdepth: 4
 
    reptar.definitions
+   reptar.extractors
    reptar.parsers
    reptar.writers
 

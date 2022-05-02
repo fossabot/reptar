@@ -163,6 +163,7 @@
 <li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">API</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 current has-children"><a class="reference internal" href="reptar.html">reptar package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="reptar.definitions.html">reptar.definitions package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reptar.extractors.html">reptar.extractors package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="reptar.parsers.html">reptar.parsers package</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">reptar.writers package</a></li>
 </ul>
@@ -207,14 +208,106 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">#</a></h2>
 </section>
-<section id="reptar-writers-pdb-module">
-<h2>reptar.writers.pdb module<a class="headerlink" href="#reptar-writers-pdb-module" title="Permalink to this headline">#</a></h2>
+<section id="module-reptar.writers.pdb">
+<span id="reptar-writers-pdb-module"></span><h2>reptar.writers.pdb module<a class="headerlink" href="#module-reptar.writers.pdb" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="reptar.writers.pdb.pdbWriter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.writers.pdb.</span></span><span class="sig-name descname"><span class="pre">pdbWriter</span></span><a class="reference internal" href="../_modules/reptar/writers/pdb.html#pdbWriter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.writers.pdb.pdbWriter" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#reptar.writers.writer.reptarWriter" title="reptar.writers.writer.reptarWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">reptar.writers.writer.reptarWriter</span></code></a></p>
+<p>Writes PDB file from reptar group.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="reptar.writers.pdb.pdbWriter.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'HETATM'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R_limits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/writers/pdb.html#pdbWriter.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.writers.pdb.pdbWriter.write" title="Permalink to this definition">#</a></dt>
+<dd><p>Parses trajectory file and extracts information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="docutils literal notranslate"><span class="pre">reptar.data</span></code>) – A reptar data object.</p></li>
+<li><p><strong>group_key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Key to the desired group.</p></li>
+<li><p><strong>atom_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – The PDB atom type to be used. Should almost always be <code class="docutils literal notranslate"><span class="pre">HETATM</span></code>.</p></li>
+<li><p><strong>file_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – Name of the PDB file. Defaults to <code class="docutils literal notranslate"><span class="pre">'structure'</span></code>.</p></li>
+<li><p><strong>save_dir</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – Directory to save the PDB file. Defaults to the current directory.</p></li>
+<li><p><strong>R_limits</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>), optional) – Slicing limits specifying start and stop index. If <code class="docutils literal notranslate"><span class="pre">None</span></code> is used
+it does not change the beginning or end of the array. For example,
+<code class="docutils literal notranslate"><span class="pre">(None,</span> <span class="pre">100)</span></code> would only print the first 100 structures.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
 </section>
-<section id="reptar-writers-writer-module">
-<h2>reptar.writers.writer module<a class="headerlink" href="#reptar-writers-writer-module" title="Permalink to this headline">#</a></h2>
+<section id="module-reptar.writers.writer">
+<span id="reptar-writers-writer-module"></span><h2>reptar.writers.writer module<a class="headerlink" href="#module-reptar.writers.writer" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="reptar.writers.writer.reptarWriter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.writers.writer.</span></span><span class="sig-name descname"><span class="pre">reptarWriter</span></span><a class="reference internal" href="../_modules/reptar/writers/writer.html#reptarWriter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.writers.writer.reptarWriter" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>Base class for parsing output files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>out_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to output file.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reptar.writers.writer.reptarWriter.group">
+<span class="sig-name descname"><span class="pre">group</span></span><a class="headerlink" href="#reptar.writers.writer.reptarWriter.group" title="Permalink to this definition">#</a></dt>
+<dd><p>Path to output file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">group</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
 </section>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">#</a></h2>
+<section id="module-reptar.writers">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-reptar.writers" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="reptar.writers.pdbWriter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.writers.</span></span><span class="sig-name descname"><span class="pre">pdbWriter</span></span><a class="reference internal" href="../_modules/reptar/writers/pdb.html#pdbWriter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.writers.pdbWriter" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#reptar.writers.writer.reptarWriter" title="reptar.writers.writer.reptarWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">reptar.writers.writer.reptarWriter</span></code></a></p>
+<p>Writes PDB file from reptar group.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="reptar.writers.pdbWriter.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'HETATM'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R_limits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/writers/pdb.html#pdbWriter.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.writers.pdbWriter.write" title="Permalink to this definition">#</a></dt>
+<dd><p>Parses trajectory file and extracts information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="docutils literal notranslate"><span class="pre">reptar.data</span></code>) – A reptar data object.</p></li>
+<li><p><strong>group_key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Key to the desired group.</p></li>
+<li><p><strong>atom_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – The PDB atom type to be used. Should almost always be <code class="docutils literal notranslate"><span class="pre">HETATM</span></code>.</p></li>
+<li><p><strong>file_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – Name of the PDB file. Defaults to <code class="docutils literal notranslate"><span class="pre">'structure'</span></code>.</p></li>
+<li><p><strong>save_dir</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – Directory to save the PDB file. Defaults to the current directory.</p></li>
+<li><p><strong>R_limits</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>), optional) – Slicing limits specifying start and stop index. If <code class="docutils literal notranslate"><span class="pre">None</span></code> is used
+it does not change the beginning or end of the array. For example,
+<code class="docutils literal notranslate"><span class="pre">(None,</span> <span class="pre">100)</span></code> would only print the first 100 structures.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="reptar.writers.reptarWriter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.writers.</span></span><span class="sig-name descname"><span class="pre">reptarWriter</span></span><a class="reference internal" href="../_modules/reptar/writers/writer.html#reptarWriter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.writers.reptarWriter" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>Base class for parsing output files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>out_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to output file.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="reptar.writers.reptarWriter.group">
+<span class="sig-name descname"><span class="pre">group</span></span><a class="headerlink" href="#reptar.writers.reptarWriter.group" title="Permalink to this definition">#</a></dt>
+<dd><p>Path to output file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">group</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
 </section>
 </section>
 
@@ -277,9 +370,9 @@
             <ul>
 <li><a class="reference internal" href="#">reptar.writers package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#reptar-writers-pdb-module">reptar.writers.pdb module</a></li>
-<li><a class="reference internal" href="#reptar-writers-writer-module">reptar.writers.writer module</a></li>
-<li><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li><a class="reference internal" href="#module-reptar.writers.pdb">reptar.writers.pdb module</a></li>
+<li><a class="reference internal" href="#module-reptar.writers.writer">reptar.writers.writer module</a></li>
+<li><a class="reference internal" href="#module-reptar.writers">Module contents</a></li>
 </ul>
 </li>
 </ul>

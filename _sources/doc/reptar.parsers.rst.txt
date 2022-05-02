@@ -4,22 +4,6 @@ reptar.parsers package
 Submodules
 ----------
 
-reptar.parsers.extractor module
--------------------------------
-
-.. automodule:: reptar.parsers.extractor
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-reptar.parsers.orca\_extractor module
--------------------------------------
-
-.. automodule:: reptar.parsers.orca_extractor
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 reptar.parsers.orca\_parser module
 ----------------------------------
 
@@ -32,14 +16,6 @@ reptar.parsers.parser module
 ----------------------------
 
 .. automodule:: reptar.parsers.parser
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-reptar.parsers.xtb\_extractor module
-------------------------------------
-
-.. automodule:: reptar.parsers.xtb_extractor
    :members:
    :undoc-members:
    :show-inheritance:
