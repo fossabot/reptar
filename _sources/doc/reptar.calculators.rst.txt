@@ -1,0 +1,37 @@
+reptar.calculators package
+==========================
+
+Submodules
+----------
+
+reptar.calculators.engrads module
+---------------------------------
+
+.. automodule:: reptar.calculators.engrads
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+reptar.calculators.psi4\_workers module
+---------------------------------------
+
+.. automodule:: reptar.calculators.psi4_workers
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+reptar.calculators.xtb\_workers module
+--------------------------------------
+
+.. automodule:: reptar.calculators.xtb_workers
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: reptar.calculators
+   :members:
+   :undoc-members:
+   :show-inheritance:

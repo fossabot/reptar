@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Data" href="data.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Examples" href="examples/examples.html" /><link rel="prev" title="Definitions" href="definitions.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>reptar documentation</title>
+        <title>Calculators - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand">reptar  documentation</div></a>
+      <a href="index.html"><div class="brand">reptar  documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -143,7 +143,7 @@
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
       
-      <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
   <span class="sidebar-brand-text">reptar  documentation</span>
@@ -154,12 +154,12 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul>
+  <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="data.html">Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="creator.html">Creator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parsers-extractors.html">Parsers and extractors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="definitions.html">Definitions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="calculators.html">Calculators</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Calculators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/examples.html">Examples</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="doc/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="doc/reptar.html">reptar package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -205,49 +205,82 @@
           </label>
         </div>
         <article role="main">
-          <section id="reptar">
-<h1>Reptar<a class="headerlink" href="#reptar" title="Permalink to this headline">#</a></h1>
-<p>A tool for storing and analyzing computational chemistry data in a file-agnostic way.</p>
-<a class="reference external image-reference" href="https://app.travis-ci.com/github/aalexmmaldonado/reptar"><img alt="Travis-CI build status" src="https://app.travis-ci.com/aalexmmaldonado/reptar.svg?branch=main"/></a>
-<a class="reference external image-reference" href="https://codecov.io/gh/aalexmmaldonado/reptar"><img alt="Codecov test coverage" src="https://codecov.io/gh/aalexmmaldonado/reptar/branch/main/graph/badge.svg?token=74wLrsOMTD"/></a>
-<a class="reference external image-reference" href="https://github.com/aalexmmaldonado/reptar/releases"><img alt="Latest GitHub release" src="https://img.shields.io/github/v/release/aalexmmaldonado/reptar"/></a>
-<a class="reference external image-reference" href="https://doi.org/10.5281/zenodo.6508586"><img alt="Zenodo doi" src="https://zenodo.org/badge/DOI/10.5281/zenodo.6508586.svg"/></a>
-<a class="reference external image-reference" href="https://lgtm.com/projects/g/aalexmmaldonado/reptar/context:python"><img alt="https://img.shields.io/lgtm/grade/python/g/aalexmmaldonado/reptar.svg?logo=lgtm&amp;logoWidth=18" src="https://img.shields.io/lgtm/grade/python/g/aalexmmaldonado/reptar.svg?logo=lgtm&amp;logoWidth=18"/></a>
-<a class="reference external image-reference" href="https://github.com/aalexmmaldonado/reptar/blob/main/LICENSE"><img alt="https://img.shields.io/github/license/aalexmmaldonado/reptar" src="https://img.shields.io/github/license/aalexmmaldonado/reptar"/></a>
-<section id="motivation">
-<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">#</a></h2>
-<p>Computational chemistry is falling behind in providing open raw and processed data used to draw scientific conclusions.
-Often it is the lack of time, expertise, and options that push researchers to overlook the importance of reproducible findings.
-Projects such as <a class="reference external" href="https://qcarchive.molssi.org/">QCArchive</a>, <a class="reference external" href="https://materialsproject.org/">Materials Project</a>, <a class="reference external" href="https://pqr.pitt.edu/">Pitt Quantum Repository</a>, <a class="reference external" href="https://www.iochem-bd.org/">ioChem-BD</a> and many others provide a rigid data framework for a specific purpose (e.g., quantum chemistry and material properties).
-In other words, data that does not directly fit into their paradigm are incompatible (for good reason).</p>
-<p>Alternatively, you could use file formats such as JSON, XML, YAML, npz, etc. for a specific project.
-These are great options for customizable data storage with their own advantages and disadvantages.
-However, you often must choose between (1) a standardized parser that might not support your workflow or (2) writing your own.</p>
-<p>Reptar provides customizable parsers and data storage frameworks for whatever an individual project demands.
-Data is stored in one of the supported file types and generalized routines are used to access and store data.
-All data is stored in a key-value pair format where users can use predetermined definitions or include their own.
-Regardless if you are running nudged elastic band calculations in VASP, free energy perturbation simulations in GROMACS, or gradient calculations in Psi4, you can store data easily with reptar by selecting a parser a specifying the desired file type.
-The result is a user-specified data file streamlined for analysis in Python and optimized for archival on places such as <a class="reference external" href="https://github.com/">GitHub</a> and <a class="reference external" href="https://zenodo.org/">Zenodo</a>.</p>
-</section>
-<section id="file-types">
-<h2>File types<a class="headerlink" href="#file-types" title="Permalink to this headline">#</a></h2>
-<p>Reptar supports three file types with a single interface: exdir, JSON, and npz.
-JSON is a text file for storing key-value pairs with few dimensions (i.e., no large arrays).
-NumPy’s npz format is useful for arrays; however, no nesting is possible and loading data often requires postprocessing for 0D arrays (e.g., <code class="docutils literal notranslate"><span class="pre">np.array('data')</span></code>).</p>
-<p>Exdir is a simple, yet powerful open file format that mimics the <a class="reference external" href="https://www.hdfgroup.org/solutions/hdf5/">HDF5</a> format with metadata and data stored in directories with YAML and npy files instead of a single binary file.
-This provides several advantages such as mixing human-readable YAML and binary NumPy files, being easier for version control, and only loading requested portions of datasets into memory.
-For more detailed information, please read this <a class="reference external" href="https://doi.org/10.3389/fninf.2018.00016">Front. Neuroinform. article about exdir</a>.</p>
-</section>
-<section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">#</a></h2>
-<p>You can install reptar using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">reptar</span></code> or install the latest version directly from the <a class="reference external" href="https://github.com/aalexmmaldonado/reptar">GitHub repository</a>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/aalexmmaldonado/reptar
-<span class="nb">cd</span> reptar
-pip install .
+          <section id="calculators">
+<h1>Calculators<a class="headerlink" href="#calculators" title="Permalink to this headline">#</a></h1>
+<p>Reptar provides a framework for computing common properties and electronic energies and gradients.
+<a class="reference external" href="https://docs.ray.io/en/latest/index.html">Ray</a> is used to parallelize computations when possible.</p>
+<p>The additional dependencies are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.ray.io/en/latest/ray-overview/installation.html">ray</a> (required)</p></li>
+<li><p><a class="reference external" href="https://psicode.org/installs/v15/">psi4</a></p></li>
+<li><p><a class="reference external" href="https://github.com/grimme-lab/xtb-python#installation">xtb-python</a></p></li>
+</ul>
+<section id="energy-and-gradients">
+<h2>Energy and gradients<a class="headerlink" href="#energy-and-gradients" title="Permalink to this headline">#</a></h2>
+<p>Reptar provides a framework with a ray driver and premade ray task/worker functions.</p>
+<p><code class="docutils literal notranslate"><span class="pre">worker_func</span></code> calls the desired program and computes energies and gradients.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">worker_func</span></code> should not already have the <code class="docutils literal notranslate"><span class="pre">ray.remote</span></code> decorator.
+This is automatically included when <code class="xref py py-class docutils literal notranslate"><span class="pre">driverENGRAD</span></code> is initialized.</p>
+</div>
+<p>Reptar currently has a worker for <a class="reference external" href="https://psicode.org/psi4manual/master/index.html">Psi4</a>, <code class="xref py py-func docutils literal notranslate"><span class="pre">psi4_engrad()</span></code>, and <a class="reference external" href="https://xtb-docs.readthedocs.io/en/latest/contents.html">xTB</a>, <code class="xref py py-func docutils literal notranslate"><span class="pre">xtb_engrad()</span></code>.</p>
+<section id="psi4-example">
+<span id="psi4-engrad-example"></span><h3>Psi4 example<a class="headerlink" href="#psi4-example" title="Permalink to this headline">#</a></h3>
+<p>The following example demonstrates a parallelized workflow for computing MP2/cc-pVTZ energies and gradients for twenty (H<sub>2</sub>O)<sub>3</sub> structures.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">ray</span>
+<span class="kn">from</span> <span class="nn">reptar</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="kn">from</span> <span class="nn">reptar.calculators</span> <span class="kn">import</span> <span class="n">driverENGRAD</span>
+<span class="kn">from</span> <span class="nn">reptar.calculators.psi4_workers</span> <span class="kn">import</span> <span class="n">psi4_engrad</span>
+
+<span class="c1"># Initialize ray and worker CPUs.</span>
+<span class="n">n_cpus</span> <span class="o">=</span> <span class="mi">8</span>  <span class="c1"># Total number of CPUs to use.</span>
+<span class="n">n_cpus_worker</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># Will use four parallel workers.</span>
+<span class="n">ray</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">num_cpus</span><span class="o">=</span><span class="n">n_cpus</span><span class="p">)</span>
+
+<span class="c1"># Get exdir data.</span>
+<span class="n">exdir_path</span> <span class="o">=</span> <span class="s1">'3h2o.exdir'</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">data</span><span class="p">(</span><span class="n">exdir_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'a'</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'atomic_numbers'</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'geometry'</span><span class="p">)</span>
+
+<span class="c1"># Create energy and gradient arrays.</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">E</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">G</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+<span class="c1"># Specify Psi4 properties</span>
+<span class="n">charge</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">mult</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">psi4_method</span> <span class="o">=</span> <span class="s1">'mp2'</span>
+<span class="n">psi4_options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'basis'</span><span class="p">:</span> <span class="s1">'cc-pVTZ'</span><span class="p">,</span>
+    <span class="s1">'reference'</span><span class="p">:</span> <span class="s1">'rhf'</span><span class="p">,</span>
+    <span class="s1">'e_convergence'</span><span class="p">:</span> <span class="s1">'1e-10'</span><span class="p">,</span>
+    <span class="s1">'d_convergence'</span><span class="p">:</span> <span class="s1">'1e-10'</span><span class="p">,</span>
+    <span class="s1">'freeze_core'</span><span class="p">:</span> <span class="s1">'false'</span>
+<span class="p">}</span>
+<span class="n">psi4_threads</span> <span class="o">=</span> <span class="n">n_cpus_worker</span>
+<span class="n">psi4_args</span> <span class="o">=</span> <span class="p">(</span><span class="n">charge</span><span class="p">,</span> <span class="n">mult</span><span class="p">,</span> <span class="n">psi4_method</span><span class="p">,</span> <span class="n">psi4_options</span><span class="p">,</span> <span class="n">psi4_threads</span><span class="p">)</span>
+
+<span class="c1"># Creating engrad driver.</span>
+<span class="n">max_calcs</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># Manually trims R to the first 20 structures (can remove).</span>
+<span class="n">engrads</span> <span class="o">=</span> <span class="n">driverENGRAD</span><span class="p">(</span>
+    <span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">psi4_engrad</span><span class="p">,</span> <span class="n">psi4_args</span><span class="p">,</span> <span class="n">n_cpus</span><span class="p">,</span>
+    <span class="n">n_cpus_worker</span><span class="o">=</span><span class="n">n_cpus_worker</span><span class="p">,</span> <span class="n">end_slice</span><span class="o">=</span><span class="n">max_calcs</span>
+<span class="p">)</span>
+
+<span class="c1"># Run parallel Psi4 calculations</span>
+<span class="n">E</span><span class="p">,</span> <span class="n">G</span> <span class="o">=</span> <span class="n">engrads</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+
+<span class="c1"># Add data to exdir file.</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'energy_ele_mp2.ccpvtz_psi4'</span><span class="p">,</span> <span class="n">E</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'grads_mp2.ccpvtz_psi4'</span><span class="p">,</span> <span class="n">G</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="toctree-wrapper compound">
-</div>
+</section>
 </section>
 </section>
 
@@ -256,16 +289,26 @@ pip install .
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="data.html">
+          <a class="next-page" href="examples/examples.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Data</div>
+                <div class="title">Examples</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          
+          <a class="prev-page" href="definitions.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Definitions</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -298,10 +341,11 @@ pip install .
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Reptar</a><ul>
-<li><a class="reference internal" href="#motivation">Motivation</a></li>
-<li><a class="reference internal" href="#file-types">File types</a></li>
-<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#">Calculators</a><ul>
+<li><a class="reference internal" href="#energy-and-gradients">Energy and gradients</a><ul>
+<li><a class="reference internal" href="#psi4-example">Psi4 example</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

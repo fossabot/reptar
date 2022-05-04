@@ -7,6 +7,7 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
+   reptar.calculators
    reptar.definitions
    reptar.extractors
    reptar.parsers
