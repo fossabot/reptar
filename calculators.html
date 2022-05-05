@@ -263,7 +263,8 @@ This is automatically included when <code class="xref py py-class docutils liter
     <span class="s1">'freeze_core'</span><span class="p">:</span> <span class="s1">'false'</span>
 <span class="p">}</span>
 <span class="n">psi4_threads</span> <span class="o">=</span> <span class="n">n_cpus_worker</span>
-<span class="n">psi4_args</span> <span class="o">=</span> <span class="p">(</span><span class="n">charge</span><span class="p">,</span> <span class="n">mult</span><span class="p">,</span> <span class="n">psi4_method</span><span class="p">,</span> <span class="n">psi4_options</span><span class="p">,</span> <span class="n">psi4_threads</span><span class="p">)</span>
+<span class="n">psi4_mem</span> <span class="o">=</span> <span class="s1">'2 GB'</span>
+<span class="n">psi4_args</span> <span class="o">=</span> <span class="p">(</span><span class="n">charge</span><span class="p">,</span> <span class="n">mult</span><span class="p">,</span> <span class="n">psi4_method</span><span class="p">,</span> <span class="n">psi4_options</span><span class="p">,</span> <span class="n">psi4_threads</span><span class="p">,</span> <span class="n">psi4_mem</span><span class="p">)</span>
 
 <span class="c1"># Creating engrad driver.</span>
 <span class="n">max_calcs</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># Manually trims R to the first 20 structures (can remove).</span>
