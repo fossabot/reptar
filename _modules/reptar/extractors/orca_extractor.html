@@ -154,11 +154,13 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../data.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../file.html">File</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../creator.html">Creator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../parsers-extractors.html">Parsers and extractors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../definitions.html">Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../writers.html">Writers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sampling.html">Sampling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../calculators.html">Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../definitions.html">Definitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../examples/examples.html">Examples</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../doc/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../doc/reptar.html">reptar package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -517,8 +519,8 @@
         <span class="k">while</span> <span class="s1">'-     ORCA property calculations      *'</span> <span class="o">!=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
             <span class="c1"># Freezing NCore=10 chemical core electrons</span>
             <span class="k">if</span> <span class="s1">'Freezing NCore='</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[:</span><span class="mi">15</span><span class="p">]:</span>
-                <span class="c1"># if 'ele_frozen' not in self.data['keywords'].keys():</span>
-                <span class="c1">#     self.data['outputs']['ele_frozen'] = []</span>
+                <span class="c1"># if 'ele_frozen' not in self.rfile['keywords'].keys():</span>
+                <span class="c1">#     self.rfile['outputs']['ele_frozen'] = []</span>
                 <span class="n">ele_frozen</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">][</span><span class="mi">6</span><span class="p">:])</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'ele_frozen'</span><span class="p">]</span> <span class="o">=</span> <span class="n">ele_frozen</span>
 
@@ -772,8 +774,8 @@
         <span class="c1"># Appends Mulliken charges to a new item for every structure.</span>
         <span class="c1"># self.parsed_info['outputs']['mulliken_charges'].append([])</span>
         <span class="k">while</span> <span class="s1">'Sum of atomic charges'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-            <span class="n">line_split</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">)</span>
             <span class="sd">"""</span>
+<span class="sd">            line_split = line.split(':')</span>
 <span class="sd">            self.parsed_info['outputs']['mulliken_charges'][-1].append(</span>
 <span class="sd">                float(line_split[-1])</span>
 <span class="sd">            )</span>
@@ -811,8 +813,8 @@
         <span class="c1"># Appends Loewdin charges to a new item for every structure.</span>
         <span class="c1"># self.parsed_info['outputs']['loewdin_charges'].append([])</span>
         <span class="k">while</span> <span class="s1">''</span> <span class="o">!=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
-            <span class="n">line_split</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">)</span>
             <span class="sd">"""</span>
+<span class="sd">            line_split = line.split(':')</span>
 <span class="sd">            self.parsed_info['outputs']['loewdin_charges'][-1].append(</span>
 <span class="sd">                float(line_split[-1])</span>
 <span class="sd">            )</span>
@@ -850,9 +852,9 @@
         
         <span class="k">while</span> <span class="s1">'Total Dipole Moment    :'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
             <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-        <span class="n">line_split</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-        <span class="n">dipole</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">line_split</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">line_split</span><span class="p">[</span><span class="mi">5</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">line_split</span><span class="p">[</span><span class="mi">6</span><span class="p">])]</span></div>
-        <span class="c1">#self.parsed_info['outputs']['dipole_moment'].append(dipole)</span>
+        <span class="n">line_split</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span></div>
+        <span class="c1"># dipole = [float(line_split[4]), float(line_split[5]), float(line_split[6])]</span>
+        <span class="c1"># self.parsed_info['outputs']['dipole_moment'].append(dipole)</span>
 
     
     <span class="k">def</span> <span class="nf">_add_geo_conv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info_label</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
@@ -1025,9 +1027,8 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'temp_thermochem'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">temp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'temp_thermochem'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
-        <span class="c1"># Needs to move off this line so extract can continue.</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
-
+        <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
+    
     
 <div class="viewcode-block" id="extractorORCA.zpve"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA.zpve">[docs]</a>    <span class="k">def</span> <span class="nf">zpve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
         <span class="sd">"""Extract zero-point vibrational energy correction.</span>
@@ -1078,7 +1079,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'correc_thermal'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">thermal</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">3</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'correc_thermal'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thermal</span><span class="p">)</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="c1"># Needs to move off this line so extract can continue.</span></div>
+        <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
 
     
 <div class="viewcode-block" id="extractorORCA.enthalpic_corr"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA.enthalpic_corr">[docs]</a>    <span class="k">def</span> <span class="nf">enthalpic_corr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
@@ -1104,7 +1105,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'correc_enthalpy'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">enthalpy</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">4</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'correc_enthalpy'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">enthalpy</span><span class="p">)</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="c1"># Needs to move off this line so extract can continue.</span></div>
+        <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
 
     
 <div class="viewcode-block" id="extractorORCA.entropic_corr"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA.entropic_corr">[docs]</a>    <span class="k">def</span> <span class="nf">entropic_corr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
@@ -1130,8 +1131,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'correc_entropy'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">entropy</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">4</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'correc_entropy'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entropy</span><span class="p">)</span>
-        <span class="c1"># Needs to move off this line so extract can continue.</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div></div>
+        <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div></div>
 
 </pre></div>
         </article>

@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Parsers and Extractors" href="parsers-extractors.html" /><link rel="prev" title="Data" href="data.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Parsers and Extractors" href="parsers-extractors.html" /><link rel="prev" title="File" href="file.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
         <title>Creator - reptar documentation</title>
@@ -155,11 +155,13 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="data.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file.html">File</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Creator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parsers-extractors.html">Parsers and extractors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="definitions.html">Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writers.html">Writers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling.html">Sampling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calculators.html">Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="definitions.html">Definitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/examples.html">Examples</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="doc/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="doc/reptar.html">reptar package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -247,36 +249,38 @@ By providing a customizable parser framework, reptar will automatically take car
 </table></div>
 <section id="group-creation">
 <h2>Group creation<a class="headerlink" href="#group-creation" title="Permalink to this headline">#</a></h2>
-<p>First, a <a class="reference internal" href="data.html#data"><span class="std std-ref">data</span></a> object needs to be loaded into the creator.
-Reptar provides two ways to do this: by initializing a <a class="reference internal" href="doc/reptar.html#reptar.creator" title="reptar.creator"><code class="xref py py-class docutils literal notranslate"><span class="pre">creator</span></code></a> object with a <a class="reference internal" href="data.html#data"><span class="std std-ref">data</span></a> object, or by using the <a class="reference internal" href="doc/reptar.html#reptar.creator.creator.load" title="reptar.creator.creator.load"><code class="xref py py-meth docutils literal notranslate"><span class="pre">load()</span></code></a> method.</p>
+<p>First, a <a class="reference internal" href="file.html#file"><span class="std std-ref">File</span></a> object needs to be loaded into the creator.
+Reptar provides two ways to do this: by initializing a <a class="reference internal" href="doc/reptar.html#reptar.creator" title="reptar.creator"><code class="xref py py-class docutils literal notranslate"><span class="pre">creator</span></code></a> object with a <a class="reference internal" href="file.html#file"><span class="std std-ref">File</span></a> object, or by using the <a class="reference internal" href="doc/reptar.html#reptar.creator.creator.load" title="reptar.creator.creator.load"><code class="xref py py-meth docutils literal notranslate"><span class="pre">load()</span></code></a> method.</p>
 <dl class="py class">
 <dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.</span></span><span class="sig-name descname"><span class="pre">creator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/reptar/creator.html#creator"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.</span></span><span class="sig-name descname"><span class="pre">creator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/reptar/creator.html#creator"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Create groups from computational chemistry data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>data</strong> (<code class="docutils literal notranslate"><span class="pre">reptar.data</span></code>, optional) – An initialized data object.</p>
+<dd class="field-odd"><p><strong>rfile</strong> (<a class="reference internal" href="doc/reptar.html#reptar.File" title="reptar.File"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reptar.File</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – An initialized reptar File.</p>
 </dd>
 </dl>
 </dd></dl>
 <dl class="py method">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">creator.</span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'r'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_remove</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plugins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/reptar/creator.html#creator.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
-<dd><p>Load a data file for creating/adding information.</p>
+<dd><p>Load a reptar file for creating/adding information.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>file_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to a file supported by reptar. If it does not exist, then one will
-be created if possible.</p></li>
-<li><p><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – A file mode string that defines the read/write behavior. Defaults to
-<code class="docutils literal notranslate"><span class="pre">'r'</span></code>.</p></li>
-<li><p><strong>allow_remove</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, optional) – Allow the removal of exdir groups in <code class="docutils literal notranslate"><span class="pre">w</span></code> operation. Defaults to
-<code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-<li><p><strong>plugins</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, optional) – A list of instantiated exdir plugins. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>file_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to a file supported by reptar. If it does not exist, then one
+will be created if possible.</p></li>
+<li><p><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">'r'</span></code>) – A file mode string that defines the read/write behavior.</p></li>
+<li><p><strong>allow_remove</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">False</span></code>) – Allow the removal of exdir groups in <code class="docutils literal notranslate"><span class="pre">w</span></code> operation.</p></li>
+<li><p><strong>plugins</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – A list of instantiated exdir plugins.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This <a class="reference internal" href="file.html#file"><span class="std std-ref">File</span></a> object is stored in the <a class="reference internal" href="doc/reptar.html#reptar.creator.creator.rfile" title="reptar.creator.creator.rfile"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rfile</span></code></a> attribute.</p>
+</div>
 <p>Reptar can then parse information and create a group by specifying the paths to the relevant output files.</p>
 <dl class="py method">
 <dt class="sig sig-object py">
@@ -286,11 +290,11 @@ be created if possible.</p></li>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>group_key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Key to the desired new group (including parent).</p></li>
-<li><p><strong>out_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – Path to the main log file generated by the package.</p></li>
-<li><p><strong>geom_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – Path to a file containing a single geometry.</p></li>
-<li><p><strong>traj_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional) – Path to a trajectory file from a geometry optimization, MD
+<li><p><strong>out_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Path to the main log file generated by the package.</p></li>
+<li><p><strong>geom_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Path to a file containing a single geometry.</p></li>
+<li><p><strong>traj_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Path to a trajectory file from a geometry optimization, MD
 simulation, etc.</p></li>
-<li><p><strong>extractors</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, optional) – Additional extractors for the parser to use.</p></li>
+<li><p><strong>extractors</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Additional extractors for the parser to use.</p></li>
 </ul>
 </dd>
 </dl>
@@ -331,21 +335,27 @@ We provide methods to easily add this information.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>group_key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Key to the group to add IDs to (including parent).</p></li>
-<li><p><strong>entity_ids</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>) – A uniquely identifying integer specifying what atoms belong to which
+<li><p><strong>entity_ids</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – A uniquely identifying integer specifying what atoms belong to which
 entities. Entities can be a related set of atoms, molecules, or
 functional group.</p></li>
-<li><p><strong>comp_ids</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>) – Relates <code class="docutils literal notranslate"><span class="pre">entity_id</span></code> to a fragment label for chemical components
+<li><p><strong>comp_ids</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Relates <code class="docutils literal notranslate"><span class="pre">entity_id</span></code> to a fragment label for chemical components
 or species. Labels could be <code class="docutils literal notranslate"><span class="pre">WAT</span></code> or <code class="docutils literal notranslate"><span class="pre">h2o</span></code> for water, <code class="docutils literal notranslate"><span class="pre">MeOH</span></code>
 for methanol, <code class="docutils literal notranslate"><span class="pre">bz</span></code> for benzene, etc. There are no standardized
 labels for species. The index of the label is the respective
 <code class="docutils literal notranslate"><span class="pre">entity_id</span></code>.</p></li>
 </ul>
 </dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The reptar file group.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">obj</span></code></p>
+</dd>
 </dl>
 </dd></dl>
 </section>
-<section id="data-definitions">
-<h3>Data definitions<a class="headerlink" href="#data-definitions" title="Permalink to this headline">#</a></h3>
+<section id="file-definitions">
+<h3>File definitions<a class="headerlink" href="#file-definitions" title="Permalink to this headline">#</a></h3>
 <p>TODO:</p>
 <dl class="py method">
 <dt class="sig sig-object py">
@@ -356,7 +366,7 @@ of any definitions. If there is, precedence is given in order of
 <code class="docutils literal notranslate"><span class="pre">definitions</span></code> with base always being first.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>definitions</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>], optional) – Paths to data definition YAML files to congregate. Only the name
+<dd class="field-odd"><p><strong>definitions</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> [<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Paths to data definition YAML files to congregate. Only the name
 (not a path) is required for ones provided by reptar.</p>
 </dd>
 </dl>
@@ -382,14 +392,14 @@ of any definitions. If there is, precedence is given in order of
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="data.html">
+          <a class="prev-page" href="file.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Data</div>
+                <div class="title">File</div>
                 
               </div>
             </a>
@@ -432,7 +442,7 @@ of any definitions. If there is, precedence is given in order of
 </li>
 <li><a class="reference internal" href="#additional-data">Additional data</a><ul>
 <li><a class="reference internal" href="#component-and-entity-ids">Component and entity ids</a></li>
-<li><a class="reference internal" href="#data-definitions">Data definitions</a></li>
+<li><a class="reference internal" href="#file-definitions">File definitions</a></li>
 </ul>
 </li>
 </ul>

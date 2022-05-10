@@ -154,11 +154,13 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../data.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../file.html">File</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../creator.html">Creator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../parsers-extractors.html">Parsers and extractors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../definitions.html">Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../writers.html">Writers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sampling.html">Sampling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../calculators.html">Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../definitions.html">Definitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/examples.html">Examples</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../doc/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../doc/reptar.html">reptar package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -227,9 +229,10 @@
 <span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
 <span class="c1"># SOFTWARE.</span>
 
+<span class="kn">import</span> <span class="nn">collections.abc</span>
 <span class="kn">import</span> <span class="nn">hashlib</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">collections.abc</span>
+<span class="kn">import</span> <span class="nn">os</span>
 
 <span class="n">element_to_z</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">'H'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'He'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'Li'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'Be'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">'N'</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">'O'</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">'F'</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
@@ -283,7 +286,7 @@
 <span class="sd">        Specifies the directory to search.</span>
 <span class="sd">    expression : :obj:`str`</span>
 <span class="sd">        Expression to be tested against all file names in ``path``.</span>
-<span class="sd">    recursive : :obj:`bool`, optional</span>
+<span class="sd">    recursive : :obj:`bool`, default: ``True``</span>
 <span class="sd">        Recursively find all files in all subdirectories.</span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>
@@ -394,18 +397,20 @@
                     <span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">line_split</span><span class="p">[</span><span class="mi">1</span><span class="p">:]])</span>
     <span class="k">return</span> <span class="n">Z</span><span class="p">,</span> <span class="n">comments</span><span class="p">,</span> <span class="n">data</span></div>
 
-<div class="viewcode-block" id="get_md5"><a class="viewcode-back" href="../../doc/reptar.html#reptar.utils.get_md5">[docs]</a><span class="k">def</span> <span class="nf">get_md5</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">group_key</span><span class="p">,</span> <span class="n">only_arrays</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">only_structures</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="get_md5"><a class="viewcode-back" href="../../doc/reptar.html#reptar.utils.get_md5">[docs]</a><span class="k">def</span> <span class="nf">get_md5</span><span class="p">(</span><span class="n">rfile</span><span class="p">,</span> <span class="n">group_key</span><span class="p">,</span> <span class="n">only_arrays</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">only_structures</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">"""Creates MD5 hash for a group.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    group : ``exdir.Object``</span>
-<span class="sd">        An exdir object (``File`` or ``Group``)</span>
-<span class="sd">    only_arrays : :obj:`bool`, optional</span>
+<span class="sd">    rfile : :obj:`reptar.File`</span>
+<span class="sd">        A reptar file.</span>
+<span class="sd">    group_key : :obj:`str`</span>
+<span class="sd">        Key to the desired group.</span>
+<span class="sd">    only_arrays : :obj:`bool`, default: ``False``</span>
 <span class="sd">        Generate the MD5 hash using only arrays. This creates a data-centered</span>
 <span class="sd">        MD5 that is not affected by data that are commonly added or</span>
 <span class="sd">        changed. Defaults to ``False``.</span>
-<span class="sd">    only_structures : :obj:`bool`, optional</span>
+<span class="sd">    only_structures : :obj:`bool`, default: ``False``</span>
 <span class="sd">        Generate the MD5 has with only ``atomic_numbers`` and ``geometry``</span>
 <span class="sd">        if possible). This is more static than ``only_arrays`` and should be</span>
 <span class="sd">        used to track sampling (i.e., ``r_prov_ids``).</span>
@@ -420,23 +425,23 @@
 
     <span class="k">if</span> <span class="n">only_structures</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">Z</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/atomic_numbers'</span><span class="p">)</span>
+            <span class="n">Z</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/atomic_numbers'</span><span class="p">)</span>
             <span class="n">Z</span> <span class="o">=</span> <span class="n">Z</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
             <span class="n">md5_hash</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="k">pass</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">R</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/geometry'</span><span class="p">)</span>
+            <span class="n">R</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/geometry'</span><span class="p">)</span>
             <span class="n">R</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
             <span class="n">md5_hash</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">R</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="k">pass</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">keys</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get_keys</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get_keys</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
             <span class="k">if</span> <span class="s1">'md5'</span> <span class="ow">in</span> <span class="n">key</span><span class="p">:</span>
                 <span class="k">continue</span>
-            <span class="n">d</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
                 <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
                 <span class="n">md5_hash</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span>
@@ -517,9 +522,9 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    Z : :obj:`numpy.ndarray`</span>
+<span class="sd">    Z : :obj:`numpy.ndarray`, ndim: ``1``</span>
 <span class="sd">        Atomic numbers of the atoms in every structure.</span>
-<span class="sd">    R : :obj:`numpy.ndarray`</span>
+<span class="sd">    R : :obj:`numpy.ndarray`, ndim: ``3``</span>
 <span class="sd">        Cartesian atomic coordinates of data set structures.</span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>

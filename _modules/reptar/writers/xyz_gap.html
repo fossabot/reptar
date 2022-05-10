@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>reptar.writers.pdb - reptar documentation</title>
+        <title>reptar.writers.xyz_gap - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -206,7 +206,7 @@
           </label>
         </div>
         <article role="main">
-          <h1>Source code for reptar.writers.pdb</h1><div class="highlight"><pre>
+          <h1>Source code for reptar.writers.xyz_gap</h1><div class="highlight"><pre>
 <span></span><span class="c1"># MIT License</span>
 <span class="c1"># </span>
 <span class="c1"># Copyright (c) 2022, Alex M. Maldonado</span>
@@ -230,67 +230,64 @@
 <span class="c1"># SOFTWARE.</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="n">z_to_element</span>
+<span class="kn">from</span> <span class="nn">.writing_utils</span> <span class="kn">import</span> <span class="n">string_xyz_arrays</span>
     
-<div class="viewcode-block" id="write_pdb"><a class="viewcode-back" href="../../../doc/reptar.writers.html#reptar.writers.pdb.write_pdb">[docs]</a><span class="k">def</span> <span class="nf">write_pdb</span><span class="p">(</span>
-    <span class="n">pdb_path</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">,</span> <span class="n">comp_ids</span><span class="p">,</span> <span class="n">atom_type</span><span class="o">=</span><span class="s1">'HETATM'</span>
+<div class="viewcode-block" id="write_xyz_gap"><a class="viewcode-back" href="../../../doc/reptar.writers.html#reptar.writers.xyz_gap.write_xyz_gap">[docs]</a><span class="k">def</span> <span class="nf">write_xyz_gap</span><span class="p">(</span>
+    <span class="n">xyz_path</span><span class="p">,</span> <span class="n">lattice</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">F</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">lattice_precision</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">data_precision</span><span class="o">=</span><span class="mi">10</span>
 <span class="p">):</span>
-    <span class="sd">"""Write PDB file.</span>
-
+    <span class="sd">"""Write an extended XYZ file in the GAP format.</span>
+<span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    pdb_path : :obj:`str`</span>
-<span class="sd">        Path to PDB file to write.</span>
+<span class="sd">    xyz_path : :obj:`str`</span>
+<span class="sd">        Path to the XYZ file to write.</span>
+<span class="sd">    lattice : :obj:`numpy.ndarray`, ndim: ``2``</span>
+<span class="sd">        The three cartesian lattice vectors describing the periodic cell (in</span>
+<span class="sd">        Angstroms).</span>
+<span class="sd">        </span>
+<span class="sd">        All structures need a this lattice even structures are not supposed to</span>
+<span class="sd">        be periodic. Just use a lattice vector that is larger than twice the</span>
+<span class="sd">        cutoff of any potential you plan to create or use.</span>
 <span class="sd">    Z : :obj:`numpy.ndarray`, ndim: ``1``</span>
-<span class="sd">        Atomic numbers used to populate ``numbers`` in the ASE db.</span>
+<span class="sd">        Atomic numbers of all atoms in the system.</span>
 <span class="sd">    R : :obj:`numpy.ndarray`, ndim: ``3``</span>
-<span class="sd">        Cartesian coordinates used to populate ``positions`` in the ASE db.</span>
-<span class="sd">    entity_ids : :obj:`numpy.ndarray`, ndim: ``1``</span>
-<span class="sd">        A uniquely identifying integer specifying what atoms belong to</span>
-<span class="sd">        which entities. Entities can be a related set of atoms, molecules,</span>
-<span class="sd">        or functional group. For example, a water and methanol molecule</span>
-<span class="sd">        could be ``[0, 0, 0, 1, 1, 1, 1, 1, 1]``.</span>
-<span class="sd">    comp_ids : :obj:`numpy.ndarray`, ndim: ``1``</span>
-<span class="sd">        Relates ``entity_id`` to a fragment label for chemical components</span>
-<span class="sd">        or species. Labels could be ``WAT`` or ``h2o`` for water, ``MeOH``</span>
-<span class="sd">        for methanol, ``bz`` for benzene, etc. There are no standardized</span>
-<span class="sd">        labels for species. The index of the label is the respective</span>
-<span class="sd">        ``entity_id``. For example, a water and methanol molecule could</span>
-<span class="sd">        be ``['h2o', 'meoh']``.</span>
-<span class="sd">    atom_type : :obj:`str`, default: ``'HETATM'``</span>
-<span class="sd">        The PDB atom type to be used. Should almost always be ``HETATM``.</span>
-<span class="sd">    """</span> 
-    <span class="n">atom_labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">z_to_element</span><span class="p">[</span><span class="n">z</span><span class="p">]</span> <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">Z</span><span class="p">]</span>
+<span class="sd">        Cartesian coordinates of all structures in the same order as ``Z``.</span>
+<span class="sd">    E : :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">        Energy of all structures in ``R`` in units of eV.</span>
+<span class="sd">    F : :obj:`numpy.ndarray`, ndim: ``3``, default: ``None``</span>
+<span class="sd">        Atomic forces of all structures in ``R`` in units of eV/A.</span>
+<span class="sd">    lattice_precision : :obj:`int`, default: ``3``</span>
+<span class="sd">        Number of decimal points to print for lattice dimensions.</span>
+<span class="sd">    data_precision : :obj:`int`, default: ``10``</span>
+<span class="sd">        Number of decimal points for printing array data.</span>
 
-    <span class="n">num_structures</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
-    <span class="n">num_atoms</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+<span class="sd">    """</span>
+    <span class="n">lat_str</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array2string</span><span class="p">(</span>
+        <span class="n">lattice</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+        <span class="n">formatter</span><span class="o">=</span><span class="p">{</span><span class="s1">'float_kind'</span><span class="p">:</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'%.</span><span class="si">{</span><span class="n">lattice_precision</span><span class="si">}</span><span class="s1">f'</span> <span class="o">%</span> <span class="n">x</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="c1"># TODO: is pbc always T T T?</span>
+    <span class="n">lat_str</span> <span class="o">=</span> <span class="s1">'pbc="T T T" Lattice="'</span> <span class="o">+</span> <span class="n">lat_str</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">'"'</span>
 
-    <span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">pdb_path</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="c1"># Trims component ids to the first three letters</span>
-    <span class="n">comp_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">comp_id</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="k">for</span> <span class="n">comp_id</span> <span class="ow">in</span> <span class="n">comp_ids</span><span class="p">])</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">pdb_path</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">file_name</span><span class="o">+</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">num_atoms</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>  
-        <span class="k">for</span> <span class="n">i_structure</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_structures</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">i_structure</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'MODEL</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">i_atom</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_atoms</span><span class="p">):</span>
-                <span class="n">entity_id</span> <span class="o">=</span> <span class="n">entity_ids</span><span class="p">[</span><span class="n">i_atom</span><span class="p">]</span>
-                <span class="n">comp_id</span> <span class="o">=</span> <span class="n">comp_ids</span><span class="p">[</span><span class="n">entity_id</span><span class="p">]</span>
-                <span class="n">atom_label</span> <span class="o">=</span> <span class="n">atom_labels</span><span class="p">[</span><span class="n">i_atom</span><span class="p">]</span>
-                <span class="n">coords</span> <span class="o">=</span> <span class="n">R</span><span class="p">[</span><span class="n">i_structure</span><span class="p">][</span><span class="n">i_atom</span><span class="p">]</span>
+    <span class="n">prop_line</span> <span class="o">=</span> <span class="s1">'Properties=species:S:1:pos:R:3'</span>
+    <span class="k">if</span> <span class="n">F</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">prop_line</span> <span class="o">+=</span> <span class="s1">'forces:R:3'</span>
     
-                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-                    <span class="s1">'</span><span class="si">{:6s}{:5d}</span><span class="s1"> </span><span class="si">{:^4s}{:1s}{:3s}</span><span class="s1"> </span><span class="si">{:1s}{:4d}{:1s}</span><span class="s1">   </span><span class="si">{:8.3f}{:8.3f}{:8.3f}{:6.2f}{:6.2s}</span><span class="s1">          </span><span class="si">{:&gt;2s}{:2s}</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                        <span class="nb">str</span><span class="p">(</span><span class="n">atom_type</span><span class="p">),</span> <span class="n">i_atom</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">atom_label</span><span class="p">),</span> <span class="s1">''</span><span class="p">,</span>
-                        <span class="nb">str</span><span class="p">(</span><span class="n">comp_id</span><span class="p">),</span> <span class="s1">'A'</span><span class="p">,</span> <span class="n">entity_id</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span>
-                        <span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">coords</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">coords</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
-                        <span class="mf">1.00</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">atom_label</span><span class="p">),</span> <span class="s1">''</span>
-                    <span class="p">)</span>
-                <span class="p">)</span>
-            <span class="k">if</span> <span class="n">num_structures</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'ENDMDL</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span></div>
+    <span class="n">e_formatter</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'%.</span><span class="si">{</span><span class="n">data_precision</span><span class="si">}</span><span class="s1">f'</span> <span class="o">%</span> <span class="n">x</span>
+    
+    <span class="n">n_atoms</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+    <span class="n">F_arr</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">xyz_path</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">R</span><span class="p">)):</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">n_atoms</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                <span class="s1">' '</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s1">'energy=</span><span class="si">{</span><span class="n">e_formatter</span><span class="p">(</span><span class="n">E</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">prop_line</span><span class="p">,</span> <span class="n">lat_str</span><span class="p">])</span> <span class="o">+</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">F</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">F_arr</span> <span class="o">=</span> <span class="n">F</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                <span class="n">string_xyz_arrays</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">F_arr</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="n">data_precision</span><span class="p">)</span>
+            <span class="p">)</span></div>
 </pre></div>
         </article>
       </div>

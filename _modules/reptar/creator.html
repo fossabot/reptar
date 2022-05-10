@@ -154,11 +154,13 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../data.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../file.html">File</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../creator.html">Creator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../parsers-extractors.html">Parsers and extractors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../definitions.html">Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../writers.html">Writers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sampling.html">Sampling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../calculators.html">Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../definitions.html">Definitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/examples.html">Examples</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../doc/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../doc/reptar.html">reptar package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -231,8 +233,7 @@
 <span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">.parsers</span> <span class="kn">import</span> <span class="n">parserORCA</span><span class="p">,</span> <span class="n">parserXTB</span>
-<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">get_md5</span>
-<span class="kn">from</span> <span class="nn">.data</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="kn">from</span> <span class="nn">.reptar_file</span> <span class="kn">import</span> <span class="n">File</span>
 <span class="kn">from</span> <span class="nn">pkg_resources</span> <span class="kn">import</span> <span class="n">resource_stream</span>
 <span class="kn">import</span> <span class="nn">yaml</span>
 
@@ -273,39 +274,54 @@
 
 <div class="viewcode-block" id="creator"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator">[docs]</a><span class="k">class</span> <span class="nc">creator</span><span class="p">:</span>
     <span class="sd">"""Create groups from computational chemistry data.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    data : ``reptar.data``, optional</span>
-<span class="sd">        An initialized data object.</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rfile</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">"""</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        rfile : :obj:`reptar.File`, default: ``None``</span>
+<span class="sd">            An initialized reptar File.</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="n">rfile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span> <span class="o">=</span> <span class="n">rfile</span>
     
 <div class="viewcode-block" id="creator.load"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">allow_remove</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">plugins</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">):</span>
-        <span class="sd">"""Load a data file for creating/adding information.</span>
+        <span class="sd">"""Load a reptar file for creating/adding information.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        file_path : :obj:`str`</span>
-<span class="sd">            Path to a file supported by reptar. If it does not exist, then one will</span>
-<span class="sd">            be created if possible.</span>
-<span class="sd">        mode : :obj:`str`, optional</span>
-<span class="sd">            A file mode string that defines the read/write behavior. Defaults to</span>
-<span class="sd">            ``'r'``.</span>
-<span class="sd">        allow_remove : :obj:`bool`, optional</span>
-<span class="sd">            Allow the removal of exdir groups in ``w`` operation. Defaults to</span>
-<span class="sd">            ``False``.</span>
-<span class="sd">        plugins : :obj:`list`, optional</span>
-<span class="sd">            A list of instantiated exdir plugins. Defaults to ``None``.</span>
+<span class="sd">            Path to a file supported by reptar. If it does not exist, then one</span>
+<span class="sd">            will be created if possible.</span>
+<span class="sd">        mode : :obj:`str`, default: ``'r'``</span>
+<span class="sd">            A file mode string that defines the read/write behavior.</span>
+<span class="sd">        allow_remove : :obj:`bool`, default: ``False``</span>
+<span class="sd">            Allow the removal of exdir groups in ``w`` operation.</span>
+<span class="sd">        plugins : :obj:`list`, default: ``None``</span>
+<span class="sd">            A list of instantiated exdir plugins.</span>
 <span class="sd">        """</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">(</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span>
             <span class="n">file_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">allow_remove</span><span class="o">=</span><span class="n">allow_remove</span><span class="p">,</span> <span class="n">plugins</span><span class="o">=</span><span class="n">plugins</span>
         <span class="p">)</span></div>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">rfile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">"""The reptar file to manage.</span>
+
+<span class="sd">        :obj:`reptar.File`</span>
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rfile</span>
+    
+    <span class="nd">@rfile</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">rfile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rfile</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@rfile</span><span class="o">.</span><span class="n">deleter</span>
+    <span class="k">def</span> <span class="nf">rfile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rfile</span>
 
 <div class="viewcode-block" id="creator.parse_output"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator.parse_output">[docs]</a>    <span class="k">def</span> <span class="nf">parse_output</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">out_path</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extractors</span><span class="o">=</span><span class="kc">None</span>
@@ -316,23 +332,22 @@
 <span class="sd">        ----------</span>
 <span class="sd">        out_path : :obj:`str`</span>
 <span class="sd">            Path to computational chemistry output file.</span>
-<span class="sd">        geom_path : :obj:`str`, optional</span>
+<span class="sd">        geom_path : :obj:`str`, default: ``None``</span>
 <span class="sd">            Path to a file containing a single geometry.</span>
-<span class="sd">        traj_path : :obj:`str`, optional</span>
+<span class="sd">        traj_path : :obj:`str`, default: ``None``</span>
 <span class="sd">            Path to a trajectory file from a geometry optimization, MD</span>
 <span class="sd">            simulation, etc.</span>
-<span class="sd">        extractors : :obj:`list`, optional</span>
+<span class="sd">        extractors : :obj:`list`, default: ``None``</span>
 <span class="sd">            Additional extractors for the parser to use.</span>
 <span class="sd">        """</span>
+        <span class="c1"># Handle paths.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">out_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">out_path</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">geom_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">geom_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">geom_path</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">geom_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">geom_path</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">traj_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">traj_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">traj_path</span><span class="p">)</span>
-        
-        <span class="bp">self</span><span class="o">.</span><span class="n">geom_path</span> <span class="o">=</span> <span class="n">geom_path</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">traj_path</span> <span class="o">=</span> <span class="n">traj_path</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">traj_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">traj_path</span><span class="p">)</span>
 
+        <span class="c1"># Identify and run the parser.</span>
         <span class="n">packageParser</span> <span class="o">=</span> <span class="n">identify_parser</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">out_path</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parser</span> <span class="o">=</span> <span class="n">packageParser</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">out_path</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="n">geom_path</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="n">traj_path</span><span class="p">,</span>
@@ -349,9 +364,10 @@
 <span class="sd">            Key to the desired new group (including parent).</span>
 <span class="sd">        """</span>
         <span class="n">out_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">out_path</span><span class="p">)</span>
-        <span class="n">group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
+        <span class="n">group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
         
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">'exdir'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">'exdir'</span><span class="p">:</span>
+            <span class="c1"># Copy MD and xTB restart files if possible.</span>
             <span class="n">md_restart_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/mdrestart'</span>
             <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">md_restart_path</span><span class="p">):</span>
                 <span class="n">raw</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">require_raw</span><span class="p">(</span><span class="s1">'restart_files'</span><span class="p">)</span>
@@ -377,14 +393,14 @@
 <span class="sd">        ----------</span>
 <span class="sd">        group_key : :obj:`str`</span>
 <span class="sd">            Key to the desired new group (including parent).</span>
-<span class="sd">        out_path : :obj:`str`, optional</span>
+<span class="sd">        out_path : :obj:`str`, default: ``None``</span>
 <span class="sd">            Path to the main log file generated by the package.</span>
-<span class="sd">        geom_path : :obj:`str`, optional</span>
+<span class="sd">        geom_path : :obj:`str`, default: ``None``</span>
 <span class="sd">            Path to a file containing a single geometry.</span>
-<span class="sd">        traj_path : :obj:`str`, optional</span>
+<span class="sd">        traj_path : :obj:`str`, default: ``None``</span>
 <span class="sd">            Path to a trajectory file from a geometry optimization, MD</span>
 <span class="sd">            simulation, etc.</span>
-<span class="sd">        extractors : :obj:`list`, optional</span>
+<span class="sd">        extractors : :obj:`list`, default: ``None``</span>
 <span class="sd">            Additional extractors for the parser to use.</span>
 <span class="sd">        </span>
 <span class="sd">        Notes</span>
@@ -393,46 +409,33 @@
 <span class="sd">        ``geom_path`` provides an initial geometry not included in</span>
 <span class="sd">        ``traj_path``.</span>
 <span class="sd">        """</span>
-        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'data'</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'rfile'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parse_output</span><span class="p">(</span>
             <span class="n">out_path</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="n">geom_path</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="n">traj_path</span><span class="p">,</span>
             <span class="n">extractors</span><span class="o">=</span><span class="n">extractors</span>
         <span class="p">)</span>
         <span class="n">parsed_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span>
 
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">'exdir'</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">init_group</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">'exdir'</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">init_group</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
         
         <span class="c1"># Loop through each category of data.</span>
         <span class="k">for</span> <span class="n">cat_key</span> <span class="ow">in</span> <span class="n">parsed_info</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="k">for</span> <span class="n">data_key</span> <span class="ow">in</span> <span class="n">parsed_info</span><span class="p">[</span><span class="n">cat_key</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
                 <span class="n">data</span> <span class="o">=</span> <span class="n">parsed_info</span><span class="p">[</span><span class="n">cat_key</span><span class="p">][</span><span class="n">data_key</span><span class="p">]</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">data_key</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">data_key</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
         
         <span class="c1"># MD5 stuff</span>
-        <span class="n">md5</span> <span class="o">=</span> <span class="n">get_md5</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">group_key</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/md5'</span><span class="p">,</span> <span class="n">md5</span><span class="p">)</span>
-        
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">md5_arrays</span> <span class="o">=</span> <span class="n">get_md5</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">group_key</span><span class="p">,</span> <span class="n">only_arrays</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/md5_arrays'</span><span class="p">,</span> <span class="n">md5_arrays</span><span class="p">)</span>
-        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-            <span class="k">pass</span>
-
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">md5_structures</span> <span class="o">=</span> <span class="n">get_md5</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">group_key</span><span class="p">,</span> <span class="n">only_structures</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/md5_structures'</span><span class="p">,</span> <span class="n">md5_structures</span><span class="p">)</span>
-        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-            <span class="k">pass</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">update_md5</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
 
         <span class="c1"># Extra stuff to do depending on package.</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">package</span> <span class="o">==</span> <span class="s1">'xtb'</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_create_extras_xtb</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
         
         <span class="c1"># Adding version</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/reptar_version'</span><span class="p">,</span> <span class="n">__version__</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/reptar_version'</span><span class="p">,</span> <span class="n">__version__</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span></div>
     
 <div class="viewcode-block" id="creator.ids"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator.ids">[docs]</a>    <span class="k">def</span> <span class="nf">ids</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">,</span> <span class="n">comp_ids</span><span class="p">):</span>
         <span class="sd">"""Add ``entity_ids`` and ``comp_ids`` to a group.</span>
@@ -441,30 +444,35 @@
 <span class="sd">        ----------</span>
 <span class="sd">        group_key : :obj:`str`</span>
 <span class="sd">            Key to the group to add IDs to (including parent).</span>
-<span class="sd">        entity_ids : :obj:`numpy.ndarray`</span>
+<span class="sd">        entity_ids : :obj:`numpy.ndarray`, ndim: ``1``</span>
 <span class="sd">            A uniquely identifying integer specifying what atoms belong to which</span>
 <span class="sd">            entities. Entities can be a related set of atoms, molecules, or</span>
 <span class="sd">            functional group.</span>
-<span class="sd">        comp_ids : :obj:`numpy.ndarray`</span>
+<span class="sd">        comp_ids : :obj:`numpy.ndarray`, ndim: ``1``</span>
 <span class="sd">            Relates ``entity_id`` to a fragment label for chemical components</span>
 <span class="sd">            or species. Labels could be ``WAT`` or ``h2o`` for water, ``MeOH``</span>
 <span class="sd">            for methanol, ``bz`` for benzene, etc. There are no standardized</span>
 <span class="sd">            labels for species. The index of the label is the respective</span>
 <span class="sd">            ``entity_id``.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ``obj``</span>
+<span class="sd">            The reptar file group.</span>
 <span class="sd">        """</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">comp_ids</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
             <span class="n">comp_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">comp_ids</span><span class="p">)</span>
         
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/entity_ids'</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/comp_ids'</span><span class="p">,</span> <span class="n">comp_ids</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/entity_ids'</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/comp_ids'</span><span class="p">,</span> <span class="n">comp_ids</span><span class="p">)</span>
 
         <span class="n">comp_ids_num</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="n">unique_comp_ids</span><span class="p">,</span> <span class="n">comp_ids_freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">comp_ids</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">comp_id</span><span class="p">,</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">unique_comp_ids</span><span class="p">,</span> <span class="n">comp_ids_freq</span><span class="p">):</span>
             <span class="n">comp_ids_num</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">comp_id</span><span class="p">)]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
         
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/comp_ids_num'</span><span class="p">,</span> <span class="n">comp_ids_num</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/comp_ids_num'</span><span class="p">,</span> <span class="n">comp_ids_num</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span></div>
     
     <span class="c1"># TODO: Update ways we get data here.</span>
 <div class="viewcode-block" id="creator.definitions"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator.definitions">[docs]</a>    <span class="k">def</span> <span class="nf">definitions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">definitions</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -476,7 +484,7 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        definitions : :obj:`list` [:obj:`str`], optional</span>
+<span class="sd">        definitions : :obj:`list` [:obj:`str`], default: ``None``</span>
 <span class="sd">            Paths to data definition YAML files to congregate. Only the name</span>
 <span class="sd">            (not a path) is required for ones provided by reptar.</span>
 <span class="sd">        </span>
@@ -511,7 +519,7 @@
                     <span class="k">else</span><span class="p">:</span>
                         <span class="k">pass</span>
         
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'definitions'</span><span class="p">,</span> <span class="n">defs</span><span class="p">)</span></div></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'definitions'</span><span class="p">,</span> <span class="n">defs</span><span class="p">)</span></div></div>
 </pre></div>
         </article>
       </div>

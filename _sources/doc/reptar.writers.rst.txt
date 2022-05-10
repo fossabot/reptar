@@ -4,6 +4,14 @@ reptar.writers package
 Submodules
 ----------
 
+reptar.writers.ase\_db module
+-----------------------------
+
+.. automodule:: reptar.writers.ase_db
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 reptar.writers.pdb module
 -------------------------
 
@@ -12,10 +20,34 @@ reptar.writers.pdb module
    :undoc-members:
    :show-inheritance:
 
-reptar.writers.writer module
-----------------------------
+reptar.writers.schnetpack\_db module
+------------------------------------
 
-.. automodule:: reptar.writers.writer
+.. automodule:: reptar.writers.schnetpack_db
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+reptar.writers.writing\_utils module
+------------------------------------
+
+.. automodule:: reptar.writers.writing_utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+reptar.writers.xyz module
+-------------------------
+
+.. automodule:: reptar.writers.xyz
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+reptar.writers.xyz\_gap module
+------------------------------
+
+.. automodule:: reptar.writers.xyz_gap
    :members:
    :undoc-members:
    :show-inheritance:

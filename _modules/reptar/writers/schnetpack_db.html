@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>reptar.writers.writer - reptar documentation</title>
+        <title>reptar.writers.schnetpack_db - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -154,11 +154,13 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../data.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../file.html">File</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../creator.html">Creator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../parsers-extractors.html">Parsers and extractors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../definitions.html">Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../writers.html">Writers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sampling.html">Sampling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../calculators.html">Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../definitions.html">Definitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../examples/examples.html">Examples</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../doc/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../doc/reptar.html">reptar package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -204,7 +206,7 @@
           </label>
         </div>
         <article role="main">
-          <h1>Source code for reptar.writers.writer</h1><div class="highlight"><pre>
+          <h1>Source code for reptar.writers.schnetpack_db</h1><div class="highlight"><pre>
 <span></span><span class="c1"># MIT License</span>
 <span class="c1"># </span>
 <span class="c1"># Copyright (c) 2022, Alex M. Maldonado</span>
@@ -227,26 +229,88 @@
 <span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
 <span class="c1"># SOFTWARE.</span>
 
-<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span> <span class="nn">ase</span> <span class="kn">import</span> <span class="n">Atoms</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">schnetpack</span> <span class="kn">import</span> <span class="n">AtomsData</span>
+<span class="kn">from</span> <span class="nn">schnetpack.data.atoms</span> <span class="kn">import</span> <span class="n">get_center_of_mass</span>
 
-<div class="viewcode-block" id="reptarWriter"><a class="viewcode-back" href="../../../doc/reptar.writers.html#reptar.writers.writer.reptarWriter">[docs]</a><span class="k">class</span> <span class="nc">reptarWriter</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
-    <span class="sd">"""Base class for parsing output files.</span>
+<div class="viewcode-block" id="write_schnetpack_db"><a class="viewcode-back" href="../../../doc/reptar.writers.html#reptar.writers.schnetpack_db.write_schnetpack_db">[docs]</a><span class="k">def</span> <span class="nf">write_schnetpack_db</span><span class="p">(</span>
+    <span class="n">db_path</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">energy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">forces</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">e_units</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">f_units</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">centering_function</span><span class="o">=</span><span class="n">get_center_of_mass</span>
+<span class="p">):</span>
+    <span class="sd">"""Create a schnetpack database.</span>
+
+<span class="sd">    Will add rows if the database already exists.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    out_path : :obj:`str`</span>
-<span class="sd">        Path to output file.</span>
-<span class="sd">    </span>
-<span class="sd">    Attributes</span>
-<span class="sd">    ----------</span>
-<span class="sd">    group : ``group``</span>
-<span class="sd">        Path to output file.</span>
-<span class="sd">    """</span>
+<span class="sd">    db_path : :obj:`str`</span>
+<span class="sd">        Path to schnetpack database.</span>
+<span class="sd">    Z : :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">        Atomic numbers used to populate ``numbers`` in the ASE db.</span>
+<span class="sd">    R : :obj:`numpy.ndarray`, ndim: ``3``</span>
+<span class="sd">        Cartesian coordinates used to populate ``positions`` in the ASE db.</span>
+<span class="sd">    energy : :obj:`numpy.ndarray`, ndim: ``1``, default: ``None``</span>
+<span class="sd">        Energies to add to database in eV.</span>
+<span class="sd">    forces : :obj:`numpy.ndarray`, ndim: ``3``, default: ``None``</span>
+<span class="sd">        Atomic forces to add to database in eV/A.</span>
+<span class="sd">    e_units : :obj:`float`, default: ``1.0``</span>
+<span class="sd">        Units of energy using ``ase.units``. Essentially the conversion factor</span>
+<span class="sd">        to eV.</span>
+<span class="sd">    f_units : :obj:`float`, default: ``1.0``</span>
+<span class="sd">        Units of forces using ``ase.units``. Essentially the conversion factor</span>
+<span class="sd">        to eV/A.</span>
+<span class="sd">    centering_function : ``callable``, default: schnetpack.data.atoms.get_center_of_mass``</span>
+<span class="sd">        A function for centering the ``positions`` when querying the database.</span>
+<span class="sd">        Defaults to centering the structure according to the center of mass.</span>
+<span class="sd">        Set to ``None`` for no centering.</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span></div>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ``schnetpack.data.atoms.AtomsData``</span>
+<span class="sd">        Schnetpack database.</span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    When using ``db.get_properties(idx)`` to query the database, the</span>
+<span class="sd">    ``ase.atoms`` object has the exact same positions as it was originally</span>
+<span class="sd">    written. The ``_properties`` key in the dictionary could be centered</span>
+<span class="sd">    (if ``centering_function`` is not ``None``) and has some precision issues.</span>
+<span class="sd">    </span>
+<span class="sd">    For example, if ``R[0][0][0] = -0.93996473515199`` is written to the</span>
+<span class="sd">    database, ``db``, then we can get the positions using</span>
+<span class="sd">    ``row_atom, row_prop = db.get_properties(0)``.</span>
+<span class="sd">    ``row_atom.positions[0][0]`` would be exactly ``-0.93996473515199``.</span>
+<span class="sd">    However, ``row_prop["_positions"][0][0]`` could be something like</span>
+<span class="sd">    ``-0.93996471166611``.</span>
+<span class="sd">    """</span>
+    <span class="n">avail_props</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">unit_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">energy</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">avail_props</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'energy'</span><span class="p">)</span>
+        <span class="n">unit_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e_units</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">forces</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">avail_props</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'forces'</span><span class="p">)</span>
+        <span class="n">unit_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f_units</span><span class="p">)</span>
     
+    <span class="n">db</span> <span class="o">=</span> <span class="n">AtomsData</span><span class="p">(</span>
+        <span class="n">db_path</span><span class="p">,</span> <span class="n">available_properties</span><span class="o">=</span><span class="n">avail_props</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">unit_list</span><span class="p">,</span>
+        <span class="n">centering_function</span><span class="o">=</span><span class="n">centering_function</span>
+    <span class="p">)</span>
     
+    <span class="n">all_atoms</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">all_properties</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">R</span><span class="p">)):</span>
+        <span class="n">all_atoms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Atoms</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+        <span class="n">props</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">energy</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">props</span><span class="p">[</span><span class="s1">'energy'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">energy</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+        <span class="k">if</span> <span class="n">forces</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">props</span><span class="p">[</span><span class="s1">'forces'</span><span class="p">]</span> <span class="o">=</span> <span class="n">forces</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">all_properties</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">add_systems</span><span class="p">(</span><span class="n">all_atoms</span><span class="p">,</span> <span class="n">all_properties</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">db</span></div>
 </pre></div>
         </article>
       </div>

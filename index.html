@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Data" href="data.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="File" href="file.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
         <title>reptar documentation</title>
@@ -155,11 +155,13 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul>
-<li class="toctree-l1"><a class="reference internal" href="data.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file.html">File</a></li>
 <li class="toctree-l1"><a class="reference internal" href="creator.html">Creator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parsers-extractors.html">Parsers and extractors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="definitions.html">Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writers.html">Writers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sampling.html">Sampling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calculators.html">Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="definitions.html">Definitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/examples.html">Examples</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="doc/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="doc/reptar.html">reptar package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -207,27 +209,35 @@
         <article role="main">
           <section id="reptar">
 <h1>Reptar<a class="headerlink" href="#reptar" title="Permalink to this headline">#</a></h1>
-<p>A tool for storing and analyzing computational chemistry data in a file-agnostic way.</p>
+<p>A tool for storing and analyzing manuscript-scale computational chemistry data.</p>
 <a class="reference external image-reference" href="https://app.travis-ci.com/github/aalexmmaldonado/reptar"><img alt="Travis-CI build status" src="https://app.travis-ci.com/aalexmmaldonado/reptar.svg?branch=main"/></a>
 <a class="reference external image-reference" href="https://codecov.io/gh/aalexmmaldonado/reptar"><img alt="Codecov test coverage" src="https://codecov.io/gh/aalexmmaldonado/reptar/branch/main/graph/badge.svg?token=74wLrsOMTD"/></a>
 <a class="reference external image-reference" href="https://github.com/aalexmmaldonado/reptar/releases"><img alt="Latest GitHub release" src="https://img.shields.io/github/v/release/aalexmmaldonado/reptar"/></a>
 <a class="reference external image-reference" href="https://doi.org/10.5281/zenodo.6508586"><img alt="Zenodo doi" src="https://zenodo.org/badge/DOI/10.5281/zenodo.6508586.svg"/></a>
 <a class="reference external image-reference" href="https://lgtm.com/projects/g/aalexmmaldonado/reptar/context:python"><img alt="https://img.shields.io/lgtm/grade/python/g/aalexmmaldonado/reptar.svg?logo=lgtm&amp;logoWidth=18" src="https://img.shields.io/lgtm/grade/python/g/aalexmmaldonado/reptar.svg?logo=lgtm&amp;logoWidth=18"/></a>
 <a class="reference external image-reference" href="https://github.com/aalexmmaldonado/reptar/blob/main/LICENSE"><img alt="https://img.shields.io/github/license/aalexmmaldonado/reptar" src="https://img.shields.io/github/license/aalexmmaldonado/reptar"/></a>
+<p><strong>Disclaimer:</strong> Reptar is under active development and not ready for use.</p>
 <section id="motivation">
 <h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">#</a></h2>
-<p>Computational chemistry is falling behind in providing open raw and processed data used to draw scientific conclusions.
-Often it is the lack of time, expertise, and options that push researchers to overlook the importance of reproducible findings.
-Projects such as <a class="reference external" href="https://qcarchive.molssi.org/">QCArchive</a>, <a class="reference external" href="https://materialsproject.org/">Materials Project</a>, <a class="reference external" href="https://pqr.pitt.edu/">Pitt Quantum Repository</a>, <a class="reference external" href="https://www.iochem-bd.org/">ioChem-BD</a> and many others provide a rigid data framework for a specific purpose (e.g., quantum chemistry and material properties).
-In other words, data that does not directly fit into their paradigm are incompatible (for good reason).</p>
-<p>Alternatively, you could use file formats such as JSON, XML, YAML, npz, etc. for a specific project.
+<p>The computational chemistry community often fails to openly provide raw and/or processed data used to their draw scientific conclusions.</p>
+<p>For large projects, frameworks such as <a class="reference external" href="https://qcarchive.molssi.org/">QCArchive</a>, <a class="reference external" href="https://materialsproject.org/">Materials Project</a>, <a class="reference external" href="https://pqr.pitt.edu/">Pitt Quantum Repository</a>, <a class="reference external" href="https://www.iochem-bd.org/">ioChem-BD</a> and many others provide great storage solutions.
+This approach would not be practical for fluid data pipelines and small-scale projects such as a single manuscript.</p>
+<p>Alternatively, you could use individual files in formats such as JSON, XML, YAML, npz, etc.
 These are great options for customizable data storage with their own advantages and disadvantages.
 However, you often must choose between (1) a standardized parser that might not support your workflow or (2) writing your own.</p>
-<p>Reptar provides customizable parsers and data storage frameworks for whatever an individual project demands.
-Data is stored in one of the supported file types and generalized routines are used to access and store data.
-All data is stored in a key-value pair format where users can use predetermined definitions or include their own.
-Regardless if you are running nudged elastic band calculations in VASP, free energy perturbation simulations in GROMACS, or gradient calculations in Psi4, you can store data easily with reptar by selecting a parser a specifying the desired file type.
-The result is a user-specified data file streamlined for analysis in Python and optimized for archival on places such as <a class="reference external" href="https://github.com/">GitHub</a> and <a class="reference external" href="https://zenodo.org/">Zenodo</a>.</p>
+<p>Reptar is designed for easy data storage and analysis for individual projects.
+Customizable parsers provide a simple way to extract new data without submitting issues and pull requests (although this is highly encouraged).
+While files are the heart of reptar, it strives to be file-type agnostic by providing the same interface for all supported file types.
+The result is a user-specified file streamlined for analysis in Python and archival on places such as <a class="reference external" href="https://github.com/">GitHub</a> and <a class="reference external" href="https://zenodo.org/">Zenodo</a>.</p>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">#</a></h2>
+<p>You can install reptar using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">reptar</span></code> or install the latest version directly from the <a class="reference external" href="https://github.com/aalexmmaldonado/reptar">GitHub repository</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/aalexmmaldonado/reptar
+<span class="nb">cd</span> reptar
+pip install .
+</pre></div>
+</div>
 </section>
 <section id="file-types">
 <h2>File types<a class="headerlink" href="#file-types" title="Permalink to this headline">#</a></h2>
@@ -238,14 +248,47 @@ NumPy’s npz format is useful for arrays; however, no nesting is possible and l
 This provides several advantages such as mixing human-readable YAML and binary NumPy files, being easier for version control, and only loading requested portions of datasets into memory.
 For more detailed information, please read this <a class="reference external" href="https://doi.org/10.3389/fninf.2018.00016">Front. Neuroinform. article about exdir</a>.</p>
 </section>
-<section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">#</a></h2>
-<p>You can install reptar using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">reptar</span></code> or install the latest version directly from the <a class="reference external" href="https://github.com/aalexmmaldonado/reptar">GitHub repository</a>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/aalexmmaldonado/reptar
-<span class="nb">cd</span> reptar
-pip install .
-</pre></div>
-</div>
+<section id="key-value-pairs">
+<h2>Key-value pairs<a class="headerlink" href="#key-value-pairs" title="Permalink to this headline">#</a></h2>
+<p>All data is stored under a <code class="docutils literal notranslate"><span class="pre">key</span></code>-<code class="docutils literal notranslate"><span class="pre">value</span></code> pair within the reptar framework.
+The <code class="docutils literal notranslate"><span class="pre">key</span></code> tells reptar where the data is stored and is conceptually related to standard file paths (without file extensions).
+Nested data is specified by separating the nested keys with a <code class="docutils literal notranslate"><span class="pre">/</span></code>.
+For example, <code class="docutils literal notranslate"><span class="pre">energy_pot</span></code>, <code class="docutils literal notranslate"><span class="pre">md_run/geometry</span></code>, and <code class="docutils literal notranslate"><span class="pre">entity_ids</span></code> are all valid keys.
+Note that <code class="docutils literal notranslate"><span class="pre">gradients</span></code> and <code class="docutils literal notranslate"><span class="pre">/gradients</span></code> would translate to the same value (<code class="docutils literal notranslate"><span class="pre">/</span></code> species the “root” of the file).</p>
+</section>
+<section id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">#</a></h2>
+<section id="calculation-to-reptar-file">
+<h3>Calculation to reptar file<a class="headerlink" href="#calculation-to-reptar-file" title="Permalink to this headline">#</a></h3>
+<p>We refer to a “reptar file” as any file that can be used with the <code class="docutils literal notranslate"><span class="pre">reptar.File</span></code> class.
+Creating a reptar file starts by having a set of data files generated from some calculation.
+Paths to these data files are passed into <code class="docutils literal notranslate"><span class="pre">reptar.creator.group</span></code> that extracts information using a <code class="docutils literal notranslate"><span class="pre">reptar.parser</span></code> class.
+Information parsed from these files, <code class="docutils literal notranslate"><span class="pre">parsed_info</span></code>, is then used to populate a <code class="docutils literal notranslate"><span class="pre">reptar.File</span></code> object.</p>
+</section>
+<section id="reptar-file-data">
+<h3>Reptar file data<a class="headerlink" href="#reptar-file-data" title="Permalink to this headline">#</a></h3>
+<p>Data can be added or retrieved using the same interface regardless of the underlying file format (e.g., exdir, JSON, and npz).
+The only thing required is the respective <code class="docutils literal notranslate"><span class="pre">key</span></code> specifying where its stored.
+Then, <code class="docutils literal notranslate"><span class="pre">File.add(key)</span></code> can be used to add data to the reptar file and <code class="docutils literal notranslate"><span class="pre">File.get(key)</span></code> can retrieve it.</p>
+<p>When working with JSON and npz files, <code class="docutils literal notranslate"><span class="pre">File.save()</span></code> must be explicitly called after any modification.</p>
+</section>
+<section id="reptar-file-to-other-format">
+<h3>Reptar file to other format<a class="headerlink" href="#reptar-file-to-other-format" title="Permalink to this headline">#</a></h3>
+<p>Other packages often require data to be formatted in their own specific way.
+Reptar provides ways to extract data from reptar files using <code class="docutils literal notranslate"><span class="pre">File.get(key)</span></code> and passing it into the desired <code class="docutils literal notranslate"><span class="pre">reptar.writer</span></code> function.
+Reptar currently automates the creation of:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://wiki.fysik.dtu.dk/ase/tutorials/tut06_database/database.html">Atomic simulation environment (ASE) databases</a>,</p></li>
+<li><p><a class="reference external" href="https://libatoms.github.io/GAP/gap_fit.html#data">Gaussian approximate potentials (GAP) extended XYZ files</a>,</p></li>
+<li><p>Protein data bank (PDB) files,</p></li>
+<li><p><a class="reference external" href="https://schnetpack.readthedocs.io/en/stable/tutorials/tutorial_01_preparing_data.html">Schnetpack databases</a>,</p></li>
+<li><p>XYZ files.</p></li>
+</ul>
+</section>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">#</a></h2>
+<p>Distributed under the MIT License. See <a class="reference external" href="https://github.com/aalexmmaldonado/reptar/blob/main/LICENSE">LICENSE</a> for more information.</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -256,12 +299,12 @@ pip install .
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="data.html">
+          <a class="next-page" href="file.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Data</div>
+                <div class="title">File</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -300,8 +343,16 @@ pip install .
             <ul>
 <li><a class="reference internal" href="#">Reptar</a><ul>
 <li><a class="reference internal" href="#motivation">Motivation</a></li>
-<li><a class="reference internal" href="#file-types">File types</a></li>
 <li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#file-types">File types</a></li>
+<li><a class="reference internal" href="#key-value-pairs">Key-value pairs</a></li>
+<li><a class="reference internal" href="#workflow">Workflow</a><ul>
+<li><a class="reference internal" href="#calculation-to-reptar-file">Calculation to reptar file</a></li>
+<li><a class="reference internal" href="#reptar-file-data">Reptar file data</a></li>
+<li><a class="reference internal" href="#reptar-file-to-other-format">Reptar file to other format</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#license">License</a></li>
 </ul>
 </li>
 </ul>

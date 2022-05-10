@@ -154,11 +154,13 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../data.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../file.html">File</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../creator.html">Creator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../parsers-extractors.html">Parsers and extractors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../definitions.html">Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../writers.html">Writers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sampling.html">Sampling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../calculators.html">Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../definitions.html">Definitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../examples/examples.html">Examples</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../doc/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../doc/reptar.html">reptar package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -231,13 +233,6 @@
 
 <div class="viewcode-block" id="parser"><a class="viewcode-back" href="../../../doc/reptar.parsers.html#reptar.parsers.parser.parser">[docs]</a><span class="k">class</span> <span class="nc">parser</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
     <span class="sd">"""Base class for parsing output files.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    out_path : :obj:`str`</span>
-<span class="sd">        Path to output file.</span>
-<span class="sd">    extractors : :obj:`list`</span>
-<span class="sd">        Additional extractors for the parser to use.</span>
 <span class="sd">    </span>
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
@@ -248,6 +243,14 @@
 <span class="sd">    """</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">out_path</span><span class="p">,</span> <span class="n">extractors</span><span class="p">):</span>
+        <span class="sd">"""</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        out_path : :obj:`str`</span>
+<span class="sd">            Path to output file.</span>
+<span class="sd">        extractors : :obj:`list`, ndim: ``1``</span>
+<span class="sd">            Additional extractors for the parser to use.</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">out_path</span> <span class="o">=</span> <span class="n">out_path</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">file_name</span> <span class="o">=</span> <span class="s1">'.'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">out_path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span> <span class="o">=</span> <span class="p">{</span>
@@ -345,7 +348,7 @@
                         <span class="k">pass</span></div>
     
 <div class="viewcode-block" id="parser.map_cclib_data"><a class="viewcode-back" href="../../../doc/reptar.parsers.html#reptar.parsers.parser.parser.map_cclib_data">[docs]</a>    <span class="k">def</span> <span class="nf">map_cclib_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">"""Assign cclib-parsed data to our ``parsed_info`` dictionary.</span>
 <span class="sd">        """</span>
         <span class="n">parsed_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span>
         <span class="n">cclib_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cclib_data</span>

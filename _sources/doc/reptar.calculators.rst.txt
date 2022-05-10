@@ -4,10 +4,10 @@ reptar.calculators package
 Submodules
 ----------
 
-reptar.calculators.engrads module
+reptar.calculators.drivers module
 ---------------------------------
 
-.. automodule:: reptar.calculators.engrads
+.. automodule:: reptar.calculators.drivers
    :members:
    :undoc-members:
    :show-inheritance:

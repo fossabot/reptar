@@ -154,11 +154,13 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../data.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../file.html">File</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../creator.html">Creator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../parsers-extractors.html">Parsers and extractors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../definitions.html">Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../writers.html">Writers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sampling.html">Sampling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../calculators.html">Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../definitions.html">Definitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/examples.html">Examples</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../doc/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../doc/reptar.html">reptar package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -239,11 +241,11 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ---------</span>
-<span class="sd">    R : :obj:`numpy.ndarray`</span>
+<span class="sd">    R : :obj:`numpy.ndarray`, ndim: ``2``</span>
 <span class="sd">        Cartesian coordinates of all atoms in the system in Angstroms.</span>
-<span class="sd">    cutoff : :obj:`float`</span>
+<span class="sd">    cutoff : :obj:`float`, default: ``1.5``</span>
 <span class="sd">        Atoms within this distance is group together in a fragment.</span>
-<span class="sd">    num_frags : :obj:`int`, optional</span>
+<span class="sd">    num_frags : :obj:`int`, default: ``None``</span>
 <span class="sd">        Known number of fragments in structure.</span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>

@@ -24,18 +24,18 @@ reptar.creator module
    :undoc-members:
    :show-inheritance:
 
-reptar.data module
-------------------
-
-.. automodule:: reptar.data
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 reptar.fragment module
 ----------------------
 
 .. automodule:: reptar.fragment
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+reptar.reptar\_file module
+--------------------------
+
+.. automodule:: reptar.reptar_file
    :members:
    :undoc-members:
    :show-inheritance:
