@@ -32,6 +32,14 @@ reptar.fragment module
    :undoc-members:
    :show-inheritance:
 
+reptar.mb module
+----------------
+
+.. automodule:: reptar.mb
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 reptar.reptar\_file module
 --------------------------
 

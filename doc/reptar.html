@@ -161,6 +161,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../writers.html">Writers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sampling.html">Sampling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../calculators.html">Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../many-body-expansion.html">Many-body expansion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../definitions.html">Definitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/examples.html">Examples</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">API</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
@@ -409,6 +410,160 @@ Only supported packaged should be included in <cite>triggers</cite>.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+</section>
+<section id="module-reptar.mb">
+<span id="reptar-mb-module"></span><h2>reptar.mb module<a class="headerlink" href="#module-reptar.mb" title="Permalink to this headline">#</a></h2>
+<p>Many-body utilities.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="reptar.mb.gen_r_entity_combs">
+<span class="sig-prename descclassname"><span class="pre">reptar.mb.</span></span><span class="sig-name descname"><span class="pre">gen_r_entity_combs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r_prov_spec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_ids_lower</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/mb.html#gen_r_entity_combs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.mb.gen_r_entity_combs" title="Permalink to this definition">#</a></dt>
+<dd><p>Generate <code class="docutils literal notranslate"><span class="pre">entity_id</span></code> combinations of a specific size for a single
+structure.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">r_prov_spec[2:]</span></code> provides the <code class="docutils literal notranslate"><span class="pre">entity_ids</span></code> of a reference
+structure. For example, consider <code class="docutils literal notranslate"><span class="pre">r_prov_spec</span> <span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">34,</span> <span class="pre">5,</span> <span class="pre">2]</span></code>.
+This tells us that the structure contains three entities, and the
+<code class="docutils literal notranslate"><span class="pre">entity_ids</span></code> of each are <code class="docutils literal notranslate"><span class="pre">34</span></code>, <code class="docutils literal notranslate"><span class="pre">5</span></code>, and <code class="docutils literal notranslate"><span class="pre">2</span></code> in the structure
+provenance.</p>
+<p><code class="docutils literal notranslate"><span class="pre">gen_r_entity_combs</span></code> generates all combinations (without replacement)
+based on the number of entities in <code class="docutils literal notranslate"><span class="pre">entity_ids_lower</span></code>.
+If <code class="docutils literal notranslate"><span class="pre">entity_ids_lower</span></code> is <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1]</span></code> (i.e., number of
+lower-order entities is 2), then <code class="docutils literal notranslate"><span class="pre">gen_r_entity_combs</span></code> produces all 3
+choose 2 combinations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r_prov_spec</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Structure provenance specifications of a single structure.</p></li>
+<li><p><strong>entity_ids_lower</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – A uniquely identifying integer specifying what atoms belong to
+which entities for lower-order structures. Entities can be a related
+set of atoms, molecules, or functional group. For example, a water and
+methanol molecule could be <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1]</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></a> – Entity combinations of a single structure.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="reptar.mb.gen_r_idxs_worker">
+<span class="sig-prename descclassname"><span class="pre">reptar.mb.</span></span><span class="sig-name descname"><span class="pre">gen_r_idxs_worker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r_prov_specs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_prov_ids_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_workers</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/mb.html#gen_r_idxs_worker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.mb.gen_r_idxs_worker" title="Permalink to this definition">#</a></dt>
+<dd><p>Generates the assigned structures for each worker.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r_prov_specs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">2</span></code>) – Structure provenance IDs. This specifies the <code class="docutils literal notranslate"><span class="pre">r_prov_id</span></code>, structure
+index from the <code class="docutils literal notranslate"><span class="pre">r_prov_id</span></code> source, and <code class="docutils literal notranslate"><span class="pre">entity_ids</span></code> making up
+the structure.</p></li>
+<li><p><strong>r_prov_ids_lower</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> {<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>}) – Species an ID (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) to uniquely identifying labels for each
+lower-order structure if it originated from another reptar file. Labels
+should always be <code class="docutils literal notranslate"><span class="pre">md5_structures</span></code>. For example,
+<code class="docutils literal notranslate"><span class="pre">{0:</span> <span class="pre">'6038e101da7fc0085978741832ebc7ad',</span> <span class="pre">1:</span> <span class="pre">'eeaf93dec698de3ecb55e9292bd9dfcb'}</span></code>.</p></li>
+<li><p><strong>n_workers</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of parallel workers. Can range from <code class="docutils literal notranslate"><span class="pre">1</span></code> to the umber of CPUs
+available.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – Structure indices for the worker.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="reptar.mb.mb_contributions">
+<span class="sig-prename descclassname"><span class="pre">reptar.mb.</span></span><span class="sig-name descname"><span class="pre">mb_contributions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Deriv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_prov_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_prov_specs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Deriv_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_ids_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_prov_ids_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_prov_specs_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'remove'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/mb.html#mb_contributions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.mb.mb_contributions" title="Permalink to this definition">#</a></dt>
+<dd><p>Adds or removes energy and derivative (i.e., gradients or forces)
+contributions from a reference.</p>
+<p>We use the term “lower” to refer to the lower-order (i.e., smaller) systems.
+These are the energy and derivative contributions to remove or add to a
+reference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>E</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Energies to add or remove contributions from (i.e., reference).</p></li>
+<li><p><strong>Deriv</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Potential energy surface derivatives (i.e., gradients or forces
+depending on the sign) of reference structures.</p></li>
+<li><p><strong>entity_ids</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – A uniquely identifying integer specifying what atoms belong to
+which entities for reference structures. Entities can be a related
+set of atoms, molecules, or functional group. For example, a water and
+methanol molecule could be <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1]</span></code>.</p></li>
+<li><p><strong>r_prov_ids</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> {<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>}) – Species an ID (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) to uniquely identifying labels for each
+structure if it originated from another reptar file. Labels should
+always be <code class="docutils literal notranslate"><span class="pre">md5_structures</span></code>. For example,
+<code class="docutils literal notranslate"><span class="pre">{0:</span> <span class="pre">'6038e101da7fc0085978741832ebc7ad',</span> <span class="pre">1:</span> <span class="pre">'eeaf93dec698de3ecb55e9292bd9dfcb'}</span></code>.</p></li>
+<li><p><strong>r_prov_specs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">2</span></code>) – Structure provenance IDs. This specifies the <code class="docutils literal notranslate"><span class="pre">r_prov_id</span></code>, structure
+index from the <code class="docutils literal notranslate"><span class="pre">r_prov_id</span></code> source, and <code class="docutils literal notranslate"><span class="pre">entity_ids</span></code> making up
+the structure.</p></li>
+<li><p><strong>E_lower</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Lower-order energies.</p></li>
+<li><p><strong>Deriv_lower</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Potential energy surface derivatives (i.e., gradients or forces
+depending on the sign) of lower-order structures.</p></li>
+<li><p><strong>entity_ids_lower</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – A uniquely identifying integer specifying what atoms belong to
+which entities for lower-order structures. Entities can be a related
+set of atoms, molecules, or functional group. For example, a water and
+methanol molecule could be <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1]</span></code>.</p></li>
+<li><p><strong>r_prov_ids_lower</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> {<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>}) – Species an ID (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) to uniquely identifying labels for each
+lower-order structure if it originated from another reptar file. Labels
+should always be <code class="docutils literal notranslate"><span class="pre">md5_structures</span></code>. For example,
+<code class="docutils literal notranslate"><span class="pre">{0:</span> <span class="pre">'6038e101da7fc0085978741832ebc7ad',</span> <span class="pre">1:</span> <span class="pre">'eeaf93dec698de3ecb55e9292bd9dfcb'}</span></code>.</p></li>
+<li><p><strong>r_prov_specs_lower</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">2</span></code>) – Structure provenance IDs. This specifies the <code class="docutils literal notranslate"><span class="pre">r_prov_id</span></code>, structure
+index from the <code class="docutils literal notranslate"><span class="pre">r_prov_id</span></code> source, and <code class="docutils literal notranslate"><span class="pre">entity_ids</span></code> making up
+lower-order structures.</p></li>
+<li><p><strong>operation</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">'remove'</span></code>) – <code class="docutils literal notranslate"><span class="pre">'add'</span></code> or <code class="docutils literal notranslate"><span class="pre">'remove'</span></code> the contributions.</p></li>
+<li><p><strong>n_workers</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Number of workers. Can range from <code class="docutils literal notranslate"><span class="pre">1</span></code> to the total number of CPUs
+available. If larger than <code class="docutils literal notranslate"><span class="pre">1</span></code>, ray tasks are spawned.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – Energies with lower-order contributions added or removed.</p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – Derivatives with lower-order contributions added or removed.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="reptar.mb.mb_worker">
+<span class="sig-prename descclassname"><span class="pre">reptar.mb.</span></span><span class="sig-name descname"><span class="pre">mb_worker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_prov_specs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_idxs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Deriv_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_ids_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_prov_specs_lower</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/mb.html#mb_worker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.mb.mb_worker" title="Permalink to this definition">#</a></dt>
+<dd><p>Work for computing many-body contributions.</p>
+<p>This does not take into account if many-body contributions are being
+<code class="docutils literal notranslate"><span class="pre">'added'</span></code> or <code class="docutils literal notranslate"><span class="pre">'removed'</span></code>. This just sums up all possible contributions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r_shape</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Shape of a single structure. For example, <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">3)</span></code> where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the
+number of atoms.</p></li>
+<li><p><strong>entity_ids</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – A uniquely identifying integer specifying what atoms belong to
+which entities for lower-order structures. Entities can be a related
+set of atoms, molecules, or functional group. For example, a water and
+methanol molecule could be <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1]</span></code>.</p></li>
+<li><p><strong>r_prov_specs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">2</span></code>) – Structure provenance IDs. This specifies the <code class="docutils literal notranslate"><span class="pre">r_prov_id</span></code>, structure
+index from the <code class="docutils literal notranslate"><span class="pre">r_prov_id</span></code> source, and <code class="docutils literal notranslate"><span class="pre">entity_ids</span></code> making up
+the structure.</p></li>
+<li><p><strong>r_idxs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Structure indices of the original <code class="docutils literal notranslate"><span class="pre">E</span></code> and <code class="docutils literal notranslate"><span class="pre">Deriv</span></code> arrays for this
+worker.</p></li>
+<li><p><strong>E_lower</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Energies of lower-order structures.</p></li>
+<li><p><strong>Deriv_lower</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Potential energy surface derivatives (i.e., gradients or forces
+depending on the sign) of lower-order structures.</p></li>
+<li><p><strong>entity_ids_lower</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – A uniquely identifying integer specifying what atoms belong to
+which entities for lower-order structures. Entities can be a related
+set of atoms, molecules, or functional group. For example, a water and
+methanol molecule could be <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1]</span></code>.</p></li>
+<li><p><strong>r_prov_specs_lower</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">2</span></code>) – Structure provenance IDs. This specifies the <code class="docutils literal notranslate"><span class="pre">r_prov_id</span></code>, structure
+index from the <code class="docutils literal notranslate"><span class="pre">r_prov_id</span></code> source, and <code class="docutils literal notranslate"><span class="pre">entity_ids</span></code> making up
+lower-order structures.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> – Structure indices of the original <code class="docutils literal notranslate"><span class="pre">E</span></code> and <code class="docutils literal notranslate"><span class="pre">Deriv</span></code> arrays for this
+worker.</p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – Many-body energy contributions for the worker structure indices.</p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – Many-body derivative (i.e., gradients or forces depending on the sign)
+contributions for the worker structure indices.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1255,6 +1410,7 @@ simulation, etc.</p></li>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-reptar.creator">reptar.creator module</a></li>
 <li><a class="reference internal" href="#module-reptar.fragment">reptar.fragment module</a></li>
+<li><a class="reference internal" href="#module-reptar.mb">reptar.mb module</a></li>
 <li><a class="reference internal" href="#module-reptar.reptar_file">reptar.reptar_file module</a></li>
 <li><a class="reference internal" href="#module-reptar.sampler">reptar.sampler module</a></li>
 <li><a class="reference internal" href="#module-reptar.utils">reptar.utils module</a></li>

@@ -159,6 +159,7 @@
 <li class="toctree-l1"><a class="reference internal" href="writers.html">Writers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sampling.html">Sampling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calculators.html">Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="many-body-expansion.html">Many-body expansion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="definitions.html">Definitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/examples.html">Examples</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="doc/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -412,6 +413,10 @@
 </li>
         <li><a href="doc/reptar.html#reptar.utils.gen_entity_ids">gen_entity_ids() (in module reptar.utils)</a>
 </li>
+        <li><a href="doc/reptar.html#reptar.mb.gen_r_entity_combs">gen_r_entity_combs() (in module reptar.mb)</a>
+</li>
+        <li><a href="doc/reptar.html#reptar.mb.gen_r_idxs_worker">gen_r_idxs_worker() (in module reptar.mb)</a>
+</li>
         <li><a href="doc/reptar.extractors.html#reptar.extractors.extractorORCA.geo_conv">geo_conv() (reptar.extractors.extractorORCA method)</a>
 
         <ul>
@@ -426,10 +431,10 @@
           <li><a href="doc/reptar.html#reptar.reptar_file.File.get">(reptar.reptar_file.File method)</a>
 </li>
         </ul></li>
-        <li><a href="doc/reptar.html#reptar.utils.get_files">get_files() (in module reptar.utils)</a>
-</li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="doc/reptar.html#reptar.utils.get_files">get_files() (in module reptar.utils)</a>
+</li>
         <li><a href="doc/reptar.html#reptar.File.get_keys">get_keys() (reptar.File method)</a>
 
         <ul>
@@ -522,6 +527,10 @@
           <li><a href="doc/reptar.parsers.html#reptar.parsers.parser.parser.map_cclib_data">(reptar.parsers.parser.parser method)</a>
 </li>
         </ul></li>
+        <li><a href="doc/reptar.html#reptar.mb.mb_contributions">mb_contributions() (in module reptar.mb)</a>
+</li>
+        <li><a href="doc/reptar.html#reptar.mb.mb_worker">mb_worker() (in module reptar.mb)</a>
+</li>
         <li><a href="doc/reptar.extractors.html#reptar.extractors.extractorXTB.md_avg_props">md_avg_props() (reptar.extractors.extractorXTB method)</a>
 
         <ul>
@@ -555,6 +564,8 @@
           <li><a href="doc/reptar.extractors.html#module-reptar.extractors.xtb_extractor">reptar.extractors.xtb_extractor</a>
 </li>
           <li><a href="doc/reptar.html#module-reptar.fragment">reptar.fragment</a>
+</li>
+          <li><a href="doc/reptar.html#module-reptar.mb">reptar.mb</a>
 </li>
           <li><a href="doc/reptar.parsers.html#module-reptar.parsers">reptar.parsers</a>
 </li>
@@ -787,6 +798,13 @@
 </li>
         </ul></li>
         <li>
+    reptar.mb
+
+        <ul>
+          <li><a href="doc/reptar.html#module-reptar.mb">module</a>
+</li>
+        </ul></li>
+        <li>
     reptar.parsers
 
         <ul>
@@ -807,6 +825,8 @@
           <li><a href="doc/reptar.parsers.html#module-reptar.parsers.parser">module</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     reptar.parsers.xtb_parser
 
@@ -814,8 +834,6 @@
           <li><a href="doc/reptar.parsers.html#module-reptar.parsers.xtb_parser">module</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     reptar.reptar_file
 

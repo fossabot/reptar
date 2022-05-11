@@ -1,0 +1,586 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+        <title>reptar.mb - reptar documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">reptar  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">reptar  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../file.html">File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../creator.html">Creator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parsers-extractors.html">Parsers and extractors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../writers.html">Writers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sampling.html">Sampling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../calculators.html">Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../many-body-expansion.html">Many-body expansion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../definitions.html">Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/examples.html">Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../doc/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../doc/reptar.html">reptar package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../doc/reptar.calculators.html">reptar.calculators package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../doc/reptar.definitions.html">reptar.definitions package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../doc/reptar.extractors.html">reptar.extractors package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../doc/reptar.parsers.html">reptar.parsers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../doc/reptar.writers.html">reptar.writers package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <h1>Source code for reptar.mb</h1><div class="highlight"><pre>
+<span></span><span class="c1"># MIT License</span>
+<span class="c1"># </span>
+<span class="c1"># Copyright (c) 2022, Alex M. Maldonado</span>
+<span class="c1"># </span>
+<span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<span class="c1"># of this software and associated documentation files (the "Software"), to deal</span>
+<span class="c1"># in the Software without restriction, including without limitation the rights</span>
+<span class="c1"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<span class="c1"># copies of the Software, and to permit persons to whom the Software is</span>
+<span class="c1"># furnished to do so, subject to the following conditions:</span>
+<span class="c1">#</span>
+<span class="c1"># The above copyright notice and this permission notice shall be included in all</span>
+<span class="c1"># copies or substantial portions of the Software.</span>
+<span class="c1"># </span>
+<span class="c1"># THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="c1"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="c1"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
+<span class="c1"># SOFTWARE.</span>
+
+<span class="sd">"""Many-body utilities."""</span>
+
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<div class="viewcode-block" id="gen_r_entity_combs"><a class="viewcode-back" href="../../doc/reptar.html#reptar.mb.gen_r_entity_combs">[docs]</a><span class="k">def</span> <span class="nf">gen_r_entity_combs</span><span class="p">(</span><span class="n">r_prov_spec</span><span class="p">,</span> <span class="n">entity_ids_lower</span><span class="p">):</span>
+    <span class="sd">"""Generate ``entity_id`` combinations of a specific size for a single</span>
+<span class="sd">    structure.</span>
+
+<span class="sd">    The ``r_prov_spec[2:]`` provides the ``entity_ids`` of a reference</span>
+<span class="sd">    structure. For example, consider ``r_prov_spec = [0, 0, 34, 5, 2]``.</span>
+<span class="sd">    This tells us that the structure contains three entities, and the</span>
+<span class="sd">    ``entity_ids`` of each are ``34``, ``5``, and ``2`` in the structure</span>
+<span class="sd">    provenance.</span>
+
+<span class="sd">    ``gen_r_entity_combs`` generates all combinations (without replacement)</span>
+<span class="sd">    based on the number of entities in ``entity_ids_lower``.</span>
+<span class="sd">    If ``entity_ids_lower`` is ``[0, 0, 0, 1, 1, 1]`` (i.e., number of </span>
+<span class="sd">    lower-order entities is 2), then ``gen_r_entity_combs`` produces all 3</span>
+<span class="sd">    choose 2 combinations. </span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    r_prov_spec : :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">        Structure provenance specifications of a single structure.</span>
+<span class="sd">    entity_ids_lower : :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">        A uniquely identifying integer specifying what atoms belong to</span>
+<span class="sd">        which entities for lower-order structures. Entities can be a related</span>
+<span class="sd">        set of atoms, molecules, or functional group. For example, a water and</span>
+<span class="sd">        methanol molecule could be ``[0, 0, 0, 1, 1, 1, 1, 1, 1]``.</span>
+<span class="sd">    </span>
+<span class="sd">    Yield</span>
+<span class="sd">    -----</span>
+<span class="sd">    :obj:`tuple`</span>
+<span class="sd">        Entity combinations of a single structure.</span>
+<span class="sd">    """</span>
+    <span class="n">n_entities_lower</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">entity_ids_lower</span><span class="p">))</span>
+    <span class="n">entity_combs</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span>
+        <span class="n">r_prov_spec</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">n_entities_lower</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">comb</span> <span class="ow">in</span> <span class="n">entity_combs</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">comb</span></div>
+
+<div class="viewcode-block" id="mb_worker"><a class="viewcode-back" href="../../doc/reptar.html#reptar.mb.mb_worker">[docs]</a><span class="k">def</span> <span class="nf">mb_worker</span><span class="p">(</span>
+    <span class="n">r_shape</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">,</span> <span class="n">r_prov_specs</span><span class="p">,</span> <span class="n">r_idxs</span><span class="p">,</span> <span class="n">E_lower</span><span class="p">,</span> <span class="n">Deriv_lower</span><span class="p">,</span>
+    <span class="n">entity_ids_lower</span><span class="p">,</span> <span class="n">r_prov_specs_lower</span>
+<span class="p">):</span>
+    <span class="sd">"""Work for computing many-body contributions.</span>
+
+<span class="sd">    This does not take into account if many-body contributions are being </span>
+<span class="sd">    ``'added'`` or ``'removed'``. This just sums up all possible contributions.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    r_shape : :obj:`tuple`, ndim: ``1``</span>
+<span class="sd">        Shape of a single structure. For example, ``(n, 3)`` where ``n`` is the</span>
+<span class="sd">        number of atoms.</span>
+<span class="sd">    entity_ids : :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">        A uniquely identifying integer specifying what atoms belong to</span>
+<span class="sd">        which entities for lower-order structures. Entities can be a related</span>
+<span class="sd">        set of atoms, molecules, or functional group. For example, a water and</span>
+<span class="sd">        methanol molecule could be ``[0, 0, 0, 1, 1, 1, 1, 1, 1]``.</span>
+<span class="sd">    r_prov_specs : :obj:`numpy.ndarray`, ndim: ``2``</span>
+<span class="sd">        Structure provenance IDs. This specifies the ``r_prov_id``, structure</span>
+<span class="sd">        index from the ``r_prov_id`` source, and ``entity_ids`` making up</span>
+<span class="sd">        the structure.</span>
+<span class="sd">    r_idxs : :obj:`list`, ndim: ``1``</span>
+<span class="sd">        Structure indices of the original ``E`` and ``Deriv`` arrays for this</span>
+<span class="sd">        worker.</span>
+<span class="sd">    E_lower : :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">        Energies of lower-order structures.</span>
+<span class="sd">    Deriv_lower : :obj:`numpy.ndarray`, ndim: ``3``</span>
+<span class="sd">        Potential energy surface derivatives (i.e., gradients or forces</span>
+<span class="sd">        depending on the sign) of lower-order structures.</span>
+<span class="sd">    entity_ids_lower : :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">        A uniquely identifying integer specifying what atoms belong to</span>
+<span class="sd">        which entities for lower-order structures. Entities can be a related</span>
+<span class="sd">        set of atoms, molecules, or functional group. For example, a water and</span>
+<span class="sd">        methanol molecule could be ``[0, 0, 0, 1, 1, 1, 1, 1, 1]``.</span>
+<span class="sd">    r_prov_specs_lower : :obj:`numpy.ndarray`, ndim: ``2``</span>
+<span class="sd">        Structure provenance IDs. This specifies the ``r_prov_id``, structure</span>
+<span class="sd">        index from the ``r_prov_id`` source, and ``entity_ids`` making up</span>
+<span class="sd">        lower-order structures.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    :obj:`list`</span>
+<span class="sd">        Structure indices of the original ``E`` and ``Deriv`` arrays for this</span>
+<span class="sd">        worker.</span>
+<span class="sd">    :obj:`numpy.ndarray`</span>
+<span class="sd">        Many-body energy contributions for the worker structure indices.</span>
+<span class="sd">    :obj:`numpy.ndarray`</span>
+<span class="sd">        Many-body derivative (i.e., gradients or forces depending on the sign)</span>
+<span class="sd">        contributions for the worker structure indices.</span>
+<span class="sd">    """</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">r_idxs</span><span class="p">))</span>
+    <span class="n">Deriv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">r_idxs</span><span class="p">),</span> <span class="o">*</span><span class="n">r_shape</span><span class="p">))</span>
+    
+    <span class="c1"># Loop through every structure in the reference data set.</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">r_idxs</span><span class="p">)):</span>
+        <span class="n">i_r</span> <span class="o">=</span> <span class="n">r_idxs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="c1"># We have to match the molecule information for each reference</span>
+        <span class="c1"># structure to the molecules in this lower-order structure to remove</span>
+        <span class="c1"># the right contribution.</span>
+        <span class="n">r_prov_spec</span> <span class="o">=</span> <span class="n">r_prov_specs</span><span class="p">[</span><span class="n">i_r</span><span class="p">]</span>  <span class="c1"># r_prov_specs of this structure.</span>
+
+        <span class="c1"># Loop through every molecular combination.</span>
+        <span class="k">for</span> <span class="n">entity_comb</span> <span class="ow">in</span> <span class="n">gen_r_entity_combs</span><span class="p">(</span><span class="n">r_prov_spec</span><span class="p">,</span> <span class="n">entity_ids_lower</span><span class="p">):</span>
+            <span class="c1"># r_prov_spec of the lower-order structure.</span>
+            <span class="c1"># Combines [r_prov_id, r_idx] with the entity combination.</span>
+            <span class="n">r_prov_spec_lower_comb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">r_prov_spec</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">entity_comb</span><span class="p">)]</span>
+            <span class="p">)</span>
+            
+            <span class="c1"># Index of the structure in the lower data set.</span>
+            <span class="n">i_r_lower</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">r_prov_specs_lower</span> <span class="o">==</span> <span class="n">r_prov_spec_lower_comb</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="n">deriv_lower</span> <span class="o">=</span> <span class="n">Deriv_lower</span><span class="p">[</span><span class="n">i_r_lower</span><span class="p">]</span>
+
+            <span class="c1"># Adding or removing energy contributions.</span>
+            <span class="n">E</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">E_lower</span><span class="p">[</span><span class="n">i_r_lower</span><span class="p">]</span>
+            
+            <span class="c1"># Adding or removing derivative contributions.</span>
+            <span class="c1"># We have to determine the corresponding atom indices of both the</span>
+            <span class="c1"># reference and lower-order structure.</span>
+            <span class="c1"># This is done by matching the entity_id_prov between the two r_prov_specs.</span>
+            <span class="c1"># The position of entity_id_prov in r_prov_specs (with r_prov_id and</span>
+            <span class="c1"># r_idx removed) specifies the entity_id of the </span>
+
+            <span class="c1"># entity_id_prov: the original entity_id of the structure provenance.</span>
+            <span class="c1"># entity_id: the entity_id in the reference structure.</span>
+            <span class="c1"># entity_id_lower: the entity_id in the lower-order structure.</span>
+            <span class="c1"># i_z: atom indices of the reference structure to add or remove</span>
+            <span class="c1"># lower-order structure.</span>
+            <span class="c1"># i_z_lower: atom indices of lower-order contribution.</span>
+            <span class="k">for</span> <span class="n">entity_id_prov</span> <span class="ow">in</span> <span class="n">r_prov_spec_lower_comb</span><span class="p">[</span><span class="mi">2</span><span class="p">:]:</span>
+                <span class="n">entity_id</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">r_prov_spec</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">==</span> <span class="n">entity_id_prov</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">i_z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">entity_ids</span> <span class="o">==</span> <span class="n">entity_id</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+                <span class="n">entity_id_lower</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+                    <span class="n">r_prov_spec_lower_comb</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">==</span> <span class="n">entity_id_prov</span>
+                <span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">i_z_lower</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+                    <span class="n">entity_ids_lower</span> <span class="o">==</span> <span class="n">entity_id_lower</span>
+                <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                
+                <span class="n">Deriv</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i_z</span><span class="p">]</span> <span class="o">+=</span> <span class="n">deriv_lower</span><span class="p">[</span><span class="n">i_z_lower</span><span class="p">]</span>
+                
+    <span class="k">return</span> <span class="n">r_idxs</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">Deriv</span></div>
+
+<div class="viewcode-block" id="gen_r_idxs_worker"><a class="viewcode-back" href="../../doc/reptar.html#reptar.mb.gen_r_idxs_worker">[docs]</a><span class="k">def</span> <span class="nf">gen_r_idxs_worker</span><span class="p">(</span><span class="n">r_prov_specs</span><span class="p">,</span> <span class="n">r_prov_ids_lower</span><span class="p">,</span> <span class="n">n_workers</span><span class="p">):</span>
+    <span class="sd">"""Generates the assigned structures for each worker.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    r_prov_specs : :obj:`numpy.ndarray`, ndim: ``2``</span>
+<span class="sd">        Structure provenance IDs. This specifies the ``r_prov_id``, structure</span>
+<span class="sd">        index from the ``r_prov_id`` source, and ``entity_ids`` making up</span>
+<span class="sd">        the structure.</span>
+<span class="sd">    r_prov_ids_lower : :obj:`dict` {:obj:`int`: :obj:`str`}</span>
+<span class="sd">        Species an ID (:obj:`int`) to uniquely identifying labels for each</span>
+<span class="sd">        lower-order structure if it originated from another reptar file. Labels</span>
+<span class="sd">        should always be ``md5_structures``. For example,</span>
+<span class="sd">        ``{0: '6038e101da7fc0085978741832ebc7ad', 1: 'eeaf93dec698de3ecb55e9292bd9dfcb'}``.</span>
+<span class="sd">    n_workers : :obj:`int`</span>
+<span class="sd">        Number of parallel workers. Can range from ``1`` to the umber of CPUs</span>
+<span class="sd">        available.</span>
+
+<span class="sd">    Yields</span>
+<span class="sd">    ------</span>
+<span class="sd">    :obj:`numpy.ndarray`</span>
+<span class="sd">        Structure indices for the worker.</span>
+<span class="sd">    """</span>
+    <span class="c1"># Select all structures that we can remove contributions based on</span>
+    <span class="c1"># r_prov_ids in the lower contributions.</span>
+    <span class="n">r_idxs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">r_prov_id_lower</span> <span class="ow">in</span> <span class="n">r_prov_ids_lower</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">r_idxs</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">r_prov_specs</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">r_prov_id_lower</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+    
+    <span class="n">task_size</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">r_idxs</span><span class="p">)</span><span class="o">/</span><span class="n">n_workers</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">r_idxs</span><span class="p">),</span> <span class="n">task_size</span><span class="p">):</span>
+        <span class="n">r_idxs_worker</span> <span class="o">=</span> <span class="n">r_idxs</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">task_size</span><span class="p">]</span>
+        <span class="k">yield</span> <span class="n">r_idxs_worker</span></div>
+
+<div class="viewcode-block" id="mb_contributions"><a class="viewcode-back" href="../../many-body-expansion.html#reptar.mb.mb_contributions">[docs]</a><span class="k">def</span> <span class="nf">mb_contributions</span><span class="p">(</span>
+    <span class="n">E</span><span class="p">,</span> <span class="n">Deriv</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">,</span> <span class="n">r_prov_ids</span><span class="p">,</span> <span class="n">r_prov_specs</span><span class="p">,</span> <span class="n">E_lower</span><span class="p">,</span> <span class="n">Deriv_lower</span><span class="p">,</span>
+    <span class="n">entity_ids_lower</span><span class="p">,</span> <span class="n">r_prov_ids_lower</span><span class="p">,</span> <span class="n">r_prov_specs_lower</span><span class="p">,</span> <span class="n">operation</span><span class="o">=</span><span class="s1">'remove'</span><span class="p">,</span>
+    <span class="n">n_workers</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">):</span>
+    <span class="sd">"""Adds or removes energy and derivative (i.e., gradients or forces)</span>
+<span class="sd">    contributions from a reference.</span>
+
+<span class="sd">    We use the term "lower" to refer to the lower-order (i.e., smaller) systems.</span>
+<span class="sd">    These are the energy and derivative contributions to remove or add to a</span>
+<span class="sd">    reference.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    E : :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">        Energies to add or remove contributions from (i.e., reference).</span>
+<span class="sd">    Deriv : :obj:`numpy.ndarray`, ndim: ``3``</span>
+<span class="sd">        Potential energy surface derivatives (i.e., gradients or forces</span>
+<span class="sd">        depending on the sign) of reference structures.</span>
+<span class="sd">    entity_ids : :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">        A uniquely identifying integer specifying what atoms belong to</span>
+<span class="sd">        which entities for reference structures. Entities can be a related</span>
+<span class="sd">        set of atoms, molecules, or functional group. For example, a water and</span>
+<span class="sd">        methanol molecule could be ``[0, 0, 0, 1, 1, 1, 1, 1, 1]``.</span>
+<span class="sd">    r_prov_ids : :obj:`dict` {:obj:`int`: :obj:`str`}</span>
+<span class="sd">        Species an ID (:obj:`int`) to uniquely identifying labels for each</span>
+<span class="sd">        structure if it originated from another reptar file. Labels should</span>
+<span class="sd">        always be ``md5_structures``. For example,</span>
+<span class="sd">        ``{0: '6038e101da7fc0085978741832ebc7ad', 1: 'eeaf93dec698de3ecb55e9292bd9dfcb'}``.</span>
+<span class="sd">    r_prov_specs : :obj:`numpy.ndarray`, ndim: ``2``</span>
+<span class="sd">        Structure provenance IDs. This specifies the ``r_prov_id``, structure</span>
+<span class="sd">        index from the ``r_prov_id`` source, and ``entity_ids`` making up</span>
+<span class="sd">        the structure.</span>
+<span class="sd">    E_lower : :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">        Lower-order energies.</span>
+<span class="sd">    Deriv_lower : :obj:`numpy.ndarray`, ndim: ``3``</span>
+<span class="sd">        Potential energy surface derivatives (i.e., gradients or forces</span>
+<span class="sd">        depending on the sign) of lower-order structures.</span>
+<span class="sd">    entity_ids_lower : :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">        A uniquely identifying integer specifying what atoms belong to</span>
+<span class="sd">        which entities for lower-order structures. Entities can be a related</span>
+<span class="sd">        set of atoms, molecules, or functional group. For example, a water and</span>
+<span class="sd">        methanol molecule could be ``[0, 0, 0, 1, 1, 1, 1, 1, 1]``.</span>
+<span class="sd">    r_prov_ids_lower : :obj:`dict` {:obj:`int`: :obj:`str`}</span>
+<span class="sd">        Species an ID (:obj:`int`) to uniquely identifying labels for each</span>
+<span class="sd">        lower-order structure if it originated from another reptar file. Labels</span>
+<span class="sd">        should always be ``md5_structures``. For example,</span>
+<span class="sd">        ``{0: '6038e101da7fc0085978741832ebc7ad', 1: 'eeaf93dec698de3ecb55e9292bd9dfcb'}``.</span>
+<span class="sd">    r_prov_specs_lower : :obj:`numpy.ndarray`, ndim: ``2``</span>
+<span class="sd">        Structure provenance IDs. This specifies the ``r_prov_id``, structure</span>
+<span class="sd">        index from the ``r_prov_id`` source, and ``entity_ids`` making up</span>
+<span class="sd">        lower-order structures.</span>
+<span class="sd">    operation : :obj:`str`, default: ``'remove'``</span>
+<span class="sd">        ``'add'`` or ``'remove'`` the contributions.</span>
+<span class="sd">    n_workers : :obj:`int`, default: ``1``</span>
+<span class="sd">        Number of workers. Can range from ``1`` to the total number of CPUs</span>
+<span class="sd">        available. If larger than ``1``, ray tasks are spawned.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    :obj:`numpy.ndarray`</span>
+<span class="sd">        Energies with lower-order contributions added or removed.</span>
+<span class="sd">    :obj:`numpy.ndarray`</span>
+<span class="sd">        Derivatives with lower-order contributions added or removed.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">operation</span> <span class="o">!=</span> <span class="s1">'add'</span> <span class="ow">and</span> <span class="n">operation</span> <span class="o">!=</span> <span class="s1">'remove'</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">operation</span><span class="si">}</span><span class="s1"> is not "add" or "remove".'</span><span class="p">)</span>
+    
+    <span class="c1"># Checks that the r_prov_md5 hashes match the same r_prov_id</span>
+    <span class="k">for</span> <span class="n">r_prov_id_lower</span><span class="p">,</span> <span class="n">r_prov_md5_lower</span> <span class="ow">in</span> <span class="n">r_prov_ids_lower</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">assert</span> <span class="n">r_prov_md5_lower</span> <span class="o">==</span> <span class="n">r_prov_ids</span><span class="p">[</span><span class="n">r_prov_id_lower</span><span class="p">]</span>
+
+    <span class="n">r_shape</span> <span class="o">=</span> <span class="n">Deriv</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+
+    <span class="k">if</span> <span class="n">n_workers</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">r_idxs</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
+            <span class="n">gen_r_idxs_worker</span><span class="p">(</span><span class="n">r_prov_specs</span><span class="p">,</span> <span class="n">r_prov_ids_lower</span><span class="p">,</span> <span class="n">n_workers</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">r_idxs_worker</span><span class="p">,</span> <span class="n">E_worker</span><span class="p">,</span> <span class="n">Deriv_worker</span> <span class="o">=</span> <span class="n">mb_worker</span><span class="p">(</span>
+            <span class="n">r_shape</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">,</span> <span class="n">r_prov_specs</span><span class="p">,</span> <span class="n">r_idxs</span><span class="p">,</span> <span class="n">E_lower</span><span class="p">,</span> <span class="n">Deriv_lower</span><span class="p">,</span>
+            <span class="n">entity_ids_lower</span><span class="p">,</span> <span class="n">r_prov_specs_lower</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">'remove'</span><span class="p">:</span>
+            <span class="n">E</span><span class="p">[</span><span class="n">r_idxs_worker</span><span class="p">]</span> <span class="o">-=</span> <span class="n">E_worker</span>
+            <span class="n">Deriv</span><span class="p">[</span><span class="n">r_idxs_worker</span><span class="p">]</span> <span class="o">-=</span> <span class="n">Deriv_worker</span>
+        <span class="k">elif</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">'add'</span><span class="p">:</span>
+            <span class="n">E</span><span class="p">[</span><span class="n">r_idxs_worker</span><span class="p">]</span> <span class="o">+=</span> <span class="n">E_worker</span>
+            <span class="n">Deriv</span><span class="p">[</span><span class="n">r_idxs_worker</span><span class="p">]</span> <span class="o">+=</span> <span class="n">Deriv_worker</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Check ray.</span>
+        <span class="kn">import</span> <span class="nn">os</span>
+        <span class="kn">import</span> <span class="nn">ray</span>
+        <span class="n">num_cpus</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ray</span><span class="o">.</span><span class="n">is_initialized</span><span class="p">():</span>
+            <span class="c1"># Try to connect to already running ray service (from ray cli).</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">ray</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">address</span><span class="o">=</span><span class="s1">'auto'</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ConnectionError</span><span class="p">:</span>
+                <span class="n">ray</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">num_cpus</span><span class="o">=</span><span class="n">num_cpus</span><span class="p">)</span>
+        
+        <span class="c1"># Generate all workers.</span>
+        <span class="n">num_cpus_worker</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">num_cpus</span><span class="o">/</span><span class="n">n_workers</span><span class="p">)</span>
+        <span class="n">worker</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">remote</span><span class="p">(</span><span class="n">mb_worker</span><span class="p">)</span>
+        <span class="n">worker_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">r_idxs</span> <span class="ow">in</span> <span class="n">gen_r_idxs_worker</span><span class="p">(</span><span class="n">r_prov_specs</span><span class="p">,</span> <span class="n">r_prov_ids_lower</span><span class="p">,</span> <span class="n">n_workers</span><span class="p">):</span>
+            <span class="n">worker_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">worker</span><span class="o">.</span><span class="n">options</span><span class="p">(</span><span class="n">num_cpus</span><span class="o">=</span><span class="n">num_cpus_worker</span><span class="p">)</span><span class="o">.</span><span class="n">remote</span><span class="p">(</span>
+                    <span class="n">r_shape</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">,</span> <span class="n">r_prov_specs</span><span class="p">,</span> <span class="n">r_idxs</span><span class="p">,</span> <span class="n">E_lower</span><span class="p">,</span>
+                    <span class="n">Deriv_lower</span><span class="p">,</span> <span class="n">entity_ids_lower</span><span class="p">,</span> <span class="n">r_prov_specs_lower</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Run all workers.</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">worker_list</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">done_id</span><span class="p">,</span> <span class="n">worker_list</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">worker_list</span><span class="p">)</span>
+            
+            <span class="n">r_idxs_worker</span><span class="p">,</span> <span class="n">E_worker</span><span class="p">,</span> <span class="n">Deriv_worker</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">done_id</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">'remove'</span><span class="p">:</span>
+                <span class="n">E</span><span class="p">[</span><span class="n">r_idxs_worker</span><span class="p">]</span> <span class="o">-=</span> <span class="n">E_worker</span>
+                <span class="n">Deriv</span><span class="p">[</span><span class="n">r_idxs_worker</span><span class="p">]</span> <span class="o">-=</span> <span class="n">Deriv_worker</span>
+            <span class="k">elif</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">'add'</span><span class="p">:</span>
+                <span class="n">E</span><span class="p">[</span><span class="n">r_idxs_worker</span><span class="p">]</span> <span class="o">+=</span> <span class="n">E_worker</span>
+                <span class="n">Deriv</span><span class="p">[</span><span class="n">r_idxs_worker</span><span class="p">]</span> <span class="o">+=</span> <span class="n">Deriv_worker</span>
+    
+    <span class="k">return</span> <span class="n">E</span><span class="p">,</span> <span class="n">Deriv</span></div>
+
+</pre></div>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Alex M. Maldonado
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/scripts/furo.js"></script>
+    </body>
+</html>
