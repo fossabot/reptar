@@ -24,6 +24,14 @@ reptar.creator module
    :undoc-members:
    :show-inheritance:
 
+reptar.descriptors module
+-------------------------
+
+.. automodule:: reptar.descriptors
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 reptar.fragment module
 ----------------------
 

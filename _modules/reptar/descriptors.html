@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>reptar.fragment - reptar documentation</title>
+        <title>reptar.descriptors - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -208,7 +208,7 @@
           </label>
         </div>
         <article role="main">
-          <h1>Source code for reptar.fragment</h1><div class="highlight"><pre>
+          <h1>Source code for reptar.descriptors</h1><div class="highlight"><pre>
 <span></span><span class="c1"># MIT License</span>
 <span class="c1"># </span>
 <span class="c1"># Copyright (c) 2022, Alex M. Maldonado</span>
@@ -231,62 +231,118 @@
 <span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
 <span class="c1"># SOFTWARE.</span>
 
-<span class="sd">"""Groups atoms into fragments."""</span>
+<span class="sd">"""Implementations of structural criteria."""</span>
 
+<span class="kn">import</span> <span class="nn">itertools</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="kn">import</span> <span class="n">cdist</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">z_to_mass</span>
 
-<div class="viewcode-block" id="pairwise_distance"><a class="viewcode-back" href="../../doc/reptar.html#reptar.fragment.pairwise_distance">[docs]</a><span class="k">def</span> <span class="nf">pairwise_distance</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">num_frags</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">"""Group atoms together into fragments based on some cutoff distance.</span>
-
-<span class="sd">    This is not very dependable.</span>
+<div class="viewcode-block" id="get_center_of_mass"><a class="viewcode-back" href="../../doc/reptar.html#reptar.descriptors.get_center_of_mass">[docs]</a><span class="k">def</span> <span class="nf">get_center_of_mass</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
+    <span class="sd">"""Compute the center of mass.</span>
 
 <span class="sd">    Parameters</span>
-<span class="sd">    ---------</span>
-<span class="sd">    R : :obj:`numpy.ndarray`, ndim: ``2``</span>
-<span class="sd">        Cartesian coordinates of all atoms in the system in Angstroms.</span>
-<span class="sd">    cutoff : :obj:`float`, default: ``1.5``</span>
-<span class="sd">        Atoms within this distance is group together in a fragment.</span>
-<span class="sd">    num_frags : :obj:`int`, default: ``None``</span>
-<span class="sd">        Known number of fragments in structure.</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Z : :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">        Atomic numbers of all atoms in the system.</span>
+<span class="sd">    R : :obj:`numpy.ndarray`, ndim: ``3``</span>
+<span class="sd">        Cartesian coordinates.</span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    :obj:`numpy.ndarray`</span>
-
+<span class="sd">    :obj:`float`</span>
+<span class="sd">        The center of mass cartesian coordinates.</span>
 <span class="sd">    """</span>
-    <span class="k">if</span> <span class="n">R</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'Array must have two dimensions.'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">R</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">R</span><span class="p">])</span>
+    <span class="n">masses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">masses</span><span class="p">)):</span>
+        <span class="n">masses</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">z_to_mass</span><span class="p">[</span><span class="n">Z</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    <span class="n">R_masses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">masses</span><span class="p">)</span>
+    <span class="n">cm_structure</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">R_masses</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cm_structure</span></div>
 
-    <span class="n">entity_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">R</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],))</span>
-    <span class="n">entity_ids</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
+<div class="viewcode-block" id="criteria"><a class="viewcode-back" href="../../doc/reptar.html#reptar.descriptors.criteria">[docs]</a><span class="k">def</span> <span class="nf">criteria</span><span class="p">(</span><span class="n">desc</span><span class="p">,</span> <span class="n">desc_args</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">):</span>
+    <span class="sd">"""Evaluates some descriptor criteria.</span>
 
-    <span class="n">all_distances</span> <span class="o">=</span> <span class="n">cdist</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="s1">'euclidean'</span><span class="p">)</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    desc : ``callable``</span>
+<span class="sd">        A descriptor function.</span>
+<span class="sd">    desc_args : :obj:`tuple`, ndim: ``1``</span>
+<span class="sd">        All of the descriptor function arguments.</span>
+<span class="sd">    cutoff : :obj:`float`</span>
+<span class="sd">        Descriptor cutoff.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">        Descriptor values.</span>
+<span class="sd">    :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">        If the descriptor value is less than or equal to the cutoff.</span>
+<span class="sd">    """</span>
+    <span class="n">v_desc</span> <span class="o">=</span> <span class="n">desc</span><span class="p">(</span><span class="o">*</span><span class="n">desc_args</span><span class="p">)</span>
+    <span class="n">accept</span> <span class="o">=</span> <span class="n">v_desc</span> <span class="o">&lt;=</span> <span class="n">cutoff</span>
+    <span class="k">return</span> <span class="n">v_desc</span><span class="p">,</span> <span class="n">accept</span></div>
 
-    <span class="n">frag_idx</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">entity_ids</span><span class="p">)):</span>
-        <span class="n">frag_atoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">all_distances</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;</span><span class="n">cutoff</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="c1"># If one of the atoms are already in fragment we include these atoms.</span>
-        <span class="n">atoms_entity_ids</span> <span class="o">=</span> <span class="n">entity_ids</span><span class="p">[</span><span class="n">frag_atoms</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">atoms_entity_ids</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
-            <span class="n">entity_ids</span><span class="p">[</span><span class="n">frag_atoms</span><span class="p">]</span> <span class="o">=</span> <span class="n">frag_idx</span>
-            <span class="n">frag_idx</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">prev_frag_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span>
-                <span class="n">atoms_entity_ids</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">atoms_entity_ids</span><span class="p">)]</span>
-            <span class="p">)</span>
-            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">prev_frag_idx</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
-            <span class="n">prev_frag_idx</span> <span class="o">=</span> <span class="n">prev_frag_idx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">entity_ids</span><span class="p">[</span><span class="n">frag_atoms</span><span class="p">]</span> <span class="o">=</span> <span class="n">prev_frag_idx</span>
+<div class="viewcode-block" id="max_atom_pair_dist"><a class="viewcode-back" href="../../doc/reptar.html#reptar.descriptors.max_atom_pair_dist">[docs]</a><span class="k">def</span> <span class="nf">max_atom_pair_dist</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
+    <span class="sd">"""The largest atomic pairwise distance.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Z : :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">        Atomic numbers of all atoms in the system.</span>
+<span class="sd">    R : :obj:`numpy.ndarray`, ndim: ``3``</span>
+<span class="sd">        Cartesian coordinates.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    :obj:`float`</span>
+<span class="sd">        The largest pairwise distance.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">R</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">R</span><span class="p">])</span>
+    <span class="c1"># Finds all atom pairs.</span>
+    <span class="n">all_pairs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Z</span><span class="p">)),</span> <span class="mi">2</span><span class="p">)))</span>
+    <span class="c1"># Creates arrays of all the points for all structures.</span>
+    <span class="n">pair0_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">all_pairs</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">R</span><span class="p">))])</span>
+    <span class="n">pair1_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">all_pairs</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">R</span><span class="p">))])</span>
+    <span class="c1"># Computes the distance, then largest distances of all structures.</span>
+    <span class="n">distances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">pair0_points</span> <span class="o">-</span> <span class="n">pair1_points</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">max_distances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">distances</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">max_distances</span></div>
+
+<div class="viewcode-block" id="com_distance_sum"><a class="viewcode-back" href="../../doc/reptar.html#reptar.descriptors.com_distance_sum">[docs]</a><span class="k">def</span> <span class="nf">com_distance_sum</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">):</span>
+    <span class="sd">"""The sum of pairwise distances from each entity's center of mass to</span>
+<span class="sd">    the total structure center of mass.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Z : :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">        Atomic numbers of all atoms in the system.</span>
+<span class="sd">    R : :obj:`numpy.ndarray`, ndim: ``3``</span>
+<span class="sd">        Cartesian coordinates.</span>
+<span class="sd">    entity_ids : :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">        A uniquely identifying integer specifying what atoms belong to</span>
+<span class="sd">        which entities. Entities can be a related set of atoms, molecules,</span>
+<span class="sd">        or functional group. For example, a water and methanol molecule</span>
+<span class="sd">        could be ``[0, 0, 0, 1, 1, 1, 1, 1, 1]``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    :obj:`float`</span>
+<span class="sd">        Calculated distance metric.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">R</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">R</span><span class="p">])</span>
+    <span class="n">cm_structures</span> <span class="o">=</span> <span class="n">get_center_of_mass</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+
+    <span class="n">d_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">entity_id</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">entity_ids</span><span class="p">):</span>
+        <span class="n">atom_idxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">entity_ids</span> <span class="o">==</span> <span class="n">entity_id</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">cm_entity</span> <span class="o">=</span> <span class="n">get_center_of_mass</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">[:,</span><span class="n">atom_idxs</span><span class="p">])</span>
+        <span class="n">d_sum</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">cm_structures</span> <span class="o">-</span> <span class="n">cm_entity</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     
-    <span class="k">if</span> <span class="n">num_frags</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">num_frags</span> <span class="o">!=</span> <span class="n">frag_idx</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s1">'Detected </span><span class="si">{</span><span class="n">frag_idx</span><span class="o">-</span><span class="mi">1</span><span class="si">}</span><span class="s1"> fragments instead of </span><span class="si">{</span><span class="n">num_frags</span><span class="si">}</span><span class="s1">.'</span>
-            <span class="p">)</span>
-    
-    <span class="k">return</span> <span class="n">entity_ids</span></div>
-
+    <span class="k">return</span> <span class="n">d_sum</span></div>
 </pre></div>
         </article>
       </div>
