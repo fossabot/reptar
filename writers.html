@@ -250,6 +250,11 @@ You can use <a class="reference internal" href="doc/reptar.writers.html#reptar.w
 <span class="n">R</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'prod_1/geometry'</span><span class="p">)</span>
 <span class="n">E</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'prod_1/energy_pot'</span><span class="p">)</span>  <span class="c1"># Hartree</span>
 <span class="n">E</span> <span class="o">*=</span> <span class="mf">27.21138602</span>  <span class="c1"># eV</span>
+<span class="n">lattice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[[</span><span class="mf">200.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">]]</span>
+<span class="p">)</span>
 
 <span class="n">write_xyz_gap</span><span class="p">(</span><span class="n">xyz_path</span><span class="p">,</span> <span class="n">lattice</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">E</span><span class="p">)</span>
 </pre></div>
