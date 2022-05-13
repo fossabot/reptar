@@ -571,6 +571,44 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">dict1</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
     <span class="k">return</span> <span class="n">dict1</span></div>
+
+<div class="viewcode-block" id="find_parent_r_idxs"><a class="viewcode-back" href="../../doc/reptar.html#reptar.utils.find_parent_r_idxs">[docs]</a><span class="k">def</span> <span class="nf">find_parent_r_idxs</span><span class="p">(</span><span class="n">r_prov_specs</span><span class="p">,</span> <span class="n">r_prov_specs_subset</span><span class="p">):</span>
+    <span class="sd">"""Find the structure indices of a parent r_prov_specs using a subset of</span>
+<span class="sd">    the specifications.</span>
+
+<span class="sd">    Useful for identifying structure indices when ``r_prov_specs_subset`` is in</span>
+<span class="sd">    a different order.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    r_prov_specs : :obj:`numpy.ndarray`, ndim: ``2``</span>
+<span class="sd">        Structure provenance specifications.</span>
+<span class="sd">    r_prov_specs_subset : :obj:`numpy.ndarray`, ndim: ``2``</span>
+<span class="sd">        Specifications in no particular order.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">        Structure indices of ``r_prov_specs_subset`` with respect to</span>
+<span class="sd">        ``r_prov_specs``. Specifications that cannot be found will have</span>
+<span class="sd">        ``NaN`` as their element.</span>
+<span class="sd">    </span>
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+<span class="sd">    &gt;&gt;&gt; r_prov_specs = np.array([[0, 0, 1], [0, 0, 2], [1, 1, 1]])</span>
+<span class="sd">    &gt;&gt;&gt; r_prov_specs_subset = np.array([[0, 0, 1], [1, 1, 1]])</span>
+<span class="sd">    &gt;&gt;&gt; find_parent_r_idxs(r_prov_specs, r_prov_specs_subset)</span>
+<span class="sd">    [0, 2]</span>
+<span class="sd">    </span>
+<span class="sd">    """</span>
+    <span class="n">r_idxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">r_prov_specs_subset</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">r_idxs</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">r_idxs</span><span class="p">)):</span>
+        <span class="n">r_prov_spec</span> <span class="o">=</span> <span class="n">r_prov_specs_subset</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">r_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">r_prov_spec</span> <span class="o">==</span> <span class="n">r_prov_specs</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="mi">1</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">r_idx</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">r_idxs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">r_idx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">r_idxs</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'int'</span><span class="p">)</span></div>
 </pre></div>
         </article>
       </div>

@@ -1031,6 +1031,37 @@ atomic number.</p>
 </dl>
 </dd></dl>
 <dl class="py function">
+<dt class="sig sig-object py" id="reptar.utils.find_parent_r_idxs">
+<span class="sig-prename descclassname"><span class="pre">reptar.utils.</span></span><span class="sig-name descname"><span class="pre">find_parent_r_idxs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r_prov_specs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_prov_specs_subset</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/utils.html#find_parent_r_idxs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.utils.find_parent_r_idxs" title="Permalink to this definition">#</a></dt>
+<dd><p>Find the structure indices of a parent r_prov_specs using a subset of
+the specifications.</p>
+<p>Useful for identifying structure indices when <code class="docutils literal notranslate"><span class="pre">r_prov_specs_subset</span></code> is in
+a different order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r_prov_specs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">2</span></code>) – Structure provenance specifications.</p></li>
+<li><p><strong>r_prov_specs_subset</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">2</span></code>) – Specifications in no particular order.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>:obj:`numpy.ndarray`, ndim</strong> – Structure indices of <code class="docutils literal notranslate"><span class="pre">r_prov_specs_subset</span></code> with respect to
+<code class="docutils literal notranslate"><span class="pre">r_prov_specs</span></code>. Specifications that cannot be found will have
+<code class="docutils literal notranslate"><span class="pre">NaN</span></code> as their element.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r_prov_specs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r_prov_specs_subset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">find_parent_r_idxs</span><span class="p">(</span><span class="n">r_prov_specs</span><span class="p">,</span> <span class="n">r_prov_specs_subset</span><span class="p">)</span>
+<span class="go">[0, 2]</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py function">
 <dt class="sig sig-object py" id="reptar.utils.gen_comp_ids">
 <span class="sig-prename descclassname"><span class="pre">reptar.utils.</span></span><span class="sig-name descname"><span class="pre">gen_comp_ids</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/utils.html#gen_comp_ids"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.utils.gen_comp_ids" title="Permalink to this definition">#</a></dt>
 <dd><p>Prepares the list of component ids for a system with only one species.</p>
