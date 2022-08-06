@@ -698,23 +698,6 @@ be created if possible.</p></li>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="reptar.reptar_file.File.add">
-<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/reptar_file.html#File.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.reptar_file.File.add" title="Permalink to this definition">#</a></dt>
-<dd><p>Add data to file.</p>
-<p>Note that there is some data postprocessing using
-<a class="reference internal" href="#reptar.reptar_file.File.simplify_iter_data" title="reptar.reptar_file.File.simplify_iter_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">simplify_iter_data()</span></code></a>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Key of the desired data (including parent). Nested keys should be
-separated by <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p></li>
-<li><p><strong>data</strong> (<code class="docutils literal notranslate"><span class="pre">obj</span></code>) – Data to add to file.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="reptar.reptar_file.File.as_dict">
 <span class="sig-name descname"><span class="pre">as_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/reptar_file.html#File.as_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.reptar_file.File.as_dict" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a group as a dictionary.</p>
@@ -796,6 +779,23 @@ separated by <code class="docutils literal notranslate"><span class="pre">/</spa
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Key of the desired data (including parent). Nested keys should be
 separated by <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="reptar.reptar_file.File.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/reptar_file.html#File.put"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.reptar_file.File.put" title="Permalink to this definition">#</a></dt>
+<dd><p>Put data to file in a specific location.</p>
+<p>Note that there is some data postprocessing using
+<a class="reference internal" href="#reptar.reptar_file.File.simplify_iter_data" title="reptar.reptar_file.File.simplify_iter_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">simplify_iter_data()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Key of the desired data (including parent). Nested keys should be
+separated by <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p></li>
+<li><p><strong>data</strong> (<code class="docutils literal notranslate"><span class="pre">obj</span></code>) – Data to add to file.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -1243,23 +1243,6 @@ be created if possible.</p></li>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="reptar.File.add">
-<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/reptar_file.html#File.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.File.add" title="Permalink to this definition">#</a></dt>
-<dd><p>Add data to file.</p>
-<p>Note that there is some data postprocessing using
-<a class="reference internal" href="#reptar.reptar_file.File.simplify_iter_data" title="reptar.reptar_file.File.simplify_iter_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">simplify_iter_data()</span></code></a>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Key of the desired data (including parent). Nested keys should be
-separated by <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p></li>
-<li><p><strong>data</strong> (<code class="docutils literal notranslate"><span class="pre">obj</span></code>) – Data to add to file.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="reptar.File.as_dict">
 <span class="sig-name descname"><span class="pre">as_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/reptar_file.html#File.as_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.File.as_dict" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a group as a dictionary.</p>
@@ -1341,6 +1324,23 @@ separated by <code class="docutils literal notranslate"><span class="pre">/</spa
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Key of the desired data (including parent). Nested keys should be
 separated by <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="reptar.File.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/reptar_file.html#File.put"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.File.put" title="Permalink to this definition">#</a></dt>
+<dd><p>Put data to file in a specific location.</p>
+<p>Note that there is some data postprocessing using
+<a class="reference internal" href="#reptar.reptar_file.File.simplify_iter_data" title="reptar.reptar_file.File.simplify_iter_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">simplify_iter_data()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Key of the desired data (including parent). Nested keys should be
+separated by <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p></li>
+<li><p><strong>data</strong> (<code class="docutils literal notranslate"><span class="pre">obj</span></code>) – Data to add to file.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>

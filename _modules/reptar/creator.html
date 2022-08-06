@@ -426,7 +426,7 @@
         <span class="k">for</span> <span class="n">cat_key</span> <span class="ow">in</span> <span class="n">parsed_info</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="k">for</span> <span class="n">data_key</span> <span class="ow">in</span> <span class="n">parsed_info</span><span class="p">[</span><span class="n">cat_key</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
                 <span class="n">data</span> <span class="o">=</span> <span class="n">parsed_info</span><span class="p">[</span><span class="n">cat_key</span><span class="p">][</span><span class="n">data_key</span><span class="p">]</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">data_key</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">data_key</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
         
         <span class="c1"># MD5 stuff</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">update_md5</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
@@ -436,7 +436,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_create_extras_xtb</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
         
         <span class="c1"># Adding version</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/reptar_version&#39;</span><span class="p">,</span> <span class="n">__version__</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/reptar_version&#39;</span><span class="p">,</span> <span class="n">__version__</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span></div>
     
@@ -466,15 +466,15 @@
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">comp_ids</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
             <span class="n">comp_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">comp_ids</span><span class="p">)</span>
         
-        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/entity_ids&#39;</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/comp_ids&#39;</span><span class="p">,</span> <span class="n">comp_ids</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/entity_ids&#39;</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/comp_ids&#39;</span><span class="p">,</span> <span class="n">comp_ids</span><span class="p">)</span>
 
         <span class="n">comp_ids_num</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="n">unique_comp_ids</span><span class="p">,</span> <span class="n">comp_ids_freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">comp_ids</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">comp_id</span><span class="p">,</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">unique_comp_ids</span><span class="p">,</span> <span class="n">comp_ids_freq</span><span class="p">):</span>
             <span class="n">comp_ids_num</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">comp_id</span><span class="p">)]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
         
-        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/comp_ids_num&#39;</span><span class="p">,</span> <span class="n">comp_ids_num</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/comp_ids_num&#39;</span><span class="p">,</span> <span class="n">comp_ids_num</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span></div>
     
     <span class="c1"># TODO: Update ways we get data here.</span>
@@ -522,7 +522,7 @@
                     <span class="k">else</span><span class="p">:</span>
                         <span class="k">pass</span>
         
-        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;definitions&#39;</span><span class="p">,</span> <span class="n">defs</span><span class="p">)</span></div></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">&#39;definitions&#39;</span><span class="p">,</span> <span class="n">defs</span><span class="p">)</span></div></div>
 </pre></div>
         </article>
       </div>

@@ -351,7 +351,7 @@
         <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_iter_dict</span><span class="p">(</span><span class="n">group_dict</span><span class="p">):</span>
             <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pair</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
             <span class="n">data</span> <span class="o">=</span> <span class="n">pair</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
     
 <div class="viewcode-block" id="File.clean_key"><a class="viewcode-back" href="../../doc/reptar.html#reptar.reptar_file.File.clean_key">[docs]</a>    <span class="k">def</span> <span class="nf">clean_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Clean key and remove any common mistakes.</span>
@@ -576,13 +576,13 @@
         
         <span class="k">return</span> <span class="n">data</span></div>
     
-    <span class="k">def</span> <span class="nf">_add_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_put_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Add data to dictionary-like file.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        key : :obj:`str`</span>
-<span class="sd">            Where to add the data. Can be a nested key.</span>
+<span class="sd">            Where to put the data. Can be a nested key.</span>
 <span class="sd">        data : various</span>
 <span class="sd">            Data to add to file.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -604,13 +604,13 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">File_</span> <span class="o">=</span> <span class="n">combine_dicts</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">File_</span><span class="p">,</span> <span class="n">add_dic</span><span class="p">)</span>
     
-    <span class="k">def</span> <span class="nf">_add_to_exdir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_put_to_exdir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Add data to an exdir group.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        key : :obj:`str`</span>
-<span class="sd">            Where to add the data. Can be a nested key.</span>
+<span class="sd">            Where to put the data. Can be a nested key.</span>
 <span class="sd">        data : various</span>
 <span class="sd">            Data to add to exdir file.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -654,8 +654,8 @@
                 <span class="n">group</span><span class="o">.</span><span class="fm">__delitem__</span><span class="p">(</span><span class="n">data_key</span><span class="p">)</span>
                 <span class="n">group</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="n">data_key</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
 
-<div class="viewcode-block" id="File.add"><a class="viewcode-back" href="../../file.html#reptar.reptar_file.File.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Add data to file.</span>
+<div class="viewcode-block" id="File.put"><a class="viewcode-back" href="../../file.html#reptar.reptar_file.File.put">[docs]</a>    <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Put data to file in a specific location.</span>
 
 <span class="sd">        Note that there is some data postprocessing using</span>
 <span class="sd">        :meth:`~reptar.reptar_file.File.simplify_iter_data`.</span>
@@ -670,9 +670,9 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clean_key</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;exdir&#39;</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_add_to_exdir</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_put_to_exdir</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;json&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;npz&#39;</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_add_to_dict</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_put_to_dict</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span></div>
     
     <span class="k">def</span> <span class="nf">_iter_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dic</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Iterate over nested dictionary.</span>
@@ -743,17 +743,17 @@
 <span class="sd">            Desired group.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">md5</span> <span class="o">=</span> <span class="n">get_md5</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/md5&#39;</span><span class="p">,</span> <span class="n">md5</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/md5&#39;</span><span class="p">,</span> <span class="n">md5</span><span class="p">)</span>
         
         <span class="k">try</span><span class="p">:</span>
             <span class="n">md5_arrays</span> <span class="o">=</span> <span class="n">get_md5</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">,</span> <span class="n">only_arrays</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/md5_arrays&#39;</span><span class="p">,</span> <span class="n">md5_arrays</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/md5_arrays&#39;</span><span class="p">,</span> <span class="n">md5_arrays</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="k">pass</span>
 
         <span class="k">try</span><span class="p">:</span>
             <span class="n">md5_structures</span> <span class="o">=</span> <span class="n">get_md5</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">,</span> <span class="n">only_structures</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/md5_structures&#39;</span><span class="p">,</span> <span class="n">md5_structures</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/md5_structures&#39;</span><span class="p">,</span> <span class="n">md5_structures</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="k">pass</span></div>
     
