@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="reptar.writers package" href="reptar.writers.html" /><link rel="prev" title="reptar.extractors package" href="reptar.extractors.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>reptar.parsers package - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -195,7 +195,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -210,19 +211,19 @@
         </div>
         <article role="main">
           <section id="reptar-parsers-package">
-<h1>reptar.parsers package<a class="headerlink" href="#reptar-parsers-package" title="Permalink to this headline">#</a></h1>
+<h1>reptar.parsers package<a class="headerlink" href="#reptar-parsers-package" title="Permalink to this heading">#</a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">#</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="module-reptar.parsers.orca_parser">
-<span id="reptar-parsers-orca-parser-module"></span><h2>reptar.parsers.orca_parser module<a class="headerlink" href="#module-reptar.parsers.orca_parser" title="Permalink to this headline">#</a></h2>
+<span id="reptar-parsers-orca-parser-module"></span><h2>reptar.parsers.orca_parser module<a class="headerlink" href="#module-reptar.parsers.orca_parser" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="reptar.parsers.orca_parser.parserORCA">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.parsers.orca_parser.</span></span><span class="sig-name descname"><span class="pre">parserORCA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extractors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/orca_parser.html#parserORCA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.orca_parser.parserORCA" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#reptar.parsers.parser.parser" title="reptar.parsers.parser.parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">reptar.parsers.parser.parser</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#reptar.parsers.parser.parser" title="reptar.parsers.parser.parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">parser</span></code></a></p>
 <p>Custom parser for ORCA output files.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>out_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to the main log file generated by the package.</p></li>
 <li><p><strong>geom_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Path to a file containing a single geometry.</p></li>
@@ -237,42 +238,47 @@ simulation, etc.</p></li>
 <span class="sig-name descname"><span class="pre">after_parse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/orca_parser.html#parserORCA.after_parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.orca_parser.parserORCA.after_parse" title="Permalink to this definition">#</a></dt>
 <dd><p>Checks to perform after parsing output file.</p>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.parsers.orca_parser.parserORCA.parse">
 <span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/orca_parser.html#parserORCA.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.orca_parser.parserORCA.parse" title="Permalink to this definition">#</a></dt>
 <dd><p>Parses output file and extracts information.</p>
 </dd></dl>
+
 </dd></dl>
+
 </section>
 <section id="module-reptar.parsers.parser">
-<span id="reptar-parsers-parser-module"></span><h2>reptar.parsers.parser module<a class="headerlink" href="#module-reptar.parsers.parser" title="Permalink to this headline">#</a></h2>
+<span id="reptar-parsers-parser-module"></span><h2>reptar.parsers.parser module<a class="headerlink" href="#module-reptar.parsers.parser" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="reptar.parsers.parser.parser">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.parsers.parser.</span></span><span class="sig-name descname"><span class="pre">parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extractors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/parser.html#parser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.parser.parser" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
 <p>Base class for parsing output files.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="reptar.parsers.parser.parser.out_path">
 <span class="sig-name descname"><span class="pre">out_path</span></span><a class="headerlink" href="#reptar.parsers.parser.parser.out_path" title="Permalink to this definition">#</a></dt>
 <dd><p>Path to output file.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="reptar.parsers.parser.parser.file_name">
 <span class="sig-name descname"><span class="pre">file_name</span></span><a class="headerlink" href="#reptar.parsers.parser.parser.file_name" title="Permalink to this definition">#</a></dt>
 <dd><p>The name of the file without extension.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>out_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to output file.</p></li>
 <li><p><strong>extractors</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Additional extractors for the parser to use.</p></li>
@@ -284,33 +290,37 @@ simulation, etc.</p></li>
 <span class="sig-name descname"><span class="pre">after_parse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/parser.html#parser.after_parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.parser.parser.after_parse" title="Permalink to this definition">#</a></dt>
 <dd><p>Replace if desired</p>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.parsers.parser.parser.combine_extracted">
 <span class="sig-name descname"><span class="pre">combine_extracted</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/parser.html#parser.combine_extracted"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.parser.parser.combine_extracted" title="Permalink to this definition">#</a></dt>
 <dd><p>Combines all parsed_info from extractors into the parsed_info in the
 parser object.</p>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.parsers.parser.parser.extract_data_out">
 <span class="sig-name descname"><span class="pre">extract_data_out</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/parser.html#parser.extract_data_out"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.parser.parser.extract_data_out" title="Permalink to this definition">#</a></dt>
 <dd><p>Extract data from <code class="docutils literal notranslate"><span class="pre">out_path</span></code> using all extractors</p>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.parsers.parser.parser.map_cclib_data">
 <span class="sig-name descname"><span class="pre">map_cclib_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/parser.html#parser.map_cclib_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.parser.parser.map_cclib_data" title="Permalink to this definition">#</a></dt>
 <dd><p>Assign cclib-parsed data to our <code class="docutils literal notranslate"><span class="pre">parsed_info</span></code> dictionary.</p>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.parsers.parser.parser.parse">
 <em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/parser.html#parser.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.parser.parser.parse" title="Permalink to this definition">#</a></dt>
 <dd><p>Drive the parsing and postprocessing of parsed data.</p>
 <p>In general, there are usually three stages.</p>
 <dl class="field-list">
-<dt class="field-odd">Preprocessing</dt>
+<dt class="field-odd">Preprocessing<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Anything that is done before reptar does its parsing.
 Reptar does not have extractors for all information, so sometimes <a class="reference external" href="https://cclib.github.io/">cclib</a> is used to extract additional information.</p>
 </dd>
-<dt class="field-even">Extracting</dt>
+<dt class="field-even">Extracting<span class="colon">:</span></dt>
 <dd class="field-even"><p>Iterates through all lines in <a class="reference internal" href="../creator.html#term-out_path"><span class="xref std std-term">out_path</span></a> using all extractors with <a class="reference internal" href="#reptar.parsers.parser.parser.extract_data_out" title="reptar.parsers.parser.parser.extract_data_out"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extract_data_out()</span></code></a>.
 Each extractor has its own <code class="docutils literal notranslate"><span class="pre">parsed_info</span></code> that needs to be added to <a class="reference internal" href="#reptar.parsers.parser.parser.parsed_info" title="reptar.parsers.parser.parser.parsed_info"><code class="xref py py-attr docutils literal notranslate"><span class="pre">parsed_info</span></code></a>.</p>
 <dl class="py method">
@@ -318,19 +328,21 @@ Each extractor has its own <code class="docutils literal notranslate"><span clas
 <span class="sig-name descname"><span class="pre">extract_data_out</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/parser.html#parser.extract_data_out"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Extract data from <code class="docutils literal notranslate"><span class="pre">out_path</span></code> using all extractors</p>
 </dd></dl>
+
 </dd>
-<dt class="field-odd">Postprocessing</dt>
+<dt class="field-odd">Postprocessing<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Any additional tasks to complete parsing.
 There is usually a <code class="docutils literal notranslate"><span class="pre">after_parse</span></code> method that adds or changes data based on the final <a class="reference internal" href="#reptar.parsers.parser.parser.parsed_info" title="reptar.parsers.parser.parser.parsed_info"><code class="xref py py-attr docutils literal notranslate"><span class="pre">parsed_info</span></code></a> attribute.
 Handling of other files such as <a class="reference internal" href="../creator.html#term-geom_path"><span class="xref std std-term">geom_path</span></a> and <a class="reference internal" href="../creator.html#term-traj_path"><span class="xref std std-term">traj_path</span></a>.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="reptar.parsers.parser.parser.parsed_info">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parsed_info</span></span><a class="headerlink" href="#reptar.parsers.parser.parser.parsed_info" title="Permalink to this definition">#</a></dt>
 <dd><p>Information parsed from files. Contains the following keys.</p>
-<dl class="glossary simple">
+<dl class="simple glossary">
 <dt id="term-system_info"><code class="docutils literal notranslate"><span class="pre">system_info</span></code><a class="headerlink" href="#term-system_info" title="Permalink to this term">#</a></dt><dd><p>Information specifying the system prior to any computation. Such
 as the initial cartesian coordinates, total system charge and
 multiplicity, etc.</p>
@@ -344,22 +356,24 @@ electrons, generated structures, etc.</p>
 </dd>
 </dl>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
+
 </dd></dl>
+
 </section>
 <section id="module-reptar.parsers.xtb_parser">
-<span id="reptar-parsers-xtb-parser-module"></span><h2>reptar.parsers.xtb_parser module<a class="headerlink" href="#module-reptar.parsers.xtb_parser" title="Permalink to this headline">#</a></h2>
+<span id="reptar-parsers-xtb-parser-module"></span><h2>reptar.parsers.xtb_parser module<a class="headerlink" href="#module-reptar.parsers.xtb_parser" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="reptar.parsers.xtb_parser.parserXTB">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.parsers.xtb_parser.</span></span><span class="sig-name descname"><span class="pre">parserXTB</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extractors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/xtb_parser.html#parserXTB"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.xtb_parser.parserXTB" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#reptar.parsers.parser.parser" title="reptar.parsers.parser.parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">reptar.parsers.parser.parser</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#reptar.parsers.parser.parser" title="reptar.parsers.parser.parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">parser</span></code></a></p>
 <p>Custom parser for xtb output files.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>out_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to the main log file generated by the package.</p></li>
 <li><p><strong>geom_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Path to a file containing a single geometry.</p></li>
@@ -374,42 +388,47 @@ simulation, etc.</p></li>
 <span class="sig-name descname"><span class="pre">after_parse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/xtb_parser.html#parserXTB.after_parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.xtb_parser.parserXTB.after_parse" title="Permalink to this definition">#</a></dt>
 <dd><p>Checks to perform after parsing output file.</p>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.parsers.xtb_parser.parserXTB.parse">
 <span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/xtb_parser.html#parserXTB.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.xtb_parser.parserXTB.parse" title="Permalink to this definition">#</a></dt>
 <dd><p>Parses trajectory file and extracts information.</p>
 </dd></dl>
+
 </dd></dl>
+
 </section>
 <section id="module-reptar.parsers">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-reptar.parsers" title="Permalink to this headline">#</a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-reptar.parsers" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="reptar.parsers.parser">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.parsers.</span></span><span class="sig-name descname"><span class="pre">parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extractors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/parser.html#parser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.parser" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
 <p>Base class for parsing output files.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="reptar.parsers.parser.out_path">
 <span class="sig-name descname"><span class="pre">out_path</span></span><a class="headerlink" href="#reptar.parsers.parser.out_path" title="Permalink to this definition">#</a></dt>
 <dd><p>Path to output file.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="reptar.parsers.parser.file_name">
 <span class="sig-name descname"><span class="pre">file_name</span></span><a class="headerlink" href="#reptar.parsers.parser.file_name" title="Permalink to this definition">#</a></dt>
 <dd><p>The name of the file without extension.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>out_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to output file.</p></li>
 <li><p><strong>extractors</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Additional extractors for the parser to use.</p></li>
@@ -421,33 +440,37 @@ simulation, etc.</p></li>
 <span class="sig-name descname"><span class="pre">after_parse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/parser.html#parser.after_parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.parser.after_parse" title="Permalink to this definition">#</a></dt>
 <dd><p>Replace if desired</p>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.parsers.parser.combine_extracted">
 <span class="sig-name descname"><span class="pre">combine_extracted</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/parser.html#parser.combine_extracted"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.parser.combine_extracted" title="Permalink to this definition">#</a></dt>
 <dd><p>Combines all parsed_info from extractors into the parsed_info in the
 parser object.</p>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.parsers.parser.extract_data_out">
 <span class="sig-name descname"><span class="pre">extract_data_out</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/parser.html#parser.extract_data_out"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.parser.extract_data_out" title="Permalink to this definition">#</a></dt>
 <dd><p>Extract data from <code class="docutils literal notranslate"><span class="pre">out_path</span></code> using all extractors</p>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.parsers.parser.map_cclib_data">
 <span class="sig-name descname"><span class="pre">map_cclib_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/parser.html#parser.map_cclib_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.parser.map_cclib_data" title="Permalink to this definition">#</a></dt>
 <dd><p>Assign cclib-parsed data to our <code class="docutils literal notranslate"><span class="pre">parsed_info</span></code> dictionary.</p>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.parsers.parser.parse">
 <em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/parser.html#parser.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.parser.parse" title="Permalink to this definition">#</a></dt>
 <dd><p>Drive the parsing and postprocessing of parsed data.</p>
 <p>In general, there are usually three stages.</p>
 <dl class="field-list">
-<dt class="field-odd">Preprocessing</dt>
+<dt class="field-odd">Preprocessing<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Anything that is done before reptar does its parsing.
 Reptar does not have extractors for all information, so sometimes <a class="reference external" href="https://cclib.github.io/">cclib</a> is used to extract additional information.</p>
 </dd>
-<dt class="field-even">Extracting</dt>
+<dt class="field-even">Extracting<span class="colon">:</span></dt>
 <dd class="field-even"><p>Iterates through all lines in <a class="reference internal" href="../creator.html#term-out_path"><span class="xref std std-term">out_path</span></a> using all extractors with <a class="reference internal" href="#reptar.parsers.parser.parser.extract_data_out" title="reptar.parsers.parser.parser.extract_data_out"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extract_data_out()</span></code></a>.
 Each extractor has its own <code class="docutils literal notranslate"><span class="pre">parsed_info</span></code> that needs to be added to <a class="reference internal" href="#reptar.parsers.parser.parser.parsed_info" title="reptar.parsers.parser.parser.parsed_info"><code class="xref py py-attr docutils literal notranslate"><span class="pre">parsed_info</span></code></a>.</p>
 <dl class="py method">
@@ -455,19 +478,21 @@ Each extractor has its own <code class="docutils literal notranslate"><span clas
 <span class="sig-name descname"><span class="pre">extract_data_out</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/parser.html#parser.extract_data_out"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Extract data from <code class="docutils literal notranslate"><span class="pre">out_path</span></code> using all extractors</p>
 </dd></dl>
+
 </dd>
-<dt class="field-odd">Postprocessing</dt>
+<dt class="field-odd">Postprocessing<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Any additional tasks to complete parsing.
 There is usually a <code class="docutils literal notranslate"><span class="pre">after_parse</span></code> method that adds or changes data based on the final <a class="reference internal" href="#reptar.parsers.parser.parser.parsed_info" title="reptar.parsers.parser.parser.parsed_info"><code class="xref py py-attr docutils literal notranslate"><span class="pre">parsed_info</span></code></a> attribute.
 Handling of other files such as <a class="reference internal" href="../creator.html#term-geom_path"><span class="xref std std-term">geom_path</span></a> and <a class="reference internal" href="../creator.html#term-traj_path"><span class="xref std std-term">traj_path</span></a>.</p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="reptar.parsers.parser.parsed_info">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parsed_info</span></span><a class="headerlink" href="#reptar.parsers.parser.parsed_info" title="Permalink to this definition">#</a></dt>
 <dd><p>Information parsed from files. Contains the following keys.</p>
-<dl class="glossary simple">
+<dl class="simple glossary">
 <dt id="term-0"><code class="docutils literal notranslate"><span class="pre">system_info</span></code><a class="headerlink" href="#term-0" title="Permalink to this term">#</a></dt><dd><p>Information specifying the system prior to any computation. Such
 as the initial cartesian coordinates, total system charge and
 multiplicity, etc.</p>
@@ -481,19 +506,21 @@ electrons, generated structures, etc.</p>
 </dd>
 </dl>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
+
 </dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="reptar.parsers.parserORCA">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.parsers.</span></span><span class="sig-name descname"><span class="pre">parserORCA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extractors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/orca_parser.html#parserORCA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.parserORCA" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#reptar.parsers.parser.parser" title="reptar.parsers.parser.parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">reptar.parsers.parser.parser</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#reptar.parsers.parser.parser" title="reptar.parsers.parser.parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">parser</span></code></a></p>
 <p>Custom parser for ORCA output files.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>out_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to the main log file generated by the package.</p></li>
 <li><p><strong>geom_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Path to a file containing a single geometry.</p></li>
@@ -508,19 +535,22 @@ simulation, etc.</p></li>
 <span class="sig-name descname"><span class="pre">after_parse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/orca_parser.html#parserORCA.after_parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.parserORCA.after_parse" title="Permalink to this definition">#</a></dt>
 <dd><p>Checks to perform after parsing output file.</p>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.parsers.parserORCA.parse">
 <span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/orca_parser.html#parserORCA.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.parserORCA.parse" title="Permalink to this definition">#</a></dt>
 <dd><p>Parses output file and extracts information.</p>
 </dd></dl>
+
 </dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="reptar.parsers.parserXTB">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.parsers.</span></span><span class="sig-name descname"><span class="pre">parserXTB</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extractors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/xtb_parser.html#parserXTB"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.parserXTB" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#reptar.parsers.parser.parser" title="reptar.parsers.parser.parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">reptar.parsers.parser.parser</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#reptar.parsers.parser.parser" title="reptar.parsers.parser.parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">parser</span></code></a></p>
 <p>Custom parser for xtb output files.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>out_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to the main log file generated by the package.</p></li>
 <li><p><strong>geom_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Path to a file containing a single geometry.</p></li>
@@ -535,12 +565,15 @@ simulation, etc.</p></li>
 <span class="sig-name descname"><span class="pre">after_parse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/xtb_parser.html#parserXTB.after_parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.parserXTB.after_parse" title="Permalink to this definition">#</a></dt>
 <dd><p>Checks to perform after parsing output file.</p>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.parsers.parserXTB.parse">
 <span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/parsers/xtb_parser.html#parserXTB.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.parsers.parserXTB.parse" title="Permalink to this definition">#</a></dt>
 <dd><p>Parses trajectory file and extracts information.</p>
 </dd></dl>
+
 </dd></dl>
+
 </section>
 </section>
 
@@ -621,6 +654,7 @@ simulation, etc.</p></li>
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     </body>

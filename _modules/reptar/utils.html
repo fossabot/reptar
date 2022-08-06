@@ -1,13 +1,13 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>reptar.utils - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -194,7 +194,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -214,7 +215,7 @@
 <span class="c1"># Copyright (c) 2022, Alex M. Maldonado</span>
 <span class="c1"># </span>
 <span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
-<span class="c1"># of this software and associated documentation files (the "Software"), to deal</span>
+<span class="c1"># of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
 <span class="c1"># in the Software without restriction, including without limitation the rights</span>
 <span class="c1"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
 <span class="c1"># copies of the Software, and to permit persons to whom the Software is</span>
@@ -223,7 +224,7 @@
 <span class="c1"># The above copyright notice and this permission notice shall be included in all</span>
 <span class="c1"># copies or substantial portions of the Software.</span>
 <span class="c1"># </span>
-<span class="c1"># THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
 <span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
 <span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
 <span class="c1"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
@@ -237,23 +238,23 @@
 <span class="kn">import</span> <span class="nn">os</span>
 
 <span class="n">element_to_z</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'H'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'He'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'Li'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'Be'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">'N'</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">'O'</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">'F'</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
-    <span class="s1">'Ne'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">'Na'</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s1">'Mg'</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">'Al'</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s1">'Si'</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span> <span class="s1">'P'</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">'S'</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-    <span class="s1">'Cl'</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span> <span class="s1">'Ar'</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span> <span class="s1">'K'</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span> <span class="s1">'Ca'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">'Sc'</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span> <span class="s1">'Ti'</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span> <span class="s1">'V'</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span>
-    <span class="s1">'Cr'</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span> <span class="s1">'Mn'</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s1">'Fe'</span><span class="p">:</span> <span class="mi">26</span><span class="p">,</span> <span class="s1">'Co'</span><span class="p">:</span> <span class="mi">27</span><span class="p">,</span> <span class="s1">'Ni'</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span> <span class="s1">'Cu'</span><span class="p">:</span> <span class="mi">29</span><span class="p">,</span> <span class="s1">'Zn'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
-    <span class="s1">'Ga'</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span><span class="s1">'Ge'</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span> <span class="s1">'As'</span><span class="p">:</span> <span class="mi">33</span><span class="p">,</span> <span class="s1">'Se'</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span> <span class="s1">'Br'</span><span class="p">:</span> <span class="mi">35</span><span class="p">,</span> <span class="s1">'Kr'</span><span class="p">:</span> <span class="mi">36</span><span class="p">,</span> <span class="s1">'Rb'</span><span class="p">:</span> <span class="mi">37</span><span class="p">,</span>
-    <span class="s1">'Sr'</span><span class="p">:</span> <span class="mi">38</span><span class="p">,</span> <span class="s1">'Y'</span><span class="p">:</span> <span class="mi">39</span><span class="p">,</span> <span class="s1">'Zr'</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="s1">'Nb'</span><span class="p">:</span> <span class="mi">41</span><span class="p">,</span> <span class="s1">'Mo'</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="s1">'Tc'</span><span class="p">:</span> <span class="mi">43</span><span class="p">,</span> <span class="s1">'Ru'</span><span class="p">:</span> <span class="mi">44</span><span class="p">,</span>
-    <span class="s1">'Rh'</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="s1">'Pd'</span><span class="p">:</span> <span class="mi">46</span><span class="p">,</span> <span class="s1">'Ag'</span><span class="p">:</span> <span class="mi">47</span><span class="p">,</span> <span class="s1">'Cd'</span><span class="p">:</span> <span class="mi">48</span><span class="p">,</span> <span class="s1">'In'</span><span class="p">:</span> <span class="mi">49</span><span class="p">,</span> <span class="s1">'Sn'</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">'Sb'</span><span class="p">:</span> <span class="mi">51</span><span class="p">,</span>
-    <span class="s1">'Te'</span><span class="p">:</span> <span class="mi">52</span><span class="p">,</span> <span class="s1">'I'</span><span class="p">:</span> <span class="mi">53</span><span class="p">,</span> <span class="s1">'Xe'</span><span class="p">:</span> <span class="mi">54</span><span class="p">,</span> <span class="s1">'Cs'</span><span class="p">:</span> <span class="mi">55</span><span class="p">,</span> <span class="s1">'Ba'</span><span class="p">:</span> <span class="mi">56</span><span class="p">,</span> <span class="s1">'La'</span><span class="p">:</span> <span class="mi">57</span><span class="p">,</span> <span class="s1">'Ce'</span><span class="p">:</span> <span class="mi">58</span><span class="p">,</span>
-    <span class="s1">'Pr'</span><span class="p">:</span> <span class="mi">59</span><span class="p">,</span> <span class="s1">'Nd'</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span> <span class="s1">'Pm'</span><span class="p">:</span> <span class="mi">61</span><span class="p">,</span> <span class="s1">'Sm'</span><span class="p">:</span> <span class="mi">62</span><span class="p">,</span> <span class="s1">'Eu'</span><span class="p">:</span> <span class="mi">63</span><span class="p">,</span> <span class="s1">'Gd'</span><span class="p">:</span> <span class="mi">64</span><span class="p">,</span> <span class="s1">'Tb'</span><span class="p">:</span> <span class="mi">65</span><span class="p">,</span>
-    <span class="s1">'Dy'</span><span class="p">:</span> <span class="mi">66</span><span class="p">,</span> <span class="s1">'Ho'</span><span class="p">:</span> <span class="mi">67</span><span class="p">,</span> <span class="s1">'Er'</span><span class="p">:</span> <span class="mi">68</span><span class="p">,</span> <span class="s1">'Tm'</span><span class="p">:</span> <span class="mi">69</span><span class="p">,</span> <span class="s1">'Yb'</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span> <span class="s1">'Lu'</span><span class="p">:</span> <span class="mi">71</span><span class="p">,</span> <span class="s1">'Hf'</span><span class="p">:</span> <span class="mi">72</span><span class="p">,</span>
-    <span class="s1">'Ta'</span><span class="p">:</span> <span class="mi">73</span><span class="p">,</span> <span class="s1">'W'</span><span class="p">:</span> <span class="mi">74</span><span class="p">,</span> <span class="s1">'Re'</span><span class="p">:</span> <span class="mi">75</span><span class="p">,</span> <span class="s1">'Os'</span><span class="p">:</span> <span class="mi">76</span><span class="p">,</span> <span class="s1">'Ir'</span><span class="p">:</span> <span class="mi">77</span><span class="p">,</span> <span class="s1">'Pt'</span><span class="p">:</span> <span class="mi">78</span><span class="p">,</span> <span class="s1">'Au'</span><span class="p">:</span> <span class="mi">79</span><span class="p">,</span>
-    <span class="s1">'Hg'</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s1">'Tl'</span><span class="p">:</span> <span class="mi">81</span><span class="p">,</span> <span class="s1">'Pb'</span><span class="p">:</span> <span class="mi">82</span><span class="p">,</span> <span class="s1">'Bi'</span><span class="p">:</span> <span class="mi">83</span><span class="p">,</span> <span class="s1">'Po'</span><span class="p">:</span> <span class="mi">84</span><span class="p">,</span> <span class="s1">'At'</span><span class="p">:</span> <span class="mi">85</span><span class="p">,</span> <span class="s1">'Rn'</span><span class="p">:</span> <span class="mi">86</span><span class="p">,</span>
-    <span class="s1">'Fr'</span><span class="p">:</span> <span class="mi">87</span><span class="p">,</span> <span class="s1">'Ra'</span><span class="p">:</span> <span class="mi">88</span><span class="p">,</span> <span class="s1">'Ac'</span><span class="p">:</span> <span class="mi">89</span><span class="p">,</span> <span class="s1">'Th'</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="s1">'Pa'</span><span class="p">:</span> <span class="mi">91</span><span class="p">,</span> <span class="s1">'U'</span><span class="p">:</span> <span class="mi">92</span><span class="p">,</span> <span class="s1">'Np'</span><span class="p">:</span> <span class="mi">93</span><span class="p">,</span>
-    <span class="s1">'Pu'</span><span class="p">:</span> <span class="mi">94</span><span class="p">,</span> <span class="s1">'Am'</span><span class="p">:</span> <span class="mi">95</span><span class="p">,</span> <span class="s1">'Cm'</span><span class="p">:</span> <span class="mi">96</span><span class="p">,</span> <span class="s1">'Bk'</span><span class="p">:</span> <span class="mi">97</span><span class="p">,</span> <span class="s1">'Cf'</span><span class="p">:</span> <span class="mi">98</span><span class="p">,</span> <span class="s1">'Es'</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span> <span class="s1">'Fm'</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-    <span class="s1">'Md'</span><span class="p">:</span> <span class="mi">101</span><span class="p">,</span> <span class="s1">'No'</span><span class="p">:</span> <span class="mi">102</span><span class="p">,</span> <span class="s1">'Lr'</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span> <span class="s1">'Rf'</span><span class="p">:</span> <span class="mi">104</span><span class="p">,</span> <span class="s1">'Db'</span><span class="p">:</span> <span class="mi">105</span><span class="p">,</span> <span class="s1">'Sg'</span><span class="p">:</span> <span class="mi">106</span><span class="p">,</span>
-    <span class="s1">'Bh'</span><span class="p">:</span> <span class="mi">107</span><span class="p">,</span> <span class="s1">'Hs'</span><span class="p">:</span> <span class="mi">108</span><span class="p">,</span> <span class="s1">'Mt'</span><span class="p">:</span> <span class="mi">109</span><span class="p">,</span> <span class="s1">'Ds'</span><span class="p">:</span> <span class="mi">110</span><span class="p">,</span> <span class="s1">'Rg'</span><span class="p">:</span> <span class="mi">111</span><span class="p">,</span> <span class="s1">'Cn'</span><span class="p">:</span> <span class="mi">112</span><span class="p">,</span>
-    <span class="s1">'Uuq'</span><span class="p">:</span> <span class="mi">114</span><span class="p">,</span> <span class="s1">'Uuh'</span><span class="p">:</span> <span class="mi">116</span><span class="p">,</span>
+    <span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;He&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Li&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;Be&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;O&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+    <span class="s1">&#39;Ne&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;Na&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s1">&#39;Mg&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;Al&#39;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s1">&#39;Si&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+    <span class="s1">&#39;Cl&#39;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span> <span class="s1">&#39;Ar&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span> <span class="s1">&#39;K&#39;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span> <span class="s1">&#39;Ca&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;Sc&#39;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span> <span class="s1">&#39;Ti&#39;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span>
+    <span class="s1">&#39;Cr&#39;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span> <span class="s1">&#39;Mn&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s1">&#39;Fe&#39;</span><span class="p">:</span> <span class="mi">26</span><span class="p">,</span> <span class="s1">&#39;Co&#39;</span><span class="p">:</span> <span class="mi">27</span><span class="p">,</span> <span class="s1">&#39;Ni&#39;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span> <span class="s1">&#39;Cu&#39;</span><span class="p">:</span> <span class="mi">29</span><span class="p">,</span> <span class="s1">&#39;Zn&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="s1">&#39;Ga&#39;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span><span class="s1">&#39;Ge&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span> <span class="s1">&#39;As&#39;</span><span class="p">:</span> <span class="mi">33</span><span class="p">,</span> <span class="s1">&#39;Se&#39;</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span> <span class="s1">&#39;Br&#39;</span><span class="p">:</span> <span class="mi">35</span><span class="p">,</span> <span class="s1">&#39;Kr&#39;</span><span class="p">:</span> <span class="mi">36</span><span class="p">,</span> <span class="s1">&#39;Rb&#39;</span><span class="p">:</span> <span class="mi">37</span><span class="p">,</span>
+    <span class="s1">&#39;Sr&#39;</span><span class="p">:</span> <span class="mi">38</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="mi">39</span><span class="p">,</span> <span class="s1">&#39;Zr&#39;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="s1">&#39;Nb&#39;</span><span class="p">:</span> <span class="mi">41</span><span class="p">,</span> <span class="s1">&#39;Mo&#39;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="s1">&#39;Tc&#39;</span><span class="p">:</span> <span class="mi">43</span><span class="p">,</span> <span class="s1">&#39;Ru&#39;</span><span class="p">:</span> <span class="mi">44</span><span class="p">,</span>
+    <span class="s1">&#39;Rh&#39;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="s1">&#39;Pd&#39;</span><span class="p">:</span> <span class="mi">46</span><span class="p">,</span> <span class="s1">&#39;Ag&#39;</span><span class="p">:</span> <span class="mi">47</span><span class="p">,</span> <span class="s1">&#39;Cd&#39;</span><span class="p">:</span> <span class="mi">48</span><span class="p">,</span> <span class="s1">&#39;In&#39;</span><span class="p">:</span> <span class="mi">49</span><span class="p">,</span> <span class="s1">&#39;Sn&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;Sb&#39;</span><span class="p">:</span> <span class="mi">51</span><span class="p">,</span>
+    <span class="s1">&#39;Te&#39;</span><span class="p">:</span> <span class="mi">52</span><span class="p">,</span> <span class="s1">&#39;I&#39;</span><span class="p">:</span> <span class="mi">53</span><span class="p">,</span> <span class="s1">&#39;Xe&#39;</span><span class="p">:</span> <span class="mi">54</span><span class="p">,</span> <span class="s1">&#39;Cs&#39;</span><span class="p">:</span> <span class="mi">55</span><span class="p">,</span> <span class="s1">&#39;Ba&#39;</span><span class="p">:</span> <span class="mi">56</span><span class="p">,</span> <span class="s1">&#39;La&#39;</span><span class="p">:</span> <span class="mi">57</span><span class="p">,</span> <span class="s1">&#39;Ce&#39;</span><span class="p">:</span> <span class="mi">58</span><span class="p">,</span>
+    <span class="s1">&#39;Pr&#39;</span><span class="p">:</span> <span class="mi">59</span><span class="p">,</span> <span class="s1">&#39;Nd&#39;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span> <span class="s1">&#39;Pm&#39;</span><span class="p">:</span> <span class="mi">61</span><span class="p">,</span> <span class="s1">&#39;Sm&#39;</span><span class="p">:</span> <span class="mi">62</span><span class="p">,</span> <span class="s1">&#39;Eu&#39;</span><span class="p">:</span> <span class="mi">63</span><span class="p">,</span> <span class="s1">&#39;Gd&#39;</span><span class="p">:</span> <span class="mi">64</span><span class="p">,</span> <span class="s1">&#39;Tb&#39;</span><span class="p">:</span> <span class="mi">65</span><span class="p">,</span>
+    <span class="s1">&#39;Dy&#39;</span><span class="p">:</span> <span class="mi">66</span><span class="p">,</span> <span class="s1">&#39;Ho&#39;</span><span class="p">:</span> <span class="mi">67</span><span class="p">,</span> <span class="s1">&#39;Er&#39;</span><span class="p">:</span> <span class="mi">68</span><span class="p">,</span> <span class="s1">&#39;Tm&#39;</span><span class="p">:</span> <span class="mi">69</span><span class="p">,</span> <span class="s1">&#39;Yb&#39;</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span> <span class="s1">&#39;Lu&#39;</span><span class="p">:</span> <span class="mi">71</span><span class="p">,</span> <span class="s1">&#39;Hf&#39;</span><span class="p">:</span> <span class="mi">72</span><span class="p">,</span>
+    <span class="s1">&#39;Ta&#39;</span><span class="p">:</span> <span class="mi">73</span><span class="p">,</span> <span class="s1">&#39;W&#39;</span><span class="p">:</span> <span class="mi">74</span><span class="p">,</span> <span class="s1">&#39;Re&#39;</span><span class="p">:</span> <span class="mi">75</span><span class="p">,</span> <span class="s1">&#39;Os&#39;</span><span class="p">:</span> <span class="mi">76</span><span class="p">,</span> <span class="s1">&#39;Ir&#39;</span><span class="p">:</span> <span class="mi">77</span><span class="p">,</span> <span class="s1">&#39;Pt&#39;</span><span class="p">:</span> <span class="mi">78</span><span class="p">,</span> <span class="s1">&#39;Au&#39;</span><span class="p">:</span> <span class="mi">79</span><span class="p">,</span>
+    <span class="s1">&#39;Hg&#39;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s1">&#39;Tl&#39;</span><span class="p">:</span> <span class="mi">81</span><span class="p">,</span> <span class="s1">&#39;Pb&#39;</span><span class="p">:</span> <span class="mi">82</span><span class="p">,</span> <span class="s1">&#39;Bi&#39;</span><span class="p">:</span> <span class="mi">83</span><span class="p">,</span> <span class="s1">&#39;Po&#39;</span><span class="p">:</span> <span class="mi">84</span><span class="p">,</span> <span class="s1">&#39;At&#39;</span><span class="p">:</span> <span class="mi">85</span><span class="p">,</span> <span class="s1">&#39;Rn&#39;</span><span class="p">:</span> <span class="mi">86</span><span class="p">,</span>
+    <span class="s1">&#39;Fr&#39;</span><span class="p">:</span> <span class="mi">87</span><span class="p">,</span> <span class="s1">&#39;Ra&#39;</span><span class="p">:</span> <span class="mi">88</span><span class="p">,</span> <span class="s1">&#39;Ac&#39;</span><span class="p">:</span> <span class="mi">89</span><span class="p">,</span> <span class="s1">&#39;Th&#39;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="s1">&#39;Pa&#39;</span><span class="p">:</span> <span class="mi">91</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">:</span> <span class="mi">92</span><span class="p">,</span> <span class="s1">&#39;Np&#39;</span><span class="p">:</span> <span class="mi">93</span><span class="p">,</span>
+    <span class="s1">&#39;Pu&#39;</span><span class="p">:</span> <span class="mi">94</span><span class="p">,</span> <span class="s1">&#39;Am&#39;</span><span class="p">:</span> <span class="mi">95</span><span class="p">,</span> <span class="s1">&#39;Cm&#39;</span><span class="p">:</span> <span class="mi">96</span><span class="p">,</span> <span class="s1">&#39;Bk&#39;</span><span class="p">:</span> <span class="mi">97</span><span class="p">,</span> <span class="s1">&#39;Cf&#39;</span><span class="p">:</span> <span class="mi">98</span><span class="p">,</span> <span class="s1">&#39;Es&#39;</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span> <span class="s1">&#39;Fm&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s1">&#39;Md&#39;</span><span class="p">:</span> <span class="mi">101</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">:</span> <span class="mi">102</span><span class="p">,</span> <span class="s1">&#39;Lr&#39;</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span> <span class="s1">&#39;Rf&#39;</span><span class="p">:</span> <span class="mi">104</span><span class="p">,</span> <span class="s1">&#39;Db&#39;</span><span class="p">:</span> <span class="mi">105</span><span class="p">,</span> <span class="s1">&#39;Sg&#39;</span><span class="p">:</span> <span class="mi">106</span><span class="p">,</span>
+    <span class="s1">&#39;Bh&#39;</span><span class="p">:</span> <span class="mi">107</span><span class="p">,</span> <span class="s1">&#39;Hs&#39;</span><span class="p">:</span> <span class="mi">108</span><span class="p">,</span> <span class="s1">&#39;Mt&#39;</span><span class="p">:</span> <span class="mi">109</span><span class="p">,</span> <span class="s1">&#39;Ds&#39;</span><span class="p">:</span> <span class="mi">110</span><span class="p">,</span> <span class="s1">&#39;Rg&#39;</span><span class="p">:</span> <span class="mi">111</span><span class="p">,</span> <span class="s1">&#39;Cn&#39;</span><span class="p">:</span> <span class="mi">112</span><span class="p">,</span>
+    <span class="s1">&#39;Uuq&#39;</span><span class="p">:</span> <span class="mi">114</span><span class="p">,</span> <span class="s1">&#39;Uuh&#39;</span><span class="p">:</span> <span class="mi">116</span><span class="p">,</span>
 <span class="p">}</span>
 <span class="n">z_to_element</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">element_to_z</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
 
@@ -276,7 +277,7 @@
 <span class="p">)</span>
 
 <div class="viewcode-block" id="get_files"><a class="viewcode-back" href="../../doc/reptar.html#reptar.utils.get_files">[docs]</a><span class="k">def</span> <span class="nf">get_files</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">expression</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sd">"""Returns paths to all files in a given directory that matches a provided</span>
+    <span class="sd">&quot;&quot;&quot;Returns paths to all files in a given directory that matches a provided</span>
 <span class="sd">    expression in the file name.</span>
 <span class="sd">    </span>
 <span class="sd">    Commonly used to find all files of a certain type, e.g., output or xyz</span>
@@ -295,16 +296,16 @@
 <span class="sd">    -------</span>
 <span class="sd">    :obj:`list` [:obj:`str`]</span>
 <span class="sd">        All absolute paths to files matching the provided expression.</span>
-<span class="sd">    """</span>
-    <span class="k">if</span> <span class="n">path</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">'/'</span><span class="p">:</span>
-        <span class="n">path</span> <span class="o">+=</span> <span class="s1">'/'</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">path</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">+=</span> <span class="s1">&#39;/&#39;</span>
     <span class="k">if</span> <span class="n">recursive</span><span class="p">:</span>
         <span class="n">all_files</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="p">(</span><span class="n">dirpath</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">filenames</span><span class="p">)</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
             <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="k">while</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">filenames</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">dirpath</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">'/'</span><span class="p">:</span>
-                    <span class="n">dirpath</span> <span class="o">+=</span> <span class="s1">'/'</span>
+                <span class="k">if</span> <span class="n">dirpath</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>
+                    <span class="n">dirpath</span> <span class="o">+=</span> <span class="s1">&#39;/&#39;</span>
                 <span class="n">filenames</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">dirpath</span> <span class="o">+</span> <span class="n">filenames</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
                 <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
             <span class="n">all_files</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">filenames</span><span class="p">)</span>
@@ -321,7 +322,7 @@
     <span class="k">return</span> <span class="n">files</span></div>
 
 <div class="viewcode-block" id="atoms_by_element"><a class="viewcode-back" href="../../doc/reptar.html#reptar.utils.atoms_by_element">[docs]</a><span class="k">def</span> <span class="nf">atoms_by_element</span><span class="p">(</span><span class="n">atom_list</span><span class="p">):</span>
-    <span class="sd">"""Converts a list of atoms identified by their atomic number to their</span>
+    <span class="sd">&quot;&quot;&quot;Converts a list of atoms identified by their atomic number to their</span>
 <span class="sd">    elemental symbol in the same order.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
@@ -333,7 +334,7 @@
 <span class="sd">    -------</span>
 <span class="sd">    :obj:`list` [:obj:`str`]</span>
 <span class="sd">        Element symbols of atoms within a structure.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">atom_list_elements</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">atom_list</span><span class="p">:</span>
@@ -342,7 +343,7 @@
     <span class="k">return</span> <span class="n">atom_list_elements</span></div>
 
 <div class="viewcode-block" id="atoms_by_number"><a class="viewcode-back" href="../../doc/reptar.html#reptar.utils.atoms_by_number">[docs]</a><span class="k">def</span> <span class="nf">atoms_by_number</span><span class="p">(</span><span class="n">atom_list</span><span class="p">):</span>
-    <span class="sd">"""Converts a list of atoms identified by their elemental symbol to their</span>
+    <span class="sd">&quot;&quot;&quot;Converts a list of atoms identified by their elemental symbol to their</span>
 <span class="sd">    atomic number.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
@@ -354,11 +355,11 @@
 <span class="sd">    -------</span>
 <span class="sd">    :obj:`list` [:obj:`int`]</span>
 <span class="sd">        Atomic numbers of atoms within a structure.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">element_to_z</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">atom_list</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="parse_stringfile"><a class="viewcode-back" href="../../doc/reptar.html#reptar.utils.parse_stringfile">[docs]</a><span class="k">def</span> <span class="nf">parse_stringfile</span><span class="p">(</span><span class="n">stringfile_path</span><span class="p">):</span>
-    <span class="sd">"""Parses data from string file.</span>
+    <span class="sd">&quot;&quot;&quot;Parses data from string file.</span>
 
 <span class="sd">    A string file is data presented as consecutive xyz data. The data could be</span>
 <span class="sd">    three Cartesian coordinates for each atom, three atomic force vector</span>
@@ -375,9 +376,9 @@
 <span class="sd">    :obj:`tuple` [:obj:`list`]</span>
 <span class="sd">        Parsed atoms (as element symbols :obj:`str`), comments, and data as</span>
 <span class="sd">        :obj:`float` from string file.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">Z</span><span class="p">,</span> <span class="n">comments</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">stringfile_path</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">stringfile_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
             <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span>
@@ -400,7 +401,7 @@
     <span class="k">return</span> <span class="n">Z</span><span class="p">,</span> <span class="n">comments</span><span class="p">,</span> <span class="n">data</span></div>
 
 <div class="viewcode-block" id="get_md5"><a class="viewcode-back" href="../../doc/reptar.html#reptar.utils.get_md5">[docs]</a><span class="k">def</span> <span class="nf">get_md5</span><span class="p">(</span><span class="n">rfile</span><span class="p">,</span> <span class="n">group_key</span><span class="p">,</span> <span class="n">only_arrays</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">only_structures</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">"""Creates MD5 hash for a group.</span>
+    <span class="sd">&quot;&quot;&quot;Creates MD5 hash for a group.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -421,19 +422,19 @@
 <span class="sd">    -------</span>
 <span class="sd">    :obj:`str`</span>
 <span class="sd">        MD5 hash of a group.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">md5_hash</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">()</span>
     <span class="c1"># TODO: Figure out why different formats have different MD5s.</span>
 
     <span class="k">if</span> <span class="n">only_structures</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">Z</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/atomic_numbers'</span><span class="p">)</span>
+            <span class="n">Z</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/atomic_numbers&#39;</span><span class="p">)</span>
             <span class="n">Z</span> <span class="o">=</span> <span class="n">Z</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
             <span class="n">md5_hash</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="k">pass</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">R</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/geometry'</span><span class="p">)</span>
+            <span class="n">R</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/geometry&#39;</span><span class="p">)</span>
             <span class="n">R</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
             <span class="n">md5_hash</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">R</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
@@ -441,9 +442,9 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="n">keys</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get_keys</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
-            <span class="k">if</span> <span class="s1">'md5'</span> <span class="ow">in</span> <span class="n">key</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;md5&#39;</span> <span class="ow">in</span> <span class="n">key</span><span class="p">:</span>
                 <span class="k">continue</span>
-            <span class="n">d</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
                 <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
                 <span class="n">md5_hash</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span>
@@ -458,7 +459,7 @@
 <div class="viewcode-block" id="gen_entity_ids"><a class="viewcode-back" href="../../doc/reptar.html#reptar.utils.gen_entity_ids">[docs]</a><span class="k">def</span> <span class="nf">gen_entity_ids</span><span class="p">(</span>
     <span class="n">atoms_per_mol</span><span class="p">,</span> <span class="n">num_mol</span><span class="p">,</span> <span class="n">starting_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">add_to</span><span class="o">=</span><span class="kc">None</span>
 <span class="p">):</span>
-    <span class="sd">"""Generates entity ids for a single species.</span>
+    <span class="sd">&quot;&quot;&quot;Generates entity ids for a single species.</span>
 
 <span class="sd">    Note that all of the atoms in each molecule must occur in the same order and</span>
 <span class="sd">    be grouped together.</span>
@@ -478,7 +479,7 @@
 <span class="sd">    -------</span>
 <span class="sd">    :obj:`numpy.ndarray`</span>
 <span class="sd">        Entity ids for a structure.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">entity_ids</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">starting_idx</span><span class="p">,</span> <span class="n">num_mol</span><span class="o">+</span><span class="n">starting_idx</span><span class="p">):</span>
         <span class="n">entity_ids</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">atoms_per_mol</span><span class="p">)])</span>
@@ -491,7 +492,7 @@
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">entity_ids</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="gen_comp_ids"><a class="viewcode-back" href="../../doc/reptar.html#reptar.utils.gen_comp_ids">[docs]</a><span class="k">def</span> <span class="nf">gen_comp_ids</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">num_mol</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">,</span> <span class="n">add_to</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">"""Prepares the list of component ids for a system with only one species.</span>
+    <span class="sd">&quot;&quot;&quot;Prepares the list of component ids for a system with only one species.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -508,7 +509,7 @@
 <span class="sd">    -------</span>
 <span class="sd">    :obj:`numpy.ndarray`</span>
 <span class="sd">        Component ids for a structure.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">comp_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">label</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_mol</span><span class="p">)]</span>
     <span class="k">if</span> <span class="n">add_to</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">add_to</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
@@ -518,7 +519,7 @@
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">comp_ids</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="center_structures"><a class="viewcode-back" href="../../doc/reptar.html#reptar.utils.center_structures">[docs]</a><span class="k">def</span> <span class="nf">center_structures</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
-    <span class="sd">"""Centers each structure's center of mass to the origin.</span>
+    <span class="sd">&quot;&quot;&quot;Centers each structure&#39;s center of mass to the origin.</span>
 
 <span class="sd">    Previously centered structures should not be affected by this technique.</span>
 
@@ -533,7 +534,7 @@
 <span class="sd">    -------</span>
 <span class="sd">    :obj:`numpy.ndarray`</span>
 <span class="sd">        Centered Cartesian atomic coordinates.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Masses of each atom in the same shape of R.</span>
     <span class="k">if</span> <span class="n">R</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
         <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">R</span><span class="p">])</span>
@@ -554,7 +555,7 @@
         <span class="k">return</span> <span class="n">R</span></div>
 
 <div class="viewcode-block" id="combine_dicts"><a class="viewcode-back" href="../../doc/reptar.html#reptar.utils.combine_dicts">[docs]</a><span class="k">def</span> <span class="nf">combine_dicts</span><span class="p">(</span><span class="n">dict1</span><span class="p">,</span> <span class="n">dict2</span><span class="p">):</span>
-    <span class="sd">"""Combine two dictionaries.</span>
+    <span class="sd">&quot;&quot;&quot;Combine two dictionaries.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -564,7 +565,7 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    :obj:`dict`</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">dict2</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">collections</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Mapping</span><span class="p">):</span>
             <span class="n">dict1</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">combine_dicts</span><span class="p">(</span><span class="n">dict1</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="p">{}),</span> <span class="n">v</span><span class="p">)</span>
@@ -573,7 +574,7 @@
     <span class="k">return</span> <span class="n">dict1</span></div>
 
 <div class="viewcode-block" id="find_parent_r_idxs"><a class="viewcode-back" href="../../doc/reptar.html#reptar.utils.find_parent_r_idxs">[docs]</a><span class="k">def</span> <span class="nf">find_parent_r_idxs</span><span class="p">(</span><span class="n">r_prov_specs</span><span class="p">,</span> <span class="n">r_prov_specs_subset</span><span class="p">):</span>
-    <span class="sd">"""Find the structure indices of a parent r_prov_specs using a subset of</span>
+    <span class="sd">&quot;&quot;&quot;Find the structure indices of a parent r_prov_specs using a subset of</span>
 <span class="sd">    the specifications.</span>
 
 <span class="sd">    Useful for identifying structure indices when ``r_prov_specs_subset`` is in</span>
@@ -600,7 +601,7 @@
 <span class="sd">    &gt;&gt;&gt; find_parent_r_idxs(r_prov_specs, r_prov_specs_subset)</span>
 <span class="sd">    [0, 2]</span>
 <span class="sd">    </span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">r_idxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">r_prov_specs_subset</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="n">r_idxs</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">r_idxs</span><span class="p">)):</span>
@@ -608,7 +609,7 @@
         <span class="n">r_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">r_prov_spec</span> <span class="o">==</span> <span class="n">r_prov_specs</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="mi">1</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">r_idx</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">r_idxs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">r_idx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">r_idxs</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'int'</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">r_idxs</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span></div>
 </pre></div>
         </article>
       </div>
@@ -646,6 +647,7 @@
 </div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     </body>

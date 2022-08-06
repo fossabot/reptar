@@ -1,13 +1,13 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>reptar.writers.schnetpack_db - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -194,7 +194,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -214,7 +215,7 @@
 <span class="c1"># Copyright (c) 2022, Alex M. Maldonado</span>
 <span class="c1"># </span>
 <span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
-<span class="c1"># of this software and associated documentation files (the "Software"), to deal</span>
+<span class="c1"># of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
 <span class="c1"># in the Software without restriction, including without limitation the rights</span>
 <span class="c1"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
 <span class="c1"># copies of the Software, and to permit persons to whom the Software is</span>
@@ -223,7 +224,7 @@
 <span class="c1"># The above copyright notice and this permission notice shall be included in all</span>
 <span class="c1"># copies or substantial portions of the Software.</span>
 <span class="c1"># </span>
-<span class="c1"># THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
 <span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
 <span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
 <span class="c1"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
@@ -231,16 +232,13 @@
 <span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
 <span class="c1"># SOFTWARE.</span>
 
-<span class="kn">from</span> <span class="nn">ase</span> <span class="kn">import</span> <span class="n">Atoms</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">schnetpack</span> <span class="kn">import</span> <span class="n">AtomsData</span>
-<span class="kn">from</span> <span class="nn">schnetpack.data.atoms</span> <span class="kn">import</span> <span class="n">get_center_of_mass</span>
 
 <div class="viewcode-block" id="write_schnetpack_db"><a class="viewcode-back" href="../../../doc/reptar.writers.html#reptar.writers.schnetpack_db.write_schnetpack_db">[docs]</a><span class="k">def</span> <span class="nf">write_schnetpack_db</span><span class="p">(</span>
     <span class="n">db_path</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">energy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">forces</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">e_units</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">f_units</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
-    <span class="n">centering_function</span><span class="o">=</span><span class="n">get_center_of_mass</span>
+    <span class="n">centering_function</span><span class="o">=</span><span class="kc">None</span>
 <span class="p">):</span>
-    <span class="sd">"""Create a schnetpack database.</span>
+    <span class="sd">&quot;&quot;&quot;Create a schnetpack database.</span>
 
 <span class="sd">    Will add rows if the database already exists.</span>
 
@@ -283,16 +281,22 @@
 <span class="sd">    database, ``db``, then we can get the positions using</span>
 <span class="sd">    ``row_atom, row_prop = db.get_properties(0)``.</span>
 <span class="sd">    ``row_atom.positions[0][0]`` would be exactly ``-0.93996473515199``.</span>
-<span class="sd">    However, ``row_prop["_positions"][0][0]`` could be something like</span>
+<span class="sd">    However, ``row_prop[&quot;_positions&quot;][0][0]`` could be something like</span>
 <span class="sd">    ``-0.93996471166611``.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">ase</span> <span class="kn">import</span> <span class="n">Atoms</span>
+    <span class="kn">from</span> <span class="nn">schnetpack</span> <span class="kn">import</span> <span class="n">AtomsData</span>
+    <span class="kn">from</span> <span class="nn">schnetpack.data.atoms</span> <span class="kn">import</span> <span class="n">get_center_of_mass</span>
+    <span class="k">if</span> <span class="n">centering_function</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">centering_function</span> <span class="o">=</span> <span class="n">get_center_of_mass</span>
+
     <span class="n">avail_props</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">unit_list</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">if</span> <span class="n">energy</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">avail_props</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'energy'</span><span class="p">)</span>
+        <span class="n">avail_props</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;energy&#39;</span><span class="p">)</span>
         <span class="n">unit_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e_units</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">forces</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">avail_props</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'forces'</span><span class="p">)</span>
+        <span class="n">avail_props</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;forces&#39;</span><span class="p">)</span>
         <span class="n">unit_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f_units</span><span class="p">)</span>
     
     <span class="n">db</span> <span class="o">=</span> <span class="n">AtomsData</span><span class="p">(</span>
@@ -307,9 +311,9 @@
 
         <span class="n">props</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">if</span> <span class="n">energy</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">props</span><span class="p">[</span><span class="s1">'energy'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">energy</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+            <span class="n">props</span><span class="p">[</span><span class="s1">&#39;energy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">energy</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
         <span class="k">if</span> <span class="n">forces</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">props</span><span class="p">[</span><span class="s1">'forces'</span><span class="p">]</span> <span class="o">=</span> <span class="n">forces</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">props</span><span class="p">[</span><span class="s1">&#39;forces&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">forces</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="n">all_properties</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
     <span class="n">db</span><span class="o">.</span><span class="n">add_systems</span><span class="p">(</span><span class="n">all_atoms</span><span class="p">,</span> <span class="n">all_properties</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">db</span></div>
@@ -350,6 +354,7 @@
 </div><script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/scripts/furo.js"></script>
     </body>

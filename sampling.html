@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Calculators" href="calculators.html" /><link rel="prev" title="Writers" href="writers.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>Sampling - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -195,7 +195,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -210,7 +211,7 @@
         </div>
         <article role="main">
           <section id="sampling">
-<h1>Sampling<a class="headerlink" href="#sampling" title="Permalink to this headline">#</a></h1>
+<h1>Sampling<a class="headerlink" href="#sampling" title="Permalink to this heading">#</a></h1>
 <p>Reptar provides automated procedures for sampling structures from reptar files.
 For example, sampling water trimers from a molecular dynamics simulation.
 To directly add structures to a group you can use the driver function <a class="reference internal" href="doc/reptar.html#reptar.sampler.add_structures_to_group" title="reptar.sampler.add_structures_to_group"><code class="xref py py-func docutils literal notranslate"><span class="pre">reptar.sampler.add_structures_to_group()</span></code></a>.</p>
@@ -222,7 +223,7 @@ To directly add structures to a group you can use the driver function <a class="
 <code class="docutils literal notranslate"><span class="pre">r_prov_specs</span></code> are not <code class="docutils literal notranslate"><span class="pre">None</span></code>) then the sampled structures are appended
 to these arrays.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>source_file</strong> (<a class="reference internal" href="doc/reptar.html#reptar.File" title="reptar.File"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reptar.File</span></code></a>) – A loaded reptar File to sample structures from.</p></li>
 <li><p><strong>source_key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Key to the desired source group. The group must contain
@@ -234,17 +235,17 @@ with the same <code class="docutils literal notranslate"><span class="pre">comp_
 element. Thus, the order of each label does matter.</p></li>
 <li><p><strong>r_prov_ids</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> {<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>}) – Structure <code class="docutils literal notranslate"><span class="pre">prov_ids</span></code> including any originally defined IDs and new
 ones being added from the source.</p></li>
-<li><p><strong>source_r_prov_specs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">2</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Structure provenance specifications of source structures if it was
+<li><p><strong>source_r_prov_specs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">2</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Structure provenance specifications of source structures if it was
 created by sampling from other sources. If the <code class="docutils literal notranslate"><span class="pre">source</span></code> is original,
 this should be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Atomic numbers of destination if they already exist.</p></li>
-<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Cartesian atomic coordinates of destination if they already exist.</p></li>
-<li><p><strong>r_prov_specs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">2</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Structure prov specifications of destination.</p></li>
+<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Atomic numbers of destination if they already exist.</p></li>
+<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Cartesian atomic coordinates of destination if they already exist.</p></li>
+<li><p><strong>r_prov_specs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">2</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Structure prov specifications of destination.</p></li>
 <li><p><strong>structure_idxs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Possible structure indices in the source to sample from.
 <code class="docutils literal notranslate"><span class="pre">None</span></code> means we can sample from any structure.</p></li>
 <li><p><strong>criteria</strong> (<code class="docutils literal notranslate"><span class="pre">callable</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Structure criteria during the sampling procedure. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, then no
 criteria will be used.</p></li>
-<li><p><strong>z_slice</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Indices of the atoms to be used for the cutoff calculation. Defaults
+<li><p><strong>z_slice</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Indices of the atoms to be used for the cutoff calculation. Defaults
 to <code class="docutils literal notranslate"><span class="pre">[]</span></code> is no criteria is selected or if it is not required for
 the selected criteria.</p></li>
 <li><p><strong>cutoff</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Distance cutoff between the atoms selected by <code class="docutils literal notranslate"><span class="pre">z_slice</span></code>. Must be
@@ -256,9 +257,9 @@ the structure).</p></li>
 <li><p><strong>sampling_updates</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">False</span></code>) – Will print for every 100 successfully sampled structures.</p></li>
 <li><p><strong>copy_EG</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">True</span></code>) – Creates datasets for energies and gradients (using <code class="docutils literal notranslate"><span class="pre">energy_label</span></code> and
 <code class="docutils literal notranslate"><span class="pre">grad_label</span></code>) and attempts to copy data from the source if possible.
-If no compatible data is available it will just store <a class="reference external" href="https://numpy.org/doc/stable/reference/constants.html#numpy.NaN" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.NaN</span></code></a>.</p></li>
-<li><p><strong>E</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Destination energies, if any, to append to.</p></li>
-<li><p><strong>G</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Destination atomic gradients, if any, to append to.</p></li>
+If no compatible data is available it will just store <a class="reference external" href="https://numpy.org/doc/stable/reference/constants.html#numpy.NaN" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.NaN</span></code></a>.</p></li>
+<li><p><strong>E</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Destination energies, if any, to append to.</p></li>
+<li><p><strong>G</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Destination atomic gradients, if any, to append to.</p></li>
 <li><p><strong>energy_label_source</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">'energy_ele'</span></code>) – Specifies source dataset name containing energies to copy.
 If <code class="docutils literal notranslate"><span class="pre">copy_EG</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> with no valid energy datasets then an empty
 array is created.</p></li>
@@ -267,17 +268,17 @@ If <code class="docutils literal notranslate"><span class="pre">copy_EG</span></
 array is created.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – Atomic numbers of sampled structures.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – Coordinates of sampled structures appended to any original destination
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – Atomic numbers of sampled structures.</p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – Coordinates of sampled structures appended to any original destination
 structures.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <code class="docutils literal notranslate"><span class="pre">None</span></code> – Energies of sampled structures appended to any original destination
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <code class="docutils literal notranslate"><span class="pre">None</span></code> – Energies of sampled structures appended to any original destination
 structures. <code class="docutils literal notranslate"><span class="pre">None</span></code> if <code class="docutils literal notranslate"><span class="pre">copy_EG</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <code class="docutils literal notranslate"><span class="pre">None</span></code> – Atomic gradients of sampled structures appended to any original
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <code class="docutils literal notranslate"><span class="pre">None</span></code> – Atomic gradients of sampled structures appended to any original
 destination structures. <code class="docutils literal notranslate"><span class="pre">None</span></code> if <code class="docutils literal notranslate"><span class="pre">copy_EG</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – <code class="docutils literal notranslate"><span class="pre">entity_ids</span></code> of the structures.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – <code class="docutils literal notranslate"><span class="pre">r_prov_specs</span></code> of the structures.</p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – <code class="docutils literal notranslate"><span class="pre">entity_ids</span></code> of the structures.</p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – <code class="docutils literal notranslate"><span class="pre">r_prov_specs</span></code> of the structures.</p></li>
 </ul>
 </p>
 </dd>
@@ -287,6 +288,7 @@ destination structures. <code class="docutils literal notranslate"><span class="
 For example, if a water molecule with label <code class="docutils literal notranslate"><span class="pre">'h2o'</span></code> has <code class="docutils literal notranslate"><span class="pre">atomic_numbers</span></code>
 of <code class="docutils literal notranslate"><span class="pre">[8,</span> <span class="pre">1,</span> <span class="pre">1]</span></code> then every other entity must have the same.</p>
 </dd></dl>
+
 </section>
 
         </article>
@@ -343,6 +345,7 @@ of <code class="docutils literal notranslate"><span class="pre">[8,</span> <span
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/furo.js"></script>
     </body>

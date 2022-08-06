@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Descriptors" href="descriptors.html" /><link rel="prev" title="Calculators" href="calculators.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>Many-body expansion - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -195,7 +195,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -210,17 +211,21 @@
         </div>
         <article role="main">
           <section id="many-body-expansion">
-<h1>Many-body expansion<a class="headerlink" href="#many-body-expansion" title="Permalink to this headline">#</a></h1>
+<h1>Many-body expansion<a class="headerlink" href="#many-body-expansion" title="Permalink to this heading">#</a></h1>
 <p>The many-body expansion (MBE) is a computational framework that states a system’s total energy (an its gradients) are equal to the sum of all <span class="math notranslate nohighlight">\(n\)</span>-body contributions.</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[E = \sum_{i}^N E_i^{(1)} + \sum_{i &lt; j}^N \Delta E_{ij}^{(2)} + \sum_{i &lt; j &lt; k}^N \Delta E_{ijk}^{(3)} + \cdots.\]</div></div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[E = \sum_{i}^N E_i^{(1)} + \sum_{i &lt; j}^N \Delta E_{ij}^{(2)} + \sum_{i &lt; j &lt; k}^N \Delta E_{ijk}^{(3)} + \cdots.\]</div>
+</div>
 <p>Here, <span class="math notranslate nohighlight">\(N\)</span> is the number of monomers; <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(j\)</span>, <span class="math notranslate nohighlight">\(k\)</span> are monomer indices; <span class="math notranslate nohighlight">\(E_i^{(1)}\)</span> is the energy of an isolated monomer <span class="math notranslate nohighlight">\(i\)</span>; and <span class="math notranslate nohighlight">\(\Delta E_{\; i, \: j, \: \ldots}^{\; (n)}\)</span> represents the <span class="math notranslate nohighlight">\(n\)</span>-body interaction energy contribution of the fragment containing monomers <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(j\)</span>, <span class="math notranslate nohighlight">\(\ldots\)</span> with lower order (<span class="math notranslate nohighlight">\(&lt; n\)</span>) contributions removed.
 For example, the 2-body contribution of the fragment containing monomers <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> is</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\Delta E_{ij}^{(2)} = E_{ij}^{(2)} - E_{i}^{(1)} - E_{j}^{(1)}.\]</div></div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\Delta E_{ij}^{(2)} = E_{ij}^{(2)} - E_{i}^{(1)} - E_{j}^{(1)}.\]</div>
+</div>
 <p>Reptar provides useful routines for computing <span class="math notranslate nohighlight">\(n\)</span>-body properties.</p>
 <section id="n-body-contributions">
-<h2><em>n</em>-body contributions<a class="headerlink" href="#n-body-contributions" title="Permalink to this headline">#</a></h2>
+<h2><em>n</em>-body contributions<a class="headerlink" href="#n-body-contributions" title="Permalink to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">reptar.mb.</span></span><span class="sig-name descname"><span class="pre">mb_contributions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Deriv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_prov_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_prov_specs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Deriv_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_ids_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_prov_ids_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_prov_specs_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'remove'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/reptar/mb.html#mb_contributions"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
@@ -229,27 +234,31 @@ contributions from a reference.</p>
 <p>We use the term “lower” to refer to the lower-order (i.e., smaller) systems.
 These are the energy and derivative contributions to remove or add to a
 reference.</p>
+<p>Making <span class="math notranslate nohighlight">\(n\)</span>-body predictions (i.e., <code class="docutils literal notranslate"><span class="pre">operation</span> <span class="pre">=</span> <span class="pre">'add'</span></code>) will often
+not have <code class="docutils literal notranslate"><span class="pre">r_prov_ids</span></code> or <code class="docutils literal notranslate"><span class="pre">r_prov_specs``as</span> <span class="pre">all</span> <span class="pre">lower</span> <span class="pre">contributions</span> <span class="pre">are</span>
+<span class="pre">derived</span> <span class="pre">exclusively</span> <span class="pre">from</span> <span class="pre">these</span> <span class="pre">structures.</span> <span class="pre">Use</span> <span class="pre">``None</span></code> for both of these
+and this function will assume that all <code class="docutils literal notranslate"><span class="pre">_lower</span></code> properties apply.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>E</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Energies to add or remove contributions from (i.e., reference).</p></li>
-<li><p><strong>Deriv</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Potential energy surface derivatives (i.e., gradients or forces
+<li><p><strong>E</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Energies to add or remove contributions from (i.e., reference).</p></li>
+<li><p><strong>Deriv</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Potential energy surface derivatives (i.e., gradients or forces
 depending on the sign) of reference structures.</p></li>
-<li><p><strong>entity_ids</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – A uniquely identifying integer specifying what atoms belong to
+<li><p><strong>entity_ids</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – A uniquely identifying integer specifying what atoms belong to
 which entities for reference structures. Entities can be a related
 set of atoms, molecules, or functional group. For example, a water and
 methanol molecule could be <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1]</span></code>.</p></li>
-<li><p><strong>r_prov_ids</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> {<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>}) – Species an ID (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) to uniquely identifying labels for each
+<li><p><strong>r_prov_ids</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> {<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>} or <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Species an ID (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) to uniquely identifying labels for each
 structure if it originated from another reptar file. Labels should
 always be <code class="docutils literal notranslate"><span class="pre">md5_structures</span></code>. For example,
 <code class="docutils literal notranslate"><span class="pre">{0:</span> <span class="pre">'6038e101da7fc0085978741832ebc7ad',</span> <span class="pre">1:</span> <span class="pre">'eeaf93dec698de3ecb55e9292bd9dfcb'}</span></code>.</p></li>
-<li><p><strong>r_prov_specs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">2</span></code>) – Structure provenance IDs. This specifies the <code class="docutils literal notranslate"><span class="pre">r_prov_id</span></code>, structure
+<li><p><strong>r_prov_specs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">2</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Structure provenance IDs. This specifies the <code class="docutils literal notranslate"><span class="pre">r_prov_id</span></code>, structure
 index from the <code class="docutils literal notranslate"><span class="pre">r_prov_id</span></code> source, and <code class="docutils literal notranslate"><span class="pre">entity_ids</span></code> making up
 the structure.</p></li>
-<li><p><strong>E_lower</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Lower-order energies.</p></li>
-<li><p><strong>Deriv_lower</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Potential energy surface derivatives (i.e., gradients or forces
+<li><p><strong>E_lower</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Lower-order energies.</p></li>
+<li><p><strong>Deriv_lower</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Potential energy surface derivatives (i.e., gradients or forces
 depending on the sign) of lower-order structures.</p></li>
-<li><p><strong>entity_ids_lower</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – A uniquely identifying integer specifying what atoms belong to
+<li><p><strong>entity_ids_lower</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – A uniquely identifying integer specifying what atoms belong to
 which entities for lower-order structures. Entities can be a related
 set of atoms, molecules, or functional group. For example, a water and
 methanol molecule could be <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1]</span></code>.</p></li>
@@ -257,7 +266,7 @@ methanol molecule could be <code class="docutils literal notranslate"><span clas
 lower-order structure if it originated from another reptar file. Labels
 should always be <code class="docutils literal notranslate"><span class="pre">md5_structures</span></code>. For example,
 <code class="docutils literal notranslate"><span class="pre">{0:</span> <span class="pre">'6038e101da7fc0085978741832ebc7ad',</span> <span class="pre">1:</span> <span class="pre">'eeaf93dec698de3ecb55e9292bd9dfcb'}</span></code>.</p></li>
-<li><p><strong>r_prov_specs_lower</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">2</span></code>) – Structure provenance IDs. This specifies the <code class="docutils literal notranslate"><span class="pre">r_prov_id</span></code>, structure
+<li><p><strong>r_prov_specs_lower</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">2</span></code>) – Structure provenance IDs. This specifies the <code class="docutils literal notranslate"><span class="pre">r_prov_id</span></code>, structure
 index from the <code class="docutils literal notranslate"><span class="pre">r_prov_id</span></code> source, and <code class="docutils literal notranslate"><span class="pre">entity_ids</span></code> making up
 lower-order structures.</p></li>
 <li><p><strong>operation</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">'remove'</span></code>) – <code class="docutils literal notranslate"><span class="pre">'add'</span></code> or <code class="docutils literal notranslate"><span class="pre">'remove'</span></code> the contributions.</p></li>
@@ -265,15 +274,16 @@ lower-order structures.</p></li>
 available. If larger than <code class="docutils literal notranslate"><span class="pre">1</span></code>, ray tasks are spawned.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – Energies with lower-order contributions added or removed.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – Derivatives with lower-order contributions added or removed.</p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – Energies with lower-order contributions added or removed.</p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – Derivatives with lower-order contributions added or removed.</p></li>
 </ul>
 </p>
 </dd>
 </dl>
 </dd></dl>
+
 </section>
 </section>
 
@@ -350,6 +360,7 @@ available. If larger than <code class="docutils literal notranslate"><span class
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>

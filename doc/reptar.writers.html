@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Contributing" href="../contributing.html" /><link rel="prev" title="reptar.parsers package" href="reptar.parsers.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>reptar.writers package - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -195,7 +195,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -210,53 +211,54 @@
         </div>
         <article role="main">
           <section id="reptar-writers-package">
-<h1>reptar.writers package<a class="headerlink" href="#reptar-writers-package" title="Permalink to this headline">#</a></h1>
+<h1>reptar.writers package<a class="headerlink" href="#reptar-writers-package" title="Permalink to this heading">#</a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">#</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="module-reptar.writers.ase_db">
-<span id="reptar-writers-ase-db-module"></span><h2>reptar.writers.ase_db module<a class="headerlink" href="#module-reptar.writers.ase_db" title="Permalink to this headline">#</a></h2>
+<span id="reptar-writers-ase-db-module"></span><h2>reptar.writers.ase_db module<a class="headerlink" href="#module-reptar.writers.ase_db" title="Permalink to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="reptar.writers.ase_db.write_ase_db">
 <span class="sig-prename descclassname"><span class="pre">reptar.writers.ase_db.</span></span><span class="sig-name descname"><span class="pre">write_ase_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/writers/ase_db.html#write_ase_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.writers.ase_db.write_ase_db" title="Permalink to this definition">#</a></dt>
 <dd><p>Create an atomic simulation environment database.</p>
 <p>Will add rows if the database already exists.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>db_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to atomic simulation environment database.</p></li>
-<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Atomic numbers used to populate <code class="docutils literal notranslate"><span class="pre">numbers</span></code> in the ASE db.</p></li>
-<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Cartesian coordinates used to populate <code class="docutils literal notranslate"><span class="pre">positions</span></code> in the ASE db.</p></li>
-<li><p><strong>energy</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Energies to population <code class="docutils literal notranslate"><span class="pre">energy</span></code> in the ASE db.</p></li>
-<li><p><strong>forces</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Atomic forces to populate <code class="docutils literal notranslate"><span class="pre">forces</span></code> in the ASE db.</p></li>
+<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Atomic numbers used to populate <code class="docutils literal notranslate"><span class="pre">numbers</span></code> in the ASE db.</p></li>
+<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Cartesian coordinates used to populate <code class="docutils literal notranslate"><span class="pre">positions</span></code> in the ASE db.</p></li>
+<li><p><strong>energy</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Energies to population <code class="docutils literal notranslate"><span class="pre">energy</span></code> in the ASE db.</p></li>
+<li><p><strong>forces</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Atomic forces to populate <code class="docutils literal notranslate"><span class="pre">forces</span></code> in the ASE db.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Atomic simulation environment database.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">ase.db.sqlite.SQLite3Database</span></code></p>
 </dd>
 </dl>
 </dd></dl>
+
 </section>
 <section id="module-reptar.writers.pdb">
-<span id="reptar-writers-pdb-module"></span><h2>reptar.writers.pdb module<a class="headerlink" href="#module-reptar.writers.pdb" title="Permalink to this headline">#</a></h2>
+<span id="reptar-writers-pdb-module"></span><h2>reptar.writers.pdb module<a class="headerlink" href="#module-reptar.writers.pdb" title="Permalink to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="reptar.writers.pdb.write_pdb">
 <span class="sig-prename descclassname"><span class="pre">reptar.writers.pdb.</span></span><span class="sig-name descname"><span class="pre">write_pdb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdb_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comp_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'HETATM'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/writers/pdb.html#write_pdb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.writers.pdb.write_pdb" title="Permalink to this definition">#</a></dt>
 <dd><p>Write PDB file.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pdb_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to PDB file to write.</p></li>
-<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Atomic numbers.</p></li>
-<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Cartesian coordinates.</p></li>
-<li><p><strong>entity_ids</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – A uniquely identifying integer specifying what atoms belong to
+<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Atomic numbers.</p></li>
+<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Cartesian coordinates.</p></li>
+<li><p><strong>entity_ids</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – A uniquely identifying integer specifying what atoms belong to
 which entities. Entities can be a related set of atoms, molecules,
 or functional group. For example, a water and methanol molecule
 could be <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1]</span></code>.</p></li>
-<li><p><strong>comp_ids</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Relates <code class="docutils literal notranslate"><span class="pre">entity_id</span></code> to a fragment label for chemical components
+<li><p><strong>comp_ids</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Relates <code class="docutils literal notranslate"><span class="pre">entity_id</span></code> to a fragment label for chemical components
 or species. Labels could be <code class="docutils literal notranslate"><span class="pre">WAT</span></code> or <code class="docutils literal notranslate"><span class="pre">h2o</span></code> for water, <code class="docutils literal notranslate"><span class="pre">MeOH</span></code>
 for methanol, <code class="docutils literal notranslate"><span class="pre">bz</span></code> for benzene, etc. There are no standardized
 labels for species. The index of the label is the respective
@@ -267,22 +269,23 @@ be <code class="docutils literal notranslate"><span class="pre">['h2o',</span> <
 </dd>
 </dl>
 </dd></dl>
+
 </section>
 <section id="module-reptar.writers.schnetpack_db">
-<span id="reptar-writers-schnetpack-db-module"></span><h2>reptar.writers.schnetpack_db module<a class="headerlink" href="#module-reptar.writers.schnetpack_db" title="Permalink to this headline">#</a></h2>
+<span id="reptar-writers-schnetpack-db-module"></span><h2>reptar.writers.schnetpack_db module<a class="headerlink" href="#module-reptar.writers.schnetpack_db" title="Permalink to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="reptar.writers.schnetpack_db.write_schnetpack_db">
-<span class="sig-prename descclassname"><span class="pre">reptar.writers.schnetpack_db.</span></span><span class="sig-name descname"><span class="pre">write_schnetpack_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forces=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e_units=1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_units=1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centering_function=&lt;function</span> <span class="pre">get_center_of_mass&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/writers/schnetpack_db.html#write_schnetpack_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.writers.schnetpack_db.write_schnetpack_db" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">reptar.writers.schnetpack_db.</span></span><span class="sig-name descname"><span class="pre">write_schnetpack_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centering_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/writers/schnetpack_db.html#write_schnetpack_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.writers.schnetpack_db.write_schnetpack_db" title="Permalink to this definition">#</a></dt>
 <dd><p>Create a schnetpack database.</p>
 <p>Will add rows if the database already exists.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>db_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to schnetpack database.</p></li>
-<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Atomic numbers used to populate <code class="docutils literal notranslate"><span class="pre">numbers</span></code> in the ASE db.</p></li>
-<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Cartesian coordinates used to populate <code class="docutils literal notranslate"><span class="pre">positions</span></code> in the ASE db.</p></li>
-<li><p><strong>energy</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Energies to add to database in eV.</p></li>
-<li><p><strong>forces</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Atomic forces to add to database in eV/A.</p></li>
+<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Atomic numbers used to populate <code class="docutils literal notranslate"><span class="pre">numbers</span></code> in the ASE db.</p></li>
+<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Cartesian coordinates used to populate <code class="docutils literal notranslate"><span class="pre">positions</span></code> in the ASE db.</p></li>
+<li><p><strong>energy</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Energies to add to database in eV.</p></li>
+<li><p><strong>forces</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Atomic forces to add to database in eV/A.</p></li>
 <li><p><strong>e_units</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">1.0</span></code>) – Units of energy using <code class="docutils literal notranslate"><span class="pre">ase.units</span></code>. Essentially the conversion factor
 to eV.</p></li>
 <li><p><strong>f_units</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">1.0</span></code>) – Units of forces using <code class="docutils literal notranslate"><span class="pre">ase.units</span></code>. Essentially the conversion factor
@@ -292,10 +295,10 @@ Defaults to centering the structure according to the center of mass.
 Set to <code class="docutils literal notranslate"><span class="pre">None</span></code> for no centering.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Schnetpack database.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">schnetpack.data.atoms.AtomsData</span></code></p>
 </dd>
 </dl>
@@ -308,149 +311,155 @@ written. The <code class="docutils literal notranslate"><span class="pre">_prope
 database, <code class="docutils literal notranslate"><span class="pre">db</span></code>, then we can get the positions using
 <code class="docutils literal notranslate"><span class="pre">row_atom,</span> <span class="pre">row_prop</span> <span class="pre">=</span> <span class="pre">db.get_properties(0)</span></code>.
 <code class="docutils literal notranslate"><span class="pre">row_atom.positions[0][0]</span></code> would be exactly <code class="docutils literal notranslate"><span class="pre">-0.93996473515199</span></code>.
-However, <code class="docutils literal notranslate"><span class="pre">row_prop["_positions"][0][0]</span></code> could be something like
+However, <code class="docutils literal notranslate"><span class="pre">row_prop[&quot;_positions&quot;][0][0]</span></code> could be something like
 <code class="docutils literal notranslate"><span class="pre">-0.93996471166611</span></code>.</p>
 </dd></dl>
+
 </section>
 <section id="module-reptar.writers.writing_utils">
-<span id="reptar-writers-writing-utils-module"></span><h2>reptar.writers.writing_utils module<a class="headerlink" href="#module-reptar.writers.writing_utils" title="Permalink to this headline">#</a></h2>
+<span id="reptar-writers-writing-utils-module"></span><h2>reptar.writers.writing_utils module<a class="headerlink" href="#module-reptar.writers.writing_utils" title="Permalink to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="reptar.writers.writing_utils.string_xyz_arrays">
 <span class="sig-prename descclassname"><span class="pre">reptar.writers.writing_utils.</span></span><span class="sig-name descname"><span class="pre">string_xyz_arrays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/writers/writing_utils.html#string_xyz_arrays"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.writers.writing_utils.string_xyz_arrays" title="Permalink to this definition">#</a></dt>
 <dd><p>Create string of array data in XYZ format for a single structure.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim=1) – Atomic numbers of all atoms in the system.</p></li>
-<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim=2) – Cartesian coordinates of all atoms in the same order as <code class="docutils literal notranslate"><span class="pre">Z</span></code>.</p></li>
-<li><p><strong>args</strong> – Other <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> (ndim&gt;=1) to add where it’s assumed the
+<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim=1) – Atomic numbers of all atoms in the system.</p></li>
+<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim=2) – Cartesian coordinates of all atoms in the same order as <code class="docutils literal notranslate"><span class="pre">Z</span></code>.</p></li>
+<li><p><strong>args</strong> – Other <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> (ndim&gt;=1) to add where it’s assumed the
 zero axis is with respect to <code class="docutils literal notranslate"><span class="pre">R</span></code>. For example, if we have atomic
 forces the array shape would be <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">3)</span></code> where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the number of
 atoms in the structure.</p></li>
 <li><p><strong>precision</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">10</span></code>) – Number of decimal points for printing array data.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The XYZ string for a single structure. This does not include the number
 of atoms</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
+
 </section>
 <section id="module-reptar.writers.xyz">
-<span id="reptar-writers-xyz-module"></span><h2>reptar.writers.xyz module<a class="headerlink" href="#module-reptar.writers.xyz" title="Permalink to this headline">#</a></h2>
+<span id="reptar-writers-xyz-module"></span><h2>reptar.writers.xyz module<a class="headerlink" href="#module-reptar.writers.xyz" title="Permalink to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="reptar.writers.xyz.write_xyz">
 <span class="sig-prename descclassname"><span class="pre">reptar.writers.xyz.</span></span><span class="sig-name descname"><span class="pre">write_xyz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xyz_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/writers/xyz.html#write_xyz"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.writers.xyz.write_xyz" title="Permalink to this definition">#</a></dt>
 <dd><p>Write standard XYZ file.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>xyz_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to XYZ file to write.</p></li>
-<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Atomic numbers of all atoms in the system.</p></li>
-<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Cartesian coordinates of all structures in the same order as <code class="docutils literal notranslate"><span class="pre">Z</span></code>.</p></li>
+<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Atomic numbers of all atoms in the system.</p></li>
+<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Cartesian coordinates of all structures in the same order as <code class="docutils literal notranslate"><span class="pre">Z</span></code>.</p></li>
 <li><p><strong>comments</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Comment lines for each XYZ structure.</p></li>
 <li><p><strong>data_precision</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">10</span></code>) – Number of decimal points for printing array data.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
+
 </section>
 <section id="module-reptar.writers.xyz_gap">
-<span id="reptar-writers-xyz-gap-module"></span><h2>reptar.writers.xyz_gap module<a class="headerlink" href="#module-reptar.writers.xyz_gap" title="Permalink to this headline">#</a></h2>
+<span id="reptar-writers-xyz-gap-module"></span><h2>reptar.writers.xyz_gap module<a class="headerlink" href="#module-reptar.writers.xyz_gap" title="Permalink to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="reptar.writers.xyz_gap.write_xyz_gap">
 <span class="sig-prename descclassname"><span class="pre">reptar.writers.xyz_gap.</span></span><span class="sig-name descname"><span class="pre">write_xyz_gap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xyz_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lattice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">F</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lattice_precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/writers/xyz_gap.html#write_xyz_gap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.writers.xyz_gap.write_xyz_gap" title="Permalink to this definition">#</a></dt>
 <dd><p>Write an extended XYZ file in the GAP format.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>xyz_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to the XYZ file to write.</p></li>
-<li><p><strong>lattice</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">2</span></code>) – <p>The three cartesian lattice vectors describing the periodic cell (in
+<li><p><strong>lattice</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">2</span></code>) – <p>The three cartesian lattice vectors describing the periodic cell (in
 Angstroms).</p>
 <p>All structures need a this lattice even structures are not supposed to
 be periodic. Just use a lattice vector that is larger than twice the
 cutoff of any potential you plan to create or use.</p>
 </p></li>
-<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Atomic numbers of all atoms in the system.</p></li>
-<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Cartesian coordinates of all structures in the same order as <code class="docutils literal notranslate"><span class="pre">Z</span></code>.</p></li>
-<li><p><strong>E</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Energy of all structures in <code class="docutils literal notranslate"><span class="pre">R</span></code> in units of eV.</p></li>
-<li><p><strong>F</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Atomic forces of all structures in <code class="docutils literal notranslate"><span class="pre">R</span></code> in units of eV/A.</p></li>
+<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Atomic numbers of all atoms in the system.</p></li>
+<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Cartesian coordinates of all structures in the same order as <code class="docutils literal notranslate"><span class="pre">Z</span></code>.</p></li>
+<li><p><strong>E</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Energy of all structures in <code class="docutils literal notranslate"><span class="pre">R</span></code> in units of eV.</p></li>
+<li><p><strong>F</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Atomic forces of all structures in <code class="docutils literal notranslate"><span class="pre">R</span></code> in units of eV/A.</p></li>
 <li><p><strong>lattice_precision</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Number of decimal points to print for lattice dimensions.</p></li>
 <li><p><strong>data_precision</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">10</span></code>) – Number of decimal points for printing array data.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
+
 </section>
 <section id="module-reptar.writers">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-reptar.writers" title="Permalink to this headline">#</a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-reptar.writers" title="Permalink to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="reptar.writers.string_xyz_arrays">
 <span class="sig-prename descclassname"><span class="pre">reptar.writers.</span></span><span class="sig-name descname"><span class="pre">string_xyz_arrays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/writers/writing_utils.html#string_xyz_arrays"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.writers.string_xyz_arrays" title="Permalink to this definition">#</a></dt>
 <dd><p>Create string of array data in XYZ format for a single structure.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim=1) – Atomic numbers of all atoms in the system.</p></li>
-<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim=2) – Cartesian coordinates of all atoms in the same order as <code class="docutils literal notranslate"><span class="pre">Z</span></code>.</p></li>
-<li><p><strong>args</strong> – Other <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> (ndim&gt;=1) to add where it’s assumed the
+<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim=1) – Atomic numbers of all atoms in the system.</p></li>
+<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim=2) – Cartesian coordinates of all atoms in the same order as <code class="docutils literal notranslate"><span class="pre">Z</span></code>.</p></li>
+<li><p><strong>args</strong> – Other <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> (ndim&gt;=1) to add where it’s assumed the
 zero axis is with respect to <code class="docutils literal notranslate"><span class="pre">R</span></code>. For example, if we have atomic
 forces the array shape would be <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">3)</span></code> where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the number of
 atoms in the structure.</p></li>
 <li><p><strong>precision</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">10</span></code>) – Number of decimal points for printing array data.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The XYZ string for a single structure. This does not include the number
 of atoms</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="reptar.writers.write_ase_db">
 <span class="sig-prename descclassname"><span class="pre">reptar.writers.</span></span><span class="sig-name descname"><span class="pre">write_ase_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/writers/ase_db.html#write_ase_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.writers.write_ase_db" title="Permalink to this definition">#</a></dt>
 <dd><p>Create an atomic simulation environment database.</p>
 <p>Will add rows if the database already exists.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>db_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to atomic simulation environment database.</p></li>
-<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Atomic numbers used to populate <code class="docutils literal notranslate"><span class="pre">numbers</span></code> in the ASE db.</p></li>
-<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Cartesian coordinates used to populate <code class="docutils literal notranslate"><span class="pre">positions</span></code> in the ASE db.</p></li>
-<li><p><strong>energy</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Energies to population <code class="docutils literal notranslate"><span class="pre">energy</span></code> in the ASE db.</p></li>
-<li><p><strong>forces</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Atomic forces to populate <code class="docutils literal notranslate"><span class="pre">forces</span></code> in the ASE db.</p></li>
+<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Atomic numbers used to populate <code class="docutils literal notranslate"><span class="pre">numbers</span></code> in the ASE db.</p></li>
+<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Cartesian coordinates used to populate <code class="docutils literal notranslate"><span class="pre">positions</span></code> in the ASE db.</p></li>
+<li><p><strong>energy</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Energies to population <code class="docutils literal notranslate"><span class="pre">energy</span></code> in the ASE db.</p></li>
+<li><p><strong>forces</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Atomic forces to populate <code class="docutils literal notranslate"><span class="pre">forces</span></code> in the ASE db.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Atomic simulation environment database.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">ase.db.sqlite.SQLite3Database</span></code></p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="reptar.writers.write_pdb">
 <span class="sig-prename descclassname"><span class="pre">reptar.writers.</span></span><span class="sig-name descname"><span class="pre">write_pdb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdb_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comp_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'HETATM'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/writers/pdb.html#write_pdb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.writers.write_pdb" title="Permalink to this definition">#</a></dt>
 <dd><p>Write PDB file.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pdb_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to PDB file to write.</p></li>
-<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Atomic numbers.</p></li>
-<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Cartesian coordinates.</p></li>
-<li><p><strong>entity_ids</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – A uniquely identifying integer specifying what atoms belong to
+<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Atomic numbers.</p></li>
+<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Cartesian coordinates.</p></li>
+<li><p><strong>entity_ids</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – A uniquely identifying integer specifying what atoms belong to
 which entities. Entities can be a related set of atoms, molecules,
 or functional group. For example, a water and methanol molecule
 could be <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1]</span></code>.</p></li>
-<li><p><strong>comp_ids</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Relates <code class="docutils literal notranslate"><span class="pre">entity_id</span></code> to a fragment label for chemical components
+<li><p><strong>comp_ids</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Relates <code class="docutils literal notranslate"><span class="pre">entity_id</span></code> to a fragment label for chemical components
 or species. Labels could be <code class="docutils literal notranslate"><span class="pre">WAT</span></code> or <code class="docutils literal notranslate"><span class="pre">h2o</span></code> for water, <code class="docutils literal notranslate"><span class="pre">MeOH</span></code>
 for methanol, <code class="docutils literal notranslate"><span class="pre">bz</span></code> for benzene, etc. There are no standardized
 labels for species. The index of the label is the respective
@@ -461,19 +470,20 @@ be <code class="docutils literal notranslate"><span class="pre">['h2o',</span> <
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="reptar.writers.write_schnetpack_db">
-<span class="sig-prename descclassname"><span class="pre">reptar.writers.</span></span><span class="sig-name descname"><span class="pre">write_schnetpack_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forces=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e_units=1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_units=1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centering_function=&lt;function</span> <span class="pre">get_center_of_mass&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/writers/schnetpack_db.html#write_schnetpack_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.writers.write_schnetpack_db" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">reptar.writers.</span></span><span class="sig-name descname"><span class="pre">write_schnetpack_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centering_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/writers/schnetpack_db.html#write_schnetpack_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.writers.write_schnetpack_db" title="Permalink to this definition">#</a></dt>
 <dd><p>Create a schnetpack database.</p>
 <p>Will add rows if the database already exists.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>db_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to schnetpack database.</p></li>
-<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Atomic numbers used to populate <code class="docutils literal notranslate"><span class="pre">numbers</span></code> in the ASE db.</p></li>
-<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Cartesian coordinates used to populate <code class="docutils literal notranslate"><span class="pre">positions</span></code> in the ASE db.</p></li>
-<li><p><strong>energy</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Energies to add to database in eV.</p></li>
-<li><p><strong>forces</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Atomic forces to add to database in eV/A.</p></li>
+<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Atomic numbers used to populate <code class="docutils literal notranslate"><span class="pre">numbers</span></code> in the ASE db.</p></li>
+<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Cartesian coordinates used to populate <code class="docutils literal notranslate"><span class="pre">positions</span></code> in the ASE db.</p></li>
+<li><p><strong>energy</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Energies to add to database in eV.</p></li>
+<li><p><strong>forces</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Atomic forces to add to database in eV/A.</p></li>
 <li><p><strong>e_units</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">1.0</span></code>) – Units of energy using <code class="docutils literal notranslate"><span class="pre">ase.units</span></code>. Essentially the conversion factor
 to eV.</p></li>
 <li><p><strong>f_units</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">1.0</span></code>) – Units of forces using <code class="docutils literal notranslate"><span class="pre">ase.units</span></code>. Essentially the conversion factor
@@ -483,10 +493,10 @@ Defaults to centering the structure according to the center of mass.
 Set to <code class="docutils literal notranslate"><span class="pre">None</span></code> for no centering.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Schnetpack database.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">schnetpack.data.atoms.AtomsData</span></code></p>
 </dd>
 </dl>
@@ -499,49 +509,52 @@ written. The <code class="docutils literal notranslate"><span class="pre">_prope
 database, <code class="docutils literal notranslate"><span class="pre">db</span></code>, then we can get the positions using
 <code class="docutils literal notranslate"><span class="pre">row_atom,</span> <span class="pre">row_prop</span> <span class="pre">=</span> <span class="pre">db.get_properties(0)</span></code>.
 <code class="docutils literal notranslate"><span class="pre">row_atom.positions[0][0]</span></code> would be exactly <code class="docutils literal notranslate"><span class="pre">-0.93996473515199</span></code>.
-However, <code class="docutils literal notranslate"><span class="pre">row_prop["_positions"][0][0]</span></code> could be something like
+However, <code class="docutils literal notranslate"><span class="pre">row_prop[&quot;_positions&quot;][0][0]</span></code> could be something like
 <code class="docutils literal notranslate"><span class="pre">-0.93996471166611</span></code>.</p>
 </dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="reptar.writers.write_xyz">
 <span class="sig-prename descclassname"><span class="pre">reptar.writers.</span></span><span class="sig-name descname"><span class="pre">write_xyz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xyz_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/writers/xyz.html#write_xyz"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.writers.write_xyz" title="Permalink to this definition">#</a></dt>
 <dd><p>Write standard XYZ file.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>xyz_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to XYZ file to write.</p></li>
-<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Atomic numbers of all atoms in the system.</p></li>
-<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Cartesian coordinates of all structures in the same order as <code class="docutils literal notranslate"><span class="pre">Z</span></code>.</p></li>
+<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Atomic numbers of all atoms in the system.</p></li>
+<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Cartesian coordinates of all structures in the same order as <code class="docutils literal notranslate"><span class="pre">Z</span></code>.</p></li>
 <li><p><strong>comments</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Comment lines for each XYZ structure.</p></li>
 <li><p><strong>data_precision</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">10</span></code>) – Number of decimal points for printing array data.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="reptar.writers.write_xyz_gap">
 <span class="sig-prename descclassname"><span class="pre">reptar.writers.</span></span><span class="sig-name descname"><span class="pre">write_xyz_gap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xyz_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lattice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">F</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lattice_precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/writers/xyz_gap.html#write_xyz_gap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.writers.write_xyz_gap" title="Permalink to this definition">#</a></dt>
 <dd><p>Write an extended XYZ file in the GAP format.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>xyz_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to the XYZ file to write.</p></li>
-<li><p><strong>lattice</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">2</span></code>) – <p>The three cartesian lattice vectors describing the periodic cell (in
+<li><p><strong>lattice</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">2</span></code>) – <p>The three cartesian lattice vectors describing the periodic cell (in
 Angstroms).</p>
 <p>All structures need a this lattice even structures are not supposed to
 be periodic. Just use a lattice vector that is larger than twice the
 cutoff of any potential you plan to create or use.</p>
 </p></li>
-<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Atomic numbers of all atoms in the system.</p></li>
-<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Cartesian coordinates of all structures in the same order as <code class="docutils literal notranslate"><span class="pre">Z</span></code>.</p></li>
-<li><p><strong>E</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Energy of all structures in <code class="docutils literal notranslate"><span class="pre">R</span></code> in units of eV.</p></li>
-<li><p><strong>F</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Atomic forces of all structures in <code class="docutils literal notranslate"><span class="pre">R</span></code> in units of eV/A.</p></li>
+<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Atomic numbers of all atoms in the system.</p></li>
+<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Cartesian coordinates of all structures in the same order as <code class="docutils literal notranslate"><span class="pre">Z</span></code>.</p></li>
+<li><p><strong>E</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Energy of all structures in <code class="docutils literal notranslate"><span class="pre">R</span></code> in units of eV.</p></li>
+<li><p><strong>F</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Atomic forces of all structures in <code class="docutils literal notranslate"><span class="pre">R</span></code> in units of eV/A.</p></li>
 <li><p><strong>lattice_precision</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Number of decimal points to print for lattice dimensions.</p></li>
 <li><p><strong>data_precision</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">10</span></code>) – Number of decimal points for printing array data.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
+
 </section>
 </section>
 
@@ -625,6 +638,7 @@ cutoff of any potential you plan to create or use.</p>
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     </body>

@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Writers" href="writers.html" /><link rel="prev" title="Creator" href="creator.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>Parsers and Extractors - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -195,7 +195,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -210,10 +211,10 @@
         </div>
         <article role="main">
           <section id="parsers-and-extractors">
-<h1>Parsers and Extractors<a class="headerlink" href="#parsers-and-extractors" title="Permalink to this headline">#</a></h1>
+<h1>Parsers and Extractors<a class="headerlink" href="#parsers-and-extractors" title="Permalink to this heading">#</a></h1>
 <p>Parsers and extractors work together to retrieve data from supported files and store it in <a class="reference internal" href="doc/reptar.parsers.html#reptar.parsers.parser.parser.parsed_info" title="reptar.parsers.parser.parser.parsed_info"><code class="xref py py-attr docutils literal notranslate"><span class="pre">parsed_info</span></code></a>.</p>
 <section id="parsers">
-<h2>Parsers<a class="headerlink" href="#parsers" title="Permalink to this headline">#</a></h2>
+<h2>Parsers<a class="headerlink" href="#parsers" title="Permalink to this heading">#</a></h2>
 <p>A parser a package-specific driver for iterating through each line of output files and storing data.
 Each package has its own parser that inherits the base <a class="reference internal" href="doc/reptar.parsers.html#reptar.parsers.parser.parser" title="reptar.parsers.parser.parser"><code class="xref py py-class docutils literal notranslate"><span class="pre">parser</span></code></a> class which provides common attributes and methods.
 For example, we have an xTB parser class:</p>
@@ -222,7 +223,7 @@ For example, we have an xTB parser class:</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.parsers.</span></span><span class="sig-name descname"><span class="pre">parserXTB</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extractors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/reptar/parsers/xtb_parser.html#parserXTB"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Custom parser for xtb output files.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>out_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to the main log file generated by the package.</p></li>
 <li><p><strong>geom_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Path to a file containing a single geometry.</p></li>
@@ -233,8 +234,9 @@ simulation, etc.</p></li>
 </dd>
 </dl>
 </dd></dl>
+
 <section id="parse">
-<h3><code class="docutils literal notranslate"><span class="pre">parse</span></code><a class="headerlink" href="#parse" title="Permalink to this headline">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">parse</span></code><a class="headerlink" href="#parse" title="Permalink to this heading">#</a></h3>
 <p>After initializing a parser object with the relevant paths, you can then call the <a class="reference internal" href="doc/reptar.parsers.html#reptar.parsers.parser.parser.parse" title="reptar.parsers.parser.parser.parse"><code class="xref py py-meth docutils literal notranslate"><span class="pre">parse()</span></code></a> method.
 Each package parser class must define its own <a class="reference internal" href="doc/reptar.parsers.html#reptar.parsers.parser.parser.parse" title="reptar.parsers.parser.parser.parse"><code class="xref py py-meth docutils literal notranslate"><span class="pre">parse()</span></code></a> method.</p>
 <dl class="py method">
@@ -243,11 +245,11 @@ Each package parser class must define its own <a class="reference internal" href
 <dd><p>Drive the parsing and postprocessing of parsed data.</p>
 <p>In general, there are usually three stages.</p>
 <dl class="field-list">
-<dt class="field-odd">Preprocessing</dt>
+<dt class="field-odd">Preprocessing<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Anything that is done before reptar does its parsing.
 Reptar does not have extractors for all information, so sometimes <a class="reference external" href="https://cclib.github.io/">cclib</a> is used to extract additional information.</p>
 </dd>
-<dt class="field-even">Extracting</dt>
+<dt class="field-even">Extracting<span class="colon">:</span></dt>
 <dd class="field-even"><p>Iterates through all lines in <a class="reference internal" href="creator.html#term-out_path"><span class="xref std std-term">out_path</span></a> using all extractors with <a class="reference internal" href="doc/reptar.parsers.html#reptar.parsers.parser.parser.extract_data_out" title="reptar.parsers.parser.parser.extract_data_out"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extract_data_out()</span></code></a>.
 Each extractor has its own <code class="docutils literal notranslate"><span class="pre">parsed_info</span></code> that needs to be added to <a class="reference internal" href="doc/reptar.parsers.html#reptar.parsers.parser.parser.parsed_info" title="reptar.parsers.parser.parser.parsed_info"><code class="xref py py-attr docutils literal notranslate"><span class="pre">parsed_info</span></code></a>.</p>
 <dl class="py method">
@@ -255,23 +257,25 @@ Each extractor has its own <code class="docutils literal notranslate"><span clas
 <span class="sig-name descname"><span class="pre">extract_data_out</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/reptar/parsers/parser.html#parser.extract_data_out"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Extract data from <code class="docutils literal notranslate"><span class="pre">out_path</span></code> using all extractors</p>
 </dd></dl>
+
 </dd>
-<dt class="field-odd">Postprocessing</dt>
+<dt class="field-odd">Postprocessing<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Any additional tasks to complete parsing.
 There is usually a <code class="docutils literal notranslate"><span class="pre">after_parse</span></code> method that adds or changes data based on the final <a class="reference internal" href="doc/reptar.parsers.html#reptar.parsers.parser.parser.parsed_info" title="reptar.parsers.parser.parser.parsed_info"><code class="xref py py-attr docutils literal notranslate"><span class="pre">parsed_info</span></code></a> attribute.
 Handling of other files such as <a class="reference internal" href="creator.html#term-geom_path"><span class="xref std std-term">geom_path</span></a> and <a class="reference internal" href="creator.html#term-traj_path"><span class="xref std std-term">traj_path</span></a>.</p>
 </dd>
 </dl>
 </dd></dl>
+
 </section>
 <section id="parsed-info">
-<h3><code class="docutils literal notranslate"><span class="pre">parsed_info</span></code><a class="headerlink" href="#parsed-info" title="Permalink to this headline">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">parsed_info</span></code><a class="headerlink" href="#parsed-info" title="Permalink to this heading">#</a></h3>
 <p>Used to store any and all information that can be added to a <a class="reference internal" href="file.html#file"><span class="std std-ref">File</span></a> object.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">parser.</span></span><span class="sig-name descname"><span class="pre">parsed_info</span></span></dt>
 <dd><p>Information parsed from files. Contains the following keys.</p>
-<dl class="glossary simple">
+<dl class="simple glossary">
 <dt id="term-system_info"><code class="docutils literal notranslate"><span class="pre">system_info</span></code><a class="headerlink" href="#term-system_info" title="Permalink to this term">#</a></dt><dd><p>Information specifying the system prior to any computation. Such
 as the initial cartesian coordinates, total system charge and
 multiplicity, etc.</p>
@@ -285,19 +289,20 @@ electrons, generated structures, etc.</p>
 </dd>
 </dl>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
+
 </section>
 </section>
 <section id="extractors">
-<h2>Extractors<a class="headerlink" href="#extractors" title="Permalink to this headline">#</a></h2>
+<h2>Extractors<a class="headerlink" href="#extractors" title="Permalink to this heading">#</a></h2>
 <p>As previously mentioned, the parser drives the extraction of information from files.
 Each extractor is a <a class="reference internal" href="doc/reptar.extractors.html#reptar.extractors.extractor.extractor" title="reptar.extractors.extractor.extractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">extractor</span></code></a> child class that must have two things.</p>
 <section id="triggers">
-<h3>Triggers<a class="headerlink" href="#triggers" title="Permalink to this headline">#</a></h3>
+<h3>Triggers<a class="headerlink" href="#triggers" title="Permalink to this heading">#</a></h3>
 <p>Reptar has to know when to start extracting information while reading the output files.
 This is accomplished with a tuple of triggers.</p>
 <dl class="py attribute">
@@ -307,20 +312,21 @@ This is accomplished with a tuple of triggers.</p>
 <p>The trigger is a lambda function that returns True or False depending
 on the criteria and the name of the extractor method.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
+
 <p>Each element is a tuple of length two with a lambda function and corresponding extractor method name as a string.
 The lambda function returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if a line contains specific words or formatting that signals reptar to parse certain information.
 Reptar then calls the respective extractor method.
 For example, our <code class="docutils literal notranslate"><span class="pre">triggers</span></code> attribute could be something like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">triggers</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'* xtb version'</span> <span class="ow">in</span> <span class="n">line</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'xtb_version'</span><span class="p">),</span>
-    <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">':                      SETUP                      :'</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'gfn_setup'</span><span class="p">),</span>
-    <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'::                     SUMMARY                     ::'</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'summary_energies'</span><span class="p">),</span>
-    <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'normal termination of xtb'</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'success'</span><span class="p">),</span>
+    <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;* xtb version&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;xtb_version&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;:                      SETUP                      :&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;gfn_setup&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;::                     SUMMARY                     ::&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;summary_energies&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;normal termination of xtb&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;success&#39;</span><span class="p">),</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -332,7 +338,7 @@ For example, our <code class="docutils literal notranslate"><span class="pre">tr
 </div>
 </section>
 <section id="extractor-methods">
-<h3>Extractor methods<a class="headerlink" href="#extractor-methods" title="Permalink to this headline">#</a></h3>
+<h3>Extractor methods<a class="headerlink" href="#extractor-methods" title="Permalink to this heading">#</a></h3>
 <p>Each trigger has an extractor method that is activated when its lambda function is <code class="docutils literal notranslate"><span class="pre">True</span></code>.
 It will parse information from the line and possibly looping through additional lines.
 The extractor’s <code class="docutils literal notranslate"><span class="pre">parsed_info</span></code> attribute is updated, but nothing is returned.</p>
@@ -364,7 +370,7 @@ The extractor’s <code class="docutils literal notranslate"><span class="pre">p
 Reptar then extracts information such as the total, SCC, and nuclear repulsion energy from this block of text.</p>
 </section>
 <section id="custom-extractors">
-<h3>Custom extractors<a class="headerlink" href="#custom-extractors" title="Permalink to this headline">#</a></h3>
+<h3>Custom extractors<a class="headerlink" href="#custom-extractors" title="Permalink to this heading">#</a></h3>
 <p>Parsers will unfortunately not always extract all desired information.
 The best option would be to contribute to reptar and add trigger(s), extractors, and tests.
 However, this is not always conducive to a fast-paced research environment.
@@ -458,6 +464,7 @@ You can write your own <a class="reference internal" href="doc/reptar.extractors
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/furo.js"></script>
     </body>

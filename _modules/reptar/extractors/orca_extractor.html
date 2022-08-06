@@ -1,13 +1,13 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>reptar.extractors.orca_extractor - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -194,7 +194,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -214,7 +215,7 @@
 <span class="c1"># Copyright (c) 2022, Alex M. Maldonado</span>
 <span class="c1"># </span>
 <span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
-<span class="c1"># of this software and associated documentation files (the "Software"), to deal</span>
+<span class="c1"># of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
 <span class="c1"># in the Software without restriction, including without limitation the rights</span>
 <span class="c1"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
 <span class="c1"># copies of the Software, and to permit persons to whom the Software is</span>
@@ -223,7 +224,7 @@
 <span class="c1"># The above copyright notice and this permission notice shall be included in all</span>
 <span class="c1"># copies or substantial portions of the Software.</span>
 <span class="c1"># </span>
-<span class="c1"># THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
 <span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
 <span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
 <span class="c1"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
@@ -234,38 +235,38 @@
 <span class="kn">from</span> <span class="nn">.extractor</span> <span class="kn">import</span> <span class="n">extractor</span>
 
 <div class="viewcode-block" id="extractorORCA"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA">[docs]</a><span class="k">class</span> <span class="nc">extractorORCA</span><span class="p">(</span><span class="n">extractor</span><span class="p">):</span>
-    <span class="sd">"""ORCA extractor"""</span>
+    <span class="sd">&quot;&quot;&quot;ORCA extractor&quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
     
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">triggers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">trig</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'Your calculation utilizes the auxiliary basis: '</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'aux_basis'</span><span class="p">),</span>
-            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'DFT GRID GENERATION'</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">or</span> <span class="s1">'Setting up the final grid:'</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'grid_info'</span><span class="p">),</span>
-            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'CPCM SOLVATION MODEL'</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'implicit_solvent'</span><span class="p">),</span>
-            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'TOTAL SCF ENERGY'</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'scf_energies'</span><span class="p">),</span>
-            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'UHF SPIN CONTAMINATION'</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'uhf_spin_contamination'</span><span class="p">),</span>
-            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'ORCA  MP2'</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'mp_properties'</span><span class="p">),</span>
-            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'Wavefunction type'</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'cc_method'</span><span class="p">),</span>
-            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'HF COUPLED CLUSTER ITERATIONS'</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]</span> <span class="ow">or</span> <span class="s1">'OPEN-SHELL COUPLED CLUSTER ITERATIONS'</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'cc_properties'</span><span class="p">),</span>
-            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'SCF SETTINGS'</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'scf_info'</span><span class="p">),</span>
-            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'MULLIKEN ATOMIC CHARGES'</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'mulliken_charges'</span><span class="p">),</span>
-            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'LOEWDIN ATOMIC CHARGES'</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'loewdin_charges'</span><span class="p">),</span>
-            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'DIPOLE MOMENT'</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'dipole'</span><span class="p">),</span>
-            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'Geometry convergence'</span> <span class="ow">in</span> <span class="n">line</span> <span class="ow">and</span> <span class="s1">'----------------------'</span> <span class="ow">in</span> <span class="n">line</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'geo_conv'</span><span class="p">),</span>
-            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'VIBRATIONAL FREQUENCIES'</span> <span class="o">==</span> <span class="n">line</span><span class="p">[:</span><span class="mi">23</span><span class="p">])</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'frequencies'</span><span class="p">),</span>
-            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'NORMAL MODES'</span> <span class="o">==</span> <span class="n">line</span><span class="p">[:</span><span class="mi">12</span><span class="p">])</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'normal_modes'</span><span class="p">),</span>
-            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'Temperature         ...'</span> <span class="ow">in</span> <span class="n">line</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'thermo_temp'</span><span class="p">),</span>
-            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'Zero point energy                ...'</span> <span class="ow">in</span> <span class="n">line</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'zpve'</span><span class="p">),</span>
-            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'Total thermal correction'</span> <span class="ow">in</span> <span class="n">line</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'thermal_corrections'</span><span class="p">),</span>
-            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'Thermal Enthalpy correction       ...'</span> <span class="ow">in</span> <span class="n">line</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'enthalpic_corr'</span><span class="p">),</span>
-            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'Final entropy term                ...'</span> <span class="ow">in</span> <span class="n">line</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">'entropic_corr'</span><span class="p">),</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;Your calculation utilizes the auxiliary basis: &#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;aux_basis&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;DFT GRID GENERATION&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">or</span> <span class="s1">&#39;Setting up the final grid:&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;grid_info&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;CPCM SOLVATION MODEL&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;implicit_solvent&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;TOTAL SCF ENERGY&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;scf_energies&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;UHF SPIN CONTAMINATION&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;uhf_spin_contamination&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;ORCA  MP2&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;mp_properties&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;Wavefunction type&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;cc_method&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;HF COUPLED CLUSTER ITERATIONS&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]</span> <span class="ow">or</span> <span class="s1">&#39;OPEN-SHELL COUPLED CLUSTER ITERATIONS&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;cc_properties&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;SCF SETTINGS&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;scf_info&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;MULLIKEN ATOMIC CHARGES&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;mulliken_charges&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;LOEWDIN ATOMIC CHARGES&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;loewdin_charges&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;DIPOLE MOMENT&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;dipole&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;Geometry convergence&#39;</span> <span class="ow">in</span> <span class="n">line</span> <span class="ow">and</span> <span class="s1">&#39;----------------------&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;geo_conv&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;VIBRATIONAL FREQUENCIES&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="p">[:</span><span class="mi">23</span><span class="p">])</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;frequencies&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;NORMAL MODES&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="p">[:</span><span class="mi">12</span><span class="p">])</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;normal_modes&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;Temperature         ...&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;thermo_temp&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;Zero point energy                ...&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;zpve&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;Total thermal correction&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;thermal_corrections&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;Thermal Enthalpy correction       ...&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;enthalpic_corr&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;Final entropy term                ...&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;entropic_corr&#39;</span><span class="p">),</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">trig</span>
 
 <div class="viewcode-block" id="extractorORCA.aux_basis"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA.aux_basis">[docs]</a>    <span class="k">def</span> <span class="nf">aux_basis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
-        <span class="sd">"""Information about auxiliary basis sets used in the calculation.</span>
+        <span class="sd">&quot;&quot;&quot;Information about auxiliary basis sets used in the calculation.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -282,12 +283,12 @@
 
 <span class="sd">            ----- AuxJ basis set information -----</span>
 <span class="sd">            Your calculation utilizes the auxiliary basis: def2/J</span>
-<span class="sd">        """</span>
-        <span class="n">line_split</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'runtime_info'</span><span class="p">][</span><span class="s1">'basis_aux'</span><span class="p">]</span> <span class="o">=</span> <span class="n">line_split</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span></div>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">line_split</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">][</span><span class="s1">&#39;basis_aux&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line_split</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="extractorORCA.grid_info"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA.grid_info">[docs]</a>    <span class="k">def</span> <span class="nf">grid_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
-        <span class="sd">"""DFT integration grid information.</span>
+        <span class="sd">&quot;&quot;&quot;DFT integration grid information.</span>
 
 <span class="sd">        All DFT calculations are performed with numerical integration, which</span>
 <span class="sd">        means a integration grid must be specified. This is typically handeled</span>
@@ -331,25 +332,25 @@
 <span class="sd">        |  6     |  Lebedev-590  |  5.34    |</span>
 <span class="sd">        |  7     |  Lebedev-770  |  5.67    |</span>
 <span class="sd">        +--------+---------------+----------+</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">lebedev_to_level</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">'50'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'110'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'194'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'302'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'434'</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">'590'</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">'770'</span><span class="p">:</span> <span class="mi">7</span>
+            <span class="s1">&#39;50&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;110&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;194&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;302&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;434&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;590&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;770&#39;</span><span class="p">:</span> <span class="mi">7</span>
         <span class="p">}</span>
         
         <span class="c1"># SCF Cycle Grid</span>
-        <span class="k">if</span> <span class="s1">'DFT GRID GENERATION'</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
-            <span class="k">while</span> <span class="s1">'Angular Grid (max. acc.)'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s1">&#39;DFT GRID GENERATION&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+            <span class="k">while</span> <span class="s1">&#39;Angular Grid (max. acc.)&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
                 <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-            <span class="n">lebedev_num</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'-'</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'runtime_info'</span><span class="p">][</span><span class="s1">'scf_grid_level'</span><span class="p">]</span> <span class="o">=</span> <span class="n">lebedev_to_level</span><span class="p">[</span><span class="n">lebedev_num</span><span class="p">]</span>
-        <span class="k">elif</span> <span class="s1">'Setting up the final grid:'</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
-            <span class="k">while</span> <span class="s1">'Angular Grid (max. acc.)'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+            <span class="n">lebedev_num</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">][</span><span class="s1">&#39;scf_grid_level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lebedev_to_level</span><span class="p">[</span><span class="n">lebedev_num</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="s1">&#39;Setting up the final grid:&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+            <span class="k">while</span> <span class="s1">&#39;Angular Grid (max. acc.)&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
                 <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-            <span class="n">lebedev_num</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'-'</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'runtime_info'</span><span class="p">][</span><span class="s1">'scf_grid_level_final'</span><span class="p">]</span> <span class="o">=</span> <span class="n">lebedev_to_level</span><span class="p">[</span><span class="n">lebedev_num</span><span class="p">]</span></div>
+            <span class="n">lebedev_num</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">][</span><span class="s1">&#39;scf_grid_level_final&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lebedev_to_level</span><span class="p">[</span><span class="n">lebedev_num</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="extractorORCA.implicit_solvent"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA.implicit_solvent">[docs]</a>    <span class="k">def</span> <span class="nf">implicit_solvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
-        <span class="sd">"""Implicit solvent properties.</span>
+        <span class="sd">&quot;&quot;&quot;Implicit solvent properties.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -367,25 +368,25 @@
 <span class="sd">            --------------------</span>
 <span class="sd">            CPCM SOLVATION MODEL</span>
 <span class="sd">            --------------------</span>
-<span class="sd">        """</span>
-        <span class="k">while</span> <span class="s1">'Overall time for CPCM initialization'</span> <span class="o">!=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[:</span><span class="mi">36</span><span class="p">]:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="s1">&#39;Overall time for CPCM initialization&#39;</span> <span class="o">!=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[:</span><span class="mi">36</span><span class="p">]:</span>
             <span class="c1"># Solvent:                                     ... ACETONITRILE</span>
-            <span class="k">if</span> <span class="s1">'Solvent:'</span> <span class="o">==</span> <span class="n">line</span><span class="p">[:</span><span class="mi">8</span><span class="p">]:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'runtime_info'</span><span class="p">][</span><span class="s1">'solv_implicit_name'</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s1">&#39;Solvent:&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="p">[:</span><span class="mi">8</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">][</span><span class="s1">&#39;solv_implicit_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span>
             
             <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
 
     
 <div class="viewcode-block" id="extractorORCA.scf_energies"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA.scf_energies">[docs]</a>    <span class="k">def</span> <span class="nf">scf_energies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
-        <span class="sd">"""The nuclear repulsion, one- and two-electron energy, and</span>
+        <span class="sd">&quot;&quot;&quot;The nuclear repulsion, one- and two-electron energy, and</span>
 <span class="sd">        exchange-correlation energy after a SCF cycle.</span>
 
-<span class="sd">        This is called directly after the ``'TOTAL SCF ENERGY'`` trigger, and </span>
-<span class="sd">        will terminate once the ``'SCF CONVERGENCE'`` trigger is reached.</span>
+<span class="sd">        This is called directly after the ``&#39;TOTAL SCF ENERGY&#39;`` trigger, and </span>
+<span class="sd">        will terminate once the ``&#39;SCF CONVERGENCE&#39;`` trigger is reached.</span>
 
 <span class="sd">        Instead of returning the energies themselves, we handle the creation and</span>
 <span class="sd">        modification of ``scf_info`` here so any missing information (such as</span>
-<span class="sd">        ``'energy_scf_xc'`` in MP2 calculations) is not an issue.</span>
+<span class="sd">        ``&#39;energy_scf_xc&#39;`` in MP2 calculations) is not an issue.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -403,37 +404,37 @@
 <span class="sd">            ----------------</span>
 <span class="sd">            TOTAL SCF ENERGY</span>
 <span class="sd">            ----------------</span>
-<span class="sd">        """</span>
-        <span class="k">while</span> <span class="s1">'SCF CONVERGENCE'</span> <span class="o">!=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="s1">&#39;SCF CONVERGENCE&#39;</span> <span class="o">!=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
             <span class="c1"># Nuclear Repulsion  :  135.87324654 Eh    3697.29901 eV</span>
-            <span class="k">if</span> <span class="s1">'Nuclear Repulsion  :'</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-                <span class="k">if</span> <span class="s1">'energy_nuc_repul'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'energy_nuc_repul'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'energy_nuc_repul'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="k">if</span> <span class="s1">&#39;Nuclear Repulsion  :&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s1">&#39;energy_nuc_repul&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_nuc_repul&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_nuc_repul&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
                     <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">3</span><span class="p">])</span>
                 <span class="p">)</span>
 
             <span class="c1"># One Electron Energy: -674.26034691 Eh  -18347.55681 eV</span>
-            <span class="k">if</span> <span class="s1">'One Electron Energy:'</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-                <span class="k">if</span> <span class="s1">'energy_scf_one_ele'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'energy_scf_one_ele'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'energy_scf_one_ele'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="k">if</span> <span class="s1">&#39;One Electron Energy:&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s1">&#39;energy_scf_one_ele&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_scf_one_ele&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_scf_one_ele&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
                     <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">3</span><span class="p">])</span>
                 <span class="p">)</span>
 
             <span class="c1"># Two Electron Energy:  245.90403408 Eh    6691.38895 eV</span>
-            <span class="k">if</span> <span class="s1">'Two Electron Energy:'</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-                <span class="k">if</span> <span class="s1">'energy_scf_two_ele'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'energy_scf_two_ele'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'energy_scf_two_ele'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="k">if</span> <span class="s1">&#39;Two Electron Energy:&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s1">&#39;energy_scf_two_ele&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_scf_two_ele&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_scf_two_ele&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
                     <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">3</span><span class="p">])</span>
                 <span class="p">)</span>
 
             <span class="c1"># E(XC)              :      -26.170411238000 Eh </span>
-            <span class="k">if</span> <span class="s1">'E(XC) '</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-                <span class="k">if</span> <span class="s1">'energy_scf_xc'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'energy_scf_xc'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'energy_scf_xc'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="k">if</span> <span class="s1">&#39;E(XC) &#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s1">&#39;energy_scf_xc&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_scf_xc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_scf_xc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
                     <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span>
                 <span class="p">)</span>
 
@@ -441,7 +442,7 @@
 
     
 <div class="viewcode-block" id="extractorORCA.uhf_spin_contamination"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA.uhf_spin_contamination">[docs]</a>    <span class="k">def</span> <span class="nf">uhf_spin_contamination</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
-        <span class="sd">"""Spin contamination from unrestricted Hartree-Fock calculations.</span>
+        <span class="sd">&quot;&quot;&quot;Spin contamination from unrestricted Hartree-Fock calculations.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -463,35 +464,35 @@
 <span class="sd">            Expectation value of &lt;S**2&gt;     :     0.750016</span>
 <span class="sd">            Ideal value S*(S+1) for S=0.5   :     0.750000</span>
 <span class="sd">            Deviation                       :     0.000016</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
             <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'Warning: in a DFT calculation there is little theoretical justification to'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;Warning: in a DFT calculation there is little theoretical justification to&#39;</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
                 <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
         
-        <span class="k">if</span> <span class="s1">'spin_sqrd_uhf_ideal'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'spin_sqrd_uhf_ideal'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">if</span> <span class="s1">'spin_sqrd_uhf_calc'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'spin_sqrd_uhf_calc'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="s1">&#39;spin_sqrd_uhf_ideal&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;spin_sqrd_uhf_ideal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="s1">&#39;spin_sqrd_uhf_calc&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;spin_sqrd_uhf_calc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="c1"># Expectation value of &lt;S**2&gt;     :     0.750016</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'spin_sqrd_uhf_calc'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;spin_sqrd_uhf_calc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
             <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">5</span><span class="p">])</span>
         <span class="p">)</span>
         <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
         <span class="c1"># Ideal value S*(S+1) for S=0.5   :     0.750000</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'spin_sqrd_uhf_ideal'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;spin_sqrd_uhf_ideal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
             <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">6</span><span class="p">])</span>
         <span class="p">)</span></div>
 
     
 <div class="viewcode-block" id="extractorORCA.mp_properties"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA.mp_properties">[docs]</a>    <span class="k">def</span> <span class="nf">mp_properties</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
-        <span class="sd">"""Moller-Plesset calculation properties.</span>
+        <span class="sd">&quot;&quot;&quot;Moller-Plesset calculation properties.</span>
 
-<span class="sd">        This is called directly after the ``'ORCA  MP2 '`` trigger, and </span>
-<span class="sd">        will terminate once the ``'ORCA property calculations'`` trigger is reached.</span>
+<span class="sd">        This is called directly after the ``&#39;ORCA  MP2 &#39;`` trigger, and </span>
+<span class="sd">        will terminate once the ``&#39;ORCA property calculations&#39;`` trigger is reached.</span>
 
 <span class="sd">        Instead of returning the energies themselves, we handle the creation and</span>
 <span class="sd">        modification of ``mp_info`` here so any missing information is not an</span>
@@ -517,24 +518,24 @@
 <span class="sd">            Expectation value of &lt;S**2&gt;     :     0.750016</span>
 <span class="sd">            Ideal value S*(S+1) for S=0.5   :     0.750000</span>
 <span class="sd">            Deviation   </span>
-<span class="sd">        """</span>
-        <span class="k">while</span> <span class="s1">'-     ORCA property calculations      *'</span> <span class="o">!=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="s1">&#39;-     ORCA property calculations      *&#39;</span> <span class="o">!=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
             <span class="c1"># Freezing NCore=10 chemical core electrons</span>
-            <span class="k">if</span> <span class="s1">'Freezing NCore='</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[:</span><span class="mi">15</span><span class="p">]:</span>
-                <span class="c1"># if 'ele_frozen' not in self.rfile['keywords'].keys():</span>
-                <span class="c1">#     self.rfile['outputs']['ele_frozen'] = []</span>
+            <span class="k">if</span> <span class="s1">&#39;Freezing NCore=&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[:</span><span class="mi">15</span><span class="p">]:</span>
+                <span class="c1"># if &#39;ele_frozen&#39; not in self.rfile[&#39;keywords&#39;].keys():</span>
+                <span class="c1">#     self.rfile[&#39;outputs&#39;][&#39;ele_frozen&#39;] = []</span>
                 <span class="n">ele_frozen</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">][</span><span class="mi">6</span><span class="p">:])</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'ele_frozen'</span><span class="p">]</span> <span class="o">=</span> <span class="n">ele_frozen</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;ele_frozen&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ele_frozen</span>
 
             <span class="c1">#  MP2 CORRELATION ENERGY   :     -3.132364939 Eh</span>
-            <span class="k">if</span> <span class="s1">'MP2 CORRELATION ENERGY'</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-                <span class="k">if</span> <span class="s1">'energy_correl_mp2'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'energy_correl_mp2'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-                <span class="k">if</span> <span class="s1">'RI-MP2'</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;MP2 CORRELATION ENERGY&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s1">&#39;energy_correl_mp2&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_correl_mp2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">if</span> <span class="s1">&#39;RI-MP2&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
                     <span class="n">index</span> <span class="o">=</span> <span class="mi">3</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">index</span> <span class="o">=</span> <span class="mi">4</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'energy_correl_mp2'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_correl_mp2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
                     <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="n">index</span><span class="p">])</span>
                 <span class="p">)</span>
                 <span class="k">break</span>
@@ -543,7 +544,7 @@
 
     
 <div class="viewcode-block" id="extractorORCA.cc_method"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA.cc_method">[docs]</a>    <span class="k">def</span> <span class="nf">cc_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
-        <span class="sd">"""Coupled cluster method information.</span>
+        <span class="sd">&quot;&quot;&quot;Coupled cluster method information.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -562,32 +563,32 @@
 <span class="sd">            -----------------</span>
 <span class="sd">            Correlation treatment                      ...      CCSD     </span>
 <span class="sd">            Single excitations                         ... ON </span>
-<span class="sd">        """</span>
-        <span class="k">while</span> <span class="s1">'Number of correlated electrons'</span> <span class="o">!=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[:</span><span class="mi">30</span><span class="p">]:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="s1">&#39;Number of correlated electrons&#39;</span> <span class="o">!=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[:</span><span class="mi">30</span><span class="p">]:</span>
             <span class="c1"># Frozen core treatment                      ... chemical core (0 el)</span>
             <span class="c1"># or</span>
             <span class="c1"># Frozen core treatment                      ... NO frozen core</span>
-            <span class="k">if</span> <span class="s1">'Frozen core treatment'</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[:</span><span class="mi">21</span><span class="p">]:</span>
-                <span class="k">if</span> <span class="s1">'NO frozen core'</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[</span><span class="o">-</span><span class="mi">14</span><span class="p">:]:</span>
-                    <span class="c1"># self.parsed_info['runtime_info']['keywords']['frozen_core'] = False</span>
+            <span class="k">if</span> <span class="s1">&#39;Frozen core treatment&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[:</span><span class="mi">21</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="s1">&#39;NO frozen core&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[</span><span class="o">-</span><span class="mi">14</span><span class="p">:]:</span>
+                    <span class="c1"># self.parsed_info[&#39;runtime_info&#39;][&#39;keywords&#39;][&#39;frozen_core&#39;] = False</span>
                     <span class="k">pass</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">ele_frozen</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">6</span><span class="p">][</span><span class="mi">1</span><span class="p">:])</span>
                     <span class="k">if</span> <span class="n">ele_frozen</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                        <span class="c1"># self.parsed_info['runtime_info']['keywords']['frozen_core'] = False</span>
+                        <span class="c1"># self.parsed_info[&#39;runtime_info&#39;][&#39;keywords&#39;][&#39;frozen_core&#39;] = False</span>
                         <span class="k">pass</span>
                     <span class="k">else</span><span class="p">:</span>
-                        <span class="c1"># self.parsed_info['runtime_info']['keywords']['frozen_core'] = True</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'runtime_info'</span><span class="p">][</span><span class="s1">'ele_frozen'</span><span class="p">]</span> <span class="o">=</span> <span class="n">ele_frozen</span>
+                        <span class="c1"># self.parsed_info[&#39;runtime_info&#39;][&#39;keywords&#39;][&#39;frozen_core&#39;] = True</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">][</span><span class="s1">&#39;ele_frozen&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ele_frozen</span>
             
             <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
 
     
 <div class="viewcode-block" id="extractorORCA.cc_properties"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA.cc_properties">[docs]</a>    <span class="k">def</span> <span class="nf">cc_properties</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
-        <span class="sd">"""Coupled cluster properties.</span>
+        <span class="sd">&quot;&quot;&quot;Coupled cluster properties.</span>
 
-<span class="sd">        This is called directly after the ``'COUPLED CLUSTER ITERATIONS'``</span>
-<span class="sd">        trigger, and will terminate once the ``'ORCA POPULATION ANALYSIS'``</span>
+<span class="sd">        This is called directly after the ``&#39;COUPLED CLUSTER ITERATIONS&#39;``</span>
+<span class="sd">        trigger, and will terminate once the ``&#39;ORCA POPULATION ANALYSIS&#39;``</span>
 <span class="sd">        trigger is reached.</span>
 
 <span class="sd">        Parameters</span>
@@ -618,9 +619,9 @@
 <span class="sd">            ----------------------------------------------------------</span>
 <span class="sd">                                 OPEN-SHELL COUPLED CLUSTER ITERATIONS</span>
 <span class="sd">            ----------------------------------------------------------</span>
-<span class="sd">        """</span>
-        <span class="k">while</span> <span class="s1">'ORCA POPULATION ANALYSIS'</span> <span class="o">!=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> \
-        <span class="ow">and</span> <span class="s1">'*     ORCA property calculations      *'</span> <span class="o">!=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="s1">&#39;ORCA POPULATION ANALYSIS&#39;</span> <span class="o">!=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> \
+        <span class="ow">and</span> <span class="s1">&#39;*     ORCA property calculations      *&#39;</span> <span class="o">!=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
             <span class="c1"># Iter       E(tot)           E(Corr)          Delta-E          Residual     Time      &lt;S|S&gt;**1/2</span>
             <span class="c1">#  0     -7.469294707     -0.036553055      0.000000000      0.027013328    0.05      0.000000001</span>
             <span class="c1">#</span>
@@ -628,48 +629,48 @@
             <span class="c1">#</span>
             <span class="c1"># Iter       E(tot)           E(Corr)          Delta-E          Residual     Time</span>
             <span class="c1">#   0     -2.897443580     -0.035772194      0.000000000      0.027217829    0.00</span>
-            <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[:</span><span class="mi">79</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'Iter       E(tot)           E(Corr)          Delta-E          Residual     Time'</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[:</span><span class="mi">79</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Iter       E(tot)           E(Corr)          Delta-E          Residual     Time&#39;</span><span class="p">:</span>
                 <span class="c1"># Extracts MP2 energies under the initial line.</span>
                 <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-                <span class="k">if</span> <span class="s1">'energy_correl_mp2'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'energy_correl_mp2'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-                <span class="k">if</span> <span class="s1">'mp2_total_energy'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'mp2_total_energy'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">if</span> <span class="s1">&#39;energy_correl_mp2&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_correl_mp2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">if</span> <span class="s1">&#39;mp2_total_energy&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;mp2_total_energy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
                 
-                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'energy_correl_mp2'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_correl_mp2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
                     <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span>
                 <span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'mp2_total_energy'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;mp2_total_energy&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
                     <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span>
                 <span class="p">)</span>
             
             <span class="c1"># E(TOT)                                     ...     -7.473852176</span>
-            <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[:</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'E(TOT)'</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[:</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;E(TOT)&#39;</span><span class="p">:</span>
                 <span class="c1"># Extracts total CCSD energy.</span>
-                <span class="k">if</span> <span class="s1">'energy_ccsd'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'energy_ccsd'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">if</span> <span class="s1">&#39;energy_ccsd&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_ccsd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
                 
-                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'energy_ccsd'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_ccsd&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
                     <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span>
                 <span class="p">)</span>
             
             <span class="c1"># T1 diagnostic                              ...      0.001316573 </span>
-            <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[:</span><span class="mi">13</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'T1 diagnostic'</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[:</span><span class="mi">13</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;T1 diagnostic&#39;</span><span class="p">:</span>
                 <span class="c1"># Extracts T1 diagnostic.</span>
-                <span class="k">if</span> <span class="s1">'diag_t1'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'diag_t1'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">if</span> <span class="s1">&#39;diag_t1&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;diag_t1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
                 
-                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'diag_t1'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;diag_t1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
                     <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">3</span><span class="p">])</span>
                 <span class="p">)</span>
             
             <span class="c1"># E(CCSD(T))                                 ...     -7.473882409</span>
-            <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[:</span><span class="mi">10</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'E(CCSD(T))'</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[:</span><span class="mi">10</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;E(CCSD(T))&#39;</span><span class="p">:</span>
                 <span class="c1"># Extracts total CCSD(T) energy..</span>
-                <span class="k">if</span> <span class="s1">'energy_ccsd(t)'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'energy_ccsd(t)'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">if</span> <span class="s1">&#39;energy_ccsd(t)&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_ccsd(t)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
                 
-                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'energy_ccsd(t)'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_ccsd(t)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
                     <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span>
                 <span class="p">)</span>
             
@@ -677,9 +678,9 @@
 
     
 <div class="viewcode-block" id="extractorORCA.scf_info"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA.scf_info">[docs]</a>    <span class="k">def</span> <span class="nf">scf_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
-        <span class="sd">"""Other scf information.</span>
+        <span class="sd">&quot;&quot;&quot;Other scf information.</span>
 
-<span class="sd">        This will be placed under the ``'keyword'`` JSON property.</span>
+<span class="sd">        This will be placed under the ``&#39;keyword&#39;`` JSON property.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -693,10 +694,10 @@
 <span class="sd">        :obj:`dict`</span>
 <span class="sd">            Available SCF information that could contain the following keys.</span>
 
-<span class="sd">            ``'approx_rij'``</span>
+<span class="sd">            ``&#39;approx_rij&#39;``</span>
 <span class="sd">                The resolution of identity (RI) approximation for the Coulomb</span>
 <span class="sd">                (J) term.</span>
-<span class="sd">            ``'approx_cosx'``</span>
+<span class="sd">            ``&#39;approx_cosx&#39;``</span>
 <span class="sd">                The chain-of-spheres integration approximation to the exchange</span>
 <span class="sd">                term (COSX).</span>
 <span class="sd">        </span>
@@ -709,8 +710,8 @@
 <span class="sd">            ------------</span>
 <span class="sd">            SCF SETTINGS</span>
 <span class="sd">            ------------</span>
-<span class="sd">        """</span>
-        <span class="k">while</span> <span class="s1">'Total time needed     '</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="s1">&#39;Total time needed     &#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
             <span class="c1"># Hamiltonian:</span>
             <span class="c1">#  Ab initio Hamiltonian  Method          .... Hartree-Fock(GTOs)</span>
 
@@ -718,36 +719,36 @@
             <span class="c1"># General Settings:</span>
             <span class="c1">#  Integral files         IntName         .... al.chrg0.mult2-orca.sp.esp-ccsdt.anopvqz.vtightscf.sym-lambda0</span>
             <span class="c1">#  Hartree-Fock type      HFTyp           .... UHF</span>
-            <span class="k">if</span> <span class="s1">'Ab initio Hamiltonian'</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[:</span><span class="mi">21</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="s1">&#39;Ab initio Hamiltonian&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[:</span><span class="mi">21</span><span class="p">]:</span>
                 <span class="c1"># We only include the HF type in the keywords.</span>
                 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
                     <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
                 <span class="n">hf_type</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">4</span><span class="p">]</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'runtime_info'</span><span class="p">][</span><span class="s1">'hf_type'</span><span class="p">]</span> <span class="o">=</span> <span class="n">hf_type</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">][</span><span class="s1">&#39;hf_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hf_type</span>
             
             <span class="c1">#  Number of Electrons    NEL             ....    3</span>
-            <span class="k">if</span> <span class="s1">'Number of Electrons'</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[:</span><span class="mi">19</span><span class="p">]:</span>
-                <span class="k">if</span> <span class="s1">'n_ele'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'runtime_info'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'runtime_info'</span><span class="p">][</span><span class="s1">'n_ele'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">if</span> <span class="s1">&#39;Number of Electrons&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()[:</span><span class="mi">19</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="s1">&#39;n_ele&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">][</span><span class="s1">&#39;n_ele&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
                 <span class="n">n_electrons</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">5</span><span class="p">])</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'runtime_info'</span><span class="p">][</span><span class="s1">'n_ele'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n_electrons</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">][</span><span class="s1">&#39;n_ele&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n_electrons</span><span class="p">)</span>
 
             <span class="c1">#  RI-approximation to the Coulomb term is turned on</span>
-            <span class="k">if</span> <span class="s1">'RI-approximation to the Coulomb term is turned on'</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'runtime_info'</span><span class="p">][</span><span class="s1">'approx_rij'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="s1">&#39;RI-approximation to the Coulomb term is turned on&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">][</span><span class="s1">&#39;approx_rij&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 
             <span class="c1">#    RIJ-COSX (HFX calculated with COS-X)).... on</span>
-            <span class="k">if</span> <span class="s1">'RIJ-COSX (HFX calculated with COS-X)'</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'runtime_info'</span><span class="p">][</span><span class="s1">'approx_cosx'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="s1">&#39;RIJ-COSX (HFX calculated with COS-X)&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">][</span><span class="s1">&#39;approx_cosx&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
             
-            <span class="k">if</span> <span class="s1">'RI-JK (J+K treated both via RI)'</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'runtime_info'</span><span class="p">][</span><span class="s1">'approx_rijk'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="s1">&#39;RI-JK (J+K treated both via RI)&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">][</span><span class="s1">&#39;approx_rijk&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
             
             <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
 
     
 <div class="viewcode-block" id="extractorORCA.mulliken_charges"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA.mulliken_charges">[docs]</a>    <span class="k">def</span> <span class="nf">mulliken_charges</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
-        <span class="sd">"""Mulliken atomic charges in same order as atomic coordinates.</span>
+        <span class="sd">&quot;&quot;&quot;Mulliken atomic charges in same order as atomic coordinates.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -765,28 +766,28 @@
 <span class="sd">            -----------------------</span>
 <span class="sd">            MULLIKEN ATOMIC CHARGES</span>
 <span class="sd">            -----------------------</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip_lines</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
         <span class="c1"># Creates initial mulliken_charges property.</span>
-        <span class="k">if</span> <span class="s1">'mulliken_charges'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="c1"># self.parsed_info['outputs']['mulliken_charges'] = []</span>
+        <span class="k">if</span> <span class="s1">&#39;mulliken_charges&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="c1"># self.parsed_info[&#39;outputs&#39;][&#39;mulliken_charges&#39;] = []</span>
             <span class="k">pass</span>
         
         <span class="c1"># Appends Mulliken charges to a new item for every structure.</span>
-        <span class="c1"># self.parsed_info['outputs']['mulliken_charges'].append([])</span>
-        <span class="k">while</span> <span class="s1">'Sum of atomic charges'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-            <span class="sd">"""</span>
-<span class="sd">            line_split = line.split(':')</span>
-<span class="sd">            self.parsed_info['outputs']['mulliken_charges'][-1].append(</span>
+        <span class="c1"># self.parsed_info[&#39;outputs&#39;][&#39;mulliken_charges&#39;].append([])</span>
+        <span class="k">while</span> <span class="s1">&#39;Sum of atomic charges&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            line_split = line.split(&#39;:&#39;)</span>
+<span class="sd">            self.parsed_info[&#39;outputs&#39;][&#39;mulliken_charges&#39;][-1].append(</span>
 <span class="sd">                float(line_split[-1])</span>
 <span class="sd">            )</span>
-<span class="sd">            """</span>
+<span class="sd">            &quot;&quot;&quot;</span>
             <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
 
     
 <div class="viewcode-block" id="extractorORCA.loewdin_charges"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA.loewdin_charges">[docs]</a>    <span class="k">def</span> <span class="nf">loewdin_charges</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
-        <span class="sd">"""Loewdin atomic charges in same order as atomic coordinates.</span>
+        <span class="sd">&quot;&quot;&quot;Loewdin atomic charges in same order as atomic coordinates.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -804,32 +805,32 @@
 <span class="sd">            ----------------------</span>
 <span class="sd">            LOEWDIN ATOMIC CHARGES</span>
 <span class="sd">            ----------------------</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip_lines</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
         <span class="c1"># Creates initial loewdin_charges property.</span>
-        <span class="k">if</span> <span class="s1">'loewdin_charges'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="c1"># self.parsed_info['outputs']['loewdin_charges'] = []</span>
+        <span class="k">if</span> <span class="s1">&#39;loewdin_charges&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="c1"># self.parsed_info[&#39;outputs&#39;][&#39;loewdin_charges&#39;] = []</span>
             <span class="k">pass</span>
         
         <span class="c1"># Appends Loewdin charges to a new item for every structure.</span>
-        <span class="c1"># self.parsed_info['outputs']['loewdin_charges'].append([])</span>
-        <span class="k">while</span> <span class="s1">''</span> <span class="o">!=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
-            <span class="sd">"""</span>
-<span class="sd">            line_split = line.split(':')</span>
-<span class="sd">            self.parsed_info['outputs']['loewdin_charges'][-1].append(</span>
+        <span class="c1"># self.parsed_info[&#39;outputs&#39;][&#39;loewdin_charges&#39;].append([])</span>
+        <span class="k">while</span> <span class="s1">&#39;&#39;</span> <span class="o">!=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            line_split = line.split(&#39;:&#39;)</span>
+<span class="sd">            self.parsed_info[&#39;outputs&#39;][&#39;loewdin_charges&#39;][-1].append(</span>
 <span class="sd">                float(line_split[-1])</span>
 <span class="sd">            )</span>
-<span class="sd">            """</span>
+<span class="sd">            &quot;&quot;&quot;</span>
             <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
 
     
 <div class="viewcode-block" id="extractorORCA.dipole"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA.dipole">[docs]</a>    <span class="k">def</span> <span class="nf">dipole</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
-        <span class="sd">"""The X, Y, and Z dipole components.</span>
+        <span class="sd">&quot;&quot;&quot;The X, Y, and Z dipole components.</span>
 
 <span class="sd">        Final QCJSON specifies the method of the dipole moment (e.g.,</span>
-<span class="sd">        ``'scf_dipole_moment'``, ``'mp2_dipole_moment'``). For now, we just</span>
-<span class="sd">        store it as ``'dipole_moment'``.</span>
+<span class="sd">        ``&#39;scf_dipole_moment&#39;``, ``&#39;mp2_dipole_moment&#39;``). For now, we just</span>
+<span class="sd">        store it as ``&#39;dipole_moment&#39;``.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -847,20 +848,20 @@
 <span class="sd">            -------------</span>
 <span class="sd">            DIPOLE MOMENT</span>
 <span class="sd">            -------------</span>
-<span class="sd">        """</span>
-        <span class="k">if</span> <span class="s1">'dipole_moment'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="c1"># self.parsed_info['outputs']['dipole_moment'] = []</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s1">&#39;dipole_moment&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="c1"># self.parsed_info[&#39;outputs&#39;][&#39;dipole_moment&#39;] = []</span>
             <span class="k">pass</span>
         
-        <span class="k">while</span> <span class="s1">'Total Dipole Moment    :'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+        <span class="k">while</span> <span class="s1">&#39;Total Dipole Moment    :&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
             <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
         <span class="n">line_split</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span></div>
         <span class="c1"># dipole = [float(line_split[4]), float(line_split[5]), float(line_split[6])]</span>
-        <span class="c1"># self.parsed_info['outputs']['dipole_moment'].append(dipole)</span>
+        <span class="c1"># self.parsed_info[&#39;outputs&#39;][&#39;dipole_moment&#39;].append(dipole)</span>
 
     
     <span class="k">def</span> <span class="nf">_add_geo_conv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info_label</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
-        <span class="sd">"""Parse and add geometric convergence info to data.</span>
+        <span class="sd">&quot;&quot;&quot;Parse and add geometric convergence info to data.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -868,20 +869,20 @@
 <span class="sd">            Label for geometric convergence criteria.</span>
 <span class="sd">        line : :obj:`str`</span>
 <span class="sd">            Line from output file to extract information from.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">split_line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
         <span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">split_line</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
         <span class="n">target</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">split_line</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-        <span class="k">if</span> <span class="sa">f</span><span class="s1">'geo_</span><span class="si">{</span><span class="n">info_label</span><span class="si">}</span><span class="s1">_target'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'runtime_info'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'runtime_info'</span><span class="p">][</span><span class="sa">f</span><span class="s1">'geo_</span><span class="si">{</span><span class="n">info_label</span><span class="si">}</span><span class="s1">_target'</span><span class="p">]</span> <span class="o">=</span> <span class="n">target</span>
+        <span class="k">if</span> <span class="sa">f</span><span class="s1">&#39;geo_</span><span class="si">{</span><span class="n">info_label</span><span class="si">}</span><span class="s1">_target&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">][</span><span class="sa">f</span><span class="s1">&#39;geo_</span><span class="si">{</span><span class="n">info_label</span><span class="si">}</span><span class="s1">_target&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">target</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'runtime_info'</span><span class="p">][</span><span class="sa">f</span><span class="s1">'geo_</span><span class="si">{</span><span class="n">info_label</span><span class="si">}</span><span class="s1">_value'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">][</span><span class="sa">f</span><span class="s1">&#39;geo_</span><span class="si">{</span><span class="n">info_label</span><span class="si">}</span><span class="s1">_value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'runtime_info'</span><span class="p">][</span><span class="sa">f</span><span class="s1">'geo_</span><span class="si">{</span><span class="n">info_label</span><span class="si">}</span><span class="s1">_value'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">][</span><span class="sa">f</span><span class="s1">&#39;geo_</span><span class="si">{</span><span class="n">info_label</span><span class="si">}</span><span class="s1">_value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span><span class="p">]</span>
 
     
 <div class="viewcode-block" id="extractorORCA.geo_conv"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA.geo_conv">[docs]</a>    <span class="k">def</span> <span class="nf">geo_conv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
-        <span class="sd">"""Extract geometric convergence values and tolerance.</span>
+        <span class="sd">&quot;&quot;&quot;Extract geometric convergence values and tolerance.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -900,23 +901,23 @@
 <span class="sd">            ----------------------|Geometry convergence|-------------------------</span>
 <span class="sd">            Item                value                   Tolerance       Converged</span>
 <span class="sd">            ---------------------------------------------------------------------</span>
-<span class="sd">        """</span>
-        <span class="k">while</span> <span class="s1">'Max(Dihed)'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span> <span class="ow">and</span> <span class="s1">'Max(Improp)'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-            <span class="k">if</span> <span class="s1">'Energy change'</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_add_geo_conv</span><span class="p">(</span><span class="s1">'energy_change'</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="s1">'RMS gradient'</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_add_geo_conv</span><span class="p">(</span><span class="s1">'rms_gradient'</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="s1">'MAX gradient'</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_add_geo_conv</span><span class="p">(</span><span class="s1">'max_gradient'</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="s1">'RMS step'</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_add_geo_conv</span><span class="p">(</span><span class="s1">'rms_step'</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="s1">'MAX step'</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_add_geo_conv</span><span class="p">(</span><span class="s1">'max_step'</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="s1">&#39;Max(Dihed)&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span> <span class="ow">and</span> <span class="s1">&#39;Max(Improp)&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;Energy change&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_add_geo_conv</span><span class="p">(</span><span class="s1">&#39;energy_change&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="s1">&#39;RMS gradient&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_add_geo_conv</span><span class="p">(</span><span class="s1">&#39;rms_gradient&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="s1">&#39;MAX gradient&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_add_geo_conv</span><span class="p">(</span><span class="s1">&#39;max_gradient&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="s1">&#39;RMS step&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_add_geo_conv</span><span class="p">(</span><span class="s1">&#39;rms_step&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="s1">&#39;MAX step&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_add_geo_conv</span><span class="p">(</span><span class="s1">&#39;max_step&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
             <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
 
     
 <div class="viewcode-block" id="extractorORCA.frequencies"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA.frequencies">[docs]</a>    <span class="k">def</span> <span class="nf">frequencies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
-        <span class="sd">"""Extract vibrational frequencies, freq_vibs. Includes 0.00 frequencies.</span>
+        <span class="sd">&quot;&quot;&quot;Extract vibrational frequencies, freq_vibs. Includes 0.00 frequencies.</span>
 
 <span class="sd">        Based on https://github.com/MolSSI/QCSchema/pull/50#issuecomment-499155251.</span>
 
@@ -936,7 +937,7 @@
 <span class="sd">            -----------------------</span>
 <span class="sd">            VIBRATIONAL FREQUENCIES</span>
 <span class="sd">            -----------------------</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Skips the following lines.</span>
         <span class="c1"># -----------------------</span>
         <span class="c1"># </span>
@@ -946,21 +947,21 @@
         <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip_lines</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 
         <span class="c1"># Sets up data.</span>
-        <span class="k">if</span> <span class="s1">'freq_vib'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'freq_vib'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="s1">&#39;freq_vib&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;freq_vib&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="n">vibfreqs</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">while</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">''</span><span class="p">:</span>
+        <span class="k">while</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
             <span class="n">freq</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span>
             <span class="n">vibfreqs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span>
             
             <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'freq_vib'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vibfreqs</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;freq_vib&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vibfreqs</span><span class="p">)</span></div>
 
     
 <div class="viewcode-block" id="extractorORCA.normal_modes"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA.normal_modes">[docs]</a>    <span class="k">def</span> <span class="nf">normal_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
-        <span class="sd">"""Extract normalized, mass-weighted normal modes, q.</span>
+        <span class="sd">&quot;&quot;&quot;Extract normalized, mass-weighted normal modes, q.</span>
 
 <span class="sd">        Based on https://github.com/MolSSI/QCSchema/pull/50#issuecomment-499155251.</span>
 
@@ -980,17 +981,17 @@
 <span class="sd">            ------------</span>
 <span class="sd">            NORMAL MODES</span>
 <span class="sd">            ------------</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip_lines</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 
         <span class="c1"># Sets up data.</span>
-        <span class="k">if</span> <span class="s1">'q'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'normal_modes'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="s1">&#39;q&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;normal_modes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="n">q</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">mode</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">while</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">'-----------'</span><span class="p">:</span>
-            <span class="k">if</span> <span class="s1">'.'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+        <span class="k">while</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">&#39;-----------&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;.&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
                 <span class="c1"># Skips lines that print column numbers. For example,</span>
                 <span class="c1">#   0          1          2          3          4          5 </span>
                 <span class="c1"># Also restarts mode index.</span>
@@ -1003,11 +1004,11 @@
                     <span class="n">q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">disp</span><span class="p">)</span>
                 <span class="n">mode</span> <span class="o">+=</span> <span class="mi">1</span>
             <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'normal_modes'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">q</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;normal_modes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">q</span><span class="p">)</span></div>
 
     
 <div class="viewcode-block" id="extractorORCA.thermo_temp"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA.thermo_temp">[docs]</a>    <span class="k">def</span> <span class="nf">thermo_temp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
-        <span class="sd">"""Extracts temperature used for thermochemistry.</span>
+        <span class="sd">&quot;&quot;&quot;Extracts temperature used for thermochemistry.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -1023,17 +1024,17 @@
 <span class="sd">        .. code-block:: text</span>
 
 <span class="sd">            Temperature         ... 298.15 K</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Sets up data.</span>
-        <span class="k">if</span> <span class="s1">'temp_thermochem'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'temp_thermochem'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="s1">&#39;temp_thermochem&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;temp_thermochem&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">temp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'temp_thermochem'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;temp_thermochem&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
         <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
     
     
 <div class="viewcode-block" id="extractorORCA.zpve"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA.zpve">[docs]</a>    <span class="k">def</span> <span class="nf">zpve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
-        <span class="sd">"""Extract zero-point vibrational energy correction.</span>
+        <span class="sd">&quot;&quot;&quot;Extract zero-point vibrational energy correction.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -1049,17 +1050,17 @@
 <span class="sd">        .. code-block:: text</span>
 
 <span class="sd">            Zero point energy                ...      0.06455884 Eh      40.51 kcal/mol</span>
-<span class="sd">        """</span>
-        <span class="k">if</span> <span class="s1">'correc_zpe'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'correc_zpe'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s1">&#39;correc_zpe&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;correc_zpe&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">zpve</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">4</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'correc_zpe'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">zpve</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;correc_zpe&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">zpve</span><span class="p">)</span>
         <span class="c1"># Needs to move off this line so extract can continue.</span>
         <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
 
     
 <div class="viewcode-block" id="extractorORCA.thermal_corrections"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA.thermal_corrections">[docs]</a>    <span class="k">def</span> <span class="nf">thermal_corrections</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
-        <span class="sd">"""Extracts thermal vibrational, rotational, and translational</span>
+        <span class="sd">&quot;&quot;&quot;Extracts thermal vibrational, rotational, and translational</span>
 <span class="sd">        corrections.</span>
 
 <span class="sd">        Parameters</span>
@@ -1076,16 +1077,16 @@
 <span class="sd">        .. code-block:: text</span>
 
 <span class="sd">            Total thermal correction                  0.00868494 Eh       5.45 kcal/mol</span>
-<span class="sd">        """</span>
-        <span class="k">if</span> <span class="s1">'correc_thermal'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'correc_thermal'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s1">&#39;correc_thermal&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;correc_thermal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">thermal</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">3</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'correc_thermal'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thermal</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;correc_thermal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thermal</span><span class="p">)</span>
         <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
 
     
 <div class="viewcode-block" id="extractorORCA.enthalpic_corr"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA.enthalpic_corr">[docs]</a>    <span class="k">def</span> <span class="nf">enthalpic_corr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
-        <span class="sd">"""Extract enthalpic corrections; the difference between H_298 and</span>
+        <span class="sd">&quot;&quot;&quot;Extract enthalpic corrections; the difference between H_298 and</span>
 <span class="sd">        E_298.</span>
 
 <span class="sd">        Parameters</span>
@@ -1102,16 +1103,16 @@
 <span class="sd">        .. code-block:: text</span>
 
 <span class="sd">            Thermal Enthalpy correction       ...      0.00094421 Eh       0.59 kcal/mol</span>
-<span class="sd">        """</span>
-        <span class="k">if</span> <span class="s1">'correc_enthalpy'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'correc_enthalpy'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s1">&#39;correc_enthalpy&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;correc_enthalpy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">enthalpy</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">4</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'correc_enthalpy'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">enthalpy</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;correc_enthalpy&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">enthalpy</span><span class="p">)</span>
         <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
 
     
 <div class="viewcode-block" id="extractorORCA.entropic_corr"><a class="viewcode-back" href="../../../doc/reptar.extractors.html#reptar.extractors.orca_extractor.extractorORCA.entropic_corr">[docs]</a>    <span class="k">def</span> <span class="nf">entropic_corr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
-        <span class="sd">"""Extract translational, rotational, and vibrational entropic</span>
+        <span class="sd">&quot;&quot;&quot;Extract translational, rotational, and vibrational entropic</span>
 <span class="sd">        corrections to enthalpy for Gibbs free energy (i.e., T*S_298).</span>
 
 <span class="sd">        Parameters</span>
@@ -1128,11 +1129,11 @@
 <span class="sd">        .. code-block:: text</span>
 
 <span class="sd">            Final entropy term                ...      0.04136711</span>
-<span class="sd">        """</span>
-        <span class="k">if</span> <span class="s1">'correc_entropy'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'correc_entropy'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s1">&#39;correc_entropy&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;correc_entropy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">entropy</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">4</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'correc_entropy'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entropy</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;correc_entropy&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entropy</span><span class="p">)</span>
         <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div></div>
 
 </pre></div>
@@ -1172,6 +1173,7 @@
 </div><script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/scripts/furo.js"></script>
     </body>

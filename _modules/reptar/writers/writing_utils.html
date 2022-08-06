@@ -1,13 +1,13 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>reptar.writers.writing_utils - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -194,7 +194,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -214,7 +215,7 @@
 <span class="c1"># Copyright (c) 2022, Alex M. Maldonado</span>
 <span class="c1"># </span>
 <span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
-<span class="c1"># of this software and associated documentation files (the "Software"), to deal</span>
+<span class="c1"># of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
 <span class="c1"># in the Software without restriction, including without limitation the rights</span>
 <span class="c1"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
 <span class="c1"># copies of the Software, and to permit persons to whom the Software is</span>
@@ -223,7 +224,7 @@
 <span class="c1"># The above copyright notice and this permission notice shall be included in all</span>
 <span class="c1"># copies or substantial portions of the Software.</span>
 <span class="c1"># </span>
-<span class="c1"># THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
 <span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
 <span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
 <span class="c1"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
@@ -235,7 +236,7 @@
 <span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="n">z_to_element</span>
     
 <div class="viewcode-block" id="string_xyz_arrays"><a class="viewcode-back" href="../../../doc/reptar.writers.html#reptar.writers.writing_utils.string_xyz_arrays">[docs]</a><span class="k">def</span> <span class="nf">string_xyz_arrays</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-    <span class="sd">"""Create string of array data in XYZ format for a single structure.</span>
+    <span class="sd">&quot;&quot;&quot;Create string of array data in XYZ format for a single structure.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -244,7 +245,7 @@
 <span class="sd">    R : :obj:`numpy.ndarray`, ndim=2</span>
 <span class="sd">        Cartesian coordinates of all atoms in the same order as ``Z``.</span>
 <span class="sd">    args</span>
-<span class="sd">        Other :obj:`numpy.ndarray` (ndim&gt;=1) to add where it's assumed the</span>
+<span class="sd">        Other :obj:`numpy.ndarray` (ndim&gt;=1) to add where it&#39;s assumed the</span>
 <span class="sd">        zero axis is with respect to ``R``. For example, if we have atomic</span>
 <span class="sd">        forces the array shape would be ``(n, 3)`` where ``n`` is the number of</span>
 <span class="sd">        atoms in the structure.</span>
@@ -256,19 +257,19 @@
 <span class="sd">    :obj:`str`</span>
 <span class="sd">        The XYZ string for a single structure. This does not include the number</span>
 <span class="sd">        of atoms </span>
-<span class="sd">    """</span>
-    <span class="n">struct_string</span> <span class="o">=</span> <span class="s1">''</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">struct_string</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Z</span><span class="p">)):</span>
         <span class="n">atom_string</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">z_to_element</span><span class="p">[</span><span class="n">Z</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
         <span class="k">for</span> <span class="n">arr</span> <span class="ow">in</span> <span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">arr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">atom_string</span> <span class="o">+=</span> <span class="s1">'    '</span>
+                <span class="n">atom_string</span> <span class="o">+=</span> <span class="s1">&#39;    &#39;</span>
                 <span class="n">atom_string</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">array2string</span><span class="p">(</span>
-                    <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">suppress_small</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s1">'    '</span><span class="p">,</span>
-                    <span class="n">formatter</span><span class="o">=</span><span class="p">{</span><span class="s1">'float_kind'</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'%.</span><span class="si">{</span><span class="n">precision</span><span class="si">}</span><span class="s1">f'</span> <span class="o">%</span> <span class="n">x</span><span class="p">}</span>
+                    <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">suppress_small</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s1">&#39;    &#39;</span><span class="p">,</span>
+                    <span class="n">formatter</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;float_kind&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;%.</span><span class="si">{</span><span class="n">precision</span><span class="si">}</span><span class="s1">f&#39;</span> <span class="o">%</span> <span class="n">x</span><span class="p">}</span>
                 <span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">atom_string</span> <span class="o">=</span> <span class="n">atom_string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">' -'</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">)</span>
-        <span class="n">atom_string</span> <span class="o">+=</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span>
+        <span class="n">atom_string</span> <span class="o">=</span> <span class="n">atom_string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; -&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
+        <span class="n">atom_string</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
         <span class="n">struct_string</span> <span class="o">+=</span> <span class="n">atom_string</span>
     <span class="k">return</span> <span class="n">struct_string</span></div>
     
@@ -309,6 +310,7 @@
 </div><script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/scripts/furo.js"></script>
     </body>

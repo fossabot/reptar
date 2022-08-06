@@ -1,13 +1,13 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>reptar.sampler - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -194,7 +194,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -214,7 +215,7 @@
 <span class="c1"># Copyright (c) 2022, Alex M. Maldonado</span>
 <span class="c1"># </span>
 <span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
-<span class="c1"># of this software and associated documentation files (the "Software"), to deal</span>
+<span class="c1"># of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
 <span class="c1"># in the Software without restriction, including without limitation the rights</span>
 <span class="c1"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
 <span class="c1"># copies of the Software, and to permit persons to whom the Software is</span>
@@ -223,7 +224,7 @@
 <span class="c1"># The above copyright notice and this permission notice shall be included in all</span>
 <span class="c1"># copies or substantial portions of the Software.</span>
 <span class="c1"># </span>
-<span class="c1"># THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
 <span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
 <span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
 <span class="c1"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
@@ -242,7 +243,7 @@
     <span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">r_prov_specs</span><span class="p">,</span> <span class="n">quantity</span><span class="p">,</span> <span class="n">comp_labels</span><span class="p">,</span> <span class="n">R_source</span><span class="p">,</span>
     <span class="n">entity_ids_source</span><span class="p">,</span> <span class="n">entity_ids_samples</span><span class="p">,</span> <span class="n">copy_EG</span>
 <span class="p">):</span>
-    <span class="sd">"""Creates or extends arrays for sampling structures.</span>
+    <span class="sd">&quot;&quot;&quot;Creates or extends arrays for sampling structures.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -263,7 +264,7 @@
 <span class="sd">        does not already exist.</span>
 <span class="sd">    quantity : :obj:`str`</span>
 <span class="sd">        Number of structures to sample from the structure set. For example,</span>
-<span class="sd">        ``'100'``, ``'452'``, or even ``'all'``.</span>
+<span class="sd">        ``&#39;100&#39;``, ``&#39;452&#39;``, or even ``&#39;all&#39;``.</span>
 <span class="sd">    comp_labels : :obj:`tuple`, ndim: ``1``</span>
 <span class="sd">        The ``comp_id`` labels to include in sampled structures. ``entity_ids``</span>
 <span class="sd">        with the same ``comp_id`` labels are sampled for each :obj:`tuple`</span>
@@ -282,11 +283,11 @@
 <span class="sd">        Creates datasets for energies and gradients (using ``energy_label`` and </span>
 <span class="sd">        ``grad_label``) and attempts to copy data from the source if possible.</span>
 <span class="sd">        If no compatible data is available it will just store :obj:`numpy.NaN`.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Either creates new ones or concatenates to</span>
     <span class="c1"># original destination data.</span>
     <span class="c1"># Trial selection to get shapes for R and G</span>
-    <span class="k">if</span> <span class="n">quantity</span> <span class="o">==</span> <span class="s1">'all'</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">quantity</span> <span class="o">==</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
         <span class="c1"># Determine the maximum amount of structures we can sample from a single</span>
         <span class="c1"># source structure.</span>
         <span class="n">combs_per_structure</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span>
@@ -350,7 +351,7 @@
 <span class="k">def</span> <span class="nf">_generate_structure_samples</span><span class="p">(</span>
     <span class="n">quantity</span><span class="p">,</span> <span class="n">structure_idxs</span><span class="p">,</span> <span class="n">entity_ids_samples</span>
 <span class="p">):</span>
-    <span class="sd">"""Randomly generates structure and entity selections.</span>
+    <span class="sd">&quot;&quot;&quot;Randomly generates structure and entity selections.</span>
 
 <span class="sd">    The prov ID for the structure is not included here and must be</span>
 <span class="sd">    inserted later.</span>
@@ -359,7 +360,7 @@
 <span class="sd">    ----------</span>
 <span class="sd">    quantity : :obj:`int` or :obj:`float`</span>
 <span class="sd">        Number of structures to sample from the structure set. For example,</span>
-<span class="sd">        ``'100'``, ``452``, or even ``'all'``.</span>
+<span class="sd">        ``&#39;100&#39;``, ``452``, or even ``&#39;all&#39;``.</span>
 <span class="sd">    structure_idxs : :obj:`numpy.ndarray`, ndim: ``1``</span>
 <span class="sd">        Indices of source structures we can sample from.</span>
 <span class="sd">    entity_ids_samples : :obj:`tuple` (:obj:`tuple`)</span>
@@ -379,7 +380,7 @@
 <span class="sd">    This could generate selections of multiple of the same entities.</span>
 <span class="sd">    For example, ``[602, 0, 70, 70]`` selects entity ``70`` twice which is</span>
 <span class="sd">    nonphysical. For now we will offload this check to ``sample_structures``.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Sampling a specified number of structures.</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">quantity</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">(</span><span class="n">quantity</span><span class="p">)</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -397,7 +398,7 @@
             <span class="n">selection</span> <span class="o">=</span> <span class="p">[</span><span class="n">R_selection_idx</span><span class="p">]</span> <span class="o">+</span> <span class="n">entity_selection</span>
             <span class="k">yield</span> <span class="n">selection</span>
     <span class="c1"># Sampling all possible structures.</span>
-    <span class="k">elif</span> <span class="n">quantity</span> <span class="o">==</span> <span class="s1">'all'</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">quantity</span> <span class="o">==</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">R_selection_idx</span> <span class="ow">in</span> <span class="n">structure_idxs</span><span class="p">:</span>
             <span class="c1">#all_combinations = unique_prod(*entity_ids_samples)</span>
             <span class="k">for</span> <span class="n">comb</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="n">entity_ids_samples</span><span class="p">):</span>
@@ -411,9 +412,9 @@
     <span class="n">Z</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">r_prov_specs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">structure_idxs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">criteria</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">z_slice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">center_structures</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">sampling_updates</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">copy_EG</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">E</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">G</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">energy_label_source</span><span class="o">=</span><span class="s1">'energy_ele'</span><span class="p">,</span> <span class="n">grad_label_source</span><span class="o">=</span><span class="s1">'grads'</span>
+    <span class="n">energy_label_source</span><span class="o">=</span><span class="s1">&#39;energy_ele&#39;</span><span class="p">,</span> <span class="n">grad_label_source</span><span class="o">=</span><span class="s1">&#39;grads&#39;</span>
 <span class="p">):</span>
-    <span class="sd">"""Randomly samples structures from a source.</span>
+    <span class="sd">&quot;&quot;&quot;Randomly samples structures from a source.</span>
 
 <span class="sd">    If previous data are already provided (i.e., ``Z``, ``R``, and</span>
 <span class="sd">    ``r_prov_specs`` are not ``None``) then the sampled structures are appended</span>
@@ -428,7 +429,7 @@
 <span class="sd">        ``atomic_numbers``, ``geometry``, ``entity_ids``, and ``comp_ids`` keys.</span>
 <span class="sd">    quantity : :obj:`str`</span>
 <span class="sd">        Number of structures to sample from the structure set. For example,</span>
-<span class="sd">        ``'100'``, ``'452'``, or even ``'all'``.</span>
+<span class="sd">        ``&#39;100&#39;``, ``&#39;452&#39;``, or even ``&#39;all&#39;``.</span>
 <span class="sd">    comp_labels : :obj:`tuple`, ndim: ``1``</span>
 <span class="sd">        The ``comp_id`` labels to include in sampled structures. ``entity_ids``</span>
 <span class="sd">        with the same ``comp_id`` labels are sampled for each :obj:`tuple`</span>
@@ -474,11 +475,11 @@
 <span class="sd">        Destination energies, if any, to append to.</span>
 <span class="sd">    G : :obj:`numpy.ndarray`, ndim: ``3``, default: ``None``</span>
 <span class="sd">        Destination atomic gradients, if any, to append to.</span>
-<span class="sd">    energy_label_source : :obj:`str`, default: ``'energy_ele'``</span>
+<span class="sd">    energy_label_source : :obj:`str`, default: ``&#39;energy_ele&#39;``</span>
 <span class="sd">        Specifies source dataset name containing energies to copy.</span>
 <span class="sd">        If ``copy_EG`` is ``True`` with no valid energy datasets then an empty</span>
 <span class="sd">        array is created.</span>
-<span class="sd">    grad_label_source : :obj:`str`, default: ``'grads'``</span>
+<span class="sd">    grad_label_source : :obj:`str`, default: ``&#39;grads&#39;``</span>
 <span class="sd">        Specifies source dataset name containing atomic gradients to copy.</span>
 <span class="sd">        If ``copy_EG`` is ``True`` with no valid gradient datasets then an empty</span>
 <span class="sd">        array is created.</span>
@@ -504,14 +505,14 @@
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
 <span class="sd">    The order of ``atomic_numbers`` must be the same for each entity.</span>
-<span class="sd">    For example, if a water molecule with label ``'h2o'`` has ``atomic_numbers``</span>
+<span class="sd">    For example, if a water molecule with label ``&#39;h2o&#39;`` has ``atomic_numbers``</span>
 <span class="sd">    of ``[8, 1, 1]`` then every other entity must have the same.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Get data from structure source.</span>
-    <span class="n">Z_source</span> <span class="o">=</span> <span class="n">source_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/atomic_numbers'</span><span class="p">)</span>
-    <span class="n">R_source</span> <span class="o">=</span> <span class="n">source_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/geometry'</span><span class="p">)</span>
-    <span class="n">entity_ids_source</span> <span class="o">=</span> <span class="n">source_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/entity_ids'</span><span class="p">)</span>
-    <span class="n">comp_ids_source</span> <span class="o">=</span> <span class="n">source_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/comp_ids'</span><span class="p">)</span>
+    <span class="n">Z_source</span> <span class="o">=</span> <span class="n">source_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/atomic_numbers&#39;</span><span class="p">)</span>
+    <span class="n">R_source</span> <span class="o">=</span> <span class="n">source_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/geometry&#39;</span><span class="p">)</span>
+    <span class="n">entity_ids_source</span> <span class="o">=</span> <span class="n">source_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/entity_ids&#39;</span><span class="p">)</span>
+    <span class="n">comp_ids_source</span> <span class="o">=</span> <span class="n">source_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/comp_ids&#39;</span><span class="p">)</span>
 
     <span class="c1"># If source_r_prov_specs is None, then this is an original source.</span>
     <span class="c1"># Which means there should only be one R_prov_id (we store this for later).</span>
@@ -521,8 +522,8 @@
 
     <span class="k">if</span> <span class="n">copy_EG</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">E_source</span> <span class="o">=</span> <span class="n">source_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">energy_label_source</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-            <span class="n">G_source</span> <span class="o">=</span> <span class="n">source_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">grad_label_source</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+            <span class="n">E_source</span> <span class="o">=</span> <span class="n">source_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">energy_label_source</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">G_source</span> <span class="o">=</span> <span class="n">source_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">grad_label_source</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="n">E_source</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="n">G_source</span> <span class="o">=</span> <span class="kc">None</span>
@@ -560,7 +561,7 @@
                 <span class="k">try</span><span class="p">:</span>
                     <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">Z_ref</span><span class="p">,</span> <span class="n">Z_other</span><span class="p">)</span>
                 <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
-                    <span class="n">e</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'Atomic numbers do not match for entity_id of </span><span class="si">{</span><span class="n">other_entity</span><span class="si">}</span><span class="s1">'</span>
+                    <span class="n">e</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Atomic numbers do not match for entity_id of </span><span class="si">{</span><span class="n">other_entity</span><span class="si">}</span><span class="s1">&#39;</span>
                     <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
     <span class="n">entity_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">entity_ids</span><span class="p">)</span>
     
@@ -569,9 +570,9 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">Z_sample</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Destination atomic numbers: </span><span class="si">{</span><span class="n">Z</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Sample atomic numbers: </span><span class="si">{</span><span class="n">Z_sample</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-            <span class="n">e</span> <span class="o">=</span> <span class="s1">'Atomic numbers of samples do not match destination.'</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Destination atomic numbers: </span><span class="si">{</span><span class="n">Z</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sample atomic numbers: </span><span class="si">{</span><span class="n">Z_sample</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="s1">&#39;Atomic numbers of samples do not match destination.&#39;</span>
             <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">Z</span> <span class="o">=</span> <span class="n">Z_sample</span>
@@ -611,11 +612,11 @@
                 <span class="k">if</span> <span class="n">num_accepted</span><span class="o">%</span><span class="mi">500</span> <span class="o">==</span> <span class="mi">0</span> \
                     <span class="ow">and</span> <span class="n">num_accepted</span> <span class="o">!=</span> <span class="n">prev_num_accepted_print</span><span class="p">:</span>
                     <span class="n">prev_num_accepted_print</span> <span class="o">=</span> <span class="n">num_accepted</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Successfully sampled </span><span class="si">{</span><span class="n">num_accepted</span><span class="si">}</span><span class="s1"> structures'</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Successfully sampled </span><span class="si">{</span><span class="n">num_accepted</span><span class="si">}</span><span class="s1"> structures&#39;</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">if</span> <span class="p">(</span><span class="n">num_accepted</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="mi">500</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                     <span class="nb">print</span><span class="p">(</span>
-                        <span class="sa">f</span><span class="s1">'Successfully sampled </span><span class="si">{</span><span class="n">num_accepted</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1"> structures'</span>
+                        <span class="sa">f</span><span class="s1">&#39;Successfully sampled </span><span class="si">{</span><span class="n">num_accepted</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1"> structures&#39;</span>
                     <span class="p">)</span>
         
         <span class="c1">###   Handle r_prov_specs   ###</span>
@@ -683,10 +684,10 @@
     <span class="n">source_file</span><span class="p">,</span> <span class="n">source_key</span><span class="p">,</span> <span class="n">dest_file</span><span class="p">,</span> <span class="n">dest_key</span><span class="p">,</span> <span class="n">quantity</span><span class="p">,</span>
     <span class="n">comp_labels</span><span class="p">,</span> <span class="n">structure_idxs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">criteria</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">z_slice</span><span class="o">=</span><span class="p">[],</span> <span class="n">cutoff</span><span class="o">=</span><span class="p">[],</span> <span class="n">center_structures</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sampling_updates</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">copy_EG</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">energy_labels</span><span class="o">=</span><span class="p">(</span><span class="s1">'energy_ele'</span><span class="p">,),</span> <span class="n">grad_labels</span><span class="o">=</span><span class="p">(</span><span class="s1">'grads'</span><span class="p">,),</span>
+    <span class="n">copy_EG</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">energy_labels</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;energy_ele&#39;</span><span class="p">,),</span> <span class="n">grad_labels</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;grads&#39;</span><span class="p">,),</span>
     <span class="n">write</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">):</span>
-    <span class="sd">"""Adds randomly sampled structures to a group.</span>
+    <span class="sd">&quot;&quot;&quot;Adds randomly sampled structures to a group.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -702,7 +703,7 @@
 <span class="sd">        exist then it will be created.</span>
 <span class="sd">    quantity : :obj:`str` or :obj:`int`</span>
 <span class="sd">        Number of structures to sample from the data. For example,</span>
-<span class="sd">        ``'100'``, ``452``, or ``'all'``.</span>
+<span class="sd">        ``&#39;100&#39;``, ``452``, or ``&#39;all&#39;``.</span>
 <span class="sd">    comp_labels : :obj:`tuple`, ndim: ``1``</span>
 <span class="sd">        The ``comp_id`` labels to include in sampled structures. ``entity_ids``</span>
 <span class="sd">        with the same ``comp_id`` labels are sampled for each :obj:`tuple`</span>
@@ -729,12 +730,12 @@
 <span class="sd">        Creates datasets for energies and gradients (using ``energy_label`` and </span>
 <span class="sd">        ``grad_label``) and attempts to copy data from the source if possible.</span>
 <span class="sd">        If no compatible data is available it will just store :obj:`numpy.NaN`.</span>
-<span class="sd">    energy_labels : :obj:`tuple` (:obj:`str`), ndim: ``1``, default: ``('energy_ele',)``</span>
+<span class="sd">    energy_labels : :obj:`tuple` (:obj:`str`), ndim: ``1``, default: ``(&#39;energy_ele&#39;,)``</span>
 <span class="sd">        Specifies all energy keys in the destination group to extend with the</span>
 <span class="sd">        new sampling. The array from each key will have ``quantity`` amount of </span>
 <span class="sd">        ``np.NaN`` values appended to it. The first value should be the desired</span>
 <span class="sd">        key from the source.</span>
-<span class="sd">    grad_labels : :obj:`tuple` (:obj:`str`), default: ``('grads',)``</span>
+<span class="sd">    grad_labels : :obj:`tuple` (:obj:`str`), default: ``(&#39;grads&#39;,)``</span>
 <span class="sd">        Specifies all gradient keys in the destination group to extend with the</span>
 <span class="sd">        new sampling. The array 1from each key will have ``quantity`` amount of </span>
 <span class="sd">        ``np.NaN`` values appended to it. The first value should be the desired</span>
@@ -746,15 +747,15 @@
 <span class="sd">    -----</span>
 <span class="sd">    Nothing is saved until all checks are passed to avoid irreversible changes</span>
 <span class="sd">    to already existing ``Group``.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Grabs data from destination if exists.</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">Z</span> <span class="o">=</span> <span class="n">dest_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/atomic_numbers'</span><span class="p">)</span>
+        <span class="n">Z</span> <span class="o">=</span> <span class="n">dest_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/atomic_numbers&#39;</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
         <span class="n">Z</span> <span class="o">=</span> <span class="kc">None</span>
     
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">R</span> <span class="o">=</span> <span class="n">dest_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/geometry'</span><span class="p">)</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="n">dest_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/geometry&#39;</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
         <span class="n">R</span> <span class="o">=</span> <span class="kc">None</span>
     
@@ -762,30 +763,30 @@
     <span class="c1"># TODO: perform check if we should copy energies and gradients based on if the</span>
     <span class="c1"># sampled structure is the entire source structure.</span>
     <span class="k">if</span> <span class="n">copy_EG</span><span class="p">:</span>
-        <span class="n">E</span> <span class="o">=</span> <span class="n">dest_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">energy_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-        <span class="n">G</span> <span class="o">=</span> <span class="n">dest_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">grad_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+        <span class="n">E</span> <span class="o">=</span> <span class="n">dest_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">energy_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="n">dest_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">grad_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">E</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="n">G</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">r_prov_ids</span> <span class="o">=</span> <span class="n">dest_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/r_prov_ids'</span><span class="p">)</span>
-        <span class="n">r_prov_specs</span> <span class="o">=</span> <span class="n">dest_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/r_prov_specs'</span><span class="p">)</span>
+        <span class="n">r_prov_ids</span> <span class="o">=</span> <span class="n">dest_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/r_prov_ids&#39;</span><span class="p">)</span>
+        <span class="n">r_prov_specs</span> <span class="o">=</span> <span class="n">dest_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/r_prov_specs&#39;</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="n">r_prov_ids</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="n">r_prov_specs</span> <span class="o">=</span> <span class="kc">None</span>
     
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">entity_ids</span> <span class="o">=</span> <span class="n">dest_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/entity_ids'</span><span class="p">)</span>
-        <span class="n">comp_ids</span> <span class="o">=</span> <span class="n">dest_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/comp_ids'</span><span class="p">)</span>
+        <span class="n">entity_ids</span> <span class="o">=</span> <span class="n">dest_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/entity_ids&#39;</span><span class="p">)</span>
+        <span class="n">comp_ids</span> <span class="o">=</span> <span class="n">dest_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/comp_ids&#39;</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
         <span class="n">entity_ids</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="n">comp_ids</span> <span class="o">=</span> <span class="kc">None</span>
     
     <span class="c1"># Handle if source already has r_prov_ids</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">source_r_prov_ids</span> <span class="o">=</span> <span class="n">source_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/r_prov_ids'</span><span class="p">)</span>
-        <span class="n">source_r_prov_specs</span> <span class="o">=</span> <span class="n">source_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/r_prov_specs'</span><span class="p">)</span>
+        <span class="n">source_r_prov_ids</span> <span class="o">=</span> <span class="n">source_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/r_prov_ids&#39;</span><span class="p">)</span>
+        <span class="n">source_r_prov_specs</span> <span class="o">=</span> <span class="n">source_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/r_prov_specs&#39;</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="c1"># This source is an original (was not created from sampling).</span>
         <span class="n">source_r_prov_ids</span> <span class="o">=</span> <span class="kc">None</span>
@@ -796,7 +797,7 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">comp_ids</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">comp_labels</span><span class="p">))</span>
         <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
-            <span class="n">e</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'Component IDs of destination (</span><span class="si">{</span><span class="n">comp_ids</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s1">) do not match comp_labels (</span><span class="si">{</span><span class="n">comp_labels</span><span class="si">}</span><span class="s1">).'</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Component IDs of destination (</span><span class="si">{</span><span class="n">comp_ids</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s1">) do not match comp_labels (</span><span class="si">{</span><span class="n">comp_labels</span><span class="si">}</span><span class="s1">).&#39;</span>
             <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">comp_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">comp_labels</span><span class="p">)</span>
@@ -812,10 +813,10 @@
     <span class="c1"># Original source (not from sampled)</span>
     <span class="k">if</span> <span class="n">source_r_prov_ids</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">md5_source</span> <span class="o">=</span> <span class="n">source_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/md5_structures'</span><span class="p">)</span>
+            <span class="n">md5_source</span> <span class="o">=</span> <span class="n">source_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/md5_structures&#39;</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="n">md5_source</span> <span class="o">=</span> <span class="n">get_md5</span><span class="p">(</span><span class="n">source_file</span><span class="p">,</span> <span class="n">source_key</span><span class="p">,</span> <span class="n">only_structures</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-            <span class="n">source_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/md5_structures'</span><span class="p">,</span> <span class="n">md5_source</span><span class="p">)</span>
+            <span class="n">source_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">source_key</span><span class="si">}</span><span class="s1">/md5_structures&#39;</span><span class="p">,</span> <span class="n">md5_source</span><span class="p">)</span>
         
         <span class="c1"># Create pseudo source_r_prov_ids.</span>
         <span class="n">source_r_prov_ids</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="n">md5_source</span><span class="p">}</span>
@@ -889,31 +890,31 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">entity_ids</span><span class="p">,</span> <span class="n">entity_ids_sampled</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
-            <span class="n">e</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'Destination entity_ids (</span><span class="si">{</span><span class="n">entity_ids</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s1">) do not '</span>\
-                <span class="sa">f</span><span class="s1">'match sampled entity_ids (</span><span class="si">{</span><span class="n">entity_ids_sampled</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s1">).'</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Destination entity_ids (</span><span class="si">{</span><span class="n">entity_ids</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s1">) do not &#39;</span>\
+                <span class="sa">f</span><span class="s1">&#39;match sampled entity_ids (</span><span class="si">{</span><span class="n">entity_ids_sampled</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s1">).&#39;</span>
             <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">entity_ids</span> <span class="o">=</span> <span class="n">entity_ids_sampled</span>
     
     <span class="k">if</span> <span class="n">write</span><span class="p">:</span>
-        <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/atomic_numbers'</span><span class="p">,</span> <span class="n">Z</span><span class="p">)</span>
-        <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/geometry'</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+        <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/atomic_numbers&#39;</span><span class="p">,</span> <span class="n">Z</span><span class="p">)</span>
+        <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/geometry&#39;</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">copy_EG</span><span class="p">:</span>
-            <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">energy_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">E</span><span class="p">)</span>
-            <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">grad_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">G</span><span class="p">)</span>
+            <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">energy_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">E</span><span class="p">)</span>
+            <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">grad_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">G</span><span class="p">)</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">energy_labels</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">energy_labels</span><span class="p">)):</span>
                     <span class="n">e_label</span> <span class="o">=</span> <span class="n">energy_labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-                    <span class="n">e_data</span> <span class="o">=</span> <span class="n">dest_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">e_label</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+                    <span class="n">e_data</span> <span class="o">=</span> <span class="n">dest_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">e_label</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
                     <span class="n">e_data_shape</span> <span class="o">=</span> <span class="n">e_data</span><span class="o">.</span><span class="n">shape</span>
                     <span class="n">e_shape_new</span> <span class="o">=</span> <span class="p">(</span><span class="n">e_data_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">num_sampled</span><span class="p">,)</span>
                     <span class="n">e_data_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">e_shape_new</span><span class="p">)</span>
                     <span class="n">e_data_new</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
                     <span class="n">e_data_new</span><span class="p">[:</span><span class="n">e_data_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">e_data</span>
-                    <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">e_label</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">e_data_new</span><span class="p">)</span>
+                    <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">e_label</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">e_data_new</span><span class="p">)</span>
                 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">grad_labels</span><span class="p">)):</span>
                     <span class="n">g_label</span> <span class="o">=</span> <span class="n">grad_labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-                    <span class="n">g_data</span> <span class="o">=</span> <span class="n">dest_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">g_label</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+                    <span class="n">g_data</span> <span class="o">=</span> <span class="n">dest_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">g_label</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
                     <span class="n">g_data_shape</span> <span class="o">=</span> <span class="n">g_data</span><span class="o">.</span><span class="n">shape</span>
                     <span class="n">g_shape_new</span> <span class="o">=</span> <span class="p">(</span>
                         <span class="n">g_data_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">num_sampled</span><span class="p">,</span> <span class="n">g_data_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
@@ -922,15 +923,15 @@
                     <span class="n">g_data_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">g_shape_new</span><span class="p">)</span>
                     <span class="n">g_data_new</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
                     <span class="n">g_data_new</span><span class="p">[:</span><span class="n">g_data_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">g_data</span>
-                    <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">g_label</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">g_data_new</span><span class="p">)</span>
-        <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/entity_ids'</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">)</span>
-        <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/r_prov_ids'</span><span class="p">,</span> <span class="n">new_r_prov_ids</span><span class="p">)</span>
-        <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/r_prov_specs'</span><span class="p">,</span> <span class="n">r_prov_specs</span><span class="p">)</span>
-        <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/r_centered'</span><span class="p">,</span> <span class="n">center_structures</span><span class="p">)</span>
-        <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/comp_ids'</span><span class="p">,</span> <span class="n">comp_ids</span><span class="p">)</span>
+                    <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">g_label</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">g_data_new</span><span class="p">)</span>
+        <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/entity_ids&#39;</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">)</span>
+        <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/r_prov_ids&#39;</span><span class="p">,</span> <span class="n">new_r_prov_ids</span><span class="p">)</span>
+        <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/r_prov_specs&#39;</span><span class="p">,</span> <span class="n">r_prov_specs</span><span class="p">)</span>
+        <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/r_centered&#39;</span><span class="p">,</span> <span class="n">center_structures</span><span class="p">)</span>
+        <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/comp_ids&#39;</span><span class="p">,</span> <span class="n">comp_ids</span><span class="p">)</span>
 
         <span class="n">dest_file</span><span class="o">.</span><span class="n">update_md5</span><span class="p">(</span><span class="n">dest_key</span><span class="p">)</span>
-        <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/reptar_version'</span><span class="p">,</span> <span class="n">__version__</span><span class="p">)</span>
+        <span class="n">dest_file</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dest_key</span><span class="si">}</span><span class="s1">/reptar_version&#39;</span><span class="p">,</span> <span class="n">__version__</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">dest_file</span></div>
 </pre></div>
@@ -970,6 +971,7 @@
 </div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     </body>

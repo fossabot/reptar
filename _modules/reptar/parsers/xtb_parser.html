@@ -1,13 +1,13 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>reptar.parsers.xtb_parser - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -194,7 +194,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -214,7 +215,7 @@
 <span class="c1"># Copyright (c) 2022, Alex M. Maldonado</span>
 <span class="c1"># </span>
 <span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
-<span class="c1"># of this software and associated documentation files (the "Software"), to deal</span>
+<span class="c1"># of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
 <span class="c1"># in the Software without restriction, including without limitation the rights</span>
 <span class="c1"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
 <span class="c1"># copies of the Software, and to permit persons to whom the Software is</span>
@@ -223,7 +224,7 @@
 <span class="c1"># The above copyright notice and this permission notice shall be included in all</span>
 <span class="c1"># copies or substantial portions of the Software.</span>
 <span class="c1"># </span>
-<span class="c1"># THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
 <span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
 <span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
 <span class="c1"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
@@ -237,11 +238,11 @@
 <span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="n">atoms_by_number</span><span class="p">,</span> <span class="n">parse_stringfile</span>
 
 <div class="viewcode-block" id="parserXTB"><a class="viewcode-back" href="../../../parsers-extractors.html#reptar.parsers.xtb_parser.parserXTB">[docs]</a><span class="k">class</span> <span class="nc">parserXTB</span><span class="p">(</span><span class="n">parser</span><span class="p">):</span>
-    <span class="sd">"""Custom parser for xtb output files.</span>
-<span class="sd">    """</span>
+    <span class="sd">&quot;&quot;&quot;Custom parser for xtb output files.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">out_path</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extractors</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        out_path : :obj:`str`</span>
@@ -253,8 +254,8 @@
 <span class="sd">            simulation, etc.</span>
 <span class="sd">        extractors : :obj:`list`, default: ``None``</span>
 <span class="sd">            Additional extractors for the parser to use.</span>
-<span class="sd">        """</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">package</span> <span class="o">=</span> <span class="s1">'xtb'</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">package</span> <span class="o">=</span> <span class="s1">&#39;xtb&#39;</span>
         <span class="k">if</span> <span class="n">extractors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">extractors</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">extractors</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">extractorXTB</span><span class="p">())</span>
@@ -264,14 +265,14 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">traj_path</span> <span class="o">=</span> <span class="n">traj_path</span>
         <span class="k">if</span> <span class="n">traj_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">geom_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="s1">'A geometry file must be specified with trajectory file'</span>
+                <span class="s1">&#39;A geometry file must be specified with trajectory file&#39;</span>
             <span class="p">)</span>
         
-        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'runtime_info'</span><span class="p">][</span><span class="s1">'prov'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'xTB'</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">][</span><span class="s1">&#39;prov&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;xTB&#39;</span>
     
 <div class="viewcode-block" id="parserXTB.parse"><a class="viewcode-back" href="../../../doc/reptar.parsers.html#reptar.parsers.xtb_parser.parserXTB.parse">[docs]</a>    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""Parses trajectory file and extracts information.</span>
-<span class="sd">        """</span>
+        <span class="sd">&quot;&quot;&quot;Parses trajectory file and extracts information.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Extract information.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">extract_data_out</span><span class="p">()</span>
 
@@ -294,44 +295,44 @@
                 <span class="n">comment</span> <span class="o">=</span> <span class="n">comment</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
                 <span class="n">energy_pot</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">comment</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
                 <span class="c1"># grad_norm.append(float(comment[3]))</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="s1">'energy_pot'</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_pot&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
                 <span class="n">energy_pot</span>
             <span class="p">)</span>
         
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">Z</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">Z</span> <span class="o">=</span> <span class="n">Z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'Atomic numbers are not consistent.'</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Atomic numbers are not consistent.&#39;</span><span class="p">)</span>
         <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">atoms_by_number</span><span class="p">(</span><span class="n">Z</span><span class="p">))</span>
         <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">R</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
             <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">R</span><span class="p">])</span>
         <span class="k">assert</span> <span class="n">R</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'system_info'</span><span class="p">][</span><span class="s1">'atomic_numbers'</span><span class="p">]</span> <span class="o">=</span> <span class="n">Z</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'system_info'</span><span class="p">][</span><span class="s1">'geometry'</span><span class="p">]</span> <span class="o">=</span> <span class="n">R</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;system_info&#39;</span><span class="p">][</span><span class="s1">&#39;atomic_numbers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Z</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;system_info&#39;</span><span class="p">][</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">R</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">after_parse</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span></div>
     
 
 <div class="viewcode-block" id="parserXTB.after_parse"><a class="viewcode-back" href="../../../doc/reptar.parsers.html#reptar.parsers.xtb_parser.parserXTB.after_parse">[docs]</a>    <span class="k">def</span> <span class="nf">after_parse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""Checks to perform after parsing output file.</span>
-<span class="sd">        """</span>
+        <span class="sd">&quot;&quot;&quot;Checks to perform after parsing output file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># xtb prints the last energy twice during optimizations.</span>
         <span class="c1"># The last printed energy has more significant figures, so we will</span>
         <span class="c1"># get rid of the second to last one.</span>
-        <span class="c1"># It is also unclear why the structure considered "CYCLE   1" is</span>
+        <span class="c1"># It is also unclear why the structure considered &quot;CYCLE   1&quot; is</span>
         <span class="c1"># missing from the geometry log. It goes from the provided structure</span>
-        <span class="c1"># to the "CYCLE   2" structure. So we will also remove this energy.</span>
+        <span class="c1"># to the &quot;CYCLE   2&quot; structure. So we will also remove this energy.</span>
         <span class="c1"># Note that we overwrite this data later, but it is better to ensure</span>
         <span class="c1"># consistency than punting to later in the code.</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'runtime_info'</span><span class="p">][</span><span class="s1">'calc_driver'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'optimization'</span><span class="p">:</span>
-            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'properties'</span><span class="p">][</span><span class="s1">'energy_scf'</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'properties'</span><span class="p">][</span><span class="s1">'energy_scf'</span><span class="p">][</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">][</span><span class="s1">&#39;calc_driver&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;optimization&#39;</span><span class="p">:</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;energy_scf&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;energy_scf&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
         
-        <span class="k">if</span> <span class="s1">'success'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'runtime_info'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">'runtime_info'</span><span class="p">][</span><span class="s1">'success'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span></div></div>
+        <span class="k">if</span> <span class="s1">&#39;success&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">][</span><span class="s1">&#39;success&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span></div></div>
 </pre></div>
         </article>
       </div>
@@ -369,6 +370,7 @@
 </div><script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/scripts/furo.js"></script>
     </body>

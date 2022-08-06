@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Many-body expansion" href="many-body-expansion.html" /><link rel="prev" title="Sampling" href="sampling.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>Calculators - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -195,7 +195,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -210,7 +211,7 @@
         </div>
         <article role="main">
           <section id="calculators">
-<h1>Calculators<a class="headerlink" href="#calculators" title="Permalink to this headline">#</a></h1>
+<h1>Calculators<a class="headerlink" href="#calculators" title="Permalink to this heading">#</a></h1>
 <p>Reptar provides a framework for computing common properties and electronic energies and gradients.
 <a class="reference external" href="https://docs.ray.io/en/latest/index.html">Ray</a> is used to parallelize computations when possible.</p>
 <p>The additional dependencies are:</p>
@@ -220,7 +221,7 @@
 <li><p><a class="reference external" href="https://github.com/grimme-lab/xtb-python#installation">xtb-python</a></p></li>
 </ul>
 <section id="energy-and-gradients">
-<h2>Energy and gradients<a class="headerlink" href="#energy-and-gradients" title="Permalink to this headline">#</a></h2>
+<h2>Energy and gradients<a class="headerlink" href="#energy-and-gradients" title="Permalink to this heading">#</a></h2>
 <p>Reptar provides a framework with a ray driver and premade ray task/worker functions.</p>
 <p><code class="docutils literal notranslate"><span class="pre">worker_func</span></code> calls the desired program and computes energies and gradients.</p>
 <div class="admonition note">
@@ -230,7 +231,7 @@ This is automatically included when <code class="xref py py-class docutils liter
 </div>
 <p>Reptar currently has a worker for <a class="reference external" href="https://psicode.org/psi4manual/master/index.html">Psi4</a>, <code class="xref py py-func docutils literal notranslate"><span class="pre">psi4_engrad()</span></code>, and <a class="reference external" href="https://xtb-docs.readthedocs.io/en/latest/contents.html">xTB</a>, <code class="xref py py-func docutils literal notranslate"><span class="pre">xtb_engrad()</span></code>.</p>
 <section id="psi4-example">
-<span id="psi4-engrad-example"></span><h3>Psi4 example<a class="headerlink" href="#psi4-example" title="Permalink to this headline">#</a></h3>
+<span id="psi4-engrad-example"></span><h3>Psi4 example<a class="headerlink" href="#psi4-example" title="Permalink to this heading">#</a></h3>
 <p>The following example demonstrates a parallelized workflow for computing MP2/cc-pVTZ energies and gradients for twenty (H<sub>2</sub>O)<sub>3</sub> structures.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">ray</span>
@@ -244,10 +245,10 @@ This is automatically included when <code class="xref py py-class docutils liter
 <span class="n">ray</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">num_cpus</span><span class="o">=</span><span class="n">n_cpus</span><span class="p">)</span>
 
 <span class="c1"># Get exdir data.</span>
-<span class="n">exdir_path</span> <span class="o">=</span> <span class="s1">'3h2o.exdir'</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">exdir_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'a'</span><span class="p">)</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'atomic_numbers'</span><span class="p">)</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'geometry'</span><span class="p">)</span>
+<span class="n">exdir_path</span> <span class="o">=</span> <span class="s1">&#39;3h2o.exdir&#39;</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">exdir_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;atomic_numbers&#39;</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;geometry&#39;</span><span class="p">)</span>
 
 <span class="c1"># Create energy and gradient arrays.</span>
 <span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -258,16 +259,16 @@ This is automatically included when <code class="xref py py-class docutils liter
 <span class="c1"># Specify Psi4 properties</span>
 <span class="n">charge</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">mult</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">psi4_method</span> <span class="o">=</span> <span class="s1">'mp2'</span>
+<span class="n">psi4_method</span> <span class="o">=</span> <span class="s1">&#39;mp2&#39;</span>
 <span class="n">psi4_options</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'basis'</span><span class="p">:</span> <span class="s1">'cc-pVTZ'</span><span class="p">,</span>
-    <span class="s1">'reference'</span><span class="p">:</span> <span class="s1">'rhf'</span><span class="p">,</span>
-    <span class="s1">'e_convergence'</span><span class="p">:</span> <span class="s1">'1e-10'</span><span class="p">,</span>
-    <span class="s1">'d_convergence'</span><span class="p">:</span> <span class="s1">'1e-10'</span><span class="p">,</span>
-    <span class="s1">'freeze_core'</span><span class="p">:</span> <span class="s1">'false'</span>
+    <span class="s1">&#39;basis&#39;</span><span class="p">:</span> <span class="s1">&#39;cc-pVTZ&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;reference&#39;</span><span class="p">:</span> <span class="s1">&#39;rhf&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;e_convergence&#39;</span><span class="p">:</span> <span class="s1">&#39;1e-10&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;d_convergence&#39;</span><span class="p">:</span> <span class="s1">&#39;1e-10&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;freeze_core&#39;</span><span class="p">:</span> <span class="s1">&#39;false&#39;</span>
 <span class="p">}</span>
 <span class="n">psi4_threads</span> <span class="o">=</span> <span class="n">n_cpus_worker</span>
-<span class="n">psi4_mem</span> <span class="o">=</span> <span class="s1">'2 GB'</span>
+<span class="n">psi4_mem</span> <span class="o">=</span> <span class="s1">&#39;2 GB&#39;</span>
 <span class="n">psi4_args</span> <span class="o">=</span> <span class="p">(</span><span class="n">charge</span><span class="p">,</span> <span class="n">mult</span><span class="p">,</span> <span class="n">psi4_method</span><span class="p">,</span> <span class="n">psi4_options</span><span class="p">,</span> <span class="n">psi4_threads</span><span class="p">,</span> <span class="n">psi4_mem</span><span class="p">)</span>
 
 <span class="c1"># Creating engrad driver.</span>
@@ -281,8 +282,8 @@ This is automatically included when <code class="xref py py-class docutils liter
 <span class="n">E</span><span class="p">,</span> <span class="n">G</span> <span class="o">=</span> <span class="n">engrads</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
 <span class="c1"># Add data to exdir file.</span>
-<span class="n">f</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'energy_ele_mp2.ccpvtz_psi4'</span><span class="p">,</span> <span class="n">E</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'grads_mp2.ccpvtz_psi4'</span><span class="p">,</span> <span class="n">G</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;energy_ele_mp2.ccpvtz_psi4&#39;</span><span class="p">,</span> <span class="n">E</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;grads_mp2.ccpvtz_psi4&#39;</span><span class="p">,</span> <span class="n">G</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -365,6 +366,7 @@ This is automatically included when <code class="xref py py-class docutils liter
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/furo.js"></script>
     </body>

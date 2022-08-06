@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="reptar.parsers package" href="reptar.parsers.html" /><link rel="prev" title="reptar.definitions package" href="reptar.definitions.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>reptar.extractors package - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -195,7 +195,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -210,16 +211,16 @@
         </div>
         <article role="main">
           <section id="reptar-extractors-package">
-<h1>reptar.extractors package<a class="headerlink" href="#reptar-extractors-package" title="Permalink to this headline">#</a></h1>
+<h1>reptar.extractors package<a class="headerlink" href="#reptar-extractors-package" title="Permalink to this heading">#</a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">#</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="module-reptar.extractors.extractor">
-<span id="reptar-extractors-extractor-module"></span><h2>reptar.extractors.extractor module<a class="headerlink" href="#module-reptar.extractors.extractor" title="Permalink to this headline">#</a></h2>
+<span id="reptar-extractors-extractor-module"></span><h2>reptar.extractors.extractor module<a class="headerlink" href="#module-reptar.extractors.extractor" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="reptar.extractors.extractor.extractor">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.extractors.extractor.</span></span><span class="sig-name descname"><span class="pre">extractor</span></span><a class="reference internal" href="../_modules/reptar/extractors/extractor.html#extractor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractor.extractor" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
 <p>Base class for extracting information from files.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="reptar.extractors.extractor.extractor.parsed_info">
@@ -239,30 +240,32 @@ electrons, generated structures, etc.</p>
 </dd>
 </dl>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractor.extractor.skip_lines">
 <span class="sig-name descname"><span class="pre">skip_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/extractor.html#extractor.skip_lines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractor.extractor.skip_lines" title="Permalink to this definition">#</a></dt>
 <dd><p>Skip a number of lines.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of lines to skip</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Line of file.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="reptar.extractors.extractor.extractor.triggers">
 <em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">triggers</span></span><a class="headerlink" href="#reptar.extractors.extractor.extractor.triggers" title="Permalink to this definition">#</a></dt>
@@ -270,26 +273,28 @@ electrons, generated structures, etc.</p>
 <p>The trigger is a lambda function that returns True or False depending
 on the criteria and the name of the extractor method.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
+
 </dd></dl>
+
 </section>
 <section id="module-reptar.extractors.orca_extractor">
-<span id="reptar-extractors-orca-extractor-module"></span><h2>reptar.extractors.orca_extractor module<a class="headerlink" href="#module-reptar.extractors.orca_extractor" title="Permalink to this headline">#</a></h2>
+<span id="reptar-extractors-orca-extractor-module"></span><h2>reptar.extractors.orca_extractor module<a class="headerlink" href="#module-reptar.extractors.orca_extractor" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="reptar.extractors.orca_extractor.extractorORCA">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.extractors.orca_extractor.</span></span><span class="sig-name descname"><span class="pre">extractorORCA</span></span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.orca_extractor.extractorORCA" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#reptar.extractors.extractor.extractor" title="reptar.extractors.extractor.extractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">reptar.extractors.extractor.extractor</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#reptar.extractors.extractor.extractor" title="reptar.extractors.extractor.extractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">extractor</span></code></a></p>
 <p>ORCA extractor</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.orca_extractor.extractorORCA.aux_basis">
 <span class="sig-name descname"><span class="pre">aux_basis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.aux_basis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.orca_extractor.extractorORCA.aux_basis" title="Permalink to this definition">#</a></dt>
 <dd><p>Information about auxiliary basis sets used in the calculation.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -303,12 +308,13 @@ Your calculation utilizes the auxiliary basis: def2/J
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.orca_extractor.extractorORCA.cc_method">
 <span class="sig-name descname"><span class="pre">cc_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.cc_method"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.orca_extractor.extractorORCA.cc_method" title="Permalink to this definition">#</a></dt>
 <dd><p>Coupled cluster method information.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -324,6 +330,7 @@ Single excitations                         ... ON
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.orca_extractor.extractorORCA.cc_properties">
 <span class="sig-name descname"><span class="pre">cc_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.cc_properties"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.orca_extractor.extractorORCA.cc_properties" title="Permalink to this definition">#</a></dt>
@@ -332,7 +339,7 @@ Single excitations                         ... ON
 trigger, and will terminate once the <code class="docutils literal notranslate"><span class="pre">'ORCA</span> <span class="pre">POPULATION</span> <span class="pre">ANALYSIS'</span></code>
 trigger is reached.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -357,6 +364,7 @@ trigger is reached.</p>
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.orca_extractor.extractorORCA.dipole">
 <span class="sig-name descname"><span class="pre">dipole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.dipole"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.orca_extractor.extractorORCA.dipole" title="Permalink to this definition">#</a></dt>
@@ -365,7 +373,7 @@ trigger is reached.</p>
 <code class="docutils literal notranslate"><span class="pre">'scf_dipole_moment'</span></code>, <code class="docutils literal notranslate"><span class="pre">'mp2_dipole_moment'</span></code>). For now, we just
 store it as <code class="docutils literal notranslate"><span class="pre">'dipole_moment'</span></code>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -380,13 +388,14 @@ DIPOLE MOMENT
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.orca_extractor.extractorORCA.enthalpic_corr">
 <span class="sig-name descname"><span class="pre">enthalpic_corr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.enthalpic_corr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.orca_extractor.extractorORCA.enthalpic_corr" title="Permalink to this definition">#</a></dt>
 <dd><p>Extract enthalpic corrections; the difference between H_298 and
 E_298.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -399,13 +408,14 @@ E_298.</p>
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.orca_extractor.extractorORCA.entropic_corr">
 <span class="sig-name descname"><span class="pre">entropic_corr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.entropic_corr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.orca_extractor.extractorORCA.entropic_corr" title="Permalink to this definition">#</a></dt>
 <dd><p>Extract translational, rotational, and vibrational entropic
 corrections to enthalpy for Gibbs free energy (i.e., T*S_298).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -418,13 +428,14 @@ corrections to enthalpy for Gibbs free energy (i.e., T*S_298).</p>
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.orca_extractor.extractorORCA.frequencies">
 <span class="sig-name descname"><span class="pre">frequencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.frequencies"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.orca_extractor.extractorORCA.frequencies" title="Permalink to this definition">#</a></dt>
 <dd><p>Extract vibrational frequencies, freq_vibs. Includes 0.00 frequencies.</p>
 <p>Based on <a class="reference external" href="https://github.com/MolSSI/QCSchema/pull/50#issuecomment-499155251">https://github.com/MolSSI/QCSchema/pull/50#issuecomment-499155251</a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -439,12 +450,13 @@ VIBRATIONAL FREQUENCIES
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.orca_extractor.extractorORCA.geo_conv">
 <span class="sig-name descname"><span class="pre">geo_conv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.geo_conv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.orca_extractor.extractorORCA.geo_conv" title="Permalink to this definition">#</a></dt>
 <dd><p>Extract geometric convergence values and tolerance.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -460,6 +472,7 @@ Item                value                   Tolerance       Converged
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.orca_extractor.extractorORCA.grid_info">
 <span class="sig-name descname"><span class="pre">grid_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.grid_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.orca_extractor.extractorORCA.grid_info" title="Permalink to this definition">#</a></dt>
@@ -474,7 +487,7 @@ always consistent with the final grid. Thus, we are going to directly
 parse the grid information from the output file instead of depending
 on the keywords.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -490,12 +503,8 @@ DFT GRID GENERATION
 </div>
 <p>Here are the main parameters specifying the ORCA default grid levels.
 Default SCF grid is 2.</p>
-<div class="table-wrapper"><table class="docutils align-default">
-<colgroup>
-<col style="width: 24%"/>
-<col style="width: 45%"/>
-<col style="width: 30%"/>
-</colgroup>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Grid</p></th>
 <th class="head"><p>AngularGrid</p></th>
@@ -526,14 +535,16 @@ Lebedev-770</p></td>
 5.67</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.orca_extractor.extractorORCA.implicit_solvent">
 <span class="sig-name descname"><span class="pre">implicit_solvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.implicit_solvent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.orca_extractor.extractorORCA.implicit_solvent" title="Permalink to this definition">#</a></dt>
 <dd><p>Implicit solvent properties.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -548,12 +559,13 @@ CPCM SOLVATION MODEL
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.orca_extractor.extractorORCA.loewdin_charges">
 <span class="sig-name descname"><span class="pre">loewdin_charges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.loewdin_charges"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.orca_extractor.extractorORCA.loewdin_charges" title="Permalink to this definition">#</a></dt>
 <dd><p>Loewdin atomic charges in same order as atomic coordinates.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -568,17 +580,18 @@ LOEWDIN ATOMIC CHARGES
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.orca_extractor.extractorORCA.mp_properties">
 <span class="sig-name descname"><span class="pre">mp_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.mp_properties"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.orca_extractor.extractorORCA.mp_properties" title="Permalink to this definition">#</a></dt>
 <dd><p>Moller-Plesset calculation properties.</p>
-<p>This is called directly after the <code class="docutils literal notranslate"><span class="pre">'ORCA</span>  <span class="pre">MP2</span> <span class="pre">'</span></code> trigger, and
+<p>This is called directly after the <code class="docutils literal notranslate"><span class="pre">'ORCA</span>&#160; <span class="pre">MP2</span> <span class="pre">'</span></code> trigger, and
 will terminate once the <code class="docutils literal notranslate"><span class="pre">'ORCA</span> <span class="pre">property</span> <span class="pre">calculations'</span></code> trigger is reached.</p>
 <p>Instead of returning the energies themselves, we handle the creation and
 modification of <code class="docutils literal notranslate"><span class="pre">mp_info</span></code> here so any missing information is not an
 issue.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -597,12 +610,13 @@ Deviation
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.orca_extractor.extractorORCA.mulliken_charges">
 <span class="sig-name descname"><span class="pre">mulliken_charges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.mulliken_charges"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.orca_extractor.extractorORCA.mulliken_charges" title="Permalink to this definition">#</a></dt>
 <dd><p>Mulliken atomic charges in same order as atomic coordinates.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -617,13 +631,14 @@ MULLIKEN ATOMIC CHARGES
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.orca_extractor.extractorORCA.normal_modes">
 <span class="sig-name descname"><span class="pre">normal_modes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.normal_modes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.orca_extractor.extractorORCA.normal_modes" title="Permalink to this definition">#</a></dt>
 <dd><p>Extract normalized, mass-weighted normal modes, q.</p>
 <p>Based on <a class="reference external" href="https://github.com/MolSSI/QCSchema/pull/50#issuecomment-499155251">https://github.com/MolSSI/QCSchema/pull/50#issuecomment-499155251</a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -638,6 +653,7 @@ NORMAL MODES
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.orca_extractor.extractorORCA.scf_energies">
 <span class="sig-name descname"><span class="pre">scf_energies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.scf_energies"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.orca_extractor.extractorORCA.scf_energies" title="Permalink to this definition">#</a></dt>
@@ -649,7 +665,7 @@ will terminate once the <code class="docutils literal notranslate"><span class="
 modification of <code class="docutils literal notranslate"><span class="pre">scf_info</span></code> here so any missing information (such as
 <code class="docutils literal notranslate"><span class="pre">'energy_scf_xc'</span></code> in MP2 calculations) is not an issue.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -664,19 +680,20 @@ TOTAL SCF ENERGY
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.orca_extractor.extractorORCA.scf_info">
 <span class="sig-name descname"><span class="pre">scf_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.scf_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.orca_extractor.extractorORCA.scf_info" title="Permalink to this definition">#</a></dt>
 <dd><p>Other scf information.</p>
 <p>This will be placed under the <code class="docutils literal notranslate"><span class="pre">'keyword'</span></code> JSON property.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><p>Available SCF information that could contain the following keys.</p>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">'approx_rij'</span></code></dt><dd><p>The resolution of identity (RI) approximation for the Coulomb
@@ -688,7 +705,7 @@ term (COSX).</p>
 </dl>
 </p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a></p>
 </dd>
 </dl>
@@ -700,13 +717,14 @@ SCF SETTINGS
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.orca_extractor.extractorORCA.thermal_corrections">
 <span class="sig-name descname"><span class="pre">thermal_corrections</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.thermal_corrections"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.orca_extractor.extractorORCA.thermal_corrections" title="Permalink to this definition">#</a></dt>
 <dd><p>Extracts thermal vibrational, rotational, and translational
 corrections.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -719,12 +737,13 @@ corrections.</p>
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.orca_extractor.extractorORCA.thermo_temp">
 <span class="sig-name descname"><span class="pre">thermo_temp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.thermo_temp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.orca_extractor.extractorORCA.thermo_temp" title="Permalink to this definition">#</a></dt>
 <dd><p>Extracts temperature used for thermochemistry.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -737,6 +756,7 @@ corrections.</p>
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="reptar.extractors.orca_extractor.extractorORCA.triggers">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">triggers</span></span><a class="headerlink" href="#reptar.extractors.orca_extractor.extractorORCA.triggers" title="Permalink to this definition">#</a></dt>
@@ -744,17 +764,18 @@ corrections.</p>
 <p>The trigger is a lambda function that returns True or False depending
 on the criteria and the name of the extractor method.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.orca_extractor.extractorORCA.uhf_spin_contamination">
 <span class="sig-name descname"><span class="pre">uhf_spin_contamination</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.uhf_spin_contamination"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.orca_extractor.extractorORCA.uhf_spin_contamination" title="Permalink to this definition">#</a></dt>
 <dd><p>Spin contamination from unrestricted Hartree-Fock calculations.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -773,12 +794,13 @@ Deviation                       :     0.000016
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.orca_extractor.extractorORCA.zpve">
 <span class="sig-name descname"><span class="pre">zpve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.zpve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.orca_extractor.extractorORCA.zpve" title="Permalink to this definition">#</a></dt>
 <dd><p>Extract zero-point vibrational energy correction.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -791,21 +813,23 @@ Deviation                       :     0.000016
 </pre></div>
 </div>
 </dd></dl>
+
 </dd></dl>
+
 </section>
 <section id="module-reptar.extractors.xtb_extractor">
-<span id="reptar-extractors-xtb-extractor-module"></span><h2>reptar.extractors.xtb_extractor module<a class="headerlink" href="#module-reptar.extractors.xtb_extractor" title="Permalink to this headline">#</a></h2>
+<span id="reptar-extractors-xtb-extractor-module"></span><h2>reptar.extractors.xtb_extractor module<a class="headerlink" href="#module-reptar.extractors.xtb_extractor" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="reptar.extractors.xtb_extractor.extractorXTB">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.extractors.xtb_extractor.</span></span><span class="sig-name descname"><span class="pre">extractorXTB</span></span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.xtb_extractor.extractorXTB" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#reptar.extractors.extractor.extractor" title="reptar.extractors.extractor.extractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">reptar.extractors.extractor.extractor</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#reptar.extractors.extractor.extractor" title="reptar.extractors.extractor.extractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">extractor</span></code></a></p>
 <p>xTB extractor</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.xtb_extractor.extractorXTB.charge">
 <span class="sig-name descname"><span class="pre">charge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.charge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.xtb_extractor.extractorXTB.charge" title="Permalink to this definition">#</a></dt>
 <dd><p>Overall system charge.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -818,12 +842,13 @@ Deviation                       :     0.000016
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.xtb_extractor.extractorXTB.gfn_setup">
 <span class="sig-name descname"><span class="pre">gfn_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.gfn_setup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.xtb_extractor.extractorXTB.gfn_setup" title="Permalink to this definition">#</a></dt>
 <dd><p>GFN calculation setup.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -838,12 +863,13 @@ Deviation                       :     0.000016
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.xtb_extractor.extractorXTB.md_avg_props">
 <span class="sig-name descname"><span class="pre">md_avg_props</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.md_avg_props"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.xtb_extractor.extractorXTB.md_avg_props" title="Permalink to this definition">#</a></dt>
 <dd><p>Average MD properties.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -861,12 +887,13 @@ T                  :   522.456878068899
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.xtb_extractor.extractorXTB.md_setup">
 <span class="sig-name descname"><span class="pre">md_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.md_setup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.xtb_extractor.extractorXTB.md_setup" title="Permalink to this definition">#</a></dt>
 <dd><p>Extracts MD</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -888,12 +915,13 @@ max steps          :  5000
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.xtb_extractor.extractorXTB.multiplicity">
 <span class="sig-name descname"><span class="pre">multiplicity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.multiplicity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.xtb_extractor.extractorXTB.multiplicity" title="Permalink to this definition">#</a></dt>
 <dd><p>Overall system multiplicity.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -906,12 +934,13 @@ max steps          :  5000
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.xtb_extractor.extractorXTB.n_electrons">
 <span class="sig-name descname"><span class="pre">n_electrons</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.n_electrons"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.xtb_extractor.extractorXTB.n_electrons" title="Permalink to this definition">#</a></dt>
 <dd><p>Total number of electrons.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -924,12 +953,13 @@ max steps          :  5000
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.xtb_extractor.extractorXTB.opt_data">
 <span class="sig-name descname"><span class="pre">opt_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.opt_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.xtb_extractor.extractorXTB.opt_data" title="Permalink to this definition">#</a></dt>
 <dd><p>All information during optimization routine. Incldues setup, energy.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -953,12 +983,13 @@ max steps          :  5000
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.xtb_extractor.extractorXTB.run_type">
 <span class="sig-name descname"><span class="pre">run_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.run_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.xtb_extractor.extractorXTB.run_type" title="Permalink to this definition">#</a></dt>
 <dd><p>Calculation type (e.g., opt, sp, grad).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -971,12 +1002,13 @@ max steps          :  5000
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.xtb_extractor.extractorXTB.success">
 <span class="sig-name descname"><span class="pre">success</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.success"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.xtb_extractor.extractorXTB.success" title="Permalink to this definition">#</a></dt>
 <dd><p>If the calculation is successful.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -989,12 +1021,13 @@ max steps          :  5000
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.xtb_extractor.extractorXTB.summary_energies">
 <span class="sig-name descname"><span class="pre">summary_energies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.summary_energies"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.xtb_extractor.extractorXTB.summary_energies" title="Permalink to this definition">#</a></dt>
 <dd><p>Extracts energies listed in SUMMARY box.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1022,12 +1055,13 @@ max steps          :  5000
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.xtb_extractor.extractorXTB.thermostat_prob">
 <span class="sig-name descname"><span class="pre">thermostat_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.thermostat_prob"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.xtb_extractor.extractorXTB.thermostat_prob" title="Permalink to this definition">#</a></dt>
 <dd><p>If there was an issue with the thermostat.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1040,6 +1074,7 @@ max steps          :  5000
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="reptar.extractors.xtb_extractor.extractorXTB.triggers">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">triggers</span></span><a class="headerlink" href="#reptar.extractors.xtb_extractor.extractorXTB.triggers" title="Permalink to this definition">#</a></dt>
@@ -1047,17 +1082,18 @@ max steps          :  5000
 <p>The trigger is a lambda function that returns True or False depending
 on the criteria and the name of the extractor method.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.xtb_extractor.extractorXTB.wall_pot">
 <span class="sig-name descname"><span class="pre">wall_pot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.wall_pot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.xtb_extractor.extractorXTB.wall_pot" title="Permalink to this definition">#</a></dt>
 <dd><p>Wall potentials.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1074,12 +1110,13 @@ on the criteria and the name of the extractor method.</p>
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.xtb_extractor.extractorXTB.xtb_version">
 <span class="sig-name descname"><span class="pre">xtb_version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.xtb_version"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.xtb_extractor.extractorXTB.xtb_version" title="Permalink to this definition">#</a></dt>
 <dd><p>Version of xtb.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1088,18 +1125,20 @@ on the criteria and the name of the extractor method.</p>
 </dl>
 <p class="rubric">Notes</p>
 <p>Example trigger text for this extractor.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>* xtb version 6.3.3 (5b13467) compiled by 'ehlert@majestix' on 2020-09-17
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>* xtb version 6.3.3 (5b13467) compiled by &#39;ehlert@majestix&#39; on 2020-09-17
 </pre></div>
 </div>
 </dd></dl>
+
 </dd></dl>
+
 </section>
 <section id="module-reptar.extractors">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-reptar.extractors" title="Permalink to this headline">#</a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-reptar.extractors" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="reptar.extractors.extractor">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.extractors.</span></span><span class="sig-name descname"><span class="pre">extractor</span></span><a class="reference internal" href="../_modules/reptar/extractors/extractor.html#extractor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractor" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
 <p>Base class for extracting information from files.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="reptar.extractors.extractor.parsed_info">
@@ -1119,30 +1158,32 @@ electrons, generated structures, etc.</p>
 </dd>
 </dl>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractor.skip_lines">
 <span class="sig-name descname"><span class="pre">skip_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/extractor.html#extractor.skip_lines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractor.skip_lines" title="Permalink to this definition">#</a></dt>
 <dd><p>Skip a number of lines.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of lines to skip</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Line of file.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="reptar.extractors.extractor.triggers">
 <em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">triggers</span></span><a class="headerlink" href="#reptar.extractors.extractor.triggers" title="Permalink to this definition">#</a></dt>
@@ -1150,23 +1191,25 @@ electrons, generated structures, etc.</p>
 <p>The trigger is a lambda function that returns True or False depending
 on the criteria and the name of the extractor method.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
+
 </dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.extractors.</span></span><span class="sig-name descname"><span class="pre">extractorORCA</span></span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#reptar.extractors.extractor.extractor" title="reptar.extractors.extractor.extractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">reptar.extractors.extractor.extractor</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#reptar.extractors.extractor.extractor" title="reptar.extractors.extractor.extractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">extractor</span></code></a></p>
 <p>ORCA extractor</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA.aux_basis">
 <span class="sig-name descname"><span class="pre">aux_basis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.aux_basis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA.aux_basis" title="Permalink to this definition">#</a></dt>
 <dd><p>Information about auxiliary basis sets used in the calculation.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1180,12 +1223,13 @@ Your calculation utilizes the auxiliary basis: def2/J
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA.cc_method">
 <span class="sig-name descname"><span class="pre">cc_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.cc_method"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA.cc_method" title="Permalink to this definition">#</a></dt>
 <dd><p>Coupled cluster method information.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1201,6 +1245,7 @@ Single excitations                         ... ON
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA.cc_properties">
 <span class="sig-name descname"><span class="pre">cc_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.cc_properties"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA.cc_properties" title="Permalink to this definition">#</a></dt>
@@ -1209,7 +1254,7 @@ Single excitations                         ... ON
 trigger, and will terminate once the <code class="docutils literal notranslate"><span class="pre">'ORCA</span> <span class="pre">POPULATION</span> <span class="pre">ANALYSIS'</span></code>
 trigger is reached.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1234,6 +1279,7 @@ trigger is reached.</p>
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA.dipole">
 <span class="sig-name descname"><span class="pre">dipole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.dipole"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA.dipole" title="Permalink to this definition">#</a></dt>
@@ -1242,7 +1288,7 @@ trigger is reached.</p>
 <code class="docutils literal notranslate"><span class="pre">'scf_dipole_moment'</span></code>, <code class="docutils literal notranslate"><span class="pre">'mp2_dipole_moment'</span></code>). For now, we just
 store it as <code class="docutils literal notranslate"><span class="pre">'dipole_moment'</span></code>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1257,13 +1303,14 @@ DIPOLE MOMENT
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA.enthalpic_corr">
 <span class="sig-name descname"><span class="pre">enthalpic_corr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.enthalpic_corr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA.enthalpic_corr" title="Permalink to this definition">#</a></dt>
 <dd><p>Extract enthalpic corrections; the difference between H_298 and
 E_298.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1276,13 +1323,14 @@ E_298.</p>
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA.entropic_corr">
 <span class="sig-name descname"><span class="pre">entropic_corr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.entropic_corr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA.entropic_corr" title="Permalink to this definition">#</a></dt>
 <dd><p>Extract translational, rotational, and vibrational entropic
 corrections to enthalpy for Gibbs free energy (i.e., T*S_298).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1295,13 +1343,14 @@ corrections to enthalpy for Gibbs free energy (i.e., T*S_298).</p>
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA.frequencies">
 <span class="sig-name descname"><span class="pre">frequencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.frequencies"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA.frequencies" title="Permalink to this definition">#</a></dt>
 <dd><p>Extract vibrational frequencies, freq_vibs. Includes 0.00 frequencies.</p>
 <p>Based on <a class="reference external" href="https://github.com/MolSSI/QCSchema/pull/50#issuecomment-499155251">https://github.com/MolSSI/QCSchema/pull/50#issuecomment-499155251</a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1316,12 +1365,13 @@ VIBRATIONAL FREQUENCIES
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA.geo_conv">
 <span class="sig-name descname"><span class="pre">geo_conv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.geo_conv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA.geo_conv" title="Permalink to this definition">#</a></dt>
 <dd><p>Extract geometric convergence values and tolerance.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1337,6 +1387,7 @@ Item                value                   Tolerance       Converged
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA.grid_info">
 <span class="sig-name descname"><span class="pre">grid_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.grid_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA.grid_info" title="Permalink to this definition">#</a></dt>
@@ -1351,7 +1402,7 @@ always consistent with the final grid. Thus, we are going to directly
 parse the grid information from the output file instead of depending
 on the keywords.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1367,12 +1418,8 @@ DFT GRID GENERATION
 </div>
 <p>Here are the main parameters specifying the ORCA default grid levels.
 Default SCF grid is 2.</p>
-<div class="table-wrapper"><table class="docutils align-default">
-<colgroup>
-<col style="width: 24%"/>
-<col style="width: 45%"/>
-<col style="width: 30%"/>
-</colgroup>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Grid</p></th>
 <th class="head"><p>AngularGrid</p></th>
@@ -1403,14 +1450,16 @@ Lebedev-770</p></td>
 5.67</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA.implicit_solvent">
 <span class="sig-name descname"><span class="pre">implicit_solvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.implicit_solvent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA.implicit_solvent" title="Permalink to this definition">#</a></dt>
 <dd><p>Implicit solvent properties.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1425,12 +1474,13 @@ CPCM SOLVATION MODEL
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA.loewdin_charges">
 <span class="sig-name descname"><span class="pre">loewdin_charges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.loewdin_charges"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA.loewdin_charges" title="Permalink to this definition">#</a></dt>
 <dd><p>Loewdin atomic charges in same order as atomic coordinates.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1445,17 +1495,18 @@ LOEWDIN ATOMIC CHARGES
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA.mp_properties">
 <span class="sig-name descname"><span class="pre">mp_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.mp_properties"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA.mp_properties" title="Permalink to this definition">#</a></dt>
 <dd><p>Moller-Plesset calculation properties.</p>
-<p>This is called directly after the <code class="docutils literal notranslate"><span class="pre">'ORCA</span>  <span class="pre">MP2</span> <span class="pre">'</span></code> trigger, and
+<p>This is called directly after the <code class="docutils literal notranslate"><span class="pre">'ORCA</span>&#160; <span class="pre">MP2</span> <span class="pre">'</span></code> trigger, and
 will terminate once the <code class="docutils literal notranslate"><span class="pre">'ORCA</span> <span class="pre">property</span> <span class="pre">calculations'</span></code> trigger is reached.</p>
 <p>Instead of returning the energies themselves, we handle the creation and
 modification of <code class="docutils literal notranslate"><span class="pre">mp_info</span></code> here so any missing information is not an
 issue.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1474,12 +1525,13 @@ Deviation
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA.mulliken_charges">
 <span class="sig-name descname"><span class="pre">mulliken_charges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.mulliken_charges"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA.mulliken_charges" title="Permalink to this definition">#</a></dt>
 <dd><p>Mulliken atomic charges in same order as atomic coordinates.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1494,13 +1546,14 @@ MULLIKEN ATOMIC CHARGES
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA.normal_modes">
 <span class="sig-name descname"><span class="pre">normal_modes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.normal_modes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA.normal_modes" title="Permalink to this definition">#</a></dt>
 <dd><p>Extract normalized, mass-weighted normal modes, q.</p>
 <p>Based on <a class="reference external" href="https://github.com/MolSSI/QCSchema/pull/50#issuecomment-499155251">https://github.com/MolSSI/QCSchema/pull/50#issuecomment-499155251</a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1515,6 +1568,7 @@ NORMAL MODES
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA.scf_energies">
 <span class="sig-name descname"><span class="pre">scf_energies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.scf_energies"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA.scf_energies" title="Permalink to this definition">#</a></dt>
@@ -1526,7 +1580,7 @@ will terminate once the <code class="docutils literal notranslate"><span class="
 modification of <code class="docutils literal notranslate"><span class="pre">scf_info</span></code> here so any missing information (such as
 <code class="docutils literal notranslate"><span class="pre">'energy_scf_xc'</span></code> in MP2 calculations) is not an issue.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1541,19 +1595,20 @@ TOTAL SCF ENERGY
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA.scf_info">
 <span class="sig-name descname"><span class="pre">scf_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.scf_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA.scf_info" title="Permalink to this definition">#</a></dt>
 <dd><p>Other scf information.</p>
 <p>This will be placed under the <code class="docutils literal notranslate"><span class="pre">'keyword'</span></code> JSON property.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><p>Available SCF information that could contain the following keys.</p>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">'approx_rij'</span></code></dt><dd><p>The resolution of identity (RI) approximation for the Coulomb
@@ -1565,7 +1620,7 @@ term (COSX).</p>
 </dl>
 </p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a></p>
 </dd>
 </dl>
@@ -1577,13 +1632,14 @@ SCF SETTINGS
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA.thermal_corrections">
 <span class="sig-name descname"><span class="pre">thermal_corrections</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.thermal_corrections"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA.thermal_corrections" title="Permalink to this definition">#</a></dt>
 <dd><p>Extracts thermal vibrational, rotational, and translational
 corrections.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1596,12 +1652,13 @@ corrections.</p>
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA.thermo_temp">
 <span class="sig-name descname"><span class="pre">thermo_temp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.thermo_temp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA.thermo_temp" title="Permalink to this definition">#</a></dt>
 <dd><p>Extracts temperature used for thermochemistry.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1614,6 +1671,7 @@ corrections.</p>
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA.triggers">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">triggers</span></span><a class="headerlink" href="#reptar.extractors.extractorORCA.triggers" title="Permalink to this definition">#</a></dt>
@@ -1621,17 +1679,18 @@ corrections.</p>
 <p>The trigger is a lambda function that returns True or False depending
 on the criteria and the name of the extractor method.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA.uhf_spin_contamination">
 <span class="sig-name descname"><span class="pre">uhf_spin_contamination</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.uhf_spin_contamination"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA.uhf_spin_contamination" title="Permalink to this definition">#</a></dt>
 <dd><p>Spin contamination from unrestricted Hartree-Fock calculations.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1650,12 +1709,13 @@ Deviation                       :     0.000016
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA.zpve">
 <span class="sig-name descname"><span class="pre">zpve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA.zpve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA.zpve" title="Permalink to this definition">#</a></dt>
 <dd><p>Extract zero-point vibrational energy correction.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1668,18 +1728,20 @@ Deviation                       :     0.000016
 </pre></div>
 </div>
 </dd></dl>
+
 </dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="reptar.extractors.extractorXTB">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.extractors.</span></span><span class="sig-name descname"><span class="pre">extractorXTB</span></span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorXTB" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#reptar.extractors.extractor.extractor" title="reptar.extractors.extractor.extractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">reptar.extractors.extractor.extractor</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#reptar.extractors.extractor.extractor" title="reptar.extractors.extractor.extractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">extractor</span></code></a></p>
 <p>xTB extractor</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorXTB.charge">
 <span class="sig-name descname"><span class="pre">charge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.charge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorXTB.charge" title="Permalink to this definition">#</a></dt>
 <dd><p>Overall system charge.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1692,12 +1754,13 @@ Deviation                       :     0.000016
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorXTB.gfn_setup">
 <span class="sig-name descname"><span class="pre">gfn_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.gfn_setup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorXTB.gfn_setup" title="Permalink to this definition">#</a></dt>
 <dd><p>GFN calculation setup.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1712,12 +1775,13 @@ Deviation                       :     0.000016
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorXTB.md_avg_props">
 <span class="sig-name descname"><span class="pre">md_avg_props</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.md_avg_props"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorXTB.md_avg_props" title="Permalink to this definition">#</a></dt>
 <dd><p>Average MD properties.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1735,12 +1799,13 @@ T                  :   522.456878068899
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorXTB.md_setup">
 <span class="sig-name descname"><span class="pre">md_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.md_setup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorXTB.md_setup" title="Permalink to this definition">#</a></dt>
 <dd><p>Extracts MD</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1762,12 +1827,13 @@ max steps          :  5000
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorXTB.multiplicity">
 <span class="sig-name descname"><span class="pre">multiplicity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.multiplicity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorXTB.multiplicity" title="Permalink to this definition">#</a></dt>
 <dd><p>Overall system multiplicity.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1780,12 +1846,13 @@ max steps          :  5000
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorXTB.n_electrons">
 <span class="sig-name descname"><span class="pre">n_electrons</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.n_electrons"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorXTB.n_electrons" title="Permalink to this definition">#</a></dt>
 <dd><p>Total number of electrons.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1798,12 +1865,13 @@ max steps          :  5000
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorXTB.opt_data">
 <span class="sig-name descname"><span class="pre">opt_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.opt_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorXTB.opt_data" title="Permalink to this definition">#</a></dt>
 <dd><p>All information during optimization routine. Incldues setup, energy.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1827,12 +1895,13 @@ max steps          :  5000
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorXTB.run_type">
 <span class="sig-name descname"><span class="pre">run_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.run_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorXTB.run_type" title="Permalink to this definition">#</a></dt>
 <dd><p>Calculation type (e.g., opt, sp, grad).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1845,12 +1914,13 @@ max steps          :  5000
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorXTB.success">
 <span class="sig-name descname"><span class="pre">success</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.success"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorXTB.success" title="Permalink to this definition">#</a></dt>
 <dd><p>If the calculation is successful.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1863,12 +1933,13 @@ max steps          :  5000
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorXTB.summary_energies">
 <span class="sig-name descname"><span class="pre">summary_energies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.summary_energies"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorXTB.summary_energies" title="Permalink to this definition">#</a></dt>
 <dd><p>Extracts energies listed in SUMMARY box.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1896,12 +1967,13 @@ max steps          :  5000
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorXTB.thermostat_prob">
 <span class="sig-name descname"><span class="pre">thermostat_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.thermostat_prob"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorXTB.thermostat_prob" title="Permalink to this definition">#</a></dt>
 <dd><p>If there was an issue with the thermostat.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1914,6 +1986,7 @@ max steps          :  5000
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="reptar.extractors.extractorXTB.triggers">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">triggers</span></span><a class="headerlink" href="#reptar.extractors.extractorXTB.triggers" title="Permalink to this definition">#</a></dt>
@@ -1921,17 +1994,18 @@ max steps          :  5000
 <p>The trigger is a lambda function that returns True or False depending
 on the criteria and the name of the extractor method.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorXTB.wall_pot">
 <span class="sig-name descname"><span class="pre">wall_pot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.wall_pot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorXTB.wall_pot" title="Permalink to this definition">#</a></dt>
 <dd><p>Wall potentials.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1948,12 +2022,13 @@ on the criteria and the name of the extractor method.</p>
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.extractors.extractorXTB.xtb_version">
 <span class="sig-name descname"><span class="pre">xtb_version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/xtb_extractor.html#extractorXTB.xtb_version"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorXTB.xtb_version" title="Permalink to this definition">#</a></dt>
 <dd><p>Version of xtb.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
 <li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
@@ -1962,11 +2037,13 @@ on the criteria and the name of the extractor method.</p>
 </dl>
 <p class="rubric">Notes</p>
 <p>Example trigger text for this extractor.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>* xtb version 6.3.3 (5b13467) compiled by 'ehlert@majestix' on 2020-09-17
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>* xtb version 6.3.3 (5b13467) compiled by &#39;ehlert@majestix&#39; on 2020-09-17
 </pre></div>
 </div>
 </dd></dl>
+
 </dd></dl>
+
 </section>
 </section>
 
@@ -2047,6 +2124,7 @@ on the criteria and the name of the extractor method.</p>
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     </body>

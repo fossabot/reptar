@@ -1,13 +1,13 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>reptar.reptar_file - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -194,7 +194,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -214,7 +215,7 @@
 <span class="c1"># Copyright (c) 2022, Alex M. Maldonado</span>
 <span class="c1"># </span>
 <span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
-<span class="c1"># of this software and associated documentation files (the "Software"), to deal</span>
+<span class="c1"># of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
 <span class="c1"># in the Software without restriction, including without limitation the rights</span>
 <span class="c1"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
 <span class="c1"># copies of the Software, and to permit persons to whom the Software is</span>
@@ -223,7 +224,7 @@
 <span class="c1"># The above copyright notice and this permission notice shall be included in all</span>
 <span class="c1"># copies or substantial portions of the Software.</span>
 <span class="c1"># </span>
-<span class="c1"># THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
 <span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
 <span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
 <span class="c1"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
@@ -238,27 +239,27 @@
 <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">combine_dicts</span><span class="p">,</span> <span class="n">get_md5</span>
 
 <div class="viewcode-block" id="File"><a class="viewcode-back" href="../../file.html#reptar.reptar_file.File">[docs]</a><span class="k">class</span> <span class="nc">File</span><span class="p">:</span>
-    <span class="sd">"""Create, store, and access data from a variety of formats.</span>
-<span class="sd">    """</span>
+    <span class="sd">&quot;&quot;&quot;Create, store, and access data from a variety of formats.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">allow_remove</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">allow_remove</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">plugins</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">from_dict</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        file_path : :obj:`str`</span>
 <span class="sd">            Path to a file supported by reptar. If it does not exist, then one will</span>
 <span class="sd">            be created if possible.</span>
-<span class="sd">        mode : :obj:`str`, default: ``'r'``</span>
+<span class="sd">        mode : :obj:`str`, default: ``&#39;r&#39;``</span>
 <span class="sd">            A file mode string that defines the read/write behavior.</span>
 <span class="sd">        allow_remove : :obj:`bool`, default: ``False``</span>
-<span class="sd">            Allow the removal of exdir groups in ``'w'`` operation.</span>
+<span class="sd">            Allow the removal of exdir groups in ``&#39;w&#39;`` operation.</span>
 <span class="sd">        plugins : :obj:`list`, default: ``None``</span>
 <span class="sd">            A list of instantiated exdir plugins.</span>
 <span class="sd">        from_dict : :obj:`dict`, default: ``None``</span>
 <span class="sd">            Load data from a dictionary.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">from_dict</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_from_path</span><span class="p">(</span>
                 <span class="n">file_path</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">allow_remove</span><span class="p">,</span> <span class="n">plugins</span>
@@ -271,34 +272,34 @@
     <span class="k">def</span> <span class="nf">_from_path</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">allow_remove</span><span class="p">,</span> <span class="n">plugins</span>
     <span class="p">):</span>
-        <span class="sd">"""Populates the File object from a file path.</span>
+        <span class="sd">&quot;&quot;&quot;Populates the File object from a file path.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        file_path : :obj:`str`</span>
 <span class="sd">            Path to a file supported by reptar. If it does not exist, then one will</span>
 <span class="sd">            be created if possible.</span>
-<span class="sd">        mode : :obj:`str`, default: ``'r'``</span>
+<span class="sd">        mode : :obj:`str`, default: ``&#39;r&#39;``</span>
 <span class="sd">            A file mode string that defines the read/write behavior.</span>
 <span class="sd">        allow_remove : :obj:`bool`, default: ``False``</span>
-<span class="sd">            Allow the removal of exdir groups in ``'w'`` operation.</span>
+<span class="sd">            Allow the removal of exdir groups in ``&#39;w&#39;`` operation.</span>
 <span class="sd">        plugins : :obj:`list`, default: ``None``</span>
 <span class="sd">            A list of instantiated exdir plugins.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">exists</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
         <span class="n">_</span><span class="p">,</span> <span class="n">f_ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">f_ext</span> <span class="o">==</span> <span class="s1">'.exdir'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">f_ext</span> <span class="o">==</span> <span class="s1">&#39;.exdir&#39;</span><span class="p">:</span>
             <span class="n">File_</span> <span class="o">=</span> <span class="n">exdir</span><span class="o">.</span><span class="n">File</span><span class="p">(</span>
                 <span class="n">file_path</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">allow_remove</span><span class="p">,</span> <span class="n">plugins</span>
             <span class="p">)</span>
-        <span class="k">elif</span> <span class="n">f_ext</span> <span class="o">==</span> <span class="s1">'.json'</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">f_ext</span> <span class="o">==</span> <span class="s1">&#39;.json&#39;</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">exists</span><span class="p">:</span>
-                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
                     <span class="n">File_</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">File_</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">elif</span> <span class="n">f_ext</span> <span class="o">==</span> <span class="s1">'.npz'</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">f_ext</span> <span class="o">==</span> <span class="s1">&#39;.npz&#39;</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">exists</span><span class="p">:</span>
                 <span class="n">File_</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
                 <span class="c1"># Since everything is stored in arrays, we clean up array data.</span>
@@ -309,7 +310,7 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">File_</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">f_ext</span><span class="si">}</span><span class="s1"> is not supported.'</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">f_ext</span><span class="si">}</span><span class="s1"> is not supported.&#39;</span><span class="p">)</span>
         
         <span class="bp">self</span><span class="o">.</span><span class="n">fpath</span> <span class="o">=</span> <span class="n">file_path</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">=</span> <span class="n">f_ext</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
@@ -319,7 +320,7 @@
     <span class="k">def</span> <span class="nf">_from_dict</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">group_dict</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">allow_remove</span><span class="p">,</span> <span class="n">plugins</span>
     <span class="p">):</span>
-        <span class="sd">"""Populates the File object from a dictionary.</span>
+        <span class="sd">&quot;&quot;&quot;Populates the File object from a dictionary.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -328,32 +329,32 @@
 <span class="sd">            will be created if possible.</span>
 <span class="sd">        group_dict : :obj:`dict`</span>
 <span class="sd">            Dictionary to populate the File object with.</span>
-<span class="sd">        mode : :obj:`str`, default: ``'r'``</span>
+<span class="sd">        mode : :obj:`str`, default: ``&#39;r&#39;``</span>
 <span class="sd">            A file mode string that defines the read/write behavior.</span>
 <span class="sd">        allow_remove : :obj:`bool`, default: ``False``</span>
-<span class="sd">            Allow the removal of exdir groups in ``'w'`` operation.</span>
+<span class="sd">            Allow the removal of exdir groups in ``&#39;w&#39;`` operation.</span>
 <span class="sd">        plugins : :obj:`list`, default: ``None``</span>
 <span class="sd">            A list of instantiated exdir plugins.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">_</span><span class="p">,</span> <span class="n">f_ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
         
-        <span class="k">if</span> <span class="n">f_ext</span> <span class="o">==</span> <span class="s1">'.exdir'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">f_ext</span> <span class="o">==</span> <span class="s1">&#39;.exdir&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">File_</span> <span class="o">=</span> <span class="n">exdir</span><span class="o">.</span><span class="n">File</span><span class="p">(</span>
                 <span class="n">file_path</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">allow_remove</span><span class="p">,</span> <span class="n">plugins</span>
             <span class="p">)</span>
-        <span class="k">elif</span> <span class="n">f_ext</span> <span class="o">==</span> <span class="s1">'.json'</span> <span class="ow">or</span> <span class="n">f_ext</span> <span class="o">==</span> <span class="s1">'.npz'</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">f_ext</span> <span class="o">==</span> <span class="s1">&#39;.json&#39;</span> <span class="ow">or</span> <span class="n">f_ext</span> <span class="o">==</span> <span class="s1">&#39;.npz&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">File_</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fpath</span> <span class="o">=</span> <span class="n">file_path</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">=</span> <span class="n">f_ext</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fmode</span> <span class="o">=</span> <span class="n">mode</span>
 
         <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_iter_dict</span><span class="p">(</span><span class="n">group_dict</span><span class="p">):</span>
-            <span class="n">key</span> <span class="o">=</span> <span class="s1">'/'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pair</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pair</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
             <span class="n">data</span> <span class="o">=</span> <span class="n">pair</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
     
 <div class="viewcode-block" id="File.clean_key"><a class="viewcode-back" href="../../doc/reptar.html#reptar.reptar_file.File.clean_key">[docs]</a>    <span class="k">def</span> <span class="nf">clean_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="sd">"""Clean key and remove any common mistakes.</span>
+        <span class="sd">&quot;&quot;&quot;Clean key and remove any common mistakes.</span>
 
 <span class="sd">        Currently this only corrects instances of ``//``.</span>
 <span class="sd">        </span>
@@ -366,13 +367,13 @@
 <span class="sd">        -------</span>
 <span class="sd">        :obj:`str`</span>
 <span class="sd">            Cleaned key.</span>
-<span class="sd">        """</span>
-        <span class="k">if</span> <span class="s1">'//'</span> <span class="ow">in</span> <span class="n">key</span><span class="p">:</span>
-            <span class="n">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'//'</span><span class="p">,</span> <span class="s1">'/'</span><span class="p">)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s1">&#39;//&#39;</span> <span class="ow">in</span> <span class="n">key</span><span class="p">:</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;//&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">key</span></div>
     
 <div class="viewcode-block" id="File.split_key"><a class="viewcode-back" href="../../doc/reptar.html#reptar.reptar_file.File.split_key">[docs]</a>    <span class="k">def</span> <span class="nf">split_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="sd">"""Split the key into a parent and data key.</span>
+        <span class="sd">&quot;&quot;&quot;Split the key into a parent and data key.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -385,16 +386,16 @@
 <span class="sd">            Parent key.</span>
 <span class="sd">        :obj:`str`</span>
 <span class="sd">            Data key.</span>
-<span class="sd">        """</span>
-        <span class="k">if</span> <span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">'/'</span><span class="p">:</span>
-            <span class="n">key</span> <span class="o">=</span> <span class="s1">'/'</span> <span class="o">+</span> <span class="n">key</span>
-        <span class="n">key_split</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">key_split</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">''</span><span class="p">:</span>
-            <span class="n">key_split</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'/'</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">key</span>
+        <span class="n">key_split</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">key_split</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">key_split</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span>
         <span class="k">return</span> <span class="n">key_split</span></div>
     
     <span class="k">def</span> <span class="nf">_get_from_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="sd">"""Get data from dictionary-like file (e.g., json, npz).</span>
+        <span class="sd">&quot;&quot;&quot;Get data from dictionary-like file (e.g., json, npz).</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -404,12 +405,12 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        Requested data from a dictionary source.</span>
-<span class="sd">        """</span>
-        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">'/'</span><span class="p">:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">File_</span>
         
-        <span class="n">keys</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">keys</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">''</span><span class="p">:</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">keys</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
             <span class="k">del</span> <span class="n">keys</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         
         <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">File_</span><span class="p">[</span><span class="n">keys</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
@@ -417,23 +418,25 @@
             <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
             <span class="n">data_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">data_array</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="s1">'O'</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">data_array</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="s1">&#39;O&#39;</span><span class="p">:</span>
                 <span class="n">data</span> <span class="o">=</span> <span class="n">data_array</span>
         <span class="k">return</span> <span class="n">data</span>
     
-    <span class="k">def</span> <span class="nf">_get_from_exdir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="sd">"""Get data from exdir file.</span>
+    <span class="k">def</span> <span class="nf">_get_from_exdir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">as_memmap</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get data from exdir file.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        key : :obj:`str`</span>
 <span class="sd">            Key of the desired data. Nested keys should be separated by ``/``.</span>
+<span class="sd">        as_memmap : :obj:`bool`, default: ``False``</span>
+<span class="sd">            Keep NumPy memmap instead of converting to arrays.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        Requested data from a exdir source.</span>
-<span class="sd">        """</span>
-        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">'/'</span><span class="p">:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">File_</span>
         
         <span class="n">key_parent</span><span class="p">,</span> <span class="n">key_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_key</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
@@ -441,7 +444,10 @@
         <span class="k">if</span> <span class="n">key_data</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">parent</span><span class="p">):</span>
             <span class="n">data</span> <span class="o">=</span> <span class="n">parent</span><span class="p">[</span><span class="n">key_data</span><span class="p">]</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">exdir</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
-                <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">data</span>
+                <span class="k">if</span> <span class="n">as_memmap</span><span class="p">:</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">data</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">key_data</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">parent</span><span class="o">.</span><span class="n">attrs</span><span class="p">):</span>
             <span class="n">data</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="n">key_data</span><span class="p">]</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">exdir</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">attribute</span><span class="o">.</span><span class="n">Attribute</span><span class="p">):</span>
@@ -450,7 +456,7 @@
         <span class="k">return</span> <span class="n">data</span>
     
 <div class="viewcode-block" id="File.get_keys"><a class="viewcode-back" href="../../file.html#reptar.reptar_file.File.get_keys">[docs]</a>    <span class="k">def</span> <span class="nf">get_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">):</span>
-        <span class="sd">"""A list of keys in a group.</span>
+        <span class="sd">&quot;&quot;&quot;A list of keys in a group.</span>
 
 <span class="sd">        Does not include keys of nested groups.</span>
 <span class="sd">        </span>
@@ -463,12 +469,12 @@
 <span class="sd">        -------</span>
 <span class="sd">        :obj:`list`</span>
 <span class="sd">            A list of all available keys not leading to another group.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">group_key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clean_key</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
         <span class="n">group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
 
         <span class="n">keys</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">'exdir'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;exdir&#39;</span><span class="p">:</span>
             <span class="n">keys</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span>
             <span class="n">keys</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
                 <span class="nb">list</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span>
@@ -476,47 +482,49 @@
                     <span class="nb">isinstance</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">exdir</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">Raw</span><span class="p">)</span>
                 <span class="p">))</span>
             <span class="p">)</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">'json'</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">'npz'</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;json&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;npz&#39;</span><span class="p">:</span>
             <span class="n">keys</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
         <span class="k">return</span> <span class="n">keys</span></div>
 
-<div class="viewcode-block" id="File.get"><a class="viewcode-back" href="../../file.html#reptar.reptar_file.File.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="sd">"""Retrieve data.</span>
+<div class="viewcode-block" id="File.get"><a class="viewcode-back" href="../../file.html#reptar.reptar_file.File.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">as_memmap</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve data.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        key : :obj:`str`</span>
 <span class="sd">            Key of the desired data. Nested keys should be separated by ``/``.</span>
+<span class="sd">        as_memmap : :obj:`bool`, default: ``False``</span>
+<span class="sd">            Keep NumPy memmap (from exdir files) instead of converting to arrays.</span>
 <span class="sd">        </span>
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        &gt;&gt;&gt; rfile.get('/prod_1/charge')</span>
+<span class="sd">        &gt;&gt;&gt; rfile.get(&#39;/prod_1/charge&#39;)</span>
 <span class="sd">        0</span>
-<span class="sd">        &gt;&gt;&gt; rfile.get('energy_scf')</span>
+<span class="sd">        &gt;&gt;&gt; rfile.get(&#39;energy_scf&#39;)</span>
 <span class="sd">        -12419.360138637763</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clean_key</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">'exdir'</span><span class="p">:</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_from_exdir</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">'json'</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">'npz'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;exdir&#39;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_from_exdir</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">as_memmap</span><span class="o">=</span><span class="n">as_memmap</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;json&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;npz&#39;</span><span class="p">:</span>
             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_from_dict</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">data</span></div>
     
     <span class="k">def</span> <span class="nf">_is_iter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="sd">"""If data is iterative (i.e., array, list, or tuple).</span>
+        <span class="sd">&quot;&quot;&quot;If data is iterative (i.e., array, list, or tuple).</span>
 <span class="sd">        </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        :obj:`bool`</span>
 <span class="sd">            If the data is iterative.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
             <span class="k">return</span> <span class="kc">True</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span>
     
 <div class="viewcode-block" id="File.simplify_iter_data"><a class="viewcode-back" href="../../doc/reptar.html#reptar.reptar_file.File.simplify_iter_data">[docs]</a>    <span class="k">def</span> <span class="nf">simplify_iter_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="sd">"""Simplify iterative data if possible.</span>
+        <span class="sd">&quot;&quot;&quot;Simplify iterative data if possible.</span>
 
 <span class="sd">        Attempts to simplify iterative objects by the type and/or number of</span>
 <span class="sd">        elements. For example, iterative data with only one element will return</span>
@@ -537,7 +545,7 @@
 <span class="sd">        -------</span>
 <span class="sd">        ``obj``</span>
 <span class="sd">            Simplified data (if possible).</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># If data is a list we check the types of data it contains.</span>
         <span class="c1"># If all of them are strings, we do not convert to array.</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
@@ -552,8 +560,8 @@
                 <span class="n">data_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
                 <span class="c1"># Sometimes we have a list of objects that cannot be easily</span>
                 <span class="c1"># converted to numpy data types. Numpy will use an object</span>
-                <span class="c1"># dtype, so we only convert to array if its not an 'O' dtype.</span>
-                <span class="k">if</span> <span class="n">data_array</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="s1">'O'</span><span class="p">:</span>
+                <span class="c1"># dtype, so we only convert to array if its not an &#39;O&#39; dtype.</span>
+                <span class="k">if</span> <span class="n">data_array</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="s1">&#39;O&#39;</span><span class="p">:</span>
                     <span class="n">data</span> <span class="o">=</span> <span class="n">data_array</span>
             <span class="c1"># At this point only data that contains all strings</span>
             <span class="c1"># should be left. We put these as attributes (i.e., </span>
@@ -569,7 +577,7 @@
         <span class="k">return</span> <span class="n">data</span></div>
     
     <span class="k">def</span> <span class="nf">_add_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="sd">"""Add data to dictionary-like file.</span>
+        <span class="sd">&quot;&quot;&quot;Add data to dictionary-like file.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -577,13 +585,13 @@
 <span class="sd">            Where to add the data. Can be a nested key.</span>
 <span class="sd">        data : various</span>
 <span class="sd">            Data to add to file.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-            <span class="k">if</span> <span class="s1">'U'</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="p">):</span>
+            <span class="k">if</span> <span class="s1">&#39;U&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="p">):</span>
                 <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
-        <span class="n">keys</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">keys</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">''</span><span class="p">:</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">keys</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
             <span class="k">del</span> <span class="n">keys</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         
         <span class="n">is_iter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_iter</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -597,7 +605,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">File_</span> <span class="o">=</span> <span class="n">combine_dicts</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">File_</span><span class="p">,</span> <span class="n">add_dic</span><span class="p">)</span>
     
     <span class="k">def</span> <span class="nf">_add_to_exdir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="sd">"""Add data to an exdir group.</span>
+        <span class="sd">&quot;&quot;&quot;Add data to an exdir group.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -605,19 +613,19 @@
 <span class="sd">            Where to add the data. Can be a nested key.</span>
 <span class="sd">        data : various</span>
 <span class="sd">            Data to add to exdir file.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">parent_key</span><span class="p">,</span> <span class="n">data_key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_key</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
         <span class="n">group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">parent_key</span><span class="p">)</span>
         <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">exdir</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">exdir_file</span><span class="o">.</span><span class="n">File</span><span class="p">)</span> \
             <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">exdir</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">Group</span><span class="p">)</span>
         
         <span class="c1"># Custom handling of parsed data to ensure logical behavior.</span>
-        <span class="k">if</span> <span class="n">data_key</span> <span class="o">==</span> <span class="s1">'dipole_moment'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">data_key</span> <span class="o">==</span> <span class="s1">&#39;dipole_moment&#39;</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
                 <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
             <span class="n">group</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="n">data_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
             <span class="k">return</span> <span class="kc">None</span>
-        <span class="k">elif</span> <span class="n">data_key</span> <span class="o">==</span> <span class="s1">'wall_potential'</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">data_key</span> <span class="o">==</span> <span class="s1">&#39;wall_potential&#39;</span><span class="p">:</span>
             <span class="n">group</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="n">data_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
             <span class="k">return</span> <span class="kc">None</span>
 
@@ -628,16 +636,16 @@
         <span class="k">if</span> <span class="n">is_iter</span><span class="p">:</span>
             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">simplify_iter_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-                <span class="n">store_as</span> <span class="o">=</span> <span class="s1">'dset'</span>
+                <span class="n">store_as</span> <span class="o">=</span> <span class="s1">&#39;dset&#39;</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">store_as</span> <span class="o">=</span> <span class="s1">'attr'</span>
+                <span class="n">store_as</span> <span class="o">=</span> <span class="s1">&#39;attr&#39;</span>
         <span class="c1"># Handles all non iterable data. </span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">store_as</span> <span class="o">=</span> <span class="s1">'attr'</span>
+            <span class="n">store_as</span> <span class="o">=</span> <span class="s1">&#39;attr&#39;</span>
         
-        <span class="k">if</span> <span class="n">store_as</span> <span class="o">==</span> <span class="s1">'attr'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">store_as</span> <span class="o">==</span> <span class="s1">&#39;attr&#39;</span><span class="p">:</span>
             <span class="n">group</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="n">data_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
-        <span class="k">elif</span> <span class="n">store_as</span> <span class="o">==</span> <span class="s1">'dset'</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">store_as</span> <span class="o">==</span> <span class="s1">&#39;dset&#39;</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">group</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="n">data_key</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
             <span class="k">except</span> <span class="ne">RuntimeError</span><span class="p">:</span>
@@ -647,7 +655,7 @@
                 <span class="n">group</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="n">data_key</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
 
 <div class="viewcode-block" id="File.add"><a class="viewcode-back" href="../../file.html#reptar.reptar_file.File.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="sd">"""Add data to file.</span>
+        <span class="sd">&quot;&quot;&quot;Add data to file.</span>
 
 <span class="sd">        Note that there is some data postprocessing using</span>
 <span class="sd">        :meth:`~reptar.reptar_file.File.simplify_iter_data`.</span>
@@ -659,15 +667,15 @@
 <span class="sd">            separated by ``/``.</span>
 <span class="sd">        data : ``obj``</span>
 <span class="sd">            Data to add to file.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clean_key</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">'exdir'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;exdir&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_add_to_exdir</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">'json'</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">'npz'</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;json&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;npz&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_add_to_dict</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span></div>
     
     <span class="k">def</span> <span class="nf">_iter_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dic</span><span class="p">):</span>
-        <span class="sd">"""Iterate over nested dictionary.</span>
+        <span class="sd">&quot;&quot;&quot;Iterate over nested dictionary.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -677,7 +685,7 @@
 <span class="sd">        Yields</span>
 <span class="sd">        ------</span>
 <span class="sd">        A :obj:`tuple` of keys where the last element is the value.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">dic</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
                 <span class="c1"># If value is dict then iterate over all its values</span>
@@ -688,22 +696,22 @@
                 <span class="k">yield</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
     
 <div class="viewcode-block" id="File.init_group"><a class="viewcode-back" href="../../file.html#reptar.reptar_file.File.init_group">[docs]</a>    <span class="k">def</span> <span class="nf">init_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="sd">"""Initialize an exdir group with the specified key.</span>
+        <span class="sd">&quot;&quot;&quot;Initialize an exdir group with the specified key.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        key : :obj:`str`</span>
 <span class="sd">            Key of the desired data (including parent). Nested keys should be</span>
 <span class="sd">            separated by ``/``.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">parent_key</span><span class="p">,</span> <span class="n">group_key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_key</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">'exdir'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;exdir&#39;</span><span class="p">:</span>
             <span class="n">parent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">parent_key</span><span class="p">)</span>
             <span class="n">group</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">create_group</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">group</span></div>
     
 <div class="viewcode-block" id="File.as_dict"><a class="viewcode-back" href="../../file.html#reptar.reptar_file.File.as_dict">[docs]</a>    <span class="k">def</span> <span class="nf">as_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">):</span>
-        <span class="sd">"""Get a group as a dictionary.</span>
+        <span class="sd">&quot;&quot;&quot;Get a group as a dictionary.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -714,53 +722,53 @@
 <span class="sd">        -------</span>
 <span class="sd">        :obj:`dict`</span>
 <span class="sd">            The desired group as a dictionary.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">'json'</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">'npz'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;json&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;npz&#39;</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">group</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">'exdir'</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;exdir&#39;</span><span class="p">:</span>
             <span class="n">group_dict</span> <span class="o">=</span> <span class="p">{}</span>
             <span class="n">data_keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_keys</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
-            <span class="n">get_keys</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">d_key</span><span class="si">}</span><span class="s1">'</span> <span class="k">for</span> <span class="n">d_key</span> <span class="ow">in</span> <span class="n">data_keys</span><span class="p">]</span>
+            <span class="n">get_keys</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">d_key</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">d_key</span> <span class="ow">in</span> <span class="n">data_keys</span><span class="p">]</span>
             <span class="k">for</span> <span class="n">d_key</span><span class="p">,</span><span class="n">g_key</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">data_keys</span><span class="p">,</span> <span class="n">get_keys</span><span class="p">):</span>
                 <span class="n">group_dict</span><span class="p">[</span><span class="n">d_key</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">g_key</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">group_dict</span></div>
     
 <div class="viewcode-block" id="File.update_md5"><a class="viewcode-back" href="../../doc/reptar.html#reptar.reptar_file.File.update_md5">[docs]</a>    <span class="k">def</span> <span class="nf">update_md5</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">):</span>
-        <span class="sd">"""Update all possible MD5 hashes of a specific group.</span>
+        <span class="sd">&quot;&quot;&quot;Update all possible MD5 hashes of a specific group.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        group_key : :obj:`str`</span>
 <span class="sd">            Desired group.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">md5</span> <span class="o">=</span> <span class="n">get_md5</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/md5'</span><span class="p">,</span> <span class="n">md5</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/md5&#39;</span><span class="p">,</span> <span class="n">md5</span><span class="p">)</span>
         
         <span class="k">try</span><span class="p">:</span>
             <span class="n">md5_arrays</span> <span class="o">=</span> <span class="n">get_md5</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">,</span> <span class="n">only_arrays</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/md5_arrays'</span><span class="p">,</span> <span class="n">md5_arrays</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/md5_arrays&#39;</span><span class="p">,</span> <span class="n">md5_arrays</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="k">pass</span>
 
         <span class="k">try</span><span class="p">:</span>
             <span class="n">md5_structures</span> <span class="o">=</span> <span class="n">get_md5</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">,</span> <span class="n">only_structures</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/md5_structures'</span><span class="p">,</span> <span class="n">md5_structures</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/md5_structures&#39;</span><span class="p">,</span> <span class="n">md5_structures</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="k">pass</span></div>
     
 <div class="viewcode-block" id="File.save"><a class="viewcode-back" href="../../file.html#reptar.reptar_file.File.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">json_prettify</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">"""Saves non-exdir files.</span>
+        <span class="sd">&quot;&quot;&quot;Saves non-exdir files.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        json_prettify : :obj:`bool`</span>
 <span class="sd">            Indents JSON objects if True. If false the JSON file is only one</span>
 <span class="sd">            line.</span>
-<span class="sd">        """</span>
-        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmode</span> <span class="o">==</span> <span class="s1">'w'</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmode</span> <span class="o">==</span> <span class="s1">&#39;w&#39;</span>
         <span class="kn">from</span> <span class="nn">cclib.io.cjsonwriter</span> <span class="kn">import</span> <span class="n">JSONIndentEncoder</span><span class="p">,</span> <span class="n">NumpyAwareJSONEncoder</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">'json'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;json&#39;</span><span class="p">:</span>
             <span class="n">json_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">File_</span>
 
             <span class="k">if</span> <span class="n">json_prettify</span><span class="p">:</span>
@@ -773,9 +781,9 @@
                     <span class="n">json_dict</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">NumpyAwareJSONEncoder</span><span class="p">,</span>
                     <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span>
                 <span class="p">)</span>
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fpath</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fpath</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
                 <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json_string</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">'npz'</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;npz&#39;</span><span class="p">:</span>
             <span class="n">npz_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">File_</span>
             <span class="n">np</span><span class="o">.</span><span class="n">savez_compressed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fpath</span><span class="p">,</span> <span class="o">**</span><span class="n">npz_dict</span><span class="p">)</span></div></div>
 </pre></div>
@@ -815,6 +823,7 @@
 </div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     </body>

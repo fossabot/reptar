@@ -1,13 +1,13 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>reptar.creator - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -194,7 +194,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -214,7 +215,7 @@
 <span class="c1"># Copyright (c) 2022, Alex M. Maldonado</span>
 <span class="c1"># </span>
 <span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
-<span class="c1"># of this software and associated documentation files (the "Software"), to deal</span>
+<span class="c1"># of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
 <span class="c1"># in the Software without restriction, including without limitation the rights</span>
 <span class="c1"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
 <span class="c1"># copies of the Software, and to permit persons to whom the Software is</span>
@@ -223,7 +224,7 @@
 <span class="c1"># The above copyright notice and this permission notice shall be included in all</span>
 <span class="c1"># copies or substantial portions of the Software.</span>
 <span class="c1"># </span>
-<span class="c1"># THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
 <span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
 <span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
 <span class="c1"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
@@ -240,14 +241,14 @@
 <span class="kn">import</span> <span class="nn">yaml</span>
 
 <span class="kn">from</span> <span class="nn">reptar</span> <span class="kn">import</span> <span class="n">_version</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="n">_version</span><span class="o">.</span><span class="n">get_versions</span><span class="p">()[</span><span class="s1">'version'</span><span class="p">]</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="n">_version</span><span class="o">.</span><span class="n">get_versions</span><span class="p">()[</span><span class="s1">&#39;version&#39;</span><span class="p">]</span>
 
 <span class="n">defs_reserved</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">'base'</span><span class="p">,</span> <span class="s1">'md'</span><span class="p">,</span> <span class="s1">'molprop'</span><span class="p">,</span> <span class="s1">'pes'</span><span class="p">,</span> <span class="s1">'qc'</span><span class="p">,</span> <span class="s1">'sampl'</span><span class="p">,</span> <span class="s1">'solv'</span><span class="p">,</span> <span class="s1">'xtb'</span>
+    <span class="s1">&#39;base&#39;</span><span class="p">,</span> <span class="s1">&#39;md&#39;</span><span class="p">,</span> <span class="s1">&#39;molprop&#39;</span><span class="p">,</span> <span class="s1">&#39;pes&#39;</span><span class="p">,</span> <span class="s1">&#39;qc&#39;</span><span class="p">,</span> <span class="s1">&#39;sampl&#39;</span><span class="p">,</span> <span class="s1">&#39;solv&#39;</span><span class="p">,</span> <span class="s1">&#39;xtb&#39;</span>
 <span class="p">]</span>
 
 <div class="viewcode-block" id="identify_parser"><a class="viewcode-back" href="../../doc/reptar.html#reptar.identify_parser">[docs]</a><span class="k">def</span> <span class="nf">identify_parser</span><span class="p">(</span><span class="n">out_path</span><span class="p">):</span>
-    <span class="sd">"""Identifies the correct parser depending on some trigger.</span>
+    <span class="sd">&quot;&quot;&quot;Identifies the correct parser depending on some trigger.</span>
 <span class="sd">    Only supported packaged should be included in `triggers`.</span>
 
 <span class="sd">    Parameters</span>
@@ -259,8 +260,8 @@
 <span class="sd">    -------</span>
 <span class="sd">    :obj:`reptar.creator`</span>
 <span class="sd">        One of the supported creator classes.</span>
-<span class="sd">    """</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">parser</span><span class="p">,</span> <span class="n">phrases</span><span class="p">,</span> <span class="n">do_break</span> <span class="ow">in</span> <span class="n">triggers</span><span class="p">:</span>
                 <span class="k">if</span> <span class="nb">all</span><span class="p">([</span><span class="n">line</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">phrases</span><span class="p">]):</span>
@@ -270,51 +271,51 @@
 
 <span class="c1"># Triggers to identify output files.</span>
 <span class="n">triggers</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="n">parserORCA</span><span class="p">,</span> <span class="p">[</span><span class="s2">"O   R   C   A"</span><span class="p">],</span> <span class="kc">True</span><span class="p">),</span>
-    <span class="p">(</span><span class="n">parserXTB</span><span class="p">,</span> <span class="p">[</span><span class="s2">"x T B"</span><span class="p">],</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">parserORCA</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;O   R   C   A&quot;</span><span class="p">],</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">parserXTB</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;x T B&quot;</span><span class="p">],</span> <span class="kc">True</span><span class="p">)</span>
 <span class="p">]</span>
 
 <div class="viewcode-block" id="creator"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator">[docs]</a><span class="k">class</span> <span class="nc">creator</span><span class="p">:</span>
-    <span class="sd">"""Create groups from computational chemistry data.</span>
-<span class="sd">    """</span>
+    <span class="sd">&quot;&quot;&quot;Create groups from computational chemistry data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rfile</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">"""</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        rfile : :obj:`reptar.File`, default: ``None``</span>
 <span class="sd">            An initialized reptar File.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">rfile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span> <span class="o">=</span> <span class="n">rfile</span>
     
 <div class="viewcode-block" id="creator.load"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">allow_remove</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">plugins</span><span class="o">=</span><span class="kc">None</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">allow_remove</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">plugins</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">):</span>
-        <span class="sd">"""Load a reptar file for creating/adding information.</span>
+        <span class="sd">&quot;&quot;&quot;Load a reptar file for creating/adding information.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        file_path : :obj:`str`</span>
 <span class="sd">            Path to a file supported by reptar. If it does not exist, then one</span>
 <span class="sd">            will be created if possible.</span>
-<span class="sd">        mode : :obj:`str`, default: ``'r'``</span>
+<span class="sd">        mode : :obj:`str`, default: ``&#39;r&#39;``</span>
 <span class="sd">            A file mode string that defines the read/write behavior.</span>
 <span class="sd">        allow_remove : :obj:`bool`, default: ``False``</span>
 <span class="sd">            Allow the removal of exdir groups in ``w`` operation.</span>
 <span class="sd">        plugins : :obj:`list`, default: ``None``</span>
 <span class="sd">            A list of instantiated exdir plugins.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span>
             <span class="n">file_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">allow_remove</span><span class="o">=</span><span class="n">allow_remove</span><span class="p">,</span> <span class="n">plugins</span><span class="o">=</span><span class="n">plugins</span>
         <span class="p">)</span></div>
     
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">rfile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">"""The reptar file to manage.</span>
+        <span class="sd">&quot;&quot;&quot;The reptar file to manage.</span>
 
 <span class="sd">        :obj:`reptar.File`</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rfile</span>
     
     <span class="nd">@rfile</span><span class="o">.</span><span class="n">setter</span>
@@ -328,7 +329,7 @@
 <div class="viewcode-block" id="creator.parse_output"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator.parse_output">[docs]</a>    <span class="k">def</span> <span class="nf">parse_output</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">out_path</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extractors</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">):</span>
-        <span class="sd">"""Parse output file using cclib and custom parser.</span>
+        <span class="sd">&quot;&quot;&quot;Parse output file using cclib and custom parser.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -341,7 +342,7 @@
 <span class="sd">            simulation, etc.</span>
 <span class="sd">        extractors : :obj:`list`, default: ``None``</span>
 <span class="sd">            Additional extractors for the parser to use.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Handle paths.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">out_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">out_path</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">geom_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -358,38 +359,38 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span></div>
     
     <span class="k">def</span> <span class="nf">_create_extras_xtb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">):</span>
-        <span class="sd">"""Extra actions for groups created from xtb calculations.</span>
+        <span class="sd">&quot;&quot;&quot;Extra actions for groups created from xtb calculations.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        group_key : :obj:`str`</span>
 <span class="sd">            Key to the desired new group (including parent).</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">out_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">out_path</span><span class="p">)</span>
         <span class="n">group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
         
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">'exdir'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;exdir&#39;</span><span class="p">:</span>
             <span class="c1"># Copy MD and xTB restart files if possible.</span>
-            <span class="n">md_restart_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/mdrestart'</span>
+            <span class="n">md_restart_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/mdrestart&#39;</span>
             <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">md_restart_path</span><span class="p">):</span>
-                <span class="n">raw</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">require_raw</span><span class="p">(</span><span class="s1">'restart_files'</span><span class="p">)</span>
+                <span class="n">raw</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">require_raw</span><span class="p">(</span><span class="s1">&#39;restart_files&#39;</span><span class="p">)</span>
                 <span class="n">raw_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">raw</span><span class="o">.</span><span class="n">root_directory</span><span class="p">,</span> <span class="n">raw</span><span class="o">.</span><span class="n">relative_path</span><span class="p">)</span>
                 <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span>
-                    <span class="n">md_restart_path</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">raw_path</span><span class="p">,</span> <span class="s1">'mdrestart'</span><span class="p">)</span>
+                    <span class="n">md_restart_path</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">raw_path</span><span class="p">,</span> <span class="s1">&#39;mdrestart&#39;</span><span class="p">)</span>
                 <span class="p">)</span>
-            <span class="n">xtb_restart_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/xtbrestart'</span>
+            <span class="n">xtb_restart_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/xtbrestart&#39;</span>
             <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">xtb_restart_path</span><span class="p">):</span>
-                <span class="n">raw</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">require_raw</span><span class="p">(</span><span class="s1">'restart_files'</span><span class="p">)</span>
+                <span class="n">raw</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">require_raw</span><span class="p">(</span><span class="s1">&#39;restart_files&#39;</span><span class="p">)</span>
                 <span class="n">raw_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">raw</span><span class="o">.</span><span class="n">root_directory</span><span class="p">,</span> <span class="n">raw</span><span class="o">.</span><span class="n">relative_path</span><span class="p">)</span>
                 <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span>
-                    <span class="n">xtb_restart_path</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">raw_path</span><span class="p">,</span> <span class="s1">'xtbrestart'</span><span class="p">)</span>
+                    <span class="n">xtb_restart_path</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">raw_path</span><span class="p">,</span> <span class="s1">&#39;xtbrestart&#39;</span><span class="p">)</span>
                 <span class="p">)</span>
     
 <div class="viewcode-block" id="creator.from_calc"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator.from_calc">[docs]</a>    <span class="k">def</span> <span class="nf">from_calc</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">,</span> <span class="n">out_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">extractors</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">):</span>
-        <span class="sd">"""Create a group from a supported calculation.</span>
+        <span class="sd">&quot;&quot;&quot;Create a group from a supported calculation.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -410,37 +411,37 @@
 <span class="sd">        If both ``geom_path`` and ``traj_path`` are provided, it is assumed that</span>
 <span class="sd">        ``geom_path`` provides an initial geometry not included in</span>
 <span class="sd">        ``traj_path``.</span>
-<span class="sd">        """</span>
-        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'rfile'</span><span class="p">)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;rfile&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parse_output</span><span class="p">(</span>
             <span class="n">out_path</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="n">geom_path</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="n">traj_path</span><span class="p">,</span>
             <span class="n">extractors</span><span class="o">=</span><span class="n">extractors</span>
         <span class="p">)</span>
         <span class="n">parsed_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span>
 
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">'exdir'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;exdir&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">init_group</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
         
         <span class="c1"># Loop through each category of data.</span>
         <span class="k">for</span> <span class="n">cat_key</span> <span class="ow">in</span> <span class="n">parsed_info</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="k">for</span> <span class="n">data_key</span> <span class="ow">in</span> <span class="n">parsed_info</span><span class="p">[</span><span class="n">cat_key</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
                 <span class="n">data</span> <span class="o">=</span> <span class="n">parsed_info</span><span class="p">[</span><span class="n">cat_key</span><span class="p">][</span><span class="n">data_key</span><span class="p">]</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">data_key</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">data_key</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
         
         <span class="c1"># MD5 stuff</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">update_md5</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
 
         <span class="c1"># Extra stuff to do depending on package.</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">package</span> <span class="o">==</span> <span class="s1">'xtb'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">package</span> <span class="o">==</span> <span class="s1">&#39;xtb&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_create_extras_xtb</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
         
         <span class="c1"># Adding version</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/reptar_version'</span><span class="p">,</span> <span class="n">__version__</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/reptar_version&#39;</span><span class="p">,</span> <span class="n">__version__</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span></div>
     
 <div class="viewcode-block" id="creator.ids"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator.ids">[docs]</a>    <span class="k">def</span> <span class="nf">ids</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">,</span> <span class="n">comp_ids</span><span class="p">):</span>
-        <span class="sd">"""Add ``entity_ids`` and ``comp_ids`` to a group.</span>
+        <span class="sd">&quot;&quot;&quot;Add ``entity_ids`` and ``comp_ids`` to a group.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -461,24 +462,24 @@
 <span class="sd">        -------</span>
 <span class="sd">        ``obj``</span>
 <span class="sd">            The reptar file group.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">comp_ids</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
             <span class="n">comp_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">comp_ids</span><span class="p">)</span>
         
-        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/entity_ids'</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/comp_ids'</span><span class="p">,</span> <span class="n">comp_ids</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/entity_ids&#39;</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/comp_ids&#39;</span><span class="p">,</span> <span class="n">comp_ids</span><span class="p">)</span>
 
         <span class="n">comp_ids_num</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="n">unique_comp_ids</span><span class="p">,</span> <span class="n">comp_ids_freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">comp_ids</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">comp_id</span><span class="p">,</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">unique_comp_ids</span><span class="p">,</span> <span class="n">comp_ids_freq</span><span class="p">):</span>
             <span class="n">comp_ids_num</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">comp_id</span><span class="p">)]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
         
-        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/comp_ids_num'</span><span class="p">,</span> <span class="n">comp_ids_num</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/comp_ids_num&#39;</span><span class="p">,</span> <span class="n">comp_ids_num</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span></div>
     
     <span class="c1"># TODO: Update ways we get data here.</span>
 <div class="viewcode-block" id="creator.definitions"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator.definitions">[docs]</a>    <span class="k">def</span> <span class="nf">definitions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">definitions</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">"""Add definitions of data to the file.</span>
+        <span class="sd">&quot;&quot;&quot;Add definitions of data to the file.</span>
 
 <span class="sd">        The base definitions are included by default. There should be no overlap</span>
 <span class="sd">        of any definitions. If there is, precedence is given in order of</span>
@@ -494,18 +495,18 @@
 <span class="sd">        -----</span>
 <span class="sd">        Reserved definition YAML files: ``base``, ``md``, ``molprop``, ``pes``,</span>
 <span class="sd">        ``qc``, ``sampl``, ``solv``, ``xtb``.</span>
-<span class="sd">        """</span>        
+<span class="sd">        &quot;&quot;&quot;</span>        
         <span class="n">defs</span> <span class="o">=</span> <span class="p">{}</span>
 
         <span class="k">if</span> <span class="n">definitions</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">definitions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'base'</span><span class="p">]</span>
+            <span class="n">definitions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">definitions</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'base'</span><span class="p">)</span>
+            <span class="n">definitions</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;base&#39;</span><span class="p">)</span>
         
         <span class="k">for</span> <span class="n">def_path</span> <span class="ow">in</span> <span class="n">definitions</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">def_path</span> <span class="ow">in</span> <span class="n">defs_reserved</span><span class="p">:</span>
                 <span class="n">stream</span> <span class="o">=</span> <span class="n">resource_stream</span><span class="p">(</span>
-                    <span class="s1">'reptar.definitions'</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">def_path</span><span class="si">}</span><span class="s1">.yaml'</span>
+                    <span class="s1">&#39;reptar.definitions&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">def_path</span><span class="si">}</span><span class="s1">.yaml&#39;</span>
                 <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">stream</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">def_path</span><span class="p">)</span>
@@ -521,7 +522,7 @@
                     <span class="k">else</span><span class="p">:</span>
                         <span class="k">pass</span>
         
-        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'definitions'</span><span class="p">,</span> <span class="n">defs</span><span class="p">)</span></div></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;definitions&#39;</span><span class="p">,</span> <span class="n">defs</span><span class="p">)</span></div></div>
 </pre></div>
         </article>
       </div>
@@ -559,6 +560,7 @@
 </div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     </body>

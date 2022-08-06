@@ -1,13 +1,13 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>reptar.mb - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -194,7 +194,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -214,7 +215,7 @@
 <span class="c1"># Copyright (c) 2022, Alex M. Maldonado</span>
 <span class="c1"># </span>
 <span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
-<span class="c1"># of this software and associated documentation files (the "Software"), to deal</span>
+<span class="c1"># of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
 <span class="c1"># in the Software without restriction, including without limitation the rights</span>
 <span class="c1"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
 <span class="c1"># copies of the Software, and to permit persons to whom the Software is</span>
@@ -223,7 +224,7 @@
 <span class="c1"># The above copyright notice and this permission notice shall be included in all</span>
 <span class="c1"># copies or substantial portions of the Software.</span>
 <span class="c1"># </span>
-<span class="c1"># THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
 <span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
 <span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
 <span class="c1"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
@@ -231,14 +232,14 @@
 <span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
 <span class="c1"># SOFTWARE.</span>
 
-<span class="sd">"""Many-body utilities."""</span>
+<span class="sd">&quot;&quot;&quot;Many-body utilities.&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">itertools</span>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <div class="viewcode-block" id="gen_r_entity_combs"><a class="viewcode-back" href="../../doc/reptar.html#reptar.mb.gen_r_entity_combs">[docs]</a><span class="k">def</span> <span class="nf">gen_r_entity_combs</span><span class="p">(</span><span class="n">r_prov_spec</span><span class="p">,</span> <span class="n">entity_ids_lower</span><span class="p">):</span>
-    <span class="sd">"""Generate ``entity_id`` combinations of a specific size for a single</span>
+    <span class="sd">&quot;&quot;&quot;Generate ``entity_id`` combinations of a specific size for a single</span>
 <span class="sd">    structure.</span>
 
 <span class="sd">    The ``r_prov_spec[2:]`` provides the ``entity_ids`` of a reference</span>
@@ -267,7 +268,7 @@
 <span class="sd">    -----</span>
 <span class="sd">    :obj:`tuple`</span>
 <span class="sd">        Entity combinations of a single structure.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">n_entities_lower</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">entity_ids_lower</span><span class="p">))</span>
     <span class="n">entity_combs</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span>
         <span class="n">r_prov_spec</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">n_entities_lower</span>
@@ -279,10 +280,10 @@
     <span class="n">r_shape</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">,</span> <span class="n">r_prov_specs</span><span class="p">,</span> <span class="n">r_idxs</span><span class="p">,</span> <span class="n">E_lower</span><span class="p">,</span> <span class="n">Deriv_lower</span><span class="p">,</span>
     <span class="n">entity_ids_lower</span><span class="p">,</span> <span class="n">r_prov_specs_lower</span>
 <span class="p">):</span>
-    <span class="sd">"""Work for computing many-body contributions.</span>
+    <span class="sd">&quot;&quot;&quot;Work for computing many-body contributions.</span>
 
 <span class="sd">    This does not take into account if many-body contributions are being </span>
-<span class="sd">    ``'added'`` or ``'removed'``. This just sums up all possible contributions.</span>
+<span class="sd">    ``&#39;added&#39;`` or ``&#39;removed&#39;``. This just sums up all possible contributions.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -326,7 +327,7 @@
 <span class="sd">    :obj:`numpy.ndarray`</span>
 <span class="sd">        Many-body derivative (i.e., gradients or forces depending on the sign)</span>
 <span class="sd">        contributions for the worker structure indices.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">r_idxs</span><span class="p">))</span>
     <span class="n">Deriv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">r_idxs</span><span class="p">),</span> <span class="o">*</span><span class="n">r_shape</span><span class="p">))</span>
     
@@ -385,7 +386,7 @@
     <span class="k">return</span> <span class="n">r_idxs</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">Deriv</span></div>
 
 <div class="viewcode-block" id="gen_r_idxs_worker"><a class="viewcode-back" href="../../doc/reptar.html#reptar.mb.gen_r_idxs_worker">[docs]</a><span class="k">def</span> <span class="nf">gen_r_idxs_worker</span><span class="p">(</span><span class="n">r_prov_specs</span><span class="p">,</span> <span class="n">r_prov_ids_lower</span><span class="p">,</span> <span class="n">n_workers</span><span class="p">):</span>
-    <span class="sd">"""Generates the assigned structures for each worker.</span>
+    <span class="sd">&quot;&quot;&quot;Generates the assigned structures for each worker.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -397,7 +398,7 @@
 <span class="sd">        Species an ID (:obj:`int`) to uniquely identifying labels for each</span>
 <span class="sd">        lower-order structure if it originated from another reptar file. Labels</span>
 <span class="sd">        should always be ``md5_structures``. For example,</span>
-<span class="sd">        ``{0: '6038e101da7fc0085978741832ebc7ad', 1: 'eeaf93dec698de3ecb55e9292bd9dfcb'}``.</span>
+<span class="sd">        ``{0: &#39;6038e101da7fc0085978741832ebc7ad&#39;, 1: &#39;eeaf93dec698de3ecb55e9292bd9dfcb&#39;}``.</span>
 <span class="sd">    n_workers : :obj:`int`</span>
 <span class="sd">        Number of parallel workers. Can range from ``1`` to the umber of CPUs</span>
 <span class="sd">        available.</span>
@@ -406,7 +407,7 @@
 <span class="sd">    ------</span>
 <span class="sd">    :obj:`numpy.ndarray`</span>
 <span class="sd">        Structure indices for the worker.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Select all structures that we can remove contributions based on</span>
     <span class="c1"># r_prov_ids in the lower contributions.</span>
     <span class="n">r_idxs</span> <span class="o">=</span> <span class="p">[]</span>
@@ -420,15 +421,20 @@
 
 <div class="viewcode-block" id="mb_contributions"><a class="viewcode-back" href="../../many-body-expansion.html#reptar.mb.mb_contributions">[docs]</a><span class="k">def</span> <span class="nf">mb_contributions</span><span class="p">(</span>
     <span class="n">E</span><span class="p">,</span> <span class="n">Deriv</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">,</span> <span class="n">r_prov_ids</span><span class="p">,</span> <span class="n">r_prov_specs</span><span class="p">,</span> <span class="n">E_lower</span><span class="p">,</span> <span class="n">Deriv_lower</span><span class="p">,</span>
-    <span class="n">entity_ids_lower</span><span class="p">,</span> <span class="n">r_prov_ids_lower</span><span class="p">,</span> <span class="n">r_prov_specs_lower</span><span class="p">,</span> <span class="n">operation</span><span class="o">=</span><span class="s1">'remove'</span><span class="p">,</span>
+    <span class="n">entity_ids_lower</span><span class="p">,</span> <span class="n">r_prov_ids_lower</span><span class="p">,</span> <span class="n">r_prov_specs_lower</span><span class="p">,</span> <span class="n">operation</span><span class="o">=</span><span class="s1">&#39;remove&#39;</span><span class="p">,</span>
     <span class="n">n_workers</span><span class="o">=</span><span class="mi">1</span>
 <span class="p">):</span>
-    <span class="sd">"""Adds or removes energy and derivative (i.e., gradients or forces)</span>
+    <span class="sd">&quot;&quot;&quot;Adds or removes energy and derivative (i.e., gradients or forces)</span>
 <span class="sd">    contributions from a reference.</span>
 
-<span class="sd">    We use the term "lower" to refer to the lower-order (i.e., smaller) systems.</span>
+<span class="sd">    We use the term &quot;lower&quot; to refer to the lower-order (i.e., smaller) systems.</span>
 <span class="sd">    These are the energy and derivative contributions to remove or add to a</span>
 <span class="sd">    reference.</span>
+
+<span class="sd">    Making :math:`n`-body predictions (i.e., ``operation = &#39;add&#39;``) will often</span>
+<span class="sd">    not have ``r_prov_ids`` or ``r_prov_specs``as all lower contributions are</span>
+<span class="sd">    derived exclusively from these structures. Use ``None`` for both of these</span>
+<span class="sd">    and this function will assume that all ``_lower`` properties apply.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -442,12 +448,12 @@
 <span class="sd">        which entities for reference structures. Entities can be a related</span>
 <span class="sd">        set of atoms, molecules, or functional group. For example, a water and</span>
 <span class="sd">        methanol molecule could be ``[0, 0, 0, 1, 1, 1, 1, 1, 1]``.</span>
-<span class="sd">    r_prov_ids : :obj:`dict` {:obj:`int`: :obj:`str`}</span>
+<span class="sd">    r_prov_ids : :obj:`dict` {:obj:`int`: :obj:`str`} or ``None``</span>
 <span class="sd">        Species an ID (:obj:`int`) to uniquely identifying labels for each</span>
 <span class="sd">        structure if it originated from another reptar file. Labels should</span>
 <span class="sd">        always be ``md5_structures``. For example,</span>
-<span class="sd">        ``{0: '6038e101da7fc0085978741832ebc7ad', 1: 'eeaf93dec698de3ecb55e9292bd9dfcb'}``.</span>
-<span class="sd">    r_prov_specs : :obj:`numpy.ndarray`, ndim: ``2``</span>
+<span class="sd">        ``{0: &#39;6038e101da7fc0085978741832ebc7ad&#39;, 1: &#39;eeaf93dec698de3ecb55e9292bd9dfcb&#39;}``.</span>
+<span class="sd">    r_prov_specs : :obj:`numpy.ndarray`, ndim: ``2`` or ``None``</span>
 <span class="sd">        Structure provenance IDs. This specifies the ``r_prov_id``, structure</span>
 <span class="sd">        index from the ``r_prov_id`` source, and ``entity_ids`` making up</span>
 <span class="sd">        the structure.</span>
@@ -465,13 +471,13 @@
 <span class="sd">        Species an ID (:obj:`int`) to uniquely identifying labels for each</span>
 <span class="sd">        lower-order structure if it originated from another reptar file. Labels</span>
 <span class="sd">        should always be ``md5_structures``. For example,</span>
-<span class="sd">        ``{0: '6038e101da7fc0085978741832ebc7ad', 1: 'eeaf93dec698de3ecb55e9292bd9dfcb'}``.</span>
+<span class="sd">        ``{0: &#39;6038e101da7fc0085978741832ebc7ad&#39;, 1: &#39;eeaf93dec698de3ecb55e9292bd9dfcb&#39;}``.</span>
 <span class="sd">    r_prov_specs_lower : :obj:`numpy.ndarray`, ndim: ``2``</span>
 <span class="sd">        Structure provenance IDs. This specifies the ``r_prov_id``, structure</span>
 <span class="sd">        index from the ``r_prov_id`` source, and ``entity_ids`` making up</span>
 <span class="sd">        lower-order structures.</span>
-<span class="sd">    operation : :obj:`str`, default: ``'remove'``</span>
-<span class="sd">        ``'add'`` or ``'remove'`` the contributions.</span>
+<span class="sd">    operation : :obj:`str`, default: ``&#39;remove&#39;``</span>
+<span class="sd">        ``&#39;add&#39;`` or ``&#39;remove&#39;`` the contributions.</span>
 <span class="sd">    n_workers : :obj:`int`, default: ``1``</span>
 <span class="sd">        Number of workers. Can range from ``1`` to the total number of CPUs</span>
 <span class="sd">        available. If larger than ``1``, ray tasks are spawned.</span>
@@ -482,13 +488,25 @@
 <span class="sd">        Energies with lower-order contributions added or removed.</span>
 <span class="sd">    :obj:`numpy.ndarray`</span>
 <span class="sd">        Derivatives with lower-order contributions added or removed.</span>
-<span class="sd">    """</span>
-    <span class="k">if</span> <span class="n">operation</span> <span class="o">!=</span> <span class="s1">'add'</span> <span class="ow">and</span> <span class="n">operation</span> <span class="o">!=</span> <span class="s1">'remove'</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">operation</span><span class="si">}</span><span class="s1"> is not "add" or "remove".'</span><span class="p">)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">operation</span> <span class="o">!=</span> <span class="s1">&#39;add&#39;</span> <span class="ow">and</span> <span class="n">operation</span> <span class="o">!=</span> <span class="s1">&#39;remove&#39;</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">operation</span><span class="si">}</span><span class="s1"> is not &quot;add&quot; or &quot;remove&quot;.&#39;</span><span class="p">)</span>
     
     <span class="c1"># Checks that the r_prov_md5 hashes match the same r_prov_id</span>
-    <span class="k">for</span> <span class="n">r_prov_id_lower</span><span class="p">,</span> <span class="n">r_prov_md5_lower</span> <span class="ow">in</span> <span class="n">r_prov_ids_lower</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="k">assert</span> <span class="n">r_prov_md5_lower</span> <span class="o">==</span> <span class="n">r_prov_ids</span><span class="p">[</span><span class="n">r_prov_id_lower</span><span class="p">]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">r_prov_ids</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">r_prov_ids</span> <span class="o">!=</span> <span class="p">{}):</span>
+        <span class="k">for</span> <span class="n">r_prov_id_lower</span><span class="p">,</span> <span class="n">r_prov_md5_lower</span> <span class="ow">in</span> <span class="n">r_prov_ids_lower</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">assert</span> <span class="n">r_prov_md5_lower</span> <span class="o">==</span> <span class="n">r_prov_ids</span><span class="p">[</span><span class="n">r_prov_id_lower</span><span class="p">]</span>
+    <span class="c1"># Assume that all lower models apply.</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">r_prov_specs</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">r_prov_specs</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">r_prov_specs_lower</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]))</span> <span class="o">==</span> <span class="mi">1</span>
+        <span class="n">n_r</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+        <span class="n">n_entities</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">entity_ids</span><span class="p">))</span>
+        <span class="n">r_prov_specs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n_r</span><span class="p">,</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">n_entities</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">r_prov_specs</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">r_prov_specs_lower</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">r_prov_specs</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_r</span><span class="p">)])</span>
+        <span class="k">for</span> <span class="n">entity_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_entities</span><span class="p">):</span>
+            <span class="n">r_prov_specs</span><span class="p">[:,</span><span class="n">entity_id</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">entity_id</span>
 
     <span class="n">r_shape</span> <span class="o">=</span> <span class="n">Deriv</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 
@@ -500,10 +518,10 @@
             <span class="n">r_shape</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">,</span> <span class="n">r_prov_specs</span><span class="p">,</span> <span class="n">r_idxs</span><span class="p">,</span> <span class="n">E_lower</span><span class="p">,</span> <span class="n">Deriv_lower</span><span class="p">,</span>
             <span class="n">entity_ids_lower</span><span class="p">,</span> <span class="n">r_prov_specs_lower</span>
         <span class="p">)</span>
-        <span class="k">if</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">'remove'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;remove&#39;</span><span class="p">:</span>
             <span class="n">E</span><span class="p">[</span><span class="n">r_idxs_worker</span><span class="p">]</span> <span class="o">-=</span> <span class="n">E_worker</span>
             <span class="n">Deriv</span><span class="p">[</span><span class="n">r_idxs_worker</span><span class="p">]</span> <span class="o">-=</span> <span class="n">Deriv_worker</span>
-        <span class="k">elif</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">'add'</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;add&#39;</span><span class="p">:</span>
             <span class="n">E</span><span class="p">[</span><span class="n">r_idxs_worker</span><span class="p">]</span> <span class="o">+=</span> <span class="n">E_worker</span>
             <span class="n">Deriv</span><span class="p">[</span><span class="n">r_idxs_worker</span><span class="p">]</span> <span class="o">+=</span> <span class="n">Deriv_worker</span>
     <span class="k">else</span><span class="p">:</span>
@@ -514,7 +532,7 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="n">ray</span><span class="o">.</span><span class="n">is_initialized</span><span class="p">():</span>
             <span class="c1"># Try to connect to already running ray service (from ray cli).</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="n">ray</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">address</span><span class="o">=</span><span class="s1">'auto'</span><span class="p">)</span>
+                <span class="n">ray</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">address</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
             <span class="k">except</span> <span class="ne">ConnectionError</span><span class="p">:</span>
                 <span class="n">ray</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">num_cpus</span><span class="o">=</span><span class="n">num_cpus</span><span class="p">)</span>
         
@@ -535,10 +553,10 @@
             <span class="n">done_id</span><span class="p">,</span> <span class="n">worker_list</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">worker_list</span><span class="p">)</span>
             
             <span class="n">r_idxs_worker</span><span class="p">,</span> <span class="n">E_worker</span><span class="p">,</span> <span class="n">Deriv_worker</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">done_id</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="k">if</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">'remove'</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;remove&#39;</span><span class="p">:</span>
                 <span class="n">E</span><span class="p">[</span><span class="n">r_idxs_worker</span><span class="p">]</span> <span class="o">-=</span> <span class="n">E_worker</span>
                 <span class="n">Deriv</span><span class="p">[</span><span class="n">r_idxs_worker</span><span class="p">]</span> <span class="o">-=</span> <span class="n">Deriv_worker</span>
-            <span class="k">elif</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">'add'</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;add&#39;</span><span class="p">:</span>
                 <span class="n">E</span><span class="p">[</span><span class="n">r_idxs_worker</span><span class="p">]</span> <span class="o">+=</span> <span class="n">E_worker</span>
                 <span class="n">Deriv</span><span class="p">[</span><span class="n">r_idxs_worker</span><span class="p">]</span> <span class="o">+=</span> <span class="n">Deriv_worker</span>
     
@@ -581,6 +599,7 @@
 </div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     </body>

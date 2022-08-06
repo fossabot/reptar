@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Sampling" href="sampling.html" /><link rel="prev" title="Parsers and Extractors" href="parsers-extractors.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>Writers - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -195,7 +195,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -210,25 +211,25 @@
         </div>
         <article role="main">
           <section id="writers">
-<h1>Writers<a class="headerlink" href="#writers" title="Permalink to this headline">#</a></h1>
+<h1>Writers<a class="headerlink" href="#writers" title="Permalink to this heading">#</a></h1>
 <p>Each package often defines their own framework to specify and use data.
 This makes transitioning to different packages challenging as one has to write scripts to convert their data into an acceptable format.
 An updating game is then played every time new data is needed: update the source then rerun your conversion scripts.
 Reptar provides these scripts for you along with comprehensive unit tests to ensure data is converted correctly.</p>
 <section id="ase">
-<h2>ASE<a class="headerlink" href="#ase" title="Permalink to this headline">#</a></h2>
+<h2>ASE<a class="headerlink" href="#ase" title="Permalink to this heading">#</a></h2>
 <p>The atomic simulation environment (ASE) provides <a class="reference external" href="https://wiki.fysik.dtu.dk/ase/tutorials/tut06_database/database.html">its own database format</a> for atomic data.
 You can use <a class="reference internal" href="doc/reptar.writers.html#reptar.writers.write_ase_db" title="reptar.writers.write_ase_db"><code class="xref py py-func docutils literal notranslate"><span class="pre">write_ase_db()</span></code></a> to write these databases as shown in the example below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">reptar</span> <span class="kn">import</span> <span class="n">File</span>
 <span class="kn">from</span> <span class="nn">reptar.writers</span> <span class="kn">import</span> <span class="n">write_ase_db</span>
 
-<span class="n">rfile_path</span> <span class="o">=</span> <span class="s1">'1h2o_120meoh_md.exdir'</span>
-<span class="n">db_path</span> <span class="o">=</span> <span class="s1">'1h2o_120meoh_md_ase.db'</span>
+<span class="n">rfile_path</span> <span class="o">=</span> <span class="s1">&#39;1h2o_120meoh_md.exdir&#39;</span>
+<span class="n">db_path</span> <span class="o">=</span> <span class="s1">&#39;1h2o_120meoh_md_ase.db&#39;</span>
 
-<span class="n">rfile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">rfile_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'r'</span><span class="p">)</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'prod_1/atomic_numbers'</span><span class="p">)</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'prod_1/geometry'</span><span class="p">)</span>  <span class="c1"># Angstroms</span>
-<span class="n">E</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'prod_1/energy_pot'</span><span class="p">)</span>  <span class="c1"># Hartree</span>
+<span class="n">rfile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">rfile_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;prod_1/atomic_numbers&#39;</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;prod_1/geometry&#39;</span><span class="p">)</span>  <span class="c1"># Angstroms</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;prod_1/energy_pot&#39;</span><span class="p">)</span>  <span class="c1"># Hartree</span>
 <span class="n">E</span> <span class="o">*=</span> <span class="mf">27.21138602</span>  <span class="c1"># eV</span>
 
 <span class="n">db</span> <span class="o">=</span> <span class="n">write_ase_db</span><span class="p">(</span><span class="n">db_path</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">energy</span><span class="o">=</span><span class="n">E</span><span class="p">)</span>
@@ -236,19 +237,19 @@ You can use <a class="reference internal" href="doc/reptar.writers.html#reptar.w
 </div>
 </section>
 <section id="gap">
-<h2>GAP<a class="headerlink" href="#gap" title="Permalink to this headline">#</a></h2>
+<h2>GAP<a class="headerlink" href="#gap" title="Permalink to this heading">#</a></h2>
 <p>The Gaussian approximation potentials (GAP) code requires data in a specific extended XYZ format.
 You can use <a class="reference internal" href="doc/reptar.writers.html#reptar.writers.write_xyz_gap" title="reptar.writers.write_xyz_gap"><code class="xref py py-func docutils literal notranslate"><span class="pre">write_xyz_gap()</span></code></a> to write these files as shown in the example below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">reptar</span> <span class="kn">import</span> <span class="n">File</span>
 <span class="kn">from</span> <span class="nn">reptar.writers</span> <span class="kn">import</span> <span class="n">write_xyz_gap</span>
 
-<span class="n">rfile_path</span> <span class="o">=</span> <span class="s1">'1h2o_120meoh_md.exdir'</span>
-<span class="n">xyz_path</span> <span class="o">=</span> <span class="s1">'1h2o_120meoh_md_gap.xyz'</span>
+<span class="n">rfile_path</span> <span class="o">=</span> <span class="s1">&#39;1h2o_120meoh_md.exdir&#39;</span>
+<span class="n">xyz_path</span> <span class="o">=</span> <span class="s1">&#39;1h2o_120meoh_md_gap.xyz&#39;</span>
 
-<span class="n">rfile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">rfile_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'r'</span><span class="p">)</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'prod_1/atomic_numbers'</span><span class="p">)</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'prod_1/geometry'</span><span class="p">)</span>
-<span class="n">E</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'prod_1/energy_pot'</span><span class="p">)</span>  <span class="c1"># Hartree</span>
+<span class="n">rfile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">rfile_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;prod_1/atomic_numbers&#39;</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;prod_1/geometry&#39;</span><span class="p">)</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;prod_1/energy_pot&#39;</span><span class="p">)</span>  <span class="c1"># Hartree</span>
 <span class="n">E</span> <span class="o">*=</span> <span class="mf">27.21138602</span>  <span class="c1"># eV</span>
 <span class="n">lattice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
     <span class="p">[[</span><span class="mf">200.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
@@ -261,16 +262,17 @@ You can use <a class="reference internal" href="doc/reptar.writers.html#reptar.w
 </div>
 </section>
 <section id="gdml">
-<h2>GDML<a class="headerlink" href="#gdml" title="Permalink to this headline">#</a></h2>
+<h2>GDML<a class="headerlink" href="#gdml" title="Permalink to this heading">#</a></h2>
 <p>The gradient-domain machine learning (GDML) packages (<a class="reference external" href="http://quantum-machine.org/gdml/">sGDML</a> and <a class="reference external" href="https://keithgroup.github.io/mbGDML/">mbGDML</a>) require datasets to be in a npz format.
 Since reptar innately supports npz files, you just need to use the <code class="docutils literal notranslate"><span class="pre">from_dict</span></code> option in <a class="reference internal" href="doc/reptar.html#reptar.File" title="reptar.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a>.
 An example script is shown below.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When retrieving data from reptar files it is important to explicitly open in them <code class="docutils literal notranslate"><span class="pre">r</span></code> mode (to avoid accidentally overwriting data).
-However, if unit conversions are needed from exdir files you must create an array copy: <code class="docutils literal notranslate"><span class="pre">np.array(rfile.get(key))</span></code>.
 Exdir uses <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.memmap.html">memory maps</a> to avoid automatically loading full arrays into memory.
-Creating an array allows you make any runtime changes (e.g., unit conversions).</p>
+You cannot make any changes to these data in <cite>r</cite> mode.
+Thus, we automatically convert all memmaps to arrays by default to avoid having to create array copies every time.
+You can request memmaps by using <code class="docutils literal notranslate"><span class="pre">rfile.get(key,</span> <span class="pre">as_memmap=True)</span></code>.</p>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">reptar</span> <span class="kn">import</span> <span class="n">File</span>
@@ -278,19 +280,19 @@ Creating an array allows you make any runtime changes (e.g., unit conversions).<
 <span class="n">hartree2kcalmol</span> <span class="o">=</span> <span class="mf">627.5094737775374055927342256</span>  <span class="c1"># Psi4 v1.5</span>
 
 <span class="c1"># Loading Exdir file.</span>
-<span class="n">exdir_path</span> <span class="o">=</span> <span class="s1">'140h2o-xtb.md-samples.exdir'</span>
-<span class="n">rfile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">exdir_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'r'</span><span class="p">)</span>
-<span class="n">group_key</span> <span class="o">=</span> <span class="s1">'3h2o'</span>
+<span class="n">exdir_path</span> <span class="o">=</span> <span class="s1">&#39;140h2o-xtb.md-samples.exdir&#39;</span>
+<span class="n">rfile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">exdir_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">group_key</span> <span class="o">=</span> <span class="s1">&#39;3h2o&#39;</span>
 
 <span class="c1"># Getting GDML-relevant data.</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/atomic_numbers'</span><span class="p">)</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/geometry'</span><span class="p">)</span>
-<span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/energy_ele_mp2.def2tzvp_orca'</span><span class="p">))</span>   <span class="c1"># Hartree</span>
-<span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/grads_mp2.def2tzvp_orca'</span><span class="p">))</span>  <span class="c1"># Hartree/A</span>
-<span class="n">entity_ids</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/entity_ids'</span><span class="p">)</span>
-<span class="n">comp_ids</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/comp_ids'</span><span class="p">)</span>
-<span class="n">r_prov_ids</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/r_prov_ids'</span><span class="p">)</span>
-<span class="n">r_prov_specs</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/r_prov_specs'</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/atomic_numbers&#39;</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/geometry&#39;</span><span class="p">)</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/energy_ele_mp2.def2tzvp_orca&#39;</span><span class="p">))</span>   <span class="c1"># Hartree</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/grads_mp2.def2tzvp_orca&#39;</span><span class="p">))</span>  <span class="c1"># Hartree/A</span>
+<span class="n">entity_ids</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/entity_ids&#39;</span><span class="p">)</span>
+<span class="n">comp_ids</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/comp_ids&#39;</span><span class="p">)</span>
+<span class="n">r_prov_ids</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/r_prov_ids&#39;</span><span class="p">)</span>
+<span class="n">r_prov_specs</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/r_prov_specs&#39;</span><span class="p">)</span>
 
 <span class="c1"># Unit conversions.</span>
 <span class="n">E</span> <span class="o">*=</span> <span class="n">hartree2kcalmol</span>  <span class="c1"># kcal/mol</span>
@@ -298,26 +300,26 @@ Creating an array allows you make any runtime changes (e.g., unit conversions).<
 <span class="n">F</span> <span class="o">=</span> <span class="o">-</span><span class="n">G</span>
 
 <span class="c1"># Manual data.</span>
-<span class="n">r_unit</span> <span class="o">=</span> <span class="s1">'Angstrom'</span>
-<span class="n">e_unit</span> <span class="o">=</span> <span class="s1">'kcal/mol'</span>
-<span class="n">theory</span> <span class="o">=</span> <span class="s1">'mp2/def2tzvp'</span>
+<span class="n">r_unit</span> <span class="o">=</span> <span class="s1">&#39;Angstrom&#39;</span>
+<span class="n">e_unit</span> <span class="o">=</span> <span class="s1">&#39;kcal/mol&#39;</span>
+<span class="n">theory</span> <span class="o">=</span> <span class="s1">&#39;mp2/def2tzvp&#39;</span>
 
 <span class="c1"># Specifying npz path and name.</span>
-<span class="n">npz_path</span> <span class="o">=</span> <span class="s1">'140h2o-3h2o.sampled-mp2.def2tzvp.npz'</span>
+<span class="n">npz_path</span> <span class="o">=</span> <span class="s1">&#39;140h2o-3h2o.sampled-mp2.def2tzvp.npz&#39;</span>
 <span class="n">npz_name</span> <span class="o">=</span> <span class="n">npz_path</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
 
 <span class="c1"># Creating the soon-to-be npz file as dictionary.</span>
 <span class="n">npz_dict</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'type'</span><span class="p">:</span> <span class="s1">'d'</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">:</span> <span class="n">npz_name</span><span class="p">,</span> <span class="s1">'z'</span><span class="p">:</span> <span class="n">Z</span><span class="p">,</span> <span class="s1">'R'</span><span class="p">:</span> <span class="n">R</span><span class="p">,</span> <span class="s1">'r_unit'</span><span class="p">:</span> <span class="n">r_unit</span><span class="p">,</span>
-    <span class="s1">'E'</span><span class="p">:</span> <span class="n">E</span><span class="p">,</span> <span class="s1">'e_unit'</span><span class="p">:</span> <span class="n">e_unit</span><span class="p">,</span> <span class="s1">'F'</span><span class="p">:</span> <span class="n">F</span><span class="p">,</span> <span class="s1">'entity_ids'</span><span class="p">:</span> <span class="n">entity_ids</span><span class="p">,</span>
-    <span class="s1">'comp_ids'</span><span class="p">:</span> <span class="n">comp_ids</span><span class="p">,</span> <span class="s1">'theory'</span><span class="p">:</span> <span class="n">theory</span><span class="p">,</span> <span class="s1">'r_prov_ids'</span><span class="p">:</span> <span class="n">r_prov_ids</span><span class="p">,</span>
-    <span class="s1">'r_prov_specs'</span><span class="p">:</span> <span class="n">r_prov_specs</span>
+    <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">npz_name</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="n">Z</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">:</span> <span class="n">R</span><span class="p">,</span> <span class="s1">&#39;r_unit&#39;</span><span class="p">:</span> <span class="n">r_unit</span><span class="p">,</span>
+    <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="n">E</span><span class="p">,</span> <span class="s1">&#39;e_unit&#39;</span><span class="p">:</span> <span class="n">e_unit</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">:</span> <span class="n">F</span><span class="p">,</span> <span class="s1">&#39;entity_ids&#39;</span><span class="p">:</span> <span class="n">entity_ids</span><span class="p">,</span>
+    <span class="s1">&#39;comp_ids&#39;</span><span class="p">:</span> <span class="n">comp_ids</span><span class="p">,</span> <span class="s1">&#39;theory&#39;</span><span class="p">:</span> <span class="n">theory</span><span class="p">,</span> <span class="s1">&#39;r_prov_ids&#39;</span><span class="p">:</span> <span class="n">r_prov_ids</span><span class="p">,</span>
+    <span class="s1">&#39;r_prov_specs&#39;</span><span class="p">:</span> <span class="n">r_prov_specs</span>
 <span class="p">}</span>
-<span class="k">for</span> <span class="n">label</span><span class="p">,</span><span class="n">arr</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">((</span><span class="s1">'E'</span><span class="p">,</span> <span class="s1">'F'</span><span class="p">),</span> <span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">F</span><span class="p">)):</span>
-    <span class="n">npz_dict</span><span class="p">[</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s1">_min'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
-    <span class="n">npz_dict</span><span class="p">[</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s1">_mean'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
-    <span class="n">npz_dict</span><span class="p">[</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s1">_var'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
-    <span class="n">npz_dict</span><span class="p">[</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s1">_max'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span><span class="n">arr</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">((</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">),</span> <span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">F</span><span class="p">)):</span>
+    <span class="n">npz_dict</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s1">_min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+    <span class="n">npz_dict</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s1">_mean&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+    <span class="n">npz_dict</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s1">_var&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+    <span class="n">npz_dict</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s1">_max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
 
 <span class="c1"># We explicitly turn everything into arrays (as specified by the npz format).</span>
 <span class="c1"># This is import to avoid having reptar make r_prov_ids into a nested group.</span>
@@ -325,46 +327,46 @@ Creating an array allows you make any runtime changes (e.g., unit conversions).<
     <span class="n">npz_dict</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 
 <span class="c1"># Save the npz file.</span>
-<span class="n">npz_file</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">npz_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'w'</span><span class="p">,</span> <span class="n">from_dict</span><span class="o">=</span><span class="n">npz_dict</span><span class="p">)</span>
+<span class="n">npz_file</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">npz_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">from_dict</span><span class="o">=</span><span class="n">npz_dict</span><span class="p">)</span>
 <span class="n">npz_file</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
 <section id="pdb">
-<h2>PDB<a class="headerlink" href="#pdb" title="Permalink to this headline">#</a></h2>
+<h2>PDB<a class="headerlink" href="#pdb" title="Permalink to this heading">#</a></h2>
 <p>Protein data bank (PDB) is a standardized file format for atomic coordinates with proteins in mind.
 You can use <a class="reference internal" href="doc/reptar.writers.html#reptar.writers.write_pdb" title="reptar.writers.write_pdb"><code class="xref py py-func docutils literal notranslate"><span class="pre">write_pdb()</span></code></a> to write these files as shown in the example below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">reptar</span> <span class="kn">import</span> <span class="n">File</span>
 <span class="kn">from</span> <span class="nn">reptar.writers</span> <span class="kn">import</span> <span class="n">write_pdb</span>
 
-<span class="n">rfile_path</span> <span class="o">=</span> <span class="s1">'1h2o_120meoh_md.exdir'</span>
-<span class="n">pdb_path</span> <span class="o">=</span> <span class="s1">'1h2o_120meoh_md.pdb'</span>
+<span class="n">rfile_path</span> <span class="o">=</span> <span class="s1">&#39;1h2o_120meoh_md.exdir&#39;</span>
+<span class="n">pdb_path</span> <span class="o">=</span> <span class="s1">&#39;1h2o_120meoh_md.pdb&#39;</span>
 
-<span class="n">rfile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">rfile_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'r'</span><span class="p">)</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'prod_1/atomic_numbers'</span><span class="p">)</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'prod_1/geometry'</span><span class="p">)</span>
-<span class="n">entity_ids</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'prod_1/entity_ids'</span><span class="p">)</span>
-<span class="n">comp_ids</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'prod_1/comp_ids'</span><span class="p">)</span>
+<span class="n">rfile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">rfile_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;prod_1/atomic_numbers&#39;</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;prod_1/geometry&#39;</span><span class="p">)</span>
+<span class="n">entity_ids</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;prod_1/entity_ids&#39;</span><span class="p">)</span>
+<span class="n">comp_ids</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;prod_1/comp_ids&#39;</span><span class="p">)</span>
 
 <span class="n">write_pdb</span><span class="p">(</span><span class="n">pdb_path</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">entity_ids</span><span class="p">,</span> <span class="n">comp_ids</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="schnetpack">
-<h2>Schnetpack<a class="headerlink" href="#schnetpack" title="Permalink to this headline">#</a></h2>
+<h2>Schnetpack<a class="headerlink" href="#schnetpack" title="Permalink to this heading">#</a></h2>
 <p>Schnetpack provides a framework for training and applying atomistic neural networks.
 They have their own “wrapper” around an ASE database with slightly different requirements.
 You can use <a class="reference internal" href="doc/reptar.writers.html#reptar.writers.write_schnetpack_db" title="reptar.writers.write_schnetpack_db"><code class="xref py py-func docutils literal notranslate"><span class="pre">write_schnetpack_db()</span></code></a> to write these databases as shown in the example below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">reptar</span> <span class="kn">import</span> <span class="n">File</span>
 <span class="kn">from</span> <span class="nn">reptar.writers</span> <span class="kn">import</span> <span class="n">write_schnetpack_db</span>
 
-<span class="n">rfile_path</span> <span class="o">=</span> <span class="s1">'1h2o_120meoh_md.exdir'</span>
-<span class="n">db_path</span> <span class="o">=</span> <span class="s1">'1h2o_120meoh_md_schnetpack.db'</span>
+<span class="n">rfile_path</span> <span class="o">=</span> <span class="s1">&#39;1h2o_120meoh_md.exdir&#39;</span>
+<span class="n">db_path</span> <span class="o">=</span> <span class="s1">&#39;1h2o_120meoh_md_schnetpack.db&#39;</span>
 
-<span class="n">rfile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">rfile_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'r'</span><span class="p">)</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'prod_1/atomic_numbers'</span><span class="p">)</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'prod_1/geometry'</span><span class="p">)</span>
-<span class="n">E</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'prod_1/energy_pot'</span><span class="p">)</span>  <span class="c1"># Hartree</span>
+<span class="n">rfile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">rfile_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;prod_1/atomic_numbers&#39;</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;prod_1/geometry&#39;</span><span class="p">)</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;prod_1/energy_pot&#39;</span><span class="p">)</span>  <span class="c1"># Hartree</span>
 <span class="n">E</span> <span class="o">*=</span> <span class="mf">27.21138602</span>  <span class="c1"># eV</span>
 
 <span class="n">db</span> <span class="o">=</span> <span class="n">write_schnetpack_db</span><span class="p">(</span><span class="n">db_path</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">energy</span><span class="o">=</span><span class="n">E</span><span class="p">,</span> <span class="n">centering_function</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
@@ -372,17 +374,17 @@ You can use <a class="reference internal" href="doc/reptar.writers.html#reptar.w
 </div>
 </section>
 <section id="xyz">
-<h2>XYZ<a class="headerlink" href="#xyz" title="Permalink to this headline">#</a></h2>
+<h2>XYZ<a class="headerlink" href="#xyz" title="Permalink to this heading">#</a></h2>
 <p>Standard XYZ files can be written with <a class="reference internal" href="doc/reptar.writers.html#reptar.writers.write_xyz" title="reptar.writers.write_xyz"><code class="xref py py-func docutils literal notranslate"><span class="pre">write_xyz()</span></code></a> as shown in the example below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">reptar</span> <span class="kn">import</span> <span class="n">File</span>
 <span class="kn">from</span> <span class="nn">reptar.writers</span> <span class="kn">import</span> <span class="n">write_xyz</span>
 
-<span class="n">rfile_path</span> <span class="o">=</span> <span class="s1">'1h2o_120meoh_md.exdir'</span>
-<span class="n">xyz_path</span> <span class="o">=</span> <span class="s1">'1h2o_120meoh_md.xyz'</span>
+<span class="n">rfile_path</span> <span class="o">=</span> <span class="s1">&#39;1h2o_120meoh_md.exdir&#39;</span>
+<span class="n">xyz_path</span> <span class="o">=</span> <span class="s1">&#39;1h2o_120meoh_md.xyz&#39;</span>
 
-<span class="n">rfile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">rfile_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'r'</span><span class="p">)</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'prod_1/atomic_numbers'</span><span class="p">)</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'prod_1/geometry'</span><span class="p">)</span>
+<span class="n">rfile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">rfile_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;prod_1/atomic_numbers&#39;</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">rfile</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;prod_1/geometry&#39;</span><span class="p">)</span>
 
 <span class="n">write_xyz</span><span class="p">(</span><span class="n">xyz_path</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
 </pre></div>
@@ -468,6 +470,7 @@ You can use <a class="reference internal" href="doc/reptar.writers.html#reptar.w
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/furo.js"></script>
     </body>
