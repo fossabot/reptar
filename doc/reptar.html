@@ -218,8 +218,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="reptar.calculators.html">reptar.calculators package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="reptar.calculators.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reptar.calculators.html#reptar-calculators-drivers-module">reptar.calculators.drivers module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reptar.calculators.html#reptar-calculators-psi4-workers-module">reptar.calculators.psi4_workers module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reptar.calculators.html#module-reptar.calculators.drivers">reptar.calculators.drivers module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reptar.calculators.html#module-reptar.calculators.psi4_workers">reptar.calculators.psi4_workers module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reptar.calculators.html#reptar-calculators-xtb-workers-module">reptar.calculators.xtb_workers module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reptar.calculators.html#module-reptar.calculators">Module contents</a></li>
 </ul>
@@ -230,6 +230,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="reptar.extractors.html">reptar.extractors package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="reptar.extractors.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reptar.extractors.html#module-reptar.extractors.ase_extractor">reptar.extractors.ase_extractor module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reptar.extractors.html#module-reptar.extractors.extractor">reptar.extractors.extractor module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reptar.extractors.html#module-reptar.extractors.orca_extractor">reptar.extractors.orca_extractor module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reptar.extractors.html#module-reptar.extractors.xtb_extractor">reptar.extractors.xtb_extractor module</a></li>
@@ -238,6 +239,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="reptar.parsers.html">reptar.parsers package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="reptar.parsers.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reptar.parsers.html#module-reptar.parsers.ase_parser">reptar.parsers.ase_parser module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reptar.parsers.html#module-reptar.parsers.orca_parser">reptar.parsers.orca_parser module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reptar.parsers.html#module-reptar.parsers.parser">reptar.parsers.parser module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reptar.parsers.html#module-reptar.parsers.xtb_parser">reptar.parsers.xtb_parser module</a></li>
@@ -374,6 +376,21 @@ simulation, etc.</p></li>
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="reptar.creator.creator.parse_traj">
+<span class="sig-name descname"><span class="pre">parse_traj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traj_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extractors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/creator.html#creator.parse_traj"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.creator.creator.parse_traj" title="Permalink to this definition">#</a></dt>
+<dd><p>Parse a trajectory file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>traj_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to a trajectory file from a geometry optimization, MD
+simulation, etc.</p></li>
+<li><p><strong>extractors</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Additional extractors for the parser to use.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="reptar.creator.creator.rfile">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rfile</span></span><a class="headerlink" href="#reptar.creator.creator.rfile" title="Permalink to this definition">#</a></dt>
@@ -399,6 +416,12 @@ Only supported packaged should be included in <cite>triggers</cite>.</p>
 <dd class="field-odd"><p><a class="reference internal" href="#reptar.creator" title="reptar.creator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reptar.creator</span></code></a></p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="reptar.creator.identify_trajectory">
+<span class="sig-prename descclassname"><span class="pre">reptar.creator.</span></span><span class="sig-name descname"><span class="pre">identify_trajectory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traj_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/creator.html#identify_trajectory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.creator.identify_trajectory" title="Permalink to this definition">#</a></dt>
+<dd><p>Identifies the type of trajectory depending on a series of tests.</p>
 </dd></dl>
 
 </section>
@@ -1517,6 +1540,21 @@ will be created if possible.</p></li>
 <li><p><strong>out_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to computational chemistry output file.</p></li>
 <li><p><strong>geom_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Path to a file containing a single geometry.</p></li>
 <li><p><strong>traj_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Path to a trajectory file from a geometry optimization, MD
+simulation, etc.</p></li>
+<li><p><strong>extractors</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Additional extractors for the parser to use.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="reptar.creator.parse_traj">
+<span class="sig-name descname"><span class="pre">parse_traj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traj_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extractors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/creator.html#creator.parse_traj"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.creator.parse_traj" title="Permalink to this definition">#</a></dt>
+<dd><p>Parse a trajectory file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>traj_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Path to a trajectory file from a geometry optimization, MD
 simulation, etc.</p></li>
 <li><p><strong>extractors</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Additional extractors for the parser to use.</p></li>
 </ul>

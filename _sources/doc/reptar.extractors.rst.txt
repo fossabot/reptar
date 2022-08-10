@@ -4,6 +4,14 @@ reptar.extractors package
 Submodules
 ----------
 
+reptar.extractors.ase\_extractor module
+---------------------------------------
+
+.. automodule:: reptar.extractors.ase_extractor
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 reptar.extractors.extractor module
 ----------------------------------
 

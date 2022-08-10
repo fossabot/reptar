@@ -235,7 +235,7 @@
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">.parsers</span> <span class="kn">import</span> <span class="n">parserORCA</span><span class="p">,</span> <span class="n">parserXTB</span>
+<span class="kn">from</span> <span class="nn">.parsers</span> <span class="kn">import</span> <span class="n">parserORCA</span><span class="p">,</span> <span class="n">parserXTB</span><span class="p">,</span> <span class="n">parserASE</span>
 <span class="kn">from</span> <span class="nn">.reptar_file</span> <span class="kn">import</span> <span class="n">File</span>
 <span class="kn">from</span> <span class="nn">pkg_resources</span> <span class="kn">import</span> <span class="n">resource_stream</span>
 <span class="kn">import</span> <span class="nn">yaml</span>
@@ -274,6 +274,23 @@
     <span class="p">(</span><span class="n">parserORCA</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;O   R   C   A&quot;</span><span class="p">],</span> <span class="kc">True</span><span class="p">),</span>
     <span class="p">(</span><span class="n">parserXTB</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;x T B&quot;</span><span class="p">],</span> <span class="kc">True</span><span class="p">)</span>
 <span class="p">]</span>
+
+<div class="viewcode-block" id="identify_trajectory"><a class="viewcode-back" href="../../doc/reptar.html#reptar.identify_trajectory">[docs]</a><span class="k">def</span> <span class="nf">identify_trajectory</span><span class="p">(</span><span class="n">traj_path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Identifies the type of trajectory depending on a series of tests.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># ASE trajectory</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">ase</span>
+        <span class="kn">from</span> <span class="nn">ase.io.ulm</span> <span class="kn">import</span> <span class="n">InvalidULMFileError</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">traj</span> <span class="o">=</span> <span class="n">ase</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">Trajectory</span><span class="p">(</span><span class="n">traj_path</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">parserASE</span>
+        <span class="k">except</span> <span class="n">InvalidULMFileError</span><span class="p">:</span>
+            <span class="c1"># Does have ase installed but is not a trajectory file.</span>
+            <span class="k">pass</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="c1"># Do not have ase installed.</span>
+        <span class="k">pass</span></div>
 
 <div class="viewcode-block" id="creator"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator">[docs]</a><span class="k">class</span> <span class="nc">creator</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Create groups from computational chemistry data.</span>
@@ -358,6 +375,25 @@
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span></div>
     
+<div class="viewcode-block" id="creator.parse_traj"><a class="viewcode-back" href="../../doc/reptar.html#reptar.creator.parse_traj">[docs]</a>    <span class="k">def</span> <span class="nf">parse_traj</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">traj_path</span><span class="p">,</span> <span class="n">extractors</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Parse a trajectory file.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        traj_path : :obj:`str`</span>
+<span class="sd">            Path to a trajectory file from a geometry optimization, MD</span>
+<span class="sd">            simulation, etc.</span>
+<span class="sd">        extractors : :obj:`list`, default: ``None``</span>
+<span class="sd">            Additional extractors for the parser to use.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">traj_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">traj_path</span><span class="p">)</span>
+        <span class="n">packageParser</span> <span class="o">=</span> <span class="n">identify_trajectory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">traj_path</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parser</span> <span class="o">=</span> <span class="n">packageParser</span><span class="p">(</span>
+            <span class="n">out_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="n">traj_path</span><span class="p">,</span>
+            <span class="n">extractors</span><span class="o">=</span><span class="n">extractors</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span></div>
+    
     <span class="k">def</span> <span class="nf">_create_extras_xtb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Extra actions for groups created from xtb calculations.</span>
 
@@ -413,14 +449,27 @@
 <span class="sd">        ``traj_path``.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;rfile&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">parse_output</span><span class="p">(</span>
-            <span class="n">out_path</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="n">geom_path</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="n">traj_path</span><span class="p">,</span>
-            <span class="n">extractors</span><span class="o">=</span><span class="n">extractors</span>
-        <span class="p">)</span>
-        <span class="n">parsed_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;exdir&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">init_group</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
+        
+        <span class="c1"># Parsable calculations using an output file.</span>
+        <span class="k">if</span> <span class="n">out_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parse_output</span><span class="p">(</span>
+                <span class="n">out_path</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="n">geom_path</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="n">traj_path</span><span class="p">,</span>
+                <span class="n">extractors</span><span class="o">=</span><span class="n">extractors</span>
+            <span class="p">)</span>
+            <span class="n">parsed_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span>
+
+        <span class="c1"># Only a trajectory is provided. Likely coordinates or package-specific</span>
+        <span class="c1"># trajectory file like ASE.</span>
+        <span class="k">elif</span> <span class="n">out_path</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">traj_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parse_traj</span><span class="p">(</span>
+                <span class="n">traj_path</span><span class="p">,</span> <span class="n">extractors</span><span class="o">=</span><span class="n">extractors</span>
+            <span class="p">)</span>
+            <span class="n">parsed_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
         
         <span class="c1"># Loop through each category of data.</span>
         <span class="k">for</span> <span class="n">cat_key</span> <span class="ow">in</span> <span class="n">parsed_info</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -428,12 +477,12 @@
                 <span class="n">data</span> <span class="o">=</span> <span class="n">parsed_info</span><span class="p">[</span><span class="n">cat_key</span><span class="p">][</span><span class="n">data_key</span><span class="p">]</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">data_key</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
         
-        <span class="c1"># MD5 stuff</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">update_md5</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
-
         <span class="c1"># Extra stuff to do depending on package.</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">package</span> <span class="o">==</span> <span class="s1">&#39;xtb&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_create_extras_xtb</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
+        
+        <span class="c1"># MD5 stuff</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">update_md5</span><span class="p">(</span><span class="n">group_key</span><span class="p">)</span>
         
         <span class="c1"># Adding version</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/reptar_version&#39;</span><span class="p">,</span> <span class="n">__version__</span><span class="p">)</span>

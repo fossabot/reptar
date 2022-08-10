@@ -215,6 +215,36 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
 </section>
+<section id="module-reptar.extractors.ase_extractor">
+<span id="reptar-extractors-ase-extractor-module"></span><h2>reptar.extractors.ase_extractor module<a class="headerlink" href="#module-reptar.extractors.ase_extractor" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="reptar.extractors.ase_extractor.extractorASE">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.extractors.ase_extractor.</span></span><span class="sig-name descname"><span class="pre">extractorASE</span></span><a class="reference internal" href="../_modules/reptar/extractors/ase_extractor.html#extractorASE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.ase_extractor.extractorASE" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#reptar.extractors.extractor.extractor" title="reptar.extractors.extractor.extractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">extractor</span></code></a></p>
+<p>ASE extractor for the Atoms object.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="reptar.extractors.ase_extractor.extractorASE.atoms">
+<span class="sig-name descname"><span class="pre">atoms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/ase_extractor.html#extractorASE.atoms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.ase_extractor.extractorASE.atoms" title="Permalink to this definition">#</a></dt>
+<dd><p>Parse properties from Atoms object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>traj</strong> (<code class="docutils literal notranslate"><span class="pre">ase.io.trajectory.Trajectory</span></code>) – Loaded ASE trajectory file.</p></li>
+<li><p><strong>atoms</strong> (<code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code>) – ASE Atoms object with at least atomic numbers and positions.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="reptar.extractors.ase_extractor.extractorASE.triggers">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">triggers</span></span><a class="headerlink" href="#reptar.extractors.ase_extractor.extractorASE.triggers" title="Permalink to this definition">#</a></dt>
+<dd><p>Activates for every Atoms object.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
 <section id="module-reptar.extractors.extractor">
 <span id="reptar-extractors-extractor-module"></span><h2>reptar.extractors.extractor module<a class="headerlink" href="#module-reptar.extractors.extractor" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
@@ -1200,6 +1230,33 @@ on the criteria and the name of the extractor method.</p>
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="reptar.extractors.extractorASE">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.extractors.</span></span><span class="sig-name descname"><span class="pre">extractorASE</span></span><a class="reference internal" href="../_modules/reptar/extractors/ase_extractor.html#extractorASE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorASE" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#reptar.extractors.extractor.extractor" title="reptar.extractors.extractor.extractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">extractor</span></code></a></p>
+<p>ASE extractor for the Atoms object.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="reptar.extractors.extractorASE.atoms">
+<span class="sig-name descname"><span class="pre">atoms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/extractors/ase_extractor.html#extractorASE.atoms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorASE.atoms" title="Permalink to this definition">#</a></dt>
+<dd><p>Parse properties from Atoms object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>traj</strong> (<code class="docutils literal notranslate"><span class="pre">ase.io.trajectory.Trajectory</span></code>) – Loaded ASE trajectory file.</p></li>
+<li><p><strong>atoms</strong> (<code class="docutils literal notranslate"><span class="pre">ase.Atoms</span></code>) – ASE Atoms object with at least atomic numbers and positions.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="reptar.extractors.extractorASE.triggers">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">triggers</span></span><a class="headerlink" href="#reptar.extractors.extractorASE.triggers" title="Permalink to this definition">#</a></dt>
+<dd><p>Activates for every Atoms object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.extractors.</span></span><span class="sig-name descname"><span class="pre">extractorORCA</span></span><a class="reference internal" href="../_modules/reptar/extractors/orca_extractor.html#extractorORCA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#reptar.extractors.extractor.extractor" title="reptar.extractors.extractor.extractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">extractor</span></code></a></p>
@@ -2106,6 +2163,7 @@ on the criteria and the name of the extractor method.</p>
             <ul>
 <li><a class="reference internal" href="#">reptar.extractors package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-reptar.extractors.ase_extractor">reptar.extractors.ase_extractor module</a></li>
 <li><a class="reference internal" href="#module-reptar.extractors.extractor">reptar.extractors.extractor module</a></li>
 <li><a class="reference internal" href="#module-reptar.extractors.orca_extractor">reptar.extractors.orca_extractor module</a></li>
 <li><a class="reference internal" href="#module-reptar.extractors.xtb_extractor">reptar.extractors.xtb_extractor module</a></li>

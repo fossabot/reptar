@@ -4,6 +4,14 @@ reptar.parsers package
 Submodules
 ----------
 
+reptar.parsers.ase\_parser module
+---------------------------------
+
+.. automodule:: reptar.parsers.ase_parser
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 reptar.parsers.orca\_parser module
 ----------------------------------
 

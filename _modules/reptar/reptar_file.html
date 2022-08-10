@@ -620,7 +620,10 @@
             <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">exdir</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">Group</span><span class="p">)</span>
         
         <span class="c1"># Custom handling of parsed data to ensure logical behavior.</span>
-        <span class="k">if</span> <span class="n">data_key</span> <span class="o">==</span> <span class="s1">&#39;dipole_moment&#39;</span><span class="p">:</span>
+        <span class="n">ndarray_to_list_keys</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;dipole_moment&#39;</span><span class="p">,</span> <span class="s1">&#39;periodic&#39;</span><span class="p">,</span> <span class="s1">&#39;periodic_cell&#39;</span>
+        <span class="p">]</span>
+        <span class="k">if</span> <span class="n">data_key</span> <span class="ow">in</span> <span class="n">ndarray_to_list_keys</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
                 <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
             <span class="n">group</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="n">data_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
