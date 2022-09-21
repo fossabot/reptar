@@ -1,0 +1,379 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
+
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.09.15"/>
+        <title>reptar.writers.xyz - reptar documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=9ec31e2665bf879c1d47d93a8ec4893870ee1e45" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../index.html"><div class="brand">reptar  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><div class="sidebar-scroll"><a class="sidebar-brand" href="../../../index.html">
+  
+  
+  <span class="sidebar-brand-text">reptar  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../file.html">File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../creator.html">Creator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parsers-extractors.html">Parsers and extractors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../writers.html">Writers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sampling.html">Sampling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../calculators.html">Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../descriptors.html">Descriptors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../definitions.html">Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/examples.html">Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../api/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../api/calculator-api/calculator-module.html">Calculators</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/calculator-api/driverENGRAD.html"><code class="docutils literal notranslate"><span class="pre">driverENGRAD</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/calculator-api/psi4_engrad.html"><code class="docutils literal notranslate"><span class="pre">psi4_engrad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/calculator-api/xtb_engrad.html"><code class="docutils literal notranslate"><span class="pre">xtb_engrad</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../api/creator-api/creator-module.html">Creator</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/creator-api/creator.html"><code class="docutils literal notranslate"><span class="pre">creator</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/creator-api/identify_parser.html"><code class="docutils literal notranslate"><span class="pre">identify_parser</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/creator-api/identify_trajectory.html"><code class="docutils literal notranslate"><span class="pre">identify_trajectory</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../api/descriptors/descriptors.html">Descriptors</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/descriptors/com_distance_sum.html"><code class="docutils literal notranslate"><span class="pre">com_distance_sum</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/descriptors/criteria.html"><code class="docutils literal notranslate"><span class="pre">criteria</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/descriptors/get_center_of_mass.html"><code class="docutils literal notranslate"><span class="pre">get_center_of_mass</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/descriptors/max_atom_pair_dist.html"><code class="docutils literal notranslate"><span class="pre">max_atom_pair_dist</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../api/extractors-api/extractors-module.html">Extractors</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/extractors-api/extractor.html"><code class="docutils literal notranslate"><span class="pre">extractor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/extractors-api/extractorASE.html"><code class="docutils literal notranslate"><span class="pre">extractorASE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/extractors-api/extractorORCA.html"><code class="docutils literal notranslate"><span class="pre">extractorORCA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/extractors-api/extractorXTB.html"><code class="docutils literal notranslate"><span class="pre">extractorXTB</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/file.html">File</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../api/fragment/fragment.html">Fragment</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/fragment/pairwise_distance.html"><code class="docutils literal notranslate"><span class="pre">pairwise_distance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../api/parsers-api/parsers-module.html">Parsers</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/parsers-api/parser.html"><code class="docutils literal notranslate"><span class="pre">parser</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/parsers-api/parserASE.html"><code class="docutils literal notranslate"><span class="pre">parserASE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/parsers-api/parserORCA.html"><code class="docutils literal notranslate"><span class="pre">parserORCA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/parsers-api/parserXTB.html"><code class="docutils literal notranslate"><span class="pre">parserXTB</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../api/sampler/sampler.html">Sampling</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/sampler/add_structures_to_group.html"><code class="docutils literal notranslate"><span class="pre">add_structures_to_group</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/sampler/sample_structures.html"><code class="docutils literal notranslate"><span class="pre">sample_structures</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/sampler/_generate_structure_samples.html"><code class="docutils literal notranslate"><span class="pre">_generate_structure_samples</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/sampler/_initialize_structure_sampling_arrays.html"><code class="docutils literal notranslate"><span class="pre">_initialize_structure_sampling_arrays</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../api/utils/utils.html">Utilities</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/utils/atoms_by_element.html"><code class="docutils literal notranslate"><span class="pre">atoms_by_element</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/utils/atoms_by_number.html"><code class="docutils literal notranslate"><span class="pre">atoms_by_number</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/utils/center_structures.html"><code class="docutils literal notranslate"><span class="pre">center_structures</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/utils/combine_dicts.html"><code class="docutils literal notranslate"><span class="pre">combine_dicts</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/utils/find_parent_r_idxs.html"><code class="docutils literal notranslate"><span class="pre">find_parent_r_idxs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/utils/get_files.html"><code class="docutils literal notranslate"><span class="pre">get_files</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/utils/get_md5.html"><code class="docutils literal notranslate"><span class="pre">get_md5</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/utils/gen_comp_ids.html"><code class="docutils literal notranslate"><span class="pre">gen_comp_ids</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/utils/gen_entity_ids.html"><code class="docutils literal notranslate"><span class="pre">gen_entity_ids</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/utils/parse_stringfile.html"><code class="docutils literal notranslate"><span class="pre">parse_stringfile</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../api/writers/writers.html">Writers</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/writers/string_xyz_arrays.html"><code class="docutils literal notranslate"><span class="pre">string_xyz_arrays</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/writers/write_ase_db.html"><code class="docutils literal notranslate"><span class="pre">write_ase_db</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/writers/write_pdb.html"><code class="docutils literal notranslate"><span class="pre">write_pdb</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/writers/write_schnetpack_db.html"><code class="docutils literal notranslate"><span class="pre">write_schnetpack_db</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/writers/write_xyz.html"><code class="docutils literal notranslate"><span class="pre">write_xyz</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/writers/write_xyz_gap.html"><code class="docutils literal notranslate"><span class="pre">write_xyz_gap</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+</ul>
+
+</div>
+</div>
+<h4>Version</h4>
+<form style="padding-bottom: 1em;">
+  <select name="URL" onchange="window.location.href=this.form.URL.options[this.form.URL.selectedIndex].value">
+    <option value="xyz.html" selected>main</option>
+    
+    <option value="../../../../v0.0.1/index.html">v0.0.1</option>
+    
+    <option value="../../../../v0.0.2/index.html">v0.0.2</option>
+    
+  </select>
+</form>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <h1>Source code for reptar.writers.xyz</h1><div class="highlight"><pre>
+<span></span><span class="c1"># MIT License</span>
+<span class="c1"># </span>
+<span class="c1"># Copyright (c) 2022, Alex M. Maldonado</span>
+<span class="c1"># </span>
+<span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<span class="c1"># of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
+<span class="c1"># in the Software without restriction, including without limitation the rights</span>
+<span class="c1"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<span class="c1"># copies of the Software, and to permit persons to whom the Software is</span>
+<span class="c1"># furnished to do so, subject to the following conditions:</span>
+<span class="c1">#</span>
+<span class="c1"># The above copyright notice and this permission notice shall be included in all</span>
+<span class="c1"># copies or substantial portions of the Software.</span>
+<span class="c1"># </span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="c1"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="c1"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
+<span class="c1"># SOFTWARE.</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">.writing_utils</span> <span class="kn">import</span> <span class="n">string_xyz_arrays</span>
+    
+<div class="viewcode-block" id="write_xyz"><a class="viewcode-back" href="../../../api/writers/write_xyz.html#reptar.writers.write_xyz">[docs]</a><span class="k">def</span> <span class="nf">write_xyz</span><span class="p">(</span>
+    <span class="n">xyz_path</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">comments</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data_precision</span><span class="o">=</span><span class="mi">10</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Write standard XYZ file.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    xyz_path : :obj:`str`</span>
+<span class="sd">        Path to XYZ file to write.</span>
+<span class="sd">    Z : :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">        Atomic numbers of all atoms in the system.</span>
+<span class="sd">    R : :obj:`numpy.ndarray`, ndim: ``3``</span>
+<span class="sd">        Cartesian coordinates of all structures in the same order as ``Z``.</span>
+<span class="sd">    comments : :obj:`list`, default: ``None``</span>
+<span class="sd">        Comment lines for each XYZ structure.</span>
+<span class="sd">    data_precision : :obj:`int`, default: ``10``</span>
+<span class="sd">        Number of decimal points for printing array data.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n_atoms</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">xyz_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">R</span><span class="p">)):</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">n_atoms</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">comments</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">comment</span> <span class="o">=</span> <span class="n">comments</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">comment</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span> <span class="o">!=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">:</span>
+                    <span class="n">comment</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">comment</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">comment</span><span class="p">)</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">string_xyz_arrays</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">precision</span><span class="o">=</span><span class="n">data_precision</span><span class="p">))</span></div>
+</pre></div>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Alex M. Maldonado
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/scripts/furo.js"></script>
+    </body>
+</html>
