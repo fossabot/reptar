@@ -285,7 +285,7 @@
 Open data is a crucial for making this happen, but established solutions often cannot support evolving research interests.
 In order to make this as easy as possible, reptar provides a <a class="reference internal" href="api/creator-api/creator.html#reptar.creator" title="reptar.creator"><code class="xref py py-class docutils literal notranslate"><span class="pre">creator</span></code></a> class that handles turning calculations into reproducible data.
 By providing a customizable parser framework, reptar will automatically take care of storing the essential information while leaving the option for the user to easily parse their own data.</p>
-<p>Reptar currently supports the following packages and jobs.</p>
+<p>Reptar supports the following packages and jobs with their respective tests.</p>
 <div class="table-wrapper docutils container">
 <table class="docutils align-center">
 <tbody>
@@ -296,16 +296,23 @@ By providing a customizable parser framework, reptar will automatically take car
 <td><p><strong>Gradients</strong></p></td>
 <td><p><strong>Molecular dynamics</strong></p></td>
 </tr>
-<tr class="row-even"><td><p>ORCA</p></td>
+<tr class="row-even"><td><p>ASE</p></td>
+<td></td>
+<td><p>X</p></td>
+<td></td>
+<td></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>ORCA</p></td>
 <td><p>X</p></td>
 <td></td>
 <td></td>
 <td><p>X</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>xTB</p></td>
+<tr class="row-even"><td><p>xTB</p></td>
 <td></td>
-<td></td>
+<td><p>X</p></td>
 <td></td>
 <td></td>
 <td><p>X</p></td>
@@ -364,6 +371,12 @@ will be created if possible.</p></li>
 simulation, etc.</p></li>
 <li><p><strong>extractors</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Additional extractors for the parser to use.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The entire reptar file after creating the new group.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="api/file.html#reptar.File" title="reptar.File"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reptar.File</span></code></a></p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>

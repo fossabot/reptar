@@ -286,15 +286,19 @@
             <span class="n">Z</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">Z_traj</span><span class="p">)</span>
             <span class="n">R</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">R_traj</span><span class="p">)</span>
 
-            <span class="n">energy_pot</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="c1"># grad_norm = []</span>
-            <span class="k">for</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">comments</span><span class="p">:</span>
-                <span class="n">comment</span> <span class="o">=</span> <span class="n">comment</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-                <span class="n">energy_pot</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">comment</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
-                <span class="c1"># grad_norm.append(float(comment[3]))</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_pot&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
-                <span class="n">energy_pot</span>
-            <span class="p">)</span>
+            <span class="c1"># Adds potential energies from trajectory file for MD simulations.</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">][</span><span class="s1">&#39;calc_driver&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;molecular_dynamics&#39;</span><span class="p">:</span>
+                <span class="n">energy_pot</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="c1"># grad_norm = []</span>
+                <span class="k">for</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">comments</span><span class="p">:</span>
+                    <span class="n">comment</span> <span class="o">=</span> <span class="n">comment</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                    <span class="n">energy_pot</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">comment</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+                    <span class="c1"># grad_norm.append(float(comment[3]))</span>
+                <span class="k">if</span> <span class="s1">&#39;energy_pot&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_pot&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_pot&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+                    <span class="n">energy_pot</span>
+                <span class="p">)</span>
         
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">Z</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">Z</span> <span class="o">=</span> <span class="n">Z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -325,8 +329,8 @@
         <span class="c1"># Note that we overwrite this data later, but it is better to ensure</span>
         <span class="c1"># consistency than punting to later in the code.</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">][</span><span class="s1">&#39;calc_driver&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;optimization&#39;</span><span class="p">:</span>
-            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;energy_scf&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;energy_scf&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_scf&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_scf&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
         
         <span class="k">if</span> <span class="s1">&#39;success&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;runtime_info&#39;</span><span class="p">][</span><span class="s1">&#39;success&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span></div>
