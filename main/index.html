@@ -288,7 +288,7 @@
 <a class="reference external image-reference" href="https://doi.org/10.5281/zenodo.6508586"><img alt="Zenodo doi" src="https://zenodo.org/badge/DOI/10.5281/zenodo.6508586.svg" /></a>
 <a class="reference external image-reference" href="https://lgtm.com/projects/g/aalexmmaldonado/reptar/context:python"><img alt="https://img.shields.io/lgtm/grade/python/g/aalexmmaldonado/reptar.svg?logo=lgtm&amp;logoWidth=18" src="https://img.shields.io/lgtm/grade/python/g/aalexmmaldonado/reptar.svg?logo=lgtm&amp;logoWidth=18" /></a>
 <a class="reference external image-reference" href="https://github.com/aalexmmaldonado/reptar/blob/main/LICENSE"><img alt="https://img.shields.io/github/license/aalexmmaldonado/reptar" src="https://img.shields.io/github/license/aalexmmaldonado/reptar" /></a>
-<p><strong>Disclaimer:</strong> Reptar is under active development and not ready for use.</p>
+<p><strong>Disclaimer:</strong> reptar is under active development and is not suitable for production.</p>
 <section id="motivation">
 <h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this heading">#</a></h2>
 <p>The computational chemistry community often fails to openly provide raw and/or processed data used to their draw scientific conclusions.</p>
@@ -330,22 +330,22 @@ Note that <code class="docutils literal notranslate"><span class="pre">gradients
 </section>
 <section id="workflow">
 <h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this heading">#</a></h2>
-<section id="calculation-to-reptar-file">
-<h3>Calculation to reptar file<a class="headerlink" href="#calculation-to-reptar-file" title="Permalink to this heading">#</a></h3>
+<section id="storing-data">
+<h3>Storing data<a class="headerlink" href="#storing-data" title="Permalink to this heading">#</a></h3>
 <p>We refer to a “reptar file” as any file that can be used with the <code class="docutils literal notranslate"><span class="pre">reptar.File</span></code> class.
 Creating a reptar file starts by having a set of data files generated from some calculation.
 Paths to these data files are passed into <code class="docutils literal notranslate"><span class="pre">reptar.creator.from_calc</span></code> that extracts information using a <code class="docutils literal notranslate"><span class="pre">reptar.parser</span></code> class.
 Information parsed from these files, <code class="docutils literal notranslate"><span class="pre">parsed_info</span></code>, is then used to populate a <code class="docutils literal notranslate"><span class="pre">reptar.File</span></code> object.</p>
 </section>
-<section id="reptar-file-data">
-<h3>Reptar file data<a class="headerlink" href="#reptar-file-data" title="Permalink to this heading">#</a></h3>
+<section id="accessing-data">
+<h3>Accessing data<a class="headerlink" href="#accessing-data" title="Permalink to this heading">#</a></h3>
 <p>Data can be added or retrieved using the same interface regardless of the underlying file format (e.g., exdir, JSON, and npz).
 The only thing required is the respective <code class="docutils literal notranslate"><span class="pre">key</span></code> specifying where its stored.
 Then, <code class="docutils literal notranslate"><span class="pre">File.put(key,</span> <span class="pre">data)</span></code> can be used to add <code class="docutils literal notranslate"><span class="pre">data</span></code> to the reptar file and <code class="docutils literal notranslate"><span class="pre">File.get(key)</span></code> can retrieve it.</p>
 <p>When working with JSON and npz files, <code class="docutils literal notranslate"><span class="pre">File.save()</span></code> must be explicitly called after any modification.</p>
 </section>
-<section id="reptar-file-to-other-format">
-<h3>Reptar file to other format<a class="headerlink" href="#reptar-file-to-other-format" title="Permalink to this heading">#</a></h3>
+<section id="writing-to-other-formats">
+<h3>Writing to other formats<a class="headerlink" href="#writing-to-other-formats" title="Permalink to this heading">#</a></h3>
 <p>Other packages often require data to be formatted in their own specific way.
 Reptar provides ways to extract data from reptar files using <code class="docutils literal notranslate"><span class="pre">File.get(key)</span></code> and passing it into the desired <code class="docutils literal notranslate"><span class="pre">reptar.writer</span></code> function.
 Reptar currently automates the creation of:</p>
@@ -419,9 +419,9 @@ Reptar currently automates the creation of:</p>
 <li><a class="reference internal" href="#file-types">File types</a></li>
 <li><a class="reference internal" href="#key-value-pairs">Key-value pairs</a></li>
 <li><a class="reference internal" href="#workflow">Workflow</a><ul>
-<li><a class="reference internal" href="#calculation-to-reptar-file">Calculation to reptar file</a></li>
-<li><a class="reference internal" href="#reptar-file-data">Reptar file data</a></li>
-<li><a class="reference internal" href="#reptar-file-to-other-format">Reptar file to other format</a></li>
+<li><a class="reference internal" href="#storing-data">Storing data</a></li>
+<li><a class="reference internal" href="#accessing-data">Accessing data</a></li>
+<li><a class="reference internal" href="#writing-to-other-formats">Writing to other formats</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#license">License</a></li>
