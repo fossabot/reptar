@@ -231,7 +231,7 @@
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">.parsers</span> <span class="kn">import</span> <span class="n">parserORCA</span><span class="p">,</span> <span class="n">parserXTB</span><span class="p">,</span> <span class="n">parserASE</span>
+<span class="kn">from</span> <span class="nn">.parsers</span> <span class="kn">import</span> <span class="n">parserORCA</span><span class="p">,</span> <span class="n">parserXTB</span><span class="p">,</span> <span class="n">parserASE</span><span class="p">,</span> <span class="n">parserCREST</span>
 <span class="kn">from</span> <span class="nn">.reptar_file</span> <span class="kn">import</span> <span class="n">File</span>
 <span class="kn">from</span> <span class="nn">pkg_resources</span> <span class="kn">import</span> <span class="n">resource_stream</span>
 <span class="kn">import</span> <span class="nn">yaml</span>
@@ -267,8 +267,9 @@
 
 <span class="c1"># Triggers to identify output files.</span>
 <span class="n">triggers</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="n">parserORCA</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;O   R   C   A&quot;</span><span class="p">],</span> <span class="kc">True</span><span class="p">),</span>
-    <span class="p">(</span><span class="n">parserXTB</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;x T B&quot;</span><span class="p">],</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">parserORCA</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;O   R   C   A&#39;</span><span class="p">],</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">parserXTB</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;x T B&#39;</span><span class="p">],</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">parserCREST</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;C R E S T&#39;</span><span class="p">],</span> <span class="kc">True</span><span class="p">),</span>
 <span class="p">]</span>
 
 <span class="k">def</span> <span class="nf">identify_trajectory</span><span class="p">(</span><span class="n">traj_path</span><span class="p">):</span>
@@ -340,9 +341,13 @@
         <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rfile</span>
 
     <span class="k">def</span> <span class="nf">parse_output</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">out_path</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extractors</span><span class="o">=</span><span class="kc">None</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">out_path</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extractors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Parse output file using cclib and custom parser.</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Parse output file using cclib and custom parser.</span>
+
+<span class="sd">        Sets the ``reptar.creator.parser`` and ``reptar.creator.parsed_info``</span>
+<span class="sd">        attributes.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -355,6 +360,8 @@
 <span class="sd">            simulation, etc.</span>
 <span class="sd">        extractors : :obj:`list`, default: ``None``</span>
 <span class="sd">            Additional extractors for the parser to use.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Additional paths to output files. Passed to the package&#39;s parser.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Handle paths.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">out_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">out_path</span><span class="p">)</span>
@@ -367,7 +374,7 @@
         <span class="n">packageParser</span> <span class="o">=</span> <span class="n">identify_parser</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">out_path</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parser</span> <span class="o">=</span> <span class="n">packageParser</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">out_path</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="n">geom_path</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="n">traj_path</span><span class="p">,</span>
-            <span class="n">extractors</span><span class="o">=</span><span class="n">extractors</span>
+            <span class="n">extractors</span><span class="o">=</span><span class="n">extractors</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
     
@@ -420,7 +427,7 @@
     
     <span class="k">def</span> <span class="nf">from_calc</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">,</span> <span class="n">out_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">extractors</span><span class="o">=</span><span class="kc">None</span>
+        <span class="n">extractors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Create a group from a supported calculation.</span>
 <span class="sd">        </span>
@@ -437,6 +444,9 @@
 <span class="sd">            simulation, etc.</span>
 <span class="sd">        extractors : :obj:`list`, default: ``None``</span>
 <span class="sd">            Additional extractors for the parser to use.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Additional paths to output files. Passed into</span>
+<span class="sd">            ``creator.parse_output()``.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -458,7 +468,7 @@
         <span class="k">if</span> <span class="n">out_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">parse_output</span><span class="p">(</span>
                 <span class="n">out_path</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="n">geom_path</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="n">traj_path</span><span class="p">,</span>
-                <span class="n">extractors</span><span class="o">=</span><span class="n">extractors</span>
+                <span class="n">extractors</span><span class="o">=</span><span class="n">extractors</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
             <span class="p">)</span>
             <span class="n">parsed_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span>
 

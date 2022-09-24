@@ -186,6 +186,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../api/extractors-api/extractors-module.html">Extractors</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../api/extractors-api/extractor.html"><code class="docutils literal notranslate"><span class="pre">extractor</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/extractors-api/extractorASE.html"><code class="docutils literal notranslate"><span class="pre">extractorASE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/extractors-api/extractorCREST.html"><code class="docutils literal notranslate"><span class="pre">extractorCREST</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/extractors-api/extractorORCA.html"><code class="docutils literal notranslate"><span class="pre">extractorORCA</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/extractors-api/extractorXTB.html"><code class="docutils literal notranslate"><span class="pre">extractorXTB</span></code></a></li>
 </ul>
@@ -198,6 +199,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../api/parsers-api/parsers-module.html">Parsers</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../api/parsers-api/parser.html"><code class="docutils literal notranslate"><span class="pre">parser</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/parsers-api/parserASE.html"><code class="docutils literal notranslate"><span class="pre">parserASE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/parsers-api/parserCREST.html"><code class="docutils literal notranslate"><span class="pre">parserCREST</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/parsers-api/parserORCA.html"><code class="docutils literal notranslate"><span class="pre">parserORCA</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/parsers-api/parserXTB.html"><code class="docutils literal notranslate"><span class="pre">parserXTB</span></code></a></li>
 </ul>
@@ -304,7 +306,7 @@
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">.parsers</span> <span class="kn">import</span> <span class="n">parserORCA</span><span class="p">,</span> <span class="n">parserXTB</span><span class="p">,</span> <span class="n">parserASE</span>
+<span class="kn">from</span> <span class="nn">.parsers</span> <span class="kn">import</span> <span class="n">parserORCA</span><span class="p">,</span> <span class="n">parserXTB</span><span class="p">,</span> <span class="n">parserASE</span><span class="p">,</span> <span class="n">parserCREST</span>
 <span class="kn">from</span> <span class="nn">.reptar_file</span> <span class="kn">import</span> <span class="n">File</span>
 <span class="kn">from</span> <span class="nn">pkg_resources</span> <span class="kn">import</span> <span class="n">resource_stream</span>
 <span class="kn">import</span> <span class="nn">yaml</span>
@@ -340,8 +342,9 @@
 
 <span class="c1"># Triggers to identify output files.</span>
 <span class="n">triggers</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="n">parserORCA</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;O   R   C   A&quot;</span><span class="p">],</span> <span class="kc">True</span><span class="p">),</span>
-    <span class="p">(</span><span class="n">parserXTB</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;x T B&quot;</span><span class="p">],</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">parserORCA</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;O   R   C   A&#39;</span><span class="p">],</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">parserXTB</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;x T B&#39;</span><span class="p">],</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">parserCREST</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;C R E S T&#39;</span><span class="p">],</span> <span class="kc">True</span><span class="p">),</span>
 <span class="p">]</span>
 
 <div class="viewcode-block" id="identify_trajectory"><a class="viewcode-back" href="../../api/creator-api/identify_trajectory.html#reptar.identify_trajectory">[docs]</a><span class="k">def</span> <span class="nf">identify_trajectory</span><span class="p">(</span><span class="n">traj_path</span><span class="p">):</span>
@@ -413,9 +416,13 @@
         <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rfile</span>
 
 <div class="viewcode-block" id="creator.parse_output"><a class="viewcode-back" href="../../api/creator-api/creator.html#reptar.creator.parse_output">[docs]</a>    <span class="k">def</span> <span class="nf">parse_output</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">out_path</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extractors</span><span class="o">=</span><span class="kc">None</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">out_path</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extractors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Parse output file using cclib and custom parser.</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Parse output file using cclib and custom parser.</span>
+
+<span class="sd">        Sets the ``reptar.creator.parser`` and ``reptar.creator.parsed_info``</span>
+<span class="sd">        attributes.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -428,6 +435,8 @@
 <span class="sd">            simulation, etc.</span>
 <span class="sd">        extractors : :obj:`list`, default: ``None``</span>
 <span class="sd">            Additional extractors for the parser to use.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Additional paths to output files. Passed to the package&#39;s parser.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Handle paths.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">out_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">out_path</span><span class="p">)</span>
@@ -440,7 +449,7 @@
         <span class="n">packageParser</span> <span class="o">=</span> <span class="n">identify_parser</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">out_path</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parser</span> <span class="o">=</span> <span class="n">packageParser</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">out_path</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="n">geom_path</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="n">traj_path</span><span class="p">,</span>
-            <span class="n">extractors</span><span class="o">=</span><span class="n">extractors</span>
+            <span class="n">extractors</span><span class="o">=</span><span class="n">extractors</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span></div>
     
@@ -493,7 +502,7 @@
     
 <div class="viewcode-block" id="creator.from_calc"><a class="viewcode-back" href="../../creator.html#reptar.creator.from_calc">[docs]</a>    <span class="k">def</span> <span class="nf">from_calc</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">,</span> <span class="n">out_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">extractors</span><span class="o">=</span><span class="kc">None</span>
+        <span class="n">extractors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Create a group from a supported calculation.</span>
 <span class="sd">        </span>
@@ -510,6 +519,9 @@
 <span class="sd">            simulation, etc.</span>
 <span class="sd">        extractors : :obj:`list`, default: ``None``</span>
 <span class="sd">            Additional extractors for the parser to use.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Additional paths to output files. Passed into</span>
+<span class="sd">            ``creator.parse_output()``.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -531,7 +543,7 @@
         <span class="k">if</span> <span class="n">out_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">parse_output</span><span class="p">(</span>
                 <span class="n">out_path</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="n">geom_path</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="n">traj_path</span><span class="p">,</span>
-                <span class="n">extractors</span><span class="o">=</span><span class="n">extractors</span>
+                <span class="n">extractors</span><span class="o">=</span><span class="n">extractors</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
             <span class="p">)</span>
             <span class="n">parsed_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span>
 

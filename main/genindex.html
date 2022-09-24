@@ -185,6 +185,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="api/extractors-api/extractors-module.html">Extractors</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/extractors-api/extractor.html"><code class="docutils literal notranslate"><span class="pre">extractor</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/extractors-api/extractorASE.html"><code class="docutils literal notranslate"><span class="pre">extractorASE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/extractors-api/extractorCREST.html"><code class="docutils literal notranslate"><span class="pre">extractorCREST</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/extractors-api/extractorORCA.html"><code class="docutils literal notranslate"><span class="pre">extractorORCA</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/extractors-api/extractorXTB.html"><code class="docutils literal notranslate"><span class="pre">extractorXTB</span></code></a></li>
 </ul>
@@ -197,6 +198,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="api/parsers-api/parsers-module.html">Parsers</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/parsers-api/parser.html"><code class="docutils literal notranslate"><span class="pre">parser</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/parsers-api/parserASE.html"><code class="docutils literal notranslate"><span class="pre">parserASE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/parsers-api/parserCREST.html"><code class="docutils literal notranslate"><span class="pre">parserCREST</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/parsers-api/parserORCA.html"><code class="docutils literal notranslate"><span class="pre">parserORCA</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/parsers-api/parserXTB.html"><code class="docutils literal notranslate"><span class="pre">parserXTB</span></code></a></li>
 </ul>
@@ -305,6 +307,8 @@
         <li><a href="api/parsers-api/parser.html#reptar.parsers.parser.after_parse">after_parse() (reptar.parsers.parser method)</a>
 
         <ul>
+          <li><a href="api/parsers-api/parserCREST.html#reptar.parsers.parserCREST.after_parse">(reptar.parsers.parserCREST method)</a>
+</li>
           <li><a href="api/parsers-api/parserORCA.html#reptar.parsers.parserORCA.after_parse">(reptar.parsers.parserORCA method)</a>
 </li>
           <li><a href="api/parsers-api/parserXTB.html#reptar.parsers.parserXTB.after_parse">(reptar.parsers.parserXTB method)</a>
@@ -340,10 +344,10 @@
 </li>
         <li><a href="api/file.html#reptar.File.clean_key">clean_key() (reptar.File method)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/descriptors/com_distance_sum.html#reptar.descriptors.com_distance_sum">com_distance_sum() (in module reptar.descriptors)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/utils/combine_dicts.html#reptar.utils.combine_dicts">combine_dicts() (in module reptar.utils)</a>
 </li>
         <li><a href="api/parsers-api/parser.html#reptar.parsers.parser.combine_extracted">combine_extracted() (reptar.parsers.parser method)</a>
@@ -351,6 +355,8 @@
         <li><a href="api/file.html#reptar.File.create_group">create_group() (reptar.File method)</a>
 </li>
         <li><a href="api/creator-api/creator.html#reptar.creator">creator (class in reptar)</a>
+</li>
+        <li><a href="api/extractors-api/extractorCREST.html#reptar.extractors.extractorCREST.crest_version">crest_version() (reptar.extractors.extractorCREST method)</a>
 </li>
         <li><a href="api/descriptors/criteria.html#reptar.descriptors.criteria">criteria() (in module reptar.descriptors)</a>
 </li>
@@ -378,6 +384,8 @@
   <h2>E</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/extractors-api/extractorCREST.html#reptar.extractors.extractorCREST.ensemble_info">ensemble_info() (reptar.extractors.extractorCREST method)</a>
+</li>
         <li><a href="api/extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.enthalpic_corr">enthalpic_corr() (reptar.extractors.extractorORCA method)</a>
 </li>
         <li><a href="api/extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.entropic_corr">entropic_corr() (reptar.extractors.extractorORCA method)</a>
@@ -393,6 +401,8 @@
         <li><a href="api/extractors-api/extractor.html#reptar.extractors.extractor">extractor (class in reptar.extractors)</a>
 </li>
         <li><a href="api/extractors-api/extractorASE.html#reptar.extractors.extractorASE">extractorASE (class in reptar.extractors)</a>
+</li>
+        <li><a href="api/extractors-api/extractorCREST.html#reptar.extractors.extractorCREST">extractorCREST (class in reptar.extractors)</a>
 </li>
         <li><a href="api/extractors-api/extractorORCA.html#reptar.extractors.extractorORCA">extractorORCA (class in reptar.extractors)</a>
 </li>
@@ -555,6 +565,8 @@
         <ul>
           <li><a href="api/parsers-api/parserASE.html#reptar.parsers.parserASE.parse">(reptar.parsers.parserASE method)</a>
 </li>
+          <li><a href="api/parsers-api/parserCREST.html#reptar.parsers.parserCREST.parse">(reptar.parsers.parserCREST method)</a>
+</li>
           <li><a href="api/parsers-api/parserORCA.html#reptar.parsers.parserORCA.parse">(reptar.parsers.parserORCA method)</a>
 </li>
           <li><a href="api/parsers-api/parserXTB.html#reptar.parsers.parserXTB.parse">(reptar.parsers.parserXTB method)</a>
@@ -577,6 +589,8 @@
         <li><a href="api/parsers-api/parser.html#reptar.parsers.parser">parser (class in reptar.parsers)</a>
 </li>
         <li><a href="api/parsers-api/parserASE.html#reptar.parsers.parserASE">parserASE (class in reptar.parsers)</a>
+</li>
+        <li><a href="api/parsers-api/parserCREST.html#reptar.parsers.parserCREST">parserCREST (class in reptar.parsers)</a>
 </li>
         <li><a href="api/parsers-api/parserORCA.html#reptar.parsers.parserORCA">parserORCA (class in reptar.parsers)</a>
 </li>
@@ -658,6 +672,8 @@
 
         <ul>
           <li><a href="api/extractors-api/extractorASE.html#reptar.extractors.extractorASE.triggers">(reptar.extractors.extractorASE property)</a>
+</li>
+          <li><a href="api/extractors-api/extractorCREST.html#reptar.extractors.extractorCREST.triggers">(reptar.extractors.extractorCREST property)</a>
 </li>
           <li><a href="api/extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.triggers">(reptar.extractors.extractorORCA property)</a>
 </li>

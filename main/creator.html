@@ -187,6 +187,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="api/extractors-api/extractors-module.html">Extractors</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/extractors-api/extractor.html"><code class="docutils literal notranslate"><span class="pre">extractor</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/extractors-api/extractorASE.html"><code class="docutils literal notranslate"><span class="pre">extractorASE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/extractors-api/extractorCREST.html"><code class="docutils literal notranslate"><span class="pre">extractorCREST</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/extractors-api/extractorORCA.html"><code class="docutils literal notranslate"><span class="pre">extractorORCA</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/extractors-api/extractorXTB.html"><code class="docutils literal notranslate"><span class="pre">extractorXTB</span></code></a></li>
 </ul>
@@ -199,6 +200,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="api/parsers-api/parsers-module.html">Parsers</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/parsers-api/parser.html"><code class="docutils literal notranslate"><span class="pre">parser</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/parsers-api/parserASE.html"><code class="docutils literal notranslate"><span class="pre">parserASE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/parsers-api/parserCREST.html"><code class="docutils literal notranslate"><span class="pre">parserCREST</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/parsers-api/parserORCA.html"><code class="docutils literal notranslate"><span class="pre">parserORCA</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/parsers-api/parserXTB.html"><code class="docutils literal notranslate"><span class="pre">parserXTB</span></code></a></li>
 </ul>
@@ -296,21 +298,21 @@ By providing a customizable parser framework, reptar will automatically take car
 <td><p><strong>Gradients</strong></p></td>
 <td><p><strong>Molecular dynamics</strong></p></td>
 </tr>
-<tr class="row-even"><td><p>ASE</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://wiki.fysik.dtu.dk/ase/">ASE</a></p></td>
 <td></td>
 <td><p>X</p></td>
 <td></td>
 <td></td>
 <td><p>X</p></td>
 </tr>
-<tr class="row-odd"><td><p>ORCA</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://sites.google.com/site/orcainputlibrary/home">ORCA</a></p></td>
 <td><p>X</p></td>
 <td></td>
 <td></td>
 <td><p>X</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>xTB</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://xtb-docs.readthedocs.io/en/latest/contents.html">xTB</a></p></td>
 <td></td>
 <td><p>X</p></td>
 <td></td>
@@ -320,6 +322,13 @@ By providing a customizable parser framework, reptar will automatically take car
 </tbody>
 </table>
 </div>
+<p>Other calculation types and packages other than the ones above are supported as well.</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://crest-lab.github.io/crest-docs/">CREST</a></dt><dd><ul class="simple">
+<li><p>Non-covalent cluster conformer and rotamer searches.</p></li>
+</ul>
+</dd>
+</dl>
 <section id="group-creation">
 <h2>Group creation<a class="headerlink" href="#group-creation" title="Permalink to this heading">#</a></h2>
 <p>First, a <a class="reference internal" href="file.html#file"><span class="std std-ref">File</span></a> object needs to be loaded into the creator.
@@ -359,7 +368,7 @@ will be created if possible.</p></li>
 <p>Reptar can then parse information and create a group by specifying the paths to the relevant output files.</p>
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">creator.</span></span><span class="sig-name descname"><span class="pre">from_calc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extractors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/reptar/creator.html#creator.from_calc"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-prename descclassname"><span class="pre">creator.</span></span><span class="sig-name descname"><span class="pre">from_calc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extractors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/reptar/creator.html#creator.from_calc"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Create a group from a supported calculation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -370,6 +379,8 @@ will be created if possible.</p></li>
 <li><p><strong>traj_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Path to a trajectory file from a geometry optimization, MD
 simulation, etc.</p></li>
 <li><p><strong>extractors</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Additional extractors for the parser to use.</p></li>
+<li><p><strong>**kwargs</strong> – Additional paths to output files. Passed into
+<code class="docutils literal notranslate"><span class="pre">creator.parse_output()</span></code>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -387,7 +398,7 @@ simulation, etc.</p></li>
 
 <section id="types-of-output-files">
 <h3>Types of output files<a class="headerlink" href="#types-of-output-files" title="Permalink to this heading">#</a></h3>
-<p>There are currently three supported types of output files used (that also depend on the package).</p>
+<p>There are currently three basic types of output files used.</p>
 <dl class="simple glossary">
 <dt id="term-out_path"><code class="docutils literal notranslate"><span class="pre">out_path</span></code><a class="headerlink" href="#term-out_path" title="Permalink to this term">#</a></dt><dd><p>The default log file generated by the software package.</p>
 </dd>
@@ -396,10 +407,11 @@ simulation, etc.</p></li>
 <dt id="term-traj_path"><code class="docutils literal notranslate"><span class="pre">traj_path</span></code><a class="headerlink" href="#term-traj_path" title="Permalink to this term">#</a></dt><dd><p>The trajectory specifying the structural evolution during a job (e.g., geometry optimization or MD simulation).</p>
 </dd>
 </dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If both <code class="docutils literal notranslate"><span class="pre">geom_path</span></code> and <code class="docutils literal notranslate"><span class="pre">traj_path</span></code> are provided, the structure defined in <code class="docutils literal notranslate"><span class="pre">geom_path</span></code> is considered the first structure.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>If both <code class="docutils literal notranslate"><span class="pre">geom_path</span></code> and <code class="docutils literal notranslate"><span class="pre">traj_path</span></code> are provided, the structure defined in <code class="docutils literal notranslate"><span class="pre">geom_path</span></code> is considered the initial structure.</p>
 </div>
+<p>Some package parsers (e.g., <a class="reference internal" href="api/parsers-api/parserCREST.html#reptar.parsers.parserCREST" title="reptar.parsers.parserCREST"><code class="xref py py-class docutils literal notranslate"><span class="pre">reptar.parsers.parserCREST</span></code></a>) require other output files.</p>
 </section>
 </section>
 <section id="additional-data">
