@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="extractorXTB" href="extractorXTB.html" /><link rel="prev" title="extractorCREST" href="extractorCREST.html" />
 
-    <meta name="generator" content="sphinx-5.1.1, furo 2022.09.15"/>
+    <meta name="generator" content="sphinx-5.2.2, furo 2022.09.15"/>
         <title>extractorORCA - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=9ec31e2665bf879c1d47d93a8ec4893870ee1e45" />
@@ -134,7 +134,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -275,7 +275,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -861,8 +861,50 @@ Deviation                       :     0.000016
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">extractorORCA</span></code></a><ul>
+<li><a class="reference internal" href="#reptar.extractors.extractorORCA"><code class="docutils literal notranslate"><span class="pre">extractorORCA</span></code></a><ul>
+<li><a class="reference internal" href="#reptar.extractors.extractorORCA.aux_basis"><code class="docutils literal notranslate"><span class="pre">extractorORCA.aux_basis()</span></code></a></li>
+<li><a class="reference internal" href="#reptar.extractors.extractorORCA.cc_method"><code class="docutils literal notranslate"><span class="pre">extractorORCA.cc_method()</span></code></a></li>
+<li><a class="reference internal" href="#reptar.extractors.extractorORCA.cc_properties"><code class="docutils literal notranslate"><span class="pre">extractorORCA.cc_properties()</span></code></a></li>
+<li><a class="reference internal" href="#reptar.extractors.extractorORCA.dipole"><code class="docutils literal notranslate"><span class="pre">extractorORCA.dipole()</span></code></a></li>
+<li><a class="reference internal" href="#reptar.extractors.extractorORCA.enthalpic_corr"><code class="docutils literal notranslate"><span class="pre">extractorORCA.enthalpic_corr()</span></code></a></li>
+<li><a class="reference internal" href="#reptar.extractors.extractorORCA.entropic_corr"><code class="docutils literal notranslate"><span class="pre">extractorORCA.entropic_corr()</span></code></a></li>
+<li><a class="reference internal" href="#reptar.extractors.extractorORCA.frequencies"><code class="docutils literal notranslate"><span class="pre">extractorORCA.frequencies()</span></code></a></li>
+<li><a class="reference internal" href="#reptar.extractors.extractorORCA.geo_conv"><code class="docutils literal notranslate"><span class="pre">extractorORCA.geo_conv()</span></code></a></li>
+<li><a class="reference internal" href="#reptar.extractors.extractorORCA.grid_info"><code class="docutils literal notranslate"><span class="pre">extractorORCA.grid_info()</span></code></a></li>
+<li><a class="reference internal" href="#reptar.extractors.extractorORCA.implicit_solvent"><code class="docutils literal notranslate"><span class="pre">extractorORCA.implicit_solvent()</span></code></a></li>
+<li><a class="reference internal" href="#reptar.extractors.extractorORCA.loewdin_charges"><code class="docutils literal notranslate"><span class="pre">extractorORCA.loewdin_charges()</span></code></a></li>
+<li><a class="reference internal" href="#reptar.extractors.extractorORCA.mp_properties"><code class="docutils literal notranslate"><span class="pre">extractorORCA.mp_properties()</span></code></a></li>
+<li><a class="reference internal" href="#reptar.extractors.extractorORCA.mulliken_charges"><code class="docutils literal notranslate"><span class="pre">extractorORCA.mulliken_charges()</span></code></a></li>
+<li><a class="reference internal" href="#reptar.extractors.extractorORCA.normal_modes"><code class="docutils literal notranslate"><span class="pre">extractorORCA.normal_modes()</span></code></a></li>
+<li><a class="reference internal" href="#reptar.extractors.extractorORCA.scf_energies"><code class="docutils literal notranslate"><span class="pre">extractorORCA.scf_energies()</span></code></a></li>
+<li><a class="reference internal" href="#reptar.extractors.extractorORCA.scf_info"><code class="docutils literal notranslate"><span class="pre">extractorORCA.scf_info()</span></code></a></li>
+<li><a class="reference internal" href="#reptar.extractors.extractorORCA.thermal_corrections"><code class="docutils literal notranslate"><span class="pre">extractorORCA.thermal_corrections()</span></code></a></li>
+<li><a class="reference internal" href="#reptar.extractors.extractorORCA.thermo_temp"><code class="docutils literal notranslate"><span class="pre">extractorORCA.thermo_temp()</span></code></a></li>
+<li><a class="reference internal" href="#reptar.extractors.extractorORCA.triggers"><code class="docutils literal notranslate"><span class="pre">extractorORCA.triggers</span></code></a></li>
+<li><a class="reference internal" href="#reptar.extractors.extractorORCA.uhf_spin_contamination"><code class="docutils literal notranslate"><span class="pre">extractorORCA.uhf_spin_contamination()</span></code></a></li>
+<li><a class="reference internal" href="#reptar.extractors.extractorORCA.zpve"><code class="docutils literal notranslate"><span class="pre">extractorORCA.zpve()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
@@ -872,6 +914,7 @@ Deviation                       :     0.000016
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     </body>
 </html>

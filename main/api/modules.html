@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="reptar.calculators" href="calculator-api/calculator-module.html" /><link rel="prev" title="Examples" href="../examples/examples.html" />
 
-    <meta name="generator" content="sphinx-5.1.1, furo 2022.09.15"/>
+    <meta name="generator" content="sphinx-5.2.2, furo 2022.09.15"/>
         <title>API - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=9ec31e2665bf879c1d47d93a8ec4893870ee1e45" />
@@ -286,72 +286,301 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="calculator-api/calculator-module.html">Calculators</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="calculator-api/driverENGRAD.html"><code class="docutils literal notranslate"><span class="pre">driverENGRAD</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="calculator-api/psi4_engrad.html"><code class="docutils literal notranslate"><span class="pre">psi4_engrad</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="calculator-api/xtb_engrad.html"><code class="docutils literal notranslate"><span class="pre">xtb_engrad</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="calculator-api/driverENGRAD.html"><code class="docutils literal notranslate"><span class="pre">driverENGRAD</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="calculator-api/driverENGRAD.html#reptar.calculators.drivers.driverENGRAD"><code class="docutils literal notranslate"><span class="pre">driverENGRAD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calculator-api/driverENGRAD.html#reptar.calculators.drivers.driverENGRAD.run"><code class="docutils literal notranslate"><span class="pre">driverENGRAD.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="calculator-api/psi4_engrad.html"><code class="docutils literal notranslate"><span class="pre">psi4_engrad</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="calculator-api/psi4_engrad.html#reptar.calculators.psi4_workers.psi4_engrad"><code class="docutils literal notranslate"><span class="pre">psi4_engrad()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="calculator-api/xtb_engrad.html"><code class="docutils literal notranslate"><span class="pre">xtb_engrad</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="calculator-api/xtb_engrad.html#reptar.calculators.xtb_workers.xtb_engrad"><code class="docutils literal notranslate"><span class="pre">xtb_engrad()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="creator-api/creator-module.html">Creator</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="creator-api/creator.html"><code class="docutils literal notranslate"><span class="pre">creator</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="creator-api/identify_parser.html"><code class="docutils literal notranslate"><span class="pre">identify_parser</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="creator-api/identify_trajectory.html"><code class="docutils literal notranslate"><span class="pre">identify_trajectory</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="creator-api/creator.html"><code class="docutils literal notranslate"><span class="pre">creator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="creator-api/creator.html#reptar.creator"><code class="docutils literal notranslate"><span class="pre">creator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="creator-api/creator.html#reptar.creator.definitions"><code class="docutils literal notranslate"><span class="pre">creator.definitions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="creator-api/creator.html#reptar.creator.from_calc"><code class="docutils literal notranslate"><span class="pre">creator.from_calc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="creator-api/creator.html#reptar.creator.ids"><code class="docutils literal notranslate"><span class="pre">creator.ids()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="creator-api/creator.html#reptar.creator.load"><code class="docutils literal notranslate"><span class="pre">creator.load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="creator-api/creator.html#reptar.creator.parse_output"><code class="docutils literal notranslate"><span class="pre">creator.parse_output()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="creator-api/creator.html#reptar.creator.parse_traj"><code class="docutils literal notranslate"><span class="pre">creator.parse_traj()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="creator-api/creator.html#reptar.creator.rfile"><code class="docutils literal notranslate"><span class="pre">creator.rfile</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="creator-api/identify_parser.html"><code class="docutils literal notranslate"><span class="pre">identify_parser</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="creator-api/identify_parser.html#reptar.creator.identify_parser"><code class="docutils literal notranslate"><span class="pre">identify_parser()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="creator-api/identify_trajectory.html"><code class="docutils literal notranslate"><span class="pre">identify_trajectory</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="creator-api/identify_trajectory.html#reptar.creator.identify_trajectory"><code class="docutils literal notranslate"><span class="pre">identify_trajectory()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="descriptors/descriptors.html">Descriptors</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="descriptors/com_distance_sum.html"><code class="docutils literal notranslate"><span class="pre">com_distance_sum</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="descriptors/criteria.html"><code class="docutils literal notranslate"><span class="pre">criteria</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="descriptors/get_center_of_mass.html"><code class="docutils literal notranslate"><span class="pre">get_center_of_mass</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="descriptors/max_atom_pair_dist.html"><code class="docutils literal notranslate"><span class="pre">max_atom_pair_dist</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="descriptors/com_distance_sum.html"><code class="docutils literal notranslate"><span class="pre">com_distance_sum</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="descriptors/com_distance_sum.html#reptar.descriptors.com_distance_sum"><code class="docutils literal notranslate"><span class="pre">com_distance_sum()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="descriptors/criteria.html"><code class="docutils literal notranslate"><span class="pre">criteria</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="descriptors/criteria.html#reptar.descriptors.criteria"><code class="docutils literal notranslate"><span class="pre">criteria()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="descriptors/get_center_of_mass.html"><code class="docutils literal notranslate"><span class="pre">get_center_of_mass</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="descriptors/get_center_of_mass.html#reptar.descriptors.get_center_of_mass"><code class="docutils literal notranslate"><span class="pre">get_center_of_mass()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="descriptors/max_atom_pair_dist.html"><code class="docutils literal notranslate"><span class="pre">max_atom_pair_dist</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="descriptors/max_atom_pair_dist.html#reptar.descriptors.max_atom_pair_dist"><code class="docutils literal notranslate"><span class="pre">max_atom_pair_dist()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="extractors-api/extractors-module.html">Extractors</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="extractors-api/extractor.html"><code class="docutils literal notranslate"><span class="pre">extractor</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="extractors-api/extractorASE.html"><code class="docutils literal notranslate"><span class="pre">extractorASE</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="extractors-api/extractorCREST.html"><code class="docutils literal notranslate"><span class="pre">extractorCREST</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="extractors-api/extractorORCA.html"><code class="docutils literal notranslate"><span class="pre">extractorORCA</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="extractors-api/extractorXTB.html"><code class="docutils literal notranslate"><span class="pre">extractorXTB</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="extractors-api/extractor.html"><code class="docutils literal notranslate"><span class="pre">extractor</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="extractors-api/extractor.html#reptar.extractors.extractor"><code class="docutils literal notranslate"><span class="pre">extractor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractor.html#reptar.extractors.extractor.parsed_info"><code class="docutils literal notranslate"><span class="pre">extractor.parsed_info</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractor.html#reptar.extractors.extractor.skip_lines"><code class="docutils literal notranslate"><span class="pre">extractor.skip_lines()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractor.html#reptar.extractors.extractor.triggers"><code class="docutils literal notranslate"><span class="pre">extractor.triggers</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="file.html">File</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="extractors-api/extractorASE.html"><code class="docutils literal notranslate"><span class="pre">extractorASE</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="extractors-api/extractorASE.html#reptar.extractors.extractorASE"><code class="docutils literal notranslate"><span class="pre">extractorASE</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorASE.html#reptar.extractors.extractorASE.atoms"><code class="docutils literal notranslate"><span class="pre">extractorASE.atoms()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorASE.html#reptar.extractors.extractorASE.triggers"><code class="docutils literal notranslate"><span class="pre">extractorASE.triggers</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="extractors-api/extractorCREST.html"><code class="docutils literal notranslate"><span class="pre">extractorCREST</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="extractors-api/extractorCREST.html#reptar.extractors.extractorCREST"><code class="docutils literal notranslate"><span class="pre">extractorCREST</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorCREST.html#reptar.extractors.extractorCREST.crest_version"><code class="docutils literal notranslate"><span class="pre">extractorCREST.crest_version()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorCREST.html#reptar.extractors.extractorCREST.ensemble_info"><code class="docutils literal notranslate"><span class="pre">extractorCREST.ensemble_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorCREST.html#reptar.extractors.extractorCREST.triggers"><code class="docutils literal notranslate"><span class="pre">extractorCREST.triggers</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="extractors-api/extractorORCA.html"><code class="docutils literal notranslate"><span class="pre">extractorORCA</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="extractors-api/extractorORCA.html#reptar.extractors.extractorORCA"><code class="docutils literal notranslate"><span class="pre">extractorORCA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.aux_basis"><code class="docutils literal notranslate"><span class="pre">extractorORCA.aux_basis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.cc_method"><code class="docutils literal notranslate"><span class="pre">extractorORCA.cc_method()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.cc_properties"><code class="docutils literal notranslate"><span class="pre">extractorORCA.cc_properties()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.dipole"><code class="docutils literal notranslate"><span class="pre">extractorORCA.dipole()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.enthalpic_corr"><code class="docutils literal notranslate"><span class="pre">extractorORCA.enthalpic_corr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.entropic_corr"><code class="docutils literal notranslate"><span class="pre">extractorORCA.entropic_corr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.frequencies"><code class="docutils literal notranslate"><span class="pre">extractorORCA.frequencies()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.geo_conv"><code class="docutils literal notranslate"><span class="pre">extractorORCA.geo_conv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.grid_info"><code class="docutils literal notranslate"><span class="pre">extractorORCA.grid_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.implicit_solvent"><code class="docutils literal notranslate"><span class="pre">extractorORCA.implicit_solvent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.loewdin_charges"><code class="docutils literal notranslate"><span class="pre">extractorORCA.loewdin_charges()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.mp_properties"><code class="docutils literal notranslate"><span class="pre">extractorORCA.mp_properties()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.mulliken_charges"><code class="docutils literal notranslate"><span class="pre">extractorORCA.mulliken_charges()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.normal_modes"><code class="docutils literal notranslate"><span class="pre">extractorORCA.normal_modes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.scf_energies"><code class="docutils literal notranslate"><span class="pre">extractorORCA.scf_energies()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.scf_info"><code class="docutils literal notranslate"><span class="pre">extractorORCA.scf_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.thermal_corrections"><code class="docutils literal notranslate"><span class="pre">extractorORCA.thermal_corrections()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.thermo_temp"><code class="docutils literal notranslate"><span class="pre">extractorORCA.thermo_temp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.triggers"><code class="docutils literal notranslate"><span class="pre">extractorORCA.triggers</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.uhf_spin_contamination"><code class="docutils literal notranslate"><span class="pre">extractorORCA.uhf_spin_contamination()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.zpve"><code class="docutils literal notranslate"><span class="pre">extractorORCA.zpve()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="extractors-api/extractorXTB.html"><code class="docutils literal notranslate"><span class="pre">extractorXTB</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="extractors-api/extractorXTB.html#reptar.extractors.extractorXTB"><code class="docutils literal notranslate"><span class="pre">extractorXTB</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorXTB.html#reptar.extractors.extractorXTB.charge"><code class="docutils literal notranslate"><span class="pre">extractorXTB.charge()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorXTB.html#reptar.extractors.extractorXTB.gfn_setup"><code class="docutils literal notranslate"><span class="pre">extractorXTB.gfn_setup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorXTB.html#reptar.extractors.extractorXTB.md_avg_props"><code class="docutils literal notranslate"><span class="pre">extractorXTB.md_avg_props()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorXTB.html#reptar.extractors.extractorXTB.md_setup"><code class="docutils literal notranslate"><span class="pre">extractorXTB.md_setup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorXTB.html#reptar.extractors.extractorXTB.multiplicity"><code class="docutils literal notranslate"><span class="pre">extractorXTB.multiplicity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorXTB.html#reptar.extractors.extractorXTB.n_electrons"><code class="docutils literal notranslate"><span class="pre">extractorXTB.n_electrons()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorXTB.html#reptar.extractors.extractorXTB.opt_data"><code class="docutils literal notranslate"><span class="pre">extractorXTB.opt_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorXTB.html#reptar.extractors.extractorXTB.run_type"><code class="docutils literal notranslate"><span class="pre">extractorXTB.run_type()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorXTB.html#reptar.extractors.extractorXTB.success"><code class="docutils literal notranslate"><span class="pre">extractorXTB.success()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorXTB.html#reptar.extractors.extractorXTB.summary_energies"><code class="docutils literal notranslate"><span class="pre">extractorXTB.summary_energies()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorXTB.html#reptar.extractors.extractorXTB.thermostat_prob"><code class="docutils literal notranslate"><span class="pre">extractorXTB.thermostat_prob()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorXTB.html#reptar.extractors.extractorXTB.triggers"><code class="docutils literal notranslate"><span class="pre">extractorXTB.triggers</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorXTB.html#reptar.extractors.extractorXTB.wall_pot"><code class="docutils literal notranslate"><span class="pre">extractorXTB.wall_pot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="extractors-api/extractorXTB.html#reptar.extractors.extractorXTB.xtb_version"><code class="docutils literal notranslate"><span class="pre">extractorXTB.xtb_version()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="file.html">File</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="file.html#reptar.File"><code class="docutils literal notranslate"><span class="pre">File</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="file.html#reptar.File.as_dict"><code class="docutils literal notranslate"><span class="pre">File.as_dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="file.html#reptar.File.clean_key"><code class="docutils literal notranslate"><span class="pre">File.clean_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="file.html#reptar.File.create_group"><code class="docutils literal notranslate"><span class="pre">File.create_group()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="file.html#reptar.File.get"><code class="docutils literal notranslate"><span class="pre">File.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="file.html#reptar.File.get_keys"><code class="docutils literal notranslate"><span class="pre">File.get_keys()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="file.html#reptar.File.put"><code class="docutils literal notranslate"><span class="pre">File.put()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="file.html#reptar.File.save"><code class="docutils literal notranslate"><span class="pre">File.save()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="file.html#reptar.File.simplify_iter_data"><code class="docutils literal notranslate"><span class="pre">File.simplify_iter_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="file.html#reptar.File.split_key"><code class="docutils literal notranslate"><span class="pre">File.split_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="file.html#reptar.File.update_md5"><code class="docutils literal notranslate"><span class="pre">File.update_md5()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="fragment/fragment.html">Fragment</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="fragment/pairwise_distance.html"><code class="docutils literal notranslate"><span class="pre">pairwise_distance</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fragment/pairwise_distance.html"><code class="docutils literal notranslate"><span class="pre">pairwise_distance</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fragment/pairwise_distance.html#reptar.fragment.pairwise_distance"><code class="docutils literal notranslate"><span class="pre">pairwise_distance()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="parsers-api/parsers-module.html">Parsers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="parsers-api/parser.html"><code class="docutils literal notranslate"><span class="pre">parser</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="parsers-api/parserASE.html"><code class="docutils literal notranslate"><span class="pre">parserASE</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="parsers-api/parserCREST.html"><code class="docutils literal notranslate"><span class="pre">parserCREST</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="parsers-api/parserORCA.html"><code class="docutils literal notranslate"><span class="pre">parserORCA</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="parsers-api/parserXTB.html"><code class="docutils literal notranslate"><span class="pre">parserXTB</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="parsers-api/parser.html"><code class="docutils literal notranslate"><span class="pre">parser</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="parsers-api/parser.html#reptar.parsers.parser"><code class="docutils literal notranslate"><span class="pre">parser</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="parsers-api/parser.html#reptar.parsers.parser.out_path"><code class="docutils literal notranslate"><span class="pre">parser.out_path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="parsers-api/parser.html#reptar.parsers.parser.file_name"><code class="docutils literal notranslate"><span class="pre">parser.file_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="parsers-api/parser.html#reptar.parsers.parser.after_parse"><code class="docutils literal notranslate"><span class="pre">parser.after_parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="parsers-api/parser.html#reptar.parsers.parser.combine_extracted"><code class="docutils literal notranslate"><span class="pre">parser.combine_extracted()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="parsers-api/parser.html#reptar.parsers.parser.extract_data_out"><code class="docutils literal notranslate"><span class="pre">parser.extract_data_out()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="parsers-api/parser.html#reptar.parsers.parser.map_cclib_data"><code class="docutils literal notranslate"><span class="pre">parser.map_cclib_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="parsers-api/parser.html#reptar.parsers.parser.parse"><code class="docutils literal notranslate"><span class="pre">parser.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="parsers-api/parser.html#reptar.parsers.parser.parsed_info"><code class="docutils literal notranslate"><span class="pre">parser.parsed_info</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="parsers-api/parserASE.html"><code class="docutils literal notranslate"><span class="pre">parserASE</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="parsers-api/parserASE.html#reptar.parsers.parserASE"><code class="docutils literal notranslate"><span class="pre">parserASE</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="parsers-api/parserASE.html#reptar.parsers.parserASE.extract_data_out"><code class="docutils literal notranslate"><span class="pre">parserASE.extract_data_out()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="parsers-api/parserASE.html#reptar.parsers.parserASE.parse"><code class="docutils literal notranslate"><span class="pre">parserASE.parse()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="parsers-api/parserCREST.html"><code class="docutils literal notranslate"><span class="pre">parserCREST</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="parsers-api/parserCREST.html#reptar.parsers.parserCREST"><code class="docutils literal notranslate"><span class="pre">parserCREST</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="parsers-api/parserCREST.html#reptar.parsers.parserCREST.after_parse"><code class="docutils literal notranslate"><span class="pre">parserCREST.after_parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="parsers-api/parserCREST.html#reptar.parsers.parserCREST.parse"><code class="docutils literal notranslate"><span class="pre">parserCREST.parse()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="parsers-api/parserORCA.html"><code class="docutils literal notranslate"><span class="pre">parserORCA</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="parsers-api/parserORCA.html#reptar.parsers.parserORCA"><code class="docutils literal notranslate"><span class="pre">parserORCA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="parsers-api/parserORCA.html#reptar.parsers.parserORCA.after_parse"><code class="docutils literal notranslate"><span class="pre">parserORCA.after_parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="parsers-api/parserORCA.html#reptar.parsers.parserORCA.parse"><code class="docutils literal notranslate"><span class="pre">parserORCA.parse()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="parsers-api/parserXTB.html"><code class="docutils literal notranslate"><span class="pre">parserXTB</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="parsers-api/parserXTB.html#reptar.parsers.parserXTB"><code class="docutils literal notranslate"><span class="pre">parserXTB</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="parsers-api/parserXTB.html#reptar.parsers.parserXTB.after_parse"><code class="docutils literal notranslate"><span class="pre">parserXTB.after_parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="parsers-api/parserXTB.html#reptar.parsers.parserXTB.parse"><code class="docutils literal notranslate"><span class="pre">parserXTB.parse()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="sampler/sampler.html">Sampling</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sampler/add_structures_to_group.html"><code class="docutils literal notranslate"><span class="pre">add_structures_to_group</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="sampler/sample_structures.html"><code class="docutils literal notranslate"><span class="pre">sample_structures</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="sampler/_generate_structure_samples.html"><code class="docutils literal notranslate"><span class="pre">_generate_structure_samples</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="sampler/_initialize_structure_sampling_arrays.html"><code class="docutils literal notranslate"><span class="pre">_initialize_structure_sampling_arrays</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sampler/add_structures_to_group.html"><code class="docutils literal notranslate"><span class="pre">add_structures_to_group</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sampler/add_structures_to_group.html#reptar.sampler.add_structures_to_group"><code class="docutils literal notranslate"><span class="pre">add_structures_to_group()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sampler/sample_structures.html"><code class="docutils literal notranslate"><span class="pre">sample_structures</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sampler/sample_structures.html#reptar.sampler.sample_structures"><code class="docutils literal notranslate"><span class="pre">sample_structures()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sampler/_generate_structure_samples.html"><code class="docutils literal notranslate"><span class="pre">_generate_structure_samples</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sampler/_generate_structure_samples.html#reptar.sampler._generate_structure_samples"><code class="docutils literal notranslate"><span class="pre">_generate_structure_samples()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sampler/_initialize_structure_sampling_arrays.html"><code class="docutils literal notranslate"><span class="pre">_initialize_structure_sampling_arrays</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sampler/_initialize_structure_sampling_arrays.html#reptar.sampler._initialize_structure_sampling_arrays"><code class="docutils literal notranslate"><span class="pre">_initialize_structure_sampling_arrays()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="utils/utils.html">Utilities</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="utils/atoms_by_element.html"><code class="docutils literal notranslate"><span class="pre">atoms_by_element</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="utils/atoms_by_number.html"><code class="docutils literal notranslate"><span class="pre">atoms_by_number</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="utils/center_structures.html"><code class="docutils literal notranslate"><span class="pre">center_structures</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="utils/combine_dicts.html"><code class="docutils literal notranslate"><span class="pre">combine_dicts</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="utils/find_parent_r_idxs.html"><code class="docutils literal notranslate"><span class="pre">find_parent_r_idxs</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="utils/get_files.html"><code class="docutils literal notranslate"><span class="pre">get_files</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="utils/get_md5.html"><code class="docutils literal notranslate"><span class="pre">get_md5</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="utils/gen_comp_ids.html"><code class="docutils literal notranslate"><span class="pre">gen_comp_ids</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="utils/gen_entity_ids.html"><code class="docutils literal notranslate"><span class="pre">gen_entity_ids</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="utils/parse_stringfile.html"><code class="docutils literal notranslate"><span class="pre">parse_stringfile</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils/atoms_by_element.html"><code class="docutils literal notranslate"><span class="pre">atoms_by_element</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils/atoms_by_element.html#reptar.utils.atoms_by_element"><code class="docutils literal notranslate"><span class="pre">atoms_by_element()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils/atoms_by_number.html"><code class="docutils literal notranslate"><span class="pre">atoms_by_number</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils/atoms_by_number.html#reptar.utils.atoms_by_number"><code class="docutils literal notranslate"><span class="pre">atoms_by_number()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils/center_structures.html"><code class="docutils literal notranslate"><span class="pre">center_structures</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils/center_structures.html#reptar.utils.center_structures"><code class="docutils literal notranslate"><span class="pre">center_structures()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils/combine_dicts.html"><code class="docutils literal notranslate"><span class="pre">combine_dicts</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils/combine_dicts.html#reptar.utils.combine_dicts"><code class="docutils literal notranslate"><span class="pre">combine_dicts()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils/find_parent_r_idxs.html"><code class="docutils literal notranslate"><span class="pre">find_parent_r_idxs</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils/find_parent_r_idxs.html#reptar.utils.find_parent_r_idxs"><code class="docutils literal notranslate"><span class="pre">find_parent_r_idxs()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils/get_files.html"><code class="docutils literal notranslate"><span class="pre">get_files</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils/get_files.html#reptar.utils.get_files"><code class="docutils literal notranslate"><span class="pre">get_files()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils/get_md5.html"><code class="docutils literal notranslate"><span class="pre">get_md5</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils/get_md5.html#reptar.utils.get_md5"><code class="docutils literal notranslate"><span class="pre">get_md5()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils/gen_comp_ids.html"><code class="docutils literal notranslate"><span class="pre">gen_comp_ids</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils/gen_comp_ids.html#reptar.utils.gen_comp_ids"><code class="docutils literal notranslate"><span class="pre">gen_comp_ids()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils/gen_entity_ids.html"><code class="docutils literal notranslate"><span class="pre">gen_entity_ids</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils/gen_entity_ids.html#reptar.utils.gen_entity_ids"><code class="docutils literal notranslate"><span class="pre">gen_entity_ids()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils/parse_stringfile.html"><code class="docutils literal notranslate"><span class="pre">parse_stringfile</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils/parse_stringfile.html#reptar.utils.parse_stringfile"><code class="docutils literal notranslate"><span class="pre">parse_stringfile()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="writers/writers.html">Writers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="writers/string_xyz_arrays.html"><code class="docutils literal notranslate"><span class="pre">string_xyz_arrays</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="writers/write_ase_db.html"><code class="docutils literal notranslate"><span class="pre">write_ase_db</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="writers/write_pdb.html"><code class="docutils literal notranslate"><span class="pre">write_pdb</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="writers/write_schnetpack_db.html"><code class="docutils literal notranslate"><span class="pre">write_schnetpack_db</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="writers/write_xyz.html"><code class="docutils literal notranslate"><span class="pre">write_xyz</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="writers/write_xyz_gap.html"><code class="docutils literal notranslate"><span class="pre">write_xyz_gap</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="writers/string_xyz_arrays.html"><code class="docutils literal notranslate"><span class="pre">string_xyz_arrays</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="writers/string_xyz_arrays.html#reptar.writers.string_xyz_arrays"><code class="docutils literal notranslate"><span class="pre">string_xyz_arrays()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="writers/write_ase_db.html"><code class="docutils literal notranslate"><span class="pre">write_ase_db</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="writers/write_ase_db.html#reptar.writers.write_ase_db"><code class="docutils literal notranslate"><span class="pre">write_ase_db()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="writers/write_pdb.html"><code class="docutils literal notranslate"><span class="pre">write_pdb</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="writers/write_pdb.html#reptar.writers.write_pdb"><code class="docutils literal notranslate"><span class="pre">write_pdb()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="writers/write_schnetpack_db.html"><code class="docutils literal notranslate"><span class="pre">write_schnetpack_db</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="writers/write_schnetpack_db.html#reptar.writers.write_schnetpack_db"><code class="docutils literal notranslate"><span class="pre">write_schnetpack_db()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="writers/write_xyz.html"><code class="docutils literal notranslate"><span class="pre">write_xyz</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="writers/write_xyz.html#reptar.writers.write_xyz"><code class="docutils literal notranslate"><span class="pre">write_xyz()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="writers/write_xyz_gap.html"><code class="docutils literal notranslate"><span class="pre">write_xyz_gap</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="writers/write_xyz_gap.html#reptar.writers.write_xyz_gap"><code class="docutils literal notranslate"><span class="pre">write_xyz_gap()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -414,6 +643,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     </body>
 </html>
