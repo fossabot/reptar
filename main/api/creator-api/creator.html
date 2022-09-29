@@ -341,6 +341,25 @@ simulation, etc.</p></li>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="reptar.creator.from_dict">
+<span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nested</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/reptar/creator.html#creator.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.creator.from_dict" title="Permalink to this definition">#</a></dt>
+<dd><p>Adds all keys and values from <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> to group.</p>
+<p>Used to add <code class="docutils literal notranslate"><span class="pre">parsed_info</span></code> and other custom data to groups. This is
+automatically called by <code class="docutils literal notranslate"><span class="pre">creator.from_calc()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group_key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Key to the desired new group.</p></li>
+<li><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a>) – Key-value pairs of data to add to group. For example, the
+<code class="docutils literal notranslate"><span class="pre">parsed_info</span></code> attribute after parsing a calculation.</p></li>
+<li><p><strong>nested</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">True</span></code>) – If``data`` contains one level of nested dictionaries. This is the
+case for <code class="docutils literal notranslate"><span class="pre">parsed_info</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="reptar.creator.ids">
 <span class="sig-name descname"><span class="pre">ids</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comp_ids</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/reptar/creator.html#creator.ids"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.creator.ids" title="Permalink to this definition">#</a></dt>
 <dd><p>Add <code class="docutils literal notranslate"><span class="pre">entity_ids</span></code> and <code class="docutils literal notranslate"><span class="pre">comp_ids</span></code> to a group.</p>
@@ -491,6 +510,7 @@ simulation, etc.</p></li>
 <li><a class="reference internal" href="#reptar.creator"><code class="docutils literal notranslate"><span class="pre">creator</span></code></a><ul>
 <li><a class="reference internal" href="#reptar.creator.definitions"><code class="docutils literal notranslate"><span class="pre">creator.definitions()</span></code></a></li>
 <li><a class="reference internal" href="#reptar.creator.from_calc"><code class="docutils literal notranslate"><span class="pre">creator.from_calc()</span></code></a></li>
+<li><a class="reference internal" href="#reptar.creator.from_dict"><code class="docutils literal notranslate"><span class="pre">creator.from_dict()</span></code></a></li>
 <li><a class="reference internal" href="#reptar.creator.ids"><code class="docutils literal notranslate"><span class="pre">creator.ids()</span></code></a></li>
 <li><a class="reference internal" href="#reptar.creator.load"><code class="docutils literal notranslate"><span class="pre">creator.load()</span></code></a></li>
 <li><a class="reference internal" href="#reptar.creator.parse_output"><code class="docutils literal notranslate"><span class="pre">creator.parse_output()</span></code></a></li>
