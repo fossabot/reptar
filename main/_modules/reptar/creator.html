@@ -500,33 +500,6 @@
                     <span class="n">xtb_restart_path</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">raw_path</span><span class="p">,</span> <span class="s1">&#39;xtbrestart&#39;</span><span class="p">)</span>
                 <span class="p">)</span>
     
-<div class="viewcode-block" id="creator.from_dict"><a class="viewcode-back" href="../../api/creator-api/creator.html#reptar.creator.from_dict">[docs]</a>    <span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">nested</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Adds all keys and values from :obj:`dict` to group.</span>
-
-<span class="sd">        Used to add ``parsed_info`` and other custom data to groups. This is</span>
-<span class="sd">        automatically called by ``creator.from_calc()``.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        group_key : :obj:`str`</span>
-<span class="sd">            Key to the desired new group.</span>
-<span class="sd">        data : :obj:`dict`</span>
-<span class="sd">            Key-value pairs of data to add to group. For example, the</span>
-<span class="sd">            ``parsed_info`` attribute after parsing a calculation.</span>
-<span class="sd">        nested : :obj:`bool`, default: ``True``</span>
-<span class="sd">            If``data`` contains one level of nested dictionaries. This is the</span>
-<span class="sd">            case for ``parsed_info``.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">nested</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">cat_key</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                <span class="k">for</span> <span class="n">data_key</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">cat_key</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                    <span class="n">value</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">cat_key</span><span class="p">][</span><span class="n">data_key</span><span class="p">]</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">data_key</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">data_key</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                <span class="n">value</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data_key</span><span class="p">]</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">data_key</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
-    
 <div class="viewcode-block" id="creator.from_calc"><a class="viewcode-back" href="../../creator.html#reptar.creator.from_calc">[docs]</a>    <span class="k">def</span> <span class="nf">from_calc</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">,</span> <span class="n">out_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">geom_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">traj_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">extractors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
@@ -585,7 +558,7 @@
             <span class="k">return</span> <span class="kc">None</span>
         
         <span class="c1"># Add all data to group.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">group_key</span><span class="p">,</span> <span class="n">parsed_info</span><span class="p">,</span> <span class="n">nested</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">put_all</span><span class="p">(</span><span class="n">group_key</span><span class="p">,</span> <span class="n">parsed_info</span><span class="p">,</span> <span class="n">nested</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         
         <span class="c1"># Extra stuff to do depending on package.</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">package</span> <span class="o">==</span> <span class="s1">&#39;xtb&#39;</span><span class="p">:</span>

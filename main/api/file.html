@@ -404,6 +404,24 @@ separated by <code class="docutils literal notranslate"><span class="pre">/</spa
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="reptar.File.put_all">
+<span class="sig-name descname"><span class="pre">put_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nested</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/reptar_file.html#File.put_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.File.put_all" title="Permalink to this definition">#</a></dt>
+<dd><p>Adds all data from <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> to group.</p>
+<p>This is just a loop over <a class="reference internal" href="#reptar.File.put" title="reptar.File.put"><code class="xref py py-meth docutils literal notranslate"><span class="pre">put()</span></code></a> for each key-value pair.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group_key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Key to the desired new group.</p></li>
+<li><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a>) – Key-value pairs of data to add to group. For example, the
+<code class="docutils literal notranslate"><span class="pre">parsed_info</span></code> attribute after parsing a calculation.</p></li>
+<li><p><strong>nested</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">True</span></code>) – If``data`` contains one level of nested dictionaries. This is the
+case for <code class="docutils literal notranslate"><span class="pre">parsed_info</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="reptar.File.save">
 <span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_prettify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/reptar_file.html#File.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.File.save" title="Permalink to this definition">#</a></dt>
 <dd><p>Saves non-exdir files.</p>
@@ -419,14 +437,13 @@ line.</p>
 <dt class="sig sig-object py" id="reptar.File.simplify_iter_data">
 <span class="sig-name descname"><span class="pre">simplify_iter_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/reptar_file.html#File.simplify_iter_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.File.simplify_iter_data" title="Permalink to this definition">#</a></dt>
 <dd><p>Simplify iterative data if possible.</p>
-<p>Attempts to simplify iterative objects by the type and/or number of
-elements. For example, iterative data with only one element will return
-just that element.</p>
-<p>This is mainly used when adding data to a file. When parsing data we
-will not know if there will be multiple values of certain data (e.g.,
-multiple single point energies) until we finish parsing. Thus, we assume
-there will be multiple values while parsing then simplify any iterative
-objects at the end.</p>
+<p>Checks contents of lists, tuples, and arrays to see if we can simplify.
+For example, if a list has only one element this method will return
+just the element.</p>
+<p>This becomes important when adding parsed data to a file. During
+parsing, there is a possibility we could have one or more of the same
+property. We instead assume there will be multiple. Then as a
+postprocessing step we simplify cases where only one value was parsed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>data</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></a>) – An iterative data object.</p>
@@ -538,6 +555,7 @@ objects at the end.</p>
 <li><a class="reference internal" href="#reptar.File.get"><code class="docutils literal notranslate"><span class="pre">File.get()</span></code></a></li>
 <li><a class="reference internal" href="#reptar.File.get_keys"><code class="docutils literal notranslate"><span class="pre">File.get_keys()</span></code></a></li>
 <li><a class="reference internal" href="#reptar.File.put"><code class="docutils literal notranslate"><span class="pre">File.put()</span></code></a></li>
+<li><a class="reference internal" href="#reptar.File.put_all"><code class="docutils literal notranslate"><span class="pre">File.put_all()</span></code></a></li>
 <li><a class="reference internal" href="#reptar.File.save"><code class="docutils literal notranslate"><span class="pre">File.save()</span></code></a></li>
 <li><a class="reference internal" href="#reptar.File.simplify_iter_data"><code class="docutils literal notranslate"><span class="pre">File.simplify_iter_data()</span></code></a></li>
 <li><a class="reference internal" href="#reptar.File.split_key"><code class="docutils literal notranslate"><span class="pre">File.split_key()</span></code></a></li>

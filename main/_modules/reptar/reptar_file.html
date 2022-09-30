@@ -600,15 +600,14 @@
 <div class="viewcode-block" id="File.simplify_iter_data"><a class="viewcode-back" href="../../api/file.html#reptar.File.simplify_iter_data">[docs]</a>    <span class="k">def</span> <span class="nf">simplify_iter_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Simplify iterative data if possible.</span>
 
-<span class="sd">        Attempts to simplify iterative objects by the type and/or number of</span>
-<span class="sd">        elements. For example, iterative data with only one element will return</span>
-<span class="sd">        just that element.</span>
+<span class="sd">        Checks contents of lists, tuples, and arrays to see if we can simplify.</span>
+<span class="sd">        For example, if a list has only one element this method will return</span>
+<span class="sd">        just the element.</span>
 
-<span class="sd">        This is mainly used when adding data to a file. When parsing data we</span>
-<span class="sd">        will not know if there will be multiple values of certain data (e.g.,</span>
-<span class="sd">        multiple single point energies) until we finish parsing. Thus, we assume</span>
-<span class="sd">        there will be multiple values while parsing then simplify any iterative</span>
-<span class="sd">        objects at the end.</span>
+<span class="sd">        This becomes important when adding parsed data to a file. During</span>
+<span class="sd">        parsing, there is a possibility we could have one or more of the same</span>
+<span class="sd">        property. We instead assume there will be multiple. Then as a</span>
+<span class="sd">        postprocessing step we simplify cases where only one value was parsed.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -750,6 +749,37 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_put_to_exdir</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;json&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s1">&#39;npz&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_put_to_dict</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="File.put_all"><a class="viewcode-back" href="../../api/file.html#reptar.File.put_all">[docs]</a>    <span class="k">def</span> <span class="nf">put_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_key</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">nested</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Adds all data from :obj:`dict` to group.</span>
+
+<span class="sd">        This is just a loop over :meth:`~reptar.File.put` for each key-value pair.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        group_key : :obj:`str`</span>
+<span class="sd">            Key to the desired new group.</span>
+<span class="sd">        data : :obj:`dict`</span>
+<span class="sd">            Key-value pairs of data to add to group. For example, the</span>
+<span class="sd">            ``parsed_info`` attribute after parsing a calculation.</span>
+<span class="sd">        nested : :obj:`bool`, default: ``True``</span>
+<span class="sd">            If``data`` contains one level of nested dictionaries. This is the</span>
+<span class="sd">            case for ``parsed_info``.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">nested</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">cat_key</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">for</span> <span class="n">data_key</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">cat_key</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">cat_key</span><span class="p">][</span><span class="n">data_key</span><span class="p">]</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">data_key</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">data_key</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data_key</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">group_key</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">data_key</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">File_</span></div>
     
     <span class="k">def</span> <span class="nf">_iter_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dic</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Iterate over nested dictionary.</span>
