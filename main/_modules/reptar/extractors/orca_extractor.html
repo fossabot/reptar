@@ -325,6 +325,7 @@
             <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;MULLIKEN ATOMIC CHARGES&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;mulliken_charges&#39;</span><span class="p">),</span>
             <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;LOEWDIN ATOMIC CHARGES&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;loewdin_charges&#39;</span><span class="p">),</span>
             <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;DIPOLE MOMENT&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;dipole&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;FINAL SINGLE POINT ENERGY&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;final_energy_ele&#39;</span><span class="p">),</span>
             <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;Geometry convergence&#39;</span> <span class="ow">in</span> <span class="n">line</span> <span class="ow">and</span> <span class="s1">&#39;----------------------&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;geo_conv&#39;</span><span class="p">),</span>
             <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;VIBRATIONAL FREQUENCIES&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="p">[:</span><span class="mi">23</span><span class="p">])</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;frequencies&#39;</span><span class="p">),</span>
             <span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;NORMAL MODES&#39;</span> <span class="o">==</span> <span class="n">line</span><span class="p">[:</span><span class="mi">12</span><span class="p">])</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;normal_modes&#39;</span><span class="p">),</span>
@@ -894,14 +895,34 @@
 <span class="sd">            )</span>
 <span class="sd">            &quot;&quot;&quot;</span>
             <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="extractorORCA.final_energy_ele"><a class="viewcode-back" href="../../../api/extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.final_energy_ele">[docs]</a>    <span class="k">def</span> <span class="nf">final_energy_ele</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Final electronic energy with all requested contributions.</span>
 
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        f : :obj:`io.TextIOWrapper`</span>
+<span class="sd">            Buffered text stream of the file.</span>
+<span class="sd">        line : :obj:`str`</span>
+<span class="sd">            Parsed line from ``f``.</span>
+<span class="sd">        </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Example trigger text for this extractor.</span>
+
+<span class="sd">        .. code-block:: text</span>
+
+<span class="sd">            -------------------------   --------------------</span>
+<span class="sd">            FINAL SINGLE POINT ENERGY      -457.961331933491</span>
+<span class="sd">            -------------------------   --------------------</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s1">&#39;energy_ele&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_ele&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">energy_ele</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_info</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">][</span><span class="s1">&#39;energy_ele&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">energy_ele</span><span class="p">))</span></div>
     
 <div class="viewcode-block" id="extractorORCA.dipole"><a class="viewcode-back" href="../../../api/extractors-api/extractorORCA.html#reptar.extractors.extractorORCA.dipole">[docs]</a>    <span class="k">def</span> <span class="nf">dipole</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;The X, Y, and Z dipole components.</span>
-
-<span class="sd">        Final QCJSON specifies the method of the dipole moment (e.g.,</span>
-<span class="sd">        ``&#39;scf_dipole_moment&#39;``, ``&#39;mp2_dipole_moment&#39;``). For now, we just</span>
-<span class="sd">        store it as ``&#39;dipole_moment&#39;``.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>

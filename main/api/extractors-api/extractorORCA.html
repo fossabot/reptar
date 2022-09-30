@@ -368,9 +368,6 @@ trigger is reached.</p>
 <dt class="sig sig-object py" id="reptar.extractors.extractorORCA.dipole">
 <span class="sig-name descname"><span class="pre">dipole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/reptar/extractors/orca_extractor.html#extractorORCA.dipole"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA.dipole" title="Permalink to this definition">#</a></dt>
 <dd><p>The X, Y, and Z dipole components.</p>
-<p>Final QCJSON specifies the method of the dipole moment (e.g.,
-<code class="docutils literal notranslate"><span class="pre">'scf_dipole_moment'</span></code>, <code class="docutils literal notranslate"><span class="pre">'mp2_dipole_moment'</span></code>). For now, we just
-store it as <code class="docutils literal notranslate"><span class="pre">'dipole_moment'</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -424,6 +421,27 @@ corrections to enthalpy for Gibbs free energy (i.e., T*S_298).</p>
 <p class="rubric">Notes</p>
 <p>Example trigger text for this extractor.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Final entropy term                ...      0.04136711
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="reptar.extractors.extractorORCA.final_energy_ele">
+<span class="sig-name descname"><span class="pre">final_energy_ele</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/reptar/extractors/orca_extractor.html#extractorORCA.final_energy_ele"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.extractors.extractorORCA.final_energy_ele" title="Permalink to this definition">#</a></dt>
+<dd><p>Final electronic energy with all requested contributions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOWrapper" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a>) – Buffered text stream of the file.</p></li>
+<li><p><strong>line</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Parsed line from <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Example trigger text for this extractor.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>-------------------------   --------------------
+FINAL SINGLE POINT ENERGY      -457.961331933491
+-------------------------   --------------------
 </pre></div>
 </div>
 </dd></dl>
@@ -882,6 +900,7 @@ Deviation                       :     0.000016
 <li><a class="reference internal" href="#reptar.extractors.extractorORCA.dipole"><code class="docutils literal notranslate"><span class="pre">extractorORCA.dipole()</span></code></a></li>
 <li><a class="reference internal" href="#reptar.extractors.extractorORCA.enthalpic_corr"><code class="docutils literal notranslate"><span class="pre">extractorORCA.enthalpic_corr()</span></code></a></li>
 <li><a class="reference internal" href="#reptar.extractors.extractorORCA.entropic_corr"><code class="docutils literal notranslate"><span class="pre">extractorORCA.entropic_corr()</span></code></a></li>
+<li><a class="reference internal" href="#reptar.extractors.extractorORCA.final_energy_ele"><code class="docutils literal notranslate"><span class="pre">extractorORCA.final_energy_ele()</span></code></a></li>
 <li><a class="reference internal" href="#reptar.extractors.extractorORCA.frequencies"><code class="docutils literal notranslate"><span class="pre">extractorORCA.frequencies()</span></code></a></li>
 <li><a class="reference internal" href="#reptar.extractors.extractorORCA.geo_conv"><code class="docutils literal notranslate"><span class="pre">extractorORCA.geo_conv()</span></code></a></li>
 <li><a class="reference internal" href="#reptar.extractors.extractorORCA.grid_info"><code class="docutils literal notranslate"><span class="pre">extractorORCA.grid_info()</span></code></a></li>
