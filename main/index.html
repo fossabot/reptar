@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="File" href="file.html" />
 
-    <meta name="generator" content="sphinx-5.2.2, furo 2022.09.29"/>
+    <meta name="generator" content="sphinx-5.2.3, furo 2022.09.29"/>
         <title>reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
@@ -339,12 +339,13 @@ Note that <code class="docutils literal notranslate"><span class="pre">gradients
 Creating a reptar file starts by having a set of data files generated from some calculation.
 Paths to these data files are passed into <code class="docutils literal notranslate"><span class="pre">reptar.creator.from_calc</span></code> that extracts information using a <code class="docutils literal notranslate"><span class="pre">reptar.parser</span></code> class.
 Information parsed from these files, <code class="docutils literal notranslate"><span class="pre">parsed_info</span></code>, is then used to populate a <code class="docutils literal notranslate"><span class="pre">reptar.File</span></code> object.</p>
+<p>Data can also be manually added by using <code class="docutils literal notranslate"><span class="pre">File.put(key,</span> <span class="pre">data)</span></code> where <code class="docutils literal notranslate"><span class="pre">key</span></code> is a string specifying where to store the data.</p>
 </section>
 <section id="accessing-data">
 <h3>Accessing data<a class="headerlink" href="#accessing-data" title="Permalink to this heading">#</a></h3>
 <p>Data can be added or retrieved using the same interface regardless of the underlying file format (e.g., exdir, JSON, and npz).
-The only thing required is the respective <code class="docutils literal notranslate"><span class="pre">key</span></code> specifying where its stored.
-Then, <code class="docutils literal notranslate"><span class="pre">File.put(key,</span> <span class="pre">data)</span></code> can be used to add <code class="docutils literal notranslate"><span class="pre">data</span></code> to the reptar file and <code class="docutils literal notranslate"><span class="pre">File.get(key)</span></code> can retrieve it.</p>
+The only thing required is the respective <code class="docutils literal notranslate"><span class="pre">key</span></code> specifying where it is stored.
+Then, <code class="docutils literal notranslate"><span class="pre">File.get(key)</span></code> can retrieve the data.</p>
 <p>When working with JSON and npz files, <code class="docutils literal notranslate"><span class="pre">File.save()</span></code> must be explicitly called after any modification.</p>
 </section>
 <section id="writing-to-other-formats">
