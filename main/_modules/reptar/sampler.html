@@ -219,6 +219,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/utils/find_parent_r_idxs.html"><code class="docutils literal notranslate"><span class="pre">find_parent_r_idxs</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/utils/get_files.html"><code class="docutils literal notranslate"><span class="pre">get_files</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/utils/get_md5.html"><code class="docutils literal notranslate"><span class="pre">get_md5</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils/gen_combs.html"><code class="docutils literal notranslate"><span class="pre">gen_combs</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/utils/gen_comp_ids.html"><code class="docutils literal notranslate"><span class="pre">gen_comp_ids</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/utils/gen_entity_ids.html"><code class="docutils literal notranslate"><span class="pre">gen_entity_ids</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/utils/parse_stringfile.html"><code class="docutils literal notranslate"><span class="pre">parse_stringfile</span></code></a></li>
@@ -307,7 +308,7 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randrange</span><span class="p">,</span> <span class="n">choice</span>
 <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">center_structures</span> <span class="k">as</span> <span class="n">get_center_structures</span>
-<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">get_md5</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">get_md5</span><span class="p">,</span> <span class="n">gen_combs</span>
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">__version__</span>
 
 <div class="viewcode-block" id="_initialize_structure_sampling_arrays"><a class="viewcode-back" href="../../api/sampler/_initialize_structure_sampling_arrays.html#reptar.sampler._initialize_structure_sampling_arrays">[docs]</a><span class="k">def</span> <span class="nf">_initialize_structure_sampling_arrays</span><span class="p">(</span>
@@ -362,7 +363,7 @@
         <span class="c1"># Determine the maximum amount of structures we can sample from a single</span>
         <span class="c1"># source structure.</span>
         <span class="n">combs_per_structure</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span>
-            <span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="n">entity_ids_samples</span><span class="p">)</span>
+            <span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">_generate_structure_samples</span><span class="p">(</span><span class="n">quantity</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">entity_ids_samples</span><span class="p">)</span>
         <span class="p">)</span>
         <span class="n">size_quantity</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">combs_per_structure</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">R_source</span><span class="p">))</span>
         <span class="n">sampling_all</span> <span class="o">=</span> <span class="kc">True</span>
@@ -471,8 +472,8 @@
     <span class="c1"># Sampling all possible structures.</span>
     <span class="k">elif</span> <span class="n">quantity</span> <span class="o">==</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">R_selection_idx</span> <span class="ow">in</span> <span class="n">structure_idxs</span><span class="p">:</span>
-            <span class="c1">#all_combinations = unique_prod(*entity_ids_samples)</span>
-            <span class="k">for</span> <span class="n">comb</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="n">entity_ids_samples</span><span class="p">):</span>
+            <span class="n">combs</span> <span class="o">=</span> <span class="n">gen_combs</span><span class="p">(</span><span class="n">entity_ids_samples</span><span class="p">,</span> <span class="n">replacement</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">comb</span> <span class="ow">in</span> <span class="n">combs</span><span class="p">:</span>
                 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">comb</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">comb</span><span class="p">)):</span>
                     <span class="k">continue</span>
                 <span class="n">selection</span> <span class="o">=</span> <span class="p">[</span><span class="n">R_selection_idx</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">comb</span><span class="p">)</span>

@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="com_distance_sum" href="com_distance_sum.html" /><link rel="prev" title="identify_trajectory" href="../creator-api/identify_trajectory.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="gen_comp_ids" href="gen_comp_ids.html" /><link rel="prev" title="get_md5" href="get_md5.html" />
 
     <meta name="generator" content="sphinx-5.2.3, furo 2022.09.29"/>
-        <title>reptar.descriptors - reptar documentation</title>
+        <title>gen_combs - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -134,7 +134,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -177,11 +177,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../creator-api/identify_trajectory.html"><code class="docutils literal notranslate"><span class="pre">identify_trajectory</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Descriptors</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="com_distance_sum.html"><code class="docutils literal notranslate"><span class="pre">com_distance_sum</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="criteria.html"><code class="docutils literal notranslate"><span class="pre">criteria</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="get_center_of_mass.html"><code class="docutils literal notranslate"><span class="pre">get_center_of_mass</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="max_atom_pair_dist.html"><code class="docutils literal notranslate"><span class="pre">max_atom_pair_dist</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../descriptors/descriptors.html">Descriptors</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../descriptors/com_distance_sum.html"><code class="docutils literal notranslate"><span class="pre">com_distance_sum</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptors/criteria.html"><code class="docutils literal notranslate"><span class="pre">criteria</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptors/get_center_of_mass.html"><code class="docutils literal notranslate"><span class="pre">get_center_of_mass</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../descriptors/max_atom_pair_dist.html"><code class="docutils literal notranslate"><span class="pre">max_atom_pair_dist</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../extractors-api/extractors-module.html">Extractors</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -212,18 +212,18 @@
 <li class="toctree-l3"><a class="reference internal" href="../sampler/_initialize_structure_sampling_arrays.html"><code class="docutils literal notranslate"><span class="pre">_initialize_structure_sampling_arrays</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../utils/utils.html">Utilities</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../utils/atoms_by_element.html"><code class="docutils literal notranslate"><span class="pre">atoms_by_element</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../utils/atoms_by_number.html"><code class="docutils literal notranslate"><span class="pre">atoms_by_number</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../utils/center_structures.html"><code class="docutils literal notranslate"><span class="pre">center_structures</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../utils/combine_dicts.html"><code class="docutils literal notranslate"><span class="pre">combine_dicts</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../utils/find_parent_r_idxs.html"><code class="docutils literal notranslate"><span class="pre">find_parent_r_idxs</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../utils/get_files.html"><code class="docutils literal notranslate"><span class="pre">get_files</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../utils/get_md5.html"><code class="docutils literal notranslate"><span class="pre">get_md5</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../utils/gen_combs.html"><code class="docutils literal notranslate"><span class="pre">gen_combs</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../utils/gen_comp_ids.html"><code class="docutils literal notranslate"><span class="pre">gen_comp_ids</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../utils/gen_entity_ids.html"><code class="docutils literal notranslate"><span class="pre">gen_entity_ids</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../utils/parse_stringfile.html"><code class="docutils literal notranslate"><span class="pre">parse_stringfile</span></code></a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="utils.html">Utilities</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="atoms_by_element.html"><code class="docutils literal notranslate"><span class="pre">atoms_by_element</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="atoms_by_number.html"><code class="docutils literal notranslate"><span class="pre">atoms_by_number</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="center_structures.html"><code class="docutils literal notranslate"><span class="pre">center_structures</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="combine_dicts.html"><code class="docutils literal notranslate"><span class="pre">combine_dicts</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="find_parent_r_idxs.html"><code class="docutils literal notranslate"><span class="pre">find_parent_r_idxs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="get_files.html"><code class="docutils literal notranslate"><span class="pre">get_files</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="get_md5.html"><code class="docutils literal notranslate"><span class="pre">get_md5</span></code></a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">gen_combs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_comp_ids.html"><code class="docutils literal notranslate"><span class="pre">gen_comp_ids</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_entity_ids.html"><code class="docutils literal notranslate"><span class="pre">gen_entity_ids</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="parse_stringfile.html"><code class="docutils literal notranslate"><span class="pre">parse_stringfile</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../writers/writers.html">Writers</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -245,7 +245,7 @@
 <h4>Version</h4>
 <form style="padding-bottom: 1em;">
   <select name="URL" onchange="window.location.href=this.form.URL.options[this.form.URL.selectedIndex].value">
-    <option value="descriptors.html" selected>main</option>
+    <option value="gen_combs.html" selected>main</option>
     
     <option value="../../../v0.0.2/index.html">v0.0.2</option>
     
@@ -277,34 +277,44 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section id="reptar-descriptors">
-<h1><code class="docutils literal notranslate"><span class="pre">reptar.descriptors</span></code><a class="headerlink" href="#reptar-descriptors" title="Permalink to this heading">#</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="com_distance_sum.html"><code class="docutils literal notranslate"><span class="pre">com_distance_sum</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="com_distance_sum.html#reptar.descriptors.com_distance_sum"><code class="docutils literal notranslate"><span class="pre">com_distance_sum()</span></code></a></li>
+          <section id="gen-combs">
+<h1><code class="docutils literal notranslate"><span class="pre">gen_combs</span></code><a class="headerlink" href="#gen-combs" title="Permalink to this heading">#</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="reptar.utils.gen_combs">
+<span class="sig-prename descclassname"><span class="pre">reptar.utils.</span></span><span class="sig-name descname"><span class="pre">gen_combs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replacement</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/reptar/utils.html#gen_combs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.utils.gen_combs" title="Permalink to this definition">#</a></dt>
+<dd><p>Generate combinations from multiple sets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sets</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">2</span></code>) – An iterable that contains multiple sets.</p></li>
+<li><p><strong>replacement</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">False</span></code>) – Allows repeated combinations in different order. If <code class="docutils literal notranslate"><span class="pre">False</span></code>,
+<code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1)</span></code> and <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">0)</span></code> could be possible if there is overlap
+in the sets.</p></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="criteria.html"><code class="docutils literal notranslate"><span class="pre">criteria</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="criteria.html#reptar.descriptors.criteria"><code class="docutils literal notranslate"><span class="pre">criteria()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="get_center_of_mass.html"><code class="docutils literal notranslate"><span class="pre">get_center_of_mass</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="get_center_of_mass.html#reptar.descriptors.get_center_of_mass"><code class="docutils literal notranslate"><span class="pre">get_center_of_mass()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="max_atom_pair_dist.html"><code class="docutils literal notranslate"><span class="pre">max_atom_pair_dist</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="max_atom_pair_dist.html#reptar.descriptors.max_atom_pair_dist"><code class="docutils literal notranslate"><span class="pre">max_atom_pair_dist()</span></code></a></li>
-</ul>
-</li>
-</ul>
+</dd>
+<dt class="field-even">Yields<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></a> – Combination of one element per set in <code class="docutils literal notranslate"><span class="pre">sets</span></code>.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sets</span> <span class="o">=</span> <span class="p">((</span><span class="mi">0</span><span class="p">,)</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">combs</span> <span class="o">=</span> <span class="n">gen_combs</span><span class="p">(</span><span class="n">sets</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">comb</span> <span class="ow">in</span> <span class="n">combs</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">comb</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">(0, 1, 2)</span>
+<span class="go">(0, 1, 3)</span>
+<span class="go">(0, 2, 3)</span>
+</pre></div>
 </div>
+</dd></dl>
+
 </section>
 
         </article>
@@ -312,23 +322,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="com_distance_sum.html">
+          <a class="next-page" href="gen_comp_ids.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><code class="docutils literal notranslate"><span class="pre">com_distance_sum</span></code></div>
+                <div class="title"><code class="docutils literal notranslate"><span class="pre">gen_comp_ids</span></code></div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../creator-api/identify_trajectory.html">
+          <a class="prev-page" href="get_md5.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><code class="docutils literal notranslate"><span class="pre">identify_trajectory</span></code></div>
+                <div class="title"><code class="docutils literal notranslate"><span class="pre">get_md5</span></code></div>
                 
               </div>
             </a>
@@ -352,8 +362,27 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">gen_combs</span></code></a><ul>
+<li><a class="reference internal" href="#reptar.utils.gen_combs"><code class="docutils literal notranslate"><span class="pre">gen_combs()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

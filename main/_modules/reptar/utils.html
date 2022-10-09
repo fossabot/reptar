@@ -219,6 +219,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/utils/find_parent_r_idxs.html"><code class="docutils literal notranslate"><span class="pre">find_parent_r_idxs</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/utils/get_files.html"><code class="docutils literal notranslate"><span class="pre">get_files</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/utils/get_md5.html"><code class="docutils literal notranslate"><span class="pre">get_md5</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils/gen_combs.html"><code class="docutils literal notranslate"><span class="pre">gen_combs</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/utils/gen_comp_ids.html"><code class="docutils literal notranslate"><span class="pre">gen_comp_ids</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/utils/gen_entity_ids.html"><code class="docutils literal notranslate"><span class="pre">gen_entity_ids</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/utils/parse_stringfile.html"><code class="docutils literal notranslate"><span class="pre">parse_stringfile</span></code></a></li>
@@ -304,6 +305,7 @@
 <span class="c1"># SOFTWARE.</span>
 
 <span class="kn">import</span> <span class="nn">collections.abc</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
 <span class="kn">import</span> <span class="nn">hashlib</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -681,6 +683,50 @@
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">r_idx</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">r_idxs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">r_idx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">r_idxs</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="gen_combs"><a class="viewcode-back" href="../../api/utils/gen_combs.html#reptar.utils.gen_combs">[docs]</a><span class="k">def</span> <span class="nf">gen_combs</span><span class="p">(</span><span class="n">sets</span><span class="p">,</span> <span class="n">replacement</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Generate combinations from multiple sets.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sets : :obj:`list` or :obj:`tuple`, ndim: ``2``</span>
+<span class="sd">        An iterable that contains multiple sets.</span>
+<span class="sd">    replacement : :obj:`bool`, default: ``False``</span>
+<span class="sd">        Allows repeated combinations in different order. If ``False``,</span>
+<span class="sd">        ``(0, 1)`` and ``(1, 0)`` could be possible if there is overlap</span>
+<span class="sd">        in the sets.</span>
+<span class="sd">    </span>
+<span class="sd">    Yields</span>
+<span class="sd">    ------</span>
+<span class="sd">    :obj:`tuple`</span>
+<span class="sd">        Combination of one element per set in ``sets``.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; sets = ((0,) (1, 2), (1, 2, 3))</span>
+<span class="sd">    &gt;&gt;&gt; combs = gen_combs(sets)</span>
+<span class="sd">    &gt;&gt;&gt; for comb in combs:</span>
+<span class="sd">    ...     print(comb)</span>
+<span class="sd">    ... </span>
+<span class="sd">    (0, 1, 2)</span>
+<span class="sd">    (0, 1, 3)</span>
+<span class="sd">    (0, 2, 3)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">combs</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="n">sets</span><span class="p">)</span>
+    <span class="c1"># Excludes combinations that have repeats (e.g., (0, 0) and (1, 1. 2)).</span>
+    <span class="n">combs</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">filterfalse</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">&lt;</span>  <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">combs</span>
+    <span class="p">)</span>
+    <span class="c1"># At this point, there are still duplicates in this iterator.</span>
+    <span class="c1"># For example, (0, 1) and (1, 0) are still included.</span>
+    <span class="k">for</span> <span class="n">comb</span> <span class="ow">in</span> <span class="n">combs</span><span class="p">:</span>
+        <span class="c1"># Sorts options is to avoid duplicate structures.</span>
+        <span class="c1"># For example, if combination is (1, 0) the sorted version is not</span>
+        <span class="c1"># equal and will not be included.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">replacement</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">comb</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">(</span><span class="n">comb</span><span class="p">):</span>
+                <span class="k">continue</span>
+        <span class="k">yield</span> <span class="n">comb</span></div>
 </pre></div>
         </article>
       </div>
