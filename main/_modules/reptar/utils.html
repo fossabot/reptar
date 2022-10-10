@@ -167,6 +167,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../api/calculator-api/calculator-module.html">Calculators</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../api/calculator-api/driverENGRAD.html"><code class="docutils literal notranslate"><span class="pre">driverENGRAD</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/calculator-api/psi4_engrad.html"><code class="docutils literal notranslate"><span class="pre">psi4_engrad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/calculator-api/Saver.html"><code class="docutils literal notranslate"><span class="pre">Saver</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/calculator-api/xtb_engrad.html"><code class="docutils literal notranslate"><span class="pre">xtb_engrad</span></code></a></li>
 </ul>
 </li>
@@ -727,6 +728,25 @@
             <span class="k">if</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">comb</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">(</span><span class="n">comb</span><span class="p">):</span>
                 <span class="k">continue</span>
         <span class="k">yield</span> <span class="n">comb</span></div>
+
+<span class="k">def</span> <span class="nf">chunk_iterable</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Chunk an iterable into ``n`` objects.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    iterable : ``iterable``</span>
+<span class="sd">        Iterable to chunk.</span>
+<span class="sd">    n : :obj:`int`</span>
+<span class="sd">        Size of each chunk.</span>
+<span class="sd">    </span>
+<span class="sd">    Yields</span>
+<span class="sd">    ------</span>
+<span class="sd">    :obj:`tuple`</span>
+<span class="sd">        ``n`` objects.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">iterator</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">first</span> <span class="ow">in</span> <span class="n">iterator</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">([</span><span class="n">first</span><span class="p">],</span> <span class="n">itertools</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">iterator</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)))</span>
 </pre></div>
         </article>
       </div>

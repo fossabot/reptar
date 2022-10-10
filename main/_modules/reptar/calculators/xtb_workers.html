@@ -167,6 +167,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../api/calculator-api/calculator-module.html">Calculators</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/calculator-api/driverENGRAD.html"><code class="docutils literal notranslate"><span class="pre">driverENGRAD</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/calculator-api/psi4_engrad.html"><code class="docutils literal notranslate"><span class="pre">psi4_engrad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/calculator-api/Saver.html"><code class="docutils literal notranslate"><span class="pre">Saver</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/calculator-api/xtb_engrad.html"><code class="docutils literal notranslate"><span class="pre">xtb_engrad</span></code></a></li>
 </ul>
 </li>
@@ -311,24 +312,24 @@
     <span class="k">pass</span>
 
 <div class="viewcode-block" id="xtb_engrad"><a class="viewcode-back" href="../../../api/calculator-api/xtb_engrad.html#reptar.calculators.xtb_workers.xtb_engrad">[docs]</a><span class="k">def</span> <span class="nf">xtb_engrad</span><span class="p">(</span>
-    <span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">R_idxs</span><span class="p">,</span> <span class="n">charge</span><span class="p">,</span> <span class="n">mult</span><span class="p">,</span> <span class="n">calc_acc</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span>
+    <span class="n">idxs</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">charge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">mult</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">calc_acc</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span>
 <span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Ray remote function for computing total electronic energy and atomic</span>
 <span class="sd">    gradients using xtb.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    idxs : :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">        Indices of the structures from ``R`` to compute energies and gradients</span>
+<span class="sd">        for.</span>
 <span class="sd">    Z : :obj:`numpy.ndarray`, ndim: ``1``</span>
 <span class="sd">        Atomic numbers of the atoms with repsect to ``R``.</span>
 <span class="sd">    R : :obj:`numpy.ndarray`, ndim: ``3``</span>
 <span class="sd">        Cartesian coordinates of all structures in group. This includes</span>
 <span class="sd">        unused structures.</span>
-<span class="sd">    R_idxs : :obj:`numpy.ndarray`, ndim: ``1``</span>
-<span class="sd">        Indices of the structures from ``R`` to compute energies and gradients</span>
-<span class="sd">        for.</span>
-<span class="sd">    charge : :obj:`int`</span>
+<span class="sd">    charge : :obj:`int`, default: ``0``</span>
 <span class="sd">        Total molecular charge.</span>
-<span class="sd">    mult : :obj:`int`</span>
+<span class="sd">    mult : :obj:`int`, default: ``1``</span>
 <span class="sd">        Total multiplicity.</span>
 <span class="sd">    calc_acc : :obj:`int`, default: ``0.1``</span>
 <span class="sd">        Numerical accuracy for calculation. For more information, visit the</span>
@@ -340,16 +341,16 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    :obj:`numpy.ndarray`</span>
-<span class="sd">        ``R_idxs``</span>
+<span class="sd">        ``idxs``</span>
 <span class="sd">    :obj:`numpy.ndarray`</span>
 <span class="sd">        Total electronic energy of computed structures in the same order as</span>
-<span class="sd">        ``R_idxs``. Units of Hartree.</span>
+<span class="sd">        ``idxs``. Units of Hartree.</span>
 <span class="sd">    :obj:`numpy.ndarray`</span>
-<span class="sd">        Atomic gradients of computed structures in the same order as ``R_idxs``.</span>
+<span class="sd">        Atomic gradients of computed structures in the same order as ``idxs``.</span>
 <span class="sd">        Units of Hartree/Angstrom.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">n_upair_ele</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mult</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">R</span> <span class="o">=</span> <span class="n">R</span><span class="p">[</span><span class="n">R_idxs</span><span class="p">]</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">R</span><span class="p">[</span><span class="n">idxs</span><span class="p">]</span>
     <span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
     <span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="k">if</span> <span class="n">params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -362,7 +363,7 @@
         <span class="n">g</span> <span class="o">/=</span> <span class="mf">0.52917721067</span>  <span class="c1"># psi4.constants.bohr2angstroms</span>
         <span class="n">G</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">g</span>
         <span class="n">E</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">get_energy</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">R_idxs</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">G</span></div>
+    <span class="k">return</span> <span class="n">idxs</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">G</span></div>
 </pre></div>
         </article>
       </div>

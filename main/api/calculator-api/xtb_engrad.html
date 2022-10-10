@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="reptar.creator" href="../creator-api/creator-module.html" /><link rel="prev" title="psi4_engrad" href="psi4_engrad.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="reptar.creator" href="../creator-api/creator-module.html" /><link rel="prev" title="Saver" href="Saver.html" />
 
     <meta name="generator" content="sphinx-5.2.3, furo 2022.09.29"/>
         <title>xtb_engrad - reptar documentation</title>
@@ -168,6 +168,7 @@
 <li class="toctree-l2 current has-children"><a class="reference internal" href="calculator-module.html">Calculators</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="driverENGRAD.html"><code class="docutils literal notranslate"><span class="pre">driverENGRAD</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="psi4_engrad.html"><code class="docutils literal notranslate"><span class="pre">psi4_engrad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Saver.html"><code class="docutils literal notranslate"><span class="pre">Saver</span></code></a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">xtb_engrad</span></code></a></li>
 </ul>
 </li>
@@ -287,19 +288,19 @@
 <h1><code class="docutils literal notranslate"><span class="pre">xtb_engrad</span></code><a class="headerlink" href="#xtb-engrad" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="reptar.calculators.xtb_workers.xtb_engrad">
-<span class="sig-prename descclassname"><span class="pre">reptar.calculators.xtb_workers.</span></span><span class="sig-name descname"><span class="pre">xtb_engrad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R_idxs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mult</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calc_acc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/reptar/calculators/xtb_workers.html#xtb_engrad"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.calculators.xtb_workers.xtb_engrad" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">reptar.calculators.xtb_workers.</span></span><span class="sig-name descname"><span class="pre">xtb_engrad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idxs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mult</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calc_acc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/reptar/calculators/xtb_workers.html#xtb_engrad"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.calculators.xtb_workers.xtb_engrad" title="Permalink to this definition">#</a></dt>
 <dd><p>Ray remote function for computing total electronic energy and atomic
 gradients using xtb.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>idxs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Indices of the structures from <code class="docutils literal notranslate"><span class="pre">R</span></code> to compute energies and gradients
+for.</p></li>
 <li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Atomic numbers of the atoms with repsect to <code class="docutils literal notranslate"><span class="pre">R</span></code>.</p></li>
 <li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Cartesian coordinates of all structures in group. This includes
 unused structures.</p></li>
-<li><p><strong>R_idxs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Indices of the structures from <code class="docutils literal notranslate"><span class="pre">R</span></code> to compute energies and gradients
-for.</p></li>
-<li><p><strong>charge</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – Total molecular charge.</p></li>
-<li><p><strong>mult</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>) – Total multiplicity.</p></li>
+<li><p><strong>charge</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">0</span></code>) – Total molecular charge.</p></li>
+<li><p><strong>mult</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Total multiplicity.</p></li>
 <li><p><strong>calc_acc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">0.1</span></code>) – Numerical accuracy for calculation. For more information, visit the
 <a class="reference external" href="https://xtb-python.readthedocs.io/en/latest /general-api.html#xtb.interface.Calculator.set_accuracy">documentation</a>.</p></li>
 <li><p><strong>params</strong> (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – xTB parameters. Defaults to <code class="docutils literal notranslate"><span class="pre">xtb.interface.Param.GFN2xTB</span></code> if <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
@@ -307,10 +308,10 @@ for.</p></li>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – <code class="docutils literal notranslate"><span class="pre">R_idxs</span></code></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – <code class="docutils literal notranslate"><span class="pre">idxs</span></code></p></li>
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – Total electronic energy of computed structures in the same order as
-<code class="docutils literal notranslate"><span class="pre">R_idxs</span></code>. Units of Hartree.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – Atomic gradients of computed structures in the same order as <code class="docutils literal notranslate"><span class="pre">R_idxs</span></code>.
+<code class="docutils literal notranslate"><span class="pre">idxs</span></code>. Units of Hartree.</p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – Atomic gradients of computed structures in the same order as <code class="docutils literal notranslate"><span class="pre">idxs</span></code>.
 Units of Hartree/Angstrom.</p></li>
 </ul>
 </p>
@@ -334,14 +335,14 @@ Units of Hartree/Angstrom.</p></li>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="psi4_engrad.html">
+          <a class="prev-page" href="Saver.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><code class="docutils literal notranslate"><span class="pre">psi4_engrad</span></code></div>
+                <div class="title"><code class="docutils literal notranslate"><span class="pre">Saver</span></code></div>
                 
               </div>
             </a>

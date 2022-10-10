@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Saver" href="Saver.html" /><link rel="prev" title="driverENGRAD" href="driverENGRAD.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="xtb_engrad" href="xtb_engrad.html" /><link rel="prev" title="psi4_engrad" href="psi4_engrad.html" />
 
     <meta name="generator" content="sphinx-5.2.3, furo 2022.09.29"/>
-        <title>psi4_engrad - reptar documentation</title>
+        <title>Saver - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -167,8 +167,8 @@
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../modules.html">API</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 current has-children"><a class="reference internal" href="calculator-module.html">Calculators</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="driverENGRAD.html"><code class="docutils literal notranslate"><span class="pre">driverENGRAD</span></code></a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">psi4_engrad</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="Saver.html"><code class="docutils literal notranslate"><span class="pre">Saver</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="psi4_engrad.html"><code class="docutils literal notranslate"><span class="pre">psi4_engrad</span></code></a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Saver</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="xtb_engrad.html"><code class="docutils literal notranslate"><span class="pre">xtb_engrad</span></code></a></li>
 </ul>
 </li>
@@ -246,7 +246,7 @@
 <h4>Version</h4>
 <form style="padding-bottom: 1em;">
   <select name="URL" onchange="window.location.href=this.form.URL.options[this.form.URL.selectedIndex].value">
-    <option value="psi4_engrad.html" selected>main</option>
+    <option value="Saver.html" selected>main</option>
     
     <option value="../../../v0.0.2/index.html">v0.0.2</option>
     
@@ -284,47 +284,37 @@
           </label>
         </div>
         <article role="main">
-          <section id="psi4-engrad">
-<h1><code class="docutils literal notranslate"><span class="pre">psi4_engrad</span></code><a class="headerlink" href="#psi4-engrad" title="Permalink to this heading">#</a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="reptar.calculators.psi4_workers.psi4_engrad">
-<span class="sig-prename descclassname"><span class="pre">reptar.calculators.psi4_workers.</span></span><span class="sig-name descname"><span class="pre">psi4_engrad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idxs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mult</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'b3lyp-d3bj'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mem</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'1</span> <span class="pre">GB'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/reptar/calculators/psi4_workers.html#psi4_engrad"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.calculators.psi4_workers.psi4_engrad" title="Permalink to this definition">#</a></dt>
-<dd><p>Worker function for computing total electronic energy and atomic
-gradients using Psi4.</p>
+          <section id="saver">
+<h1><code class="docutils literal notranslate"><span class="pre">Saver</span></code><a class="headerlink" href="#saver" title="Permalink to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="reptar.calculators.save.Saver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">reptar.calculators.save.</span></span><span class="sig-name descname"><span class="pre">Saver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rfile_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_keys</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/reptar/calculators/save.html#Saver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.calculators.save.Saver" title="Permalink to this definition">#</a></dt>
+<dd><p>Saves data to File.</p>
+<p>Useful for long driver calculations that should save periodically. This
+<a class="reference internal" href="#reptar.calculators.save.Saver" title="reptar.calculators.save.Saver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reptar.calculators.save.Saver</span></code></a> uses provided <code class="docutils literal notranslate"><span class="pre">data_keys</span></code> that
+specify where to store data in <code class="docutils literal notranslate"><span class="pre">rfile</span></code> in the same order as the driver.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>idxs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Indices of the structures from <code class="docutils literal notranslate"><span class="pre">R</span></code> to compute energies and gradients
-for.</p></li>
-<li><p><strong>Z</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Atomic numbers of the atoms with repsect to <code class="docutils literal notranslate"><span class="pre">R</span></code>.</p></li>
-<li><p><strong>R</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, ndim: <code class="docutils literal notranslate"><span class="pre">3</span></code>) – Cartesian coordinates of all structures in group. This includes
-unused structures.</p></li>
-<li><p><strong>charge</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">0</span></code>) – Total molecular charge.</p></li>
-<li><p><strong>mult</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Total molecular multiplicity.</p></li>
-<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">'b3lyp-d3bj'</span></code>) – Specifies the Psi4 method used for the gradient. For more information,
-please see <a class="reference external" href="https://psicode.org/psi4manual/master/opt.html#geometry-optimization-w-w-optimize-and-gradient">the Psi4 documentation</a>
-for your specific version.</p></li>
-<li><p><strong>options</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a>) – <a class="reference external" href="https://psicode.org/psi4manual/master/psithoninput.html#job-control-keywords">Psi4 control keywords</a>
-using the PsiAPI format. Some common ones are <code class="docutils literal notranslate"><span class="pre">basis</span></code>,
-<code class="docutils literal notranslate"><span class="pre">e_convergence</span></code>, <code class="docutils literal notranslate"><span class="pre">d_convergence</span></code>, and <code class="docutils literal notranslate"><span class="pre">reference</span></code>.</p></li>
-<li><p><strong>threads</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Number of threads for Psi4. This is almost always the number of cores
-being used for the worker. For more information, see the
-<a class="reference external" href="https://psicode.org/psi4manual/master/api/psi4.core.set_num_threads.html#psi4.core.set_num_threads">documentation</a>.</p></li>
-<li><p><strong>mem</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, default: <code class="docutils literal notranslate"><span class="pre">'1</span> <span class="pre">GB'</span></code>) – The amount of memory available. For more information, see the
-<a class="reference external" href="https://psicode.org/psi4manual/master/api/psi4.driver.set_memory.html#psi4.driver.set_memory">documentation</a>.</p></li>
+<li><p><strong>rfile_path</strong> (<a class="reference internal" href="../file.html#reptar.File" title="reptar.File"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reptar.File</span></code></a>) – Path to File.</p></li>
+<li><p><strong>data_keys</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></a>) – Keys to save data for the particular worker</p></li>
 </ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – <code class="docutils literal notranslate"><span class="pre">idxs</span></code></p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – Total electronic energy of computed structures in the same order as
-<code class="docutils literal notranslate"><span class="pre">idxs</span></code>. Units of Hartree.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> – Atomic gradients of computed structures in the same order as <code class="docutils literal notranslate"><span class="pre">idxs</span></code>.
-Units of Hartree/Angstrom.</p></li>
-</ul>
-</p>
 </dd>
 </dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="reptar.calculators.save.Saver.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/reptar/calculators/save.html#Saver.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.calculators.save.Saver.save" title="Permalink to this definition">#</a></dt>
+<dd><p>Put data to rfile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>File after putting data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../file.html#reptar.File" title="reptar.File"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reptar.File</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -334,23 +324,23 @@ Units of Hartree/Angstrom.</p></li>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="Saver.html">
+          <a class="next-page" href="xtb_engrad.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><code class="docutils literal notranslate"><span class="pre">Saver</span></code></div>
+                <div class="title"><code class="docutils literal notranslate"><span class="pre">xtb_engrad</span></code></div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="driverENGRAD.html">
+          <a class="prev-page" href="psi4_engrad.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><code class="docutils literal notranslate"><span class="pre">driverENGRAD</span></code></div>
+                <div class="title"><code class="docutils literal notranslate"><span class="pre">psi4_engrad</span></code></div>
                 
               </div>
             </a>
@@ -386,8 +376,11 @@ Units of Hartree/Angstrom.</p></li>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">psi4_engrad</span></code></a><ul>
-<li><a class="reference internal" href="#reptar.calculators.psi4_workers.psi4_engrad"><code class="docutils literal notranslate"><span class="pre">psi4_engrad()</span></code></a></li>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Saver</span></code></a><ul>
+<li><a class="reference internal" href="#reptar.calculators.save.Saver"><code class="docutils literal notranslate"><span class="pre">Saver</span></code></a><ul>
+<li><a class="reference internal" href="#reptar.calculators.save.Saver.save"><code class="docutils literal notranslate"><span class="pre">Saver.save()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
