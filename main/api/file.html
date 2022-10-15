@@ -435,11 +435,14 @@ line.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="reptar.File.simplify_iter_data">
-<span class="sig-name descname"><span class="pre">simplify_iter_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/reptar_file.html#File.simplify_iter_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.File.simplify_iter_data" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">simplify_iter_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/reptar/reptar_file.html#File.simplify_iter_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#reptar.File.simplify_iter_data" title="Permalink to this definition">#</a></dt>
 <dd><p>Simplify iterative data if possible.</p>
 <p>Checks contents of lists, tuples, and arrays to see if we can simplify.
 For example, if a list has only one element this method will return
 just the element.</p>
+<p>Some exceptions are used to maintain consistency. For example, atomic
+numbers will always remain a 1D array even if there is only one
+atom.</p>
 <p>This becomes important when adding parsed data to a file. During
 parsing, there is a possibility we could have one or more of the same
 property. We instead assume there will be multiple. Then as a
