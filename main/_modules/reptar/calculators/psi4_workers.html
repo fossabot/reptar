@@ -309,8 +309,74 @@
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
     <span class="k">pass</span>
 
+<span class="k">def</span> <span class="nf">psi4_energy</span><span class="p">(</span>
+    <span class="n">idxs</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">charge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">mult</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;mp2&#39;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">threads</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">mem</span><span class="o">=</span><span class="s1">&#39;1 GB&#39;</span>
+<span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Worker function for computing total electronic energy using Psi4.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    idxs : :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">        Indices of the structures from ``R`` to compute energies and gradients</span>
+<span class="sd">        for.</span>
+<span class="sd">    Z : :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">        Atomic numbers of the atoms with repsect to ``R``.</span>
+<span class="sd">    R : :obj:`numpy.ndarray`, ndim: ``3``</span>
+<span class="sd">        Cartesian coordinates of all structures in group. This includes</span>
+<span class="sd">        unused structures.</span>
+<span class="sd">    charge : :obj:`int`, default: ``0``</span>
+<span class="sd">        Total molecular charge.</span>
+<span class="sd">    mult : :obj:`int`, default: ``1``</span>
+<span class="sd">        Total molecular multiplicity.</span>
+<span class="sd">    method : :obj:`str`, default: ``&#39;b3lyp-d3bj&#39;``</span>
+<span class="sd">        Specifies the Psi4 method used for the gradient. For more information,</span>
+<span class="sd">        please see `the Psi4 documentation &lt;https://psicode.org/psi4manual/master/opt.html#geometry-optimization-w-w-optimize-and-gradient&gt;`__</span>
+<span class="sd">        for your specific version.</span>
+<span class="sd">    options : :obj:`dict`</span>
+<span class="sd">        `Psi4 control keywords &lt;https://psicode.org/psi4manual/master/psithoninput.html#job-control-keywords&gt;`__</span>
+<span class="sd">        using the PsiAPI format. Some common ones are ``basis``,</span>
+<span class="sd">        ``e_convergence``, ``d_convergence``, and ``reference``.</span>
+<span class="sd">    threads : :obj:`int`, default: ``1``</span>
+<span class="sd">        Number of threads for Psi4. This is almost always the number of cores</span>
+<span class="sd">        being used for the worker. For more information, see the</span>
+<span class="sd">        `documentation &lt;https://psicode.org/psi4manual/master/api/psi4.core.set_num_threads.html#psi4.core.set_num_threads&gt;`__.</span>
+<span class="sd">    mem : :obj:`int`, :obj:`float`, :obj:`str`, default: ``&#39;1 GB&#39;``</span>
+<span class="sd">        The amount of memory available. For more information, see the</span>
+<span class="sd">        `documentation &lt;https://psicode.org/psi4manual/master/api/psi4.driver.set_memory.html#psi4.driver.set_memory&gt;`__.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    :obj:`numpy.ndarray`</span>
+<span class="sd">        ``idxs``</span>
+<span class="sd">    :obj:`numpy.ndarray`</span>
+<span class="sd">        Total electronic energy of computed structures in the same order as</span>
+<span class="sd">        ``idxs``. Units of Hartree.</span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Psi4 uses QCElemental to build molecules from arrays.</span>
+<span class="sd">    There is some postprocessing in the `from_arrays routine &lt;http://docs.qcarchive.molssi.org/projects/QCElemental/en/latest/api/qcelemental.molparse.from_arrays.html#from-arrays&gt;`__.</span>
+<span class="sd">    QCElemental will translate and rotate molecules which affects computed gradients.</span>
+<span class="sd">    Here, we set ``fix_com`` and ``fix_orientation`` to ``True`` to avoid this.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">psi4</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">set_num_threads</span><span class="p">(</span><span class="n">threads</span><span class="p">)</span>
+    <span class="n">psi4</span><span class="o">.</span><span class="n">set_memory</span><span class="p">(</span><span class="n">mem</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">options</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">psi4</span><span class="o">.</span><span class="n">set_options</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">R</span><span class="p">[</span><span class="n">idxs</span><span class="p">]</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">R</span><span class="p">)):</span>
+        <span class="n">mol</span> <span class="o">=</span> <span class="n">psi4</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">Molecule</span><span class="o">.</span><span class="n">from_arrays</span><span class="p">(</span>
+            <span class="n">geom</span><span class="o">=</span><span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">elez</span><span class="o">=</span><span class="n">Z</span><span class="p">,</span> <span class="n">molecular_charge</span><span class="o">=</span><span class="n">charge</span><span class="p">,</span>
+            <span class="n">molecular_multiplicity</span><span class="o">=</span><span class="n">mult</span><span class="p">,</span> <span class="n">fix_com</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fix_orientation</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+        <span class="n">E</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">psi4</span><span class="o">.</span><span class="n">energy</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">molecule</span><span class="o">=</span><span class="n">mol</span><span class="p">,</span> <span class="n">return_wfn</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">idxs</span><span class="p">,</span> <span class="n">E</span>
+
+
 <div class="viewcode-block" id="psi4_engrad"><a class="viewcode-back" href="../../../calculators.html#reptar.calculators.psi4_workers.psi4_engrad">[docs]</a><span class="k">def</span> <span class="nf">psi4_engrad</span><span class="p">(</span>
-    <span class="n">idxs</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">charge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">mult</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;b3lyp-d3bj&#39;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">threads</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">idxs</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">charge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">mult</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;mp2&#39;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">threads</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">mem</span><span class="o">=</span><span class="s1">&#39;1 GB&#39;</span>
 <span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Worker function for computing total electronic energy and atomic</span>
