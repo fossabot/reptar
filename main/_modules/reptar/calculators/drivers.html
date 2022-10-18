@@ -311,6 +311,135 @@
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
     <span class="k">pass</span>
 
+<span class="k">class</span> <span class="nc">driverENERGY</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Supervisor of energy+gradient workers.</span>
+
+<span class="sd">    Creates and manages ray tasks using specified worker.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">worker</span><span class="p">,</span> <span class="n">worker_kwargs</span><span class="p">,</span> <span class="n">n_cpus</span><span class="p">,</span> <span class="n">n_cpus_worker</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">chunk_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">start_slice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end_slice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ray_address</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Z : :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">            Atomic numbers of the atoms with respect to ``R``. Should have shape</span>
+<span class="sd">            ``(i,)`` where ``i`` is the number of atoms in the system.</span>
+<span class="sd">        R : :obj:`numpy.ndarray`, ndim: ``3``</span>
+<span class="sd">            Cartesian coordinates of all structures in group. Should have shape</span>
+<span class="sd">            ``(j, i, 3)`` where ``j`` is the number of structures. Units are in</span>
+<span class="sd">            Angstroms.</span>
+<span class="sd">        E : :obj:`numpy.ndarray`, ndim: ``1``</span>
+<span class="sd">            Total electronic energies of all structures in ``R``. Energies that need</span>
+<span class="sd">            to be calculated should have ``NaN`` in the element corresponding</span>
+<span class="sd">            to the same index in ``R``. Should have shape ``(j,)``. Units are in</span>
+<span class="sd">            Hartrees.</span>
+<span class="sd">        worker : ``callable``</span>
+<span class="sd">            The desired worker function to compute energy and gradients. It should</span>
+<span class="sd">            be the same as any previous calculations. The ``ray.remote`` decorator</span>
+<span class="sd">            will be applied automatically.</span>
+<span class="sd">        worker_kwargs : :obj:`tuple`, ndim: ``1``</span>
+<span class="sd">            The other keyword arguments for the worker function after ``Z``,</span>
+<span class="sd">            ``R``, and ``R_idxs``.</span>
+<span class="sd">        n_cpus : :obj:`int`</span>
+<span class="sd">            Total number of CPUs we can use for ray tasks.</span>
+<span class="sd">        n_cpus_worker : :obj:`int`, default: ``1``</span>
+<span class="sd">            Number of CPUs to dedicate to each task.</span>
+<span class="sd">        chunk_size : :obj:`int`, default: ``50``</span>
+<span class="sd">            Number of calculations per task to do. This should be enough to make</span>
+<span class="sd">            the ray task overhead significantly less than calculations.</span>
+<span class="sd">        start_slice : :obj:`int`, default: ``None``</span>
+<span class="sd">            Trims ``R`` to start at this index.</span>
+<span class="sd">        end_slice : :obj:`int`, default: ``None``</span>
+<span class="sd">            Trims ``R`` to end at this index.</span>
+<span class="sd">        ray_address : :obj:`str`, default: ``&#39;auto&#39;``</span>
+<span class="sd">            Ray cluster address to connect to.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Check arrays (obsessively)</span>
+        <span class="k">assert</span> <span class="n">R</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span>
+        <span class="k">assert</span> <span class="n">Z</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">R</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="n">R</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">E</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="n">R</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ray</span><span class="o">.</span><span class="n">is_initialized</span><span class="p">():</span>
+            <span class="n">ray</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">address</span><span class="o">=</span><span class="n">ray_address</span><span class="p">)</span>
+
+        <span class="c1"># Storing arrays and other information</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Z</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">R</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">E</span> <span class="o">=</span> <span class="n">E</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">worker</span> <span class="o">=</span> <span class="n">worker</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">worker_kwargs</span> <span class="o">=</span> <span class="n">worker_kwargs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_slice</span> <span class="o">=</span> <span class="n">start_slice</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end_slice</span> <span class="o">=</span> <span class="n">end_slice</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_cpus</span> <span class="o">=</span> <span class="n">n_cpus</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_cpus_worker</span> <span class="o">=</span> <span class="n">n_cpus_worker</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chunk_size</span> <span class="o">=</span> <span class="n">chunk_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_workers</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">n_cpus</span><span class="o">/</span><span class="n">n_cpus_worker</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">_idx_todo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Indices of missing energies (calculations to do).</span>
+
+<span class="sd">        Determines this by finding all ``NaN`` elements.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        :obj:`numpy.ndarray`</span>
+<span class="sd">            Indices for ``R`` that are missing energie values.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">E</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">E</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">start_slice</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">end_slice</span><span class="p">]</span>
+        <span class="n">idx_todo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">E</span><span class="p">))[:,</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">idx_todo</span>
+    
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">saver</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Run the calculations.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        saver : :obj:`reptar.calculators.save.Saver`, optional</span>
+<span class="sd">            Save data after every worker finishes.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        :obj:`numpy.ndarray`</span>
+<span class="sd">            The total electronic energy array, ``E``, after all computations.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">worker</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">remote</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">worker</span><span class="p">)</span>
+        <span class="n">idxs_todo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_idx_todo</span><span class="p">()</span>
+        <span class="n">chunker</span> <span class="o">=</span> <span class="n">chunk_iterable</span><span class="p">(</span><span class="n">idxs_todo</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_size</span><span class="p">)</span>
+
+        <span class="c1"># Initialize ray workers</span>
+        <span class="n">workers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">def</span> <span class="nf">add_worker</span><span class="p">(</span><span class="n">workers</span><span class="p">,</span> <span class="n">chunker</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">chunk</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">chunker</span><span class="p">))</span>
+                <span class="n">workers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="n">worker</span><span class="o">.</span><span class="n">options</span><span class="p">(</span><span class="n">num_cpus</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_cpus_worker</span><span class="p">)</span><span class="o">.</span><span class="n">remote</span><span class="p">(</span>
+                        <span class="n">chunk</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Z</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">worker_kwargs</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+                <span class="k">pass</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_workers</span><span class="p">):</span>
+            <span class="n">add_worker</span><span class="p">(</span><span class="n">workers</span><span class="p">,</span> <span class="n">chunker</span><span class="p">)</span>
+        
+        <span class="c1"># Start calculations</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">workers</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">done_id</span><span class="p">,</span> <span class="n">workers</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">workers</span><span class="p">)</span>
+            
+            <span class="n">idx_done</span><span class="p">,</span> <span class="n">E_done</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">done_id</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">E</span><span class="p">[</span><span class="n">idx_done</span><span class="p">]</span> <span class="o">=</span> <span class="n">E_done</span>
+
+            <span class="k">if</span> <span class="n">saver</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">saver</span><span class="o">.</span><span class="n">save</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">E</span><span class="p">))</span>
+            
+            <span class="n">add_worker</span><span class="p">(</span><span class="n">workers</span><span class="p">,</span> <span class="n">chunker</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">E</span>
+
+
 <div class="viewcode-block" id="driverENGRAD"><a class="viewcode-back" href="../../../calculators.html#reptar.calculators.drivers.driverENGRAD">[docs]</a><span class="k">class</span> <span class="nc">driverENGRAD</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Supervisor of energy+gradient workers.</span>
 
