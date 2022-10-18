@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
 
-    <meta name="generator" content="sphinx-5.2.3, furo 2022.09.29"/>
+    <meta name="generator" content="sphinx-5.3.0, furo 2022.09.29"/>
         <title>reptar.calculators.psi4_workers - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
@@ -279,6 +279,13 @@
 <span class="sd">    :obj:`numpy.ndarray`</span>
 <span class="sd">        Atomic gradients of computed structures in the same order as ``idxs``.</span>
 <span class="sd">        Units of Hartree/Angstrom.</span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Psi4 uses QCElemental to build molecules from arrays.</span>
+<span class="sd">    There is some postprocessing in the `from_arrays routine &lt;http://docs.qcarchive.molssi.org/projects/QCElemental/en/latest/api/qcelemental.molparse.from_arrays.html#from-arrays&gt;`__.</span>
+<span class="sd">    QCElemental will translate and rotate molecules which affects computed gradients.</span>
+<span class="sd">    Here, we set ``fix_com`` and ``fix_orientation`` to ``True`` to avoid this.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">psi4</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">set_num_threads</span><span class="p">(</span><span class="n">threads</span><span class="p">)</span>
     <span class="n">psi4</span><span class="o">.</span><span class="n">set_memory</span><span class="p">(</span><span class="n">mem</span><span class="p">)</span>
@@ -290,7 +297,7 @@
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">R</span><span class="p">)):</span>
         <span class="n">mol</span> <span class="o">=</span> <span class="n">psi4</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">Molecule</span><span class="o">.</span><span class="n">from_arrays</span><span class="p">(</span>
             <span class="n">geom</span><span class="o">=</span><span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">elez</span><span class="o">=</span><span class="n">Z</span><span class="p">,</span> <span class="n">molecular_charge</span><span class="o">=</span><span class="n">charge</span><span class="p">,</span>
-            <span class="n">molecular_multiplicity</span><span class="o">=</span><span class="n">mult</span>
+            <span class="n">molecular_multiplicity</span><span class="o">=</span><span class="n">mult</span><span class="p">,</span> <span class="n">fix_com</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fix_orientation</span><span class="o">=</span><span class="kc">True</span>
         <span class="p">)</span>
         <span class="n">g</span><span class="p">,</span> <span class="n">wfn_mp2</span> <span class="o">=</span> <span class="n">psi4</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">molecule</span><span class="o">=</span><span class="n">mol</span><span class="p">,</span> <span class="n">return_wfn</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">g</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">to_array</span><span class="p">()</span>

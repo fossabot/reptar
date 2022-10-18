@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Descriptors" href="descriptors.html" /><link rel="prev" title="Sampling" href="sampling.html" />
 
-    <meta name="generator" content="sphinx-5.2.3, furo 2022.09.29"/>
+    <meta name="generator" content="sphinx-5.3.0, furo 2022.09.29"/>
         <title>Calculators - reptar documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
@@ -378,6 +378,11 @@ Units of Hartree/Angstrom.</p></li>
 </p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p>Psi4 uses QCElemental to build molecules from arrays.
+There is some postprocessing in the <a class="reference external" href="http://docs.qcarchive.molssi.org/projects/QCElemental/en/latest/api/qcelemental.molparse.from_arrays.html#from-arrays">from_arrays routine</a>.
+QCElemental will translate and rotate molecules which affects computed gradients.
+Here, we set <code class="docutils literal notranslate"><span class="pre">fix_com</span></code> and <code class="docutils literal notranslate"><span class="pre">fix_orientation</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> to avoid this.</p>
 </dd></dl>
 
 <section id="psi4-example">
